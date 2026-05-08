@@ -1,0 +1,45 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 88px;
+  padding: 7px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: var(--color-bg-soft);
+  color: var(--color-text-soft);
+}
+
+.badge[data-status="active"],
+.badge[data-status="done"] {
+  color: var(--color-success-text);
+  background: var(--color-success-bg);
+}
+
+.badge[data-status="maintenance"] {
+  color: var(--color-warning-text);
+  background: var(--color-warning-bg);
+}
+
+.badge[data-status="paused"] {
+  color: var(--color-danger-text);
+  background: var(--color-danger-bg);
+}
+
+.badge[data-status="in-progress"],
+.badge[data-status="open"] {
+  color: var(--color-info-text);
+  background: var(--color-info-bg);
+}
+
+.badge[data-status="planning"] {
+  color: var(--color-purple-text);
+  background: var(--color-purple-bg);
+}
+
+.badge[data-status="backlog"] {
+  color: var(--color-text-soft);
+  background: var(--color-bg-soft);
+}
