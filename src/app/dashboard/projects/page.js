@@ -1,64 +1,40 @@
+import { dashboardProjects } from "@/data/dashboardProjects";
+
 export default function DashboardProjectsPage() {
-  const projects = [
+  const totalProjects = dashboardProjects.length;
+
+  const activeProjects = dashboardProjects.filter((project) =>
+    ["Active", "In progress"].includes(project.status)
+  ).length;
+
+  const planningProjects = dashboardProjects.filter(
+    (project) => project.status === "Planning"
+  ).length;
+
+  const pausedProjects = dashboardProjects.filter(
+    (project) => project.status === "Paused"
+  ).length;
+
+  const projectStats = [
     {
-      name: "Wellness Concept — SEO & UX improvements",
-      client: "Wellness Concept",
-      type: "WordPress / Elementor",
-      status: "Active",
-      phase: "Public optimization",
-      progress: "75%",
-      description:
-        "Unapređenje strukture stranica, SEO sadržaja, brzine sajta i korisničkog iskustva za salon masaže i tretmana.",
-      nextSteps: [
-        "Proveriti mobilni prikaz ključnih stranica",
-        "Optimizovati hero slike",
-        "Dopuniti SEO opise za tretmane",
-      ],
+      label: "Total projects",
+      value: totalProjects,
+      description: "All tracked dashboard projects",
     },
     {
-      name: "Djordje ClientHub",
-      client: "Internal project",
-      type: "Next.js / React",
-      status: "In progress",
-      phase: "Private dashboard",
-      progress: "45%",
-      description:
-        "Interna web aplikacija za portfolio, klijente, projekte, zadatke, beleške i buduće SEO/AI module.",
-      nextSteps: [
-        "Završiti dashboard UI",
-        "Pripremiti tasks i notes stranice",
-        "Kasnije povezati bazu i auth sistem",
-      ],
+      label: "Active / In progress",
+      value: activeProjects,
+      description: "Projects currently moving forward",
     },
     {
-      name: "Olivera Popović Edu — Content structure",
-      client: "Olivera Popović Edu",
-      type: "WordPress",
-      status: "Planning",
-      phase: "Content review",
-      progress: "25%",
-      description:
-        "Pregled postojeće strukture edukativnog sajta i priprema plana za bolje predstavljanje sadržaja.",
-      nextSteps: [
-        "Pregledati postojeće stranice",
-        "Definisati glavne kategorije sadržaja",
-        "Pripremiti SEO osnovu",
-      ],
+      label: "Planning",
+      value: planningProjects,
+      description: "Projects in planning or review phase",
     },
     {
-      name: "Boommil — WooCommerce archive",
-      client: "Boommil",
-      type: "WooCommerce",
-      status: "Paused",
-      phase: "Archived",
-      progress: "10%",
-      description:
-        "Evidencija prethodno urađenog WooCommerce projekta, proizvoda, SEO podešavanja i tehničkih napomena.",
-      nextSteps: [
-        "Zabeležiti urađene funkcionalnosti",
-        "Sačuvati portfolio opis projekta",
-        "Ne raditi dalje dok domen/hosting nisu aktivni",
-      ],
+      label: "Paused",
+      value: pausedProjects,
+      description: "Paused or archived project work",
     },
   ];
 
@@ -73,6 +49,16 @@ export default function DashboardProjectsPage() {
         </p>
       </div>
 
+      <div className="dashboard-stats-grid">
+        {projectStats.map((item) => (
+          <article className="dashboard-stat-card" key={item.label}>
+            <span>{item.label}</span>
+            <strong>{item.value}</strong>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+
       <div className="dashboard-section">
         <div className="dashboard-section-header">
           <div>
@@ -82,10 +68,11 @@ export default function DashboardProjectsPage() {
         </div>
 
         <div className="dashboard-project-grid">
-          {projects.map((project) => (
-            <article className="dashboard-project-card" key={project.name}>
+          {dashboardProjects.map((project) => (
+            <article className="dashboard-project-card" key={project.slug}>
               <div className="dashboard-project-top">
                 <div>
+                  <p className="dashboard-label">Project</p>
                   <h3>{project.name}</h3>
                   <p>{project.client}</p>
                 </div>
@@ -100,7 +87,7 @@ export default function DashboardProjectsPage() {
               </div>
 
               <div className="dashboard-client-meta">
-                <span>{project.type}</span>
+                <span>Type: {project.type}</span>
                 <span>Phase: {project.phase}</span>
               </div>
 

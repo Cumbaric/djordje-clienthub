@@ -1,49 +1,34 @@
+import { notes } from "@/data/notes";
+
 export default function NotesPage() {
-  const notes = [
+  const totalNotes = notes.length;
+
+  const doneNotes = notes.filter((note) => note.status === "Done").length;
+
+  const openNotes = notes.filter((note) => note.status === "Open").length;
+
+  const backlogNotes = notes.filter((note) => note.status === "Backlog").length;
+
+  const noteStats = [
     {
-      title: "Poglavlje 3 completed",
-      project: "Djordje ClientHub",
-      type: "Project log",
-      date: "08.05.2026",
-      status: "Done",
-      description:
-        "Public portfolio deo je završen. Proverene su rute, header linkovi, Contact dugmad, responsive prikaz i case study stranica.",
+      label: "Total notes",
+      value: totalNotes,
+      description: "All work log notes",
     },
     {
-      title: "Dashboard overview prepared",
-      project: "Djordje ClientHub",
-      type: "Dashboard UI",
-      date: "08.05.2026",
-      status: "Done",
-      description:
-        "Kreirana je dashboard overview stranica sa statistikama, quick actions karticama i recent work sekcijom.",
+      label: "Done notes",
+      value: doneNotes,
+      description: "Completed project notes",
     },
     {
-      title: "Clients, Projects and Tasks pages structured",
-      project: "Djordje ClientHub",
-      type: "Private workspace",
-      date: "08.05.2026",
-      status: "Done",
-      description:
-        "Pripremljene su dashboard stranice za klijente, projekte i zadatke sa statičnim podacima i responsive karticama.",
+      label: "Open notes",
+      value: openNotes,
+      description: "Notes that need follow-up",
     },
     {
-      title: "Wellness Concept next focus",
-      project: "Wellness Concept",
-      type: "Client note",
-      date: "Next work block",
-      status: "Open",
-      description:
-        "Sledeći fokus za Wellness Concept može biti pregled mobilnih performansi, hero slika i SEO opisa za tretmane.",
-    },
-    {
-      title: "Future database connection",
-      project: "Djordje ClientHub",
-      type: "Technical note",
-      date: "Later phase",
-      status: "Backlog",
-      description:
-        "Dashboard trenutno koristi statične podatke. Kasnije će se povezati MySQL baza preko Prisma ORM-a.",
+      label: "Backlog notes",
+      value: backlogNotes,
+      description: "Ideas or notes for later phases",
     },
   ];
 
@@ -58,6 +43,16 @@ export default function NotesPage() {
         </p>
       </div>
 
+      <div className="dashboard-stats-grid">
+        {noteStats.map((item) => (
+          <article className="dashboard-stat-card" key={item.label}>
+            <span>{item.label}</span>
+            <strong>{item.value}</strong>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+
       <div className="dashboard-section">
         <div className="dashboard-section-header">
           <div>
@@ -68,9 +63,10 @@ export default function NotesPage() {
 
         <div className="dashboard-notes-list">
           {notes.map((note) => (
-            <article className="dashboard-note-card" key={note.title}>
+            <article className="dashboard-note-card" key={note.slug}>
               <div className="dashboard-note-main">
                 <div>
+                  <p className="dashboard-label">Note</p>
                   <h3>{note.title}</h3>
                   <p>{note.description}</p>
                 </div>

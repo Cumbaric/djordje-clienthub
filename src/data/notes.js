@@ -1,5 +1,6 @@
 export const notes = [
   {
+    slug: "poglavlje-3-completed",
     title: "Poglavlje 3 completed",
     project: "Djordje ClientHub",
     type: "Project log",
@@ -9,6 +10,7 @@ export const notes = [
       "Public portfolio deo je završen. Proverene su rute, header linkovi, Contact dugmad, responsive prikaz i case study stranica.",
   },
   {
+    slug: "dashboard-overview-prepared",
     title: "Dashboard overview prepared",
     project: "Djordje ClientHub",
     type: "Dashboard UI",
@@ -18,6 +20,7 @@ export const notes = [
       "Kreirana je dashboard overview stranica sa statistikama, quick actions karticama i recent work sekcijom.",
   },
   {
+    slug: "clients-projects-and-tasks-pages-structured",
     title: "Clients, Projects and Tasks pages structured",
     project: "Djordje ClientHub",
     type: "Private workspace",
@@ -27,6 +30,7 @@ export const notes = [
       "Pripremljene su dashboard stranice za klijente, projekte i zadatke sa statičnim podacima i responsive karticama.",
   },
   {
+    slug: "wellness-concept-next-focus",
     title: "Wellness Concept next focus",
     project: "Wellness Concept",
     type: "Client note",
@@ -36,6 +40,7 @@ export const notes = [
       "Sledeći fokus za Wellness Concept može biti pregled mobilnih performansi, hero slika i SEO opisa za tretmane.",
   },
   {
+    slug: "future-database-connection",
     title: "Future database connection",
     project: "Djordje ClientHub",
     type: "Technical note",

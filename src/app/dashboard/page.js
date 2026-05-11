@@ -1,57 +1,51 @@
+import { clients } from "@/data/clients";
+import { dashboardProjects } from "@/data/dashboardProjects";
+import { notes } from "@/data/notes";
+import { tasks } from "@/data/tasks";
+import { quickActions } from "@/data/dashboardOverview";
+
 export default function DashboardPage() {
-  const stats = [
+  const activeClients = clients.filter(
+    (client) => client.status === "Active",
+  ).length;
+
+  const activeProjects = dashboardProjects.filter((project) =>
+    ["Active", "In progress", "Planning"].includes(project.status),
+  ).length;
+
+  const openTasks = tasks.filter((task) => task.status !== "Done").length;
+
+  const workNotes = notes.length;
+
+  const recentProjects = dashboardProjects.slice(0, 3);
+
+  const recentNotes = notes.slice(0, 4);
+
+  const openTaskPreview = tasks
+    .filter((task) => task.status !== "Done")
+    .slice(0, 3);
+
+  const dashboardStats = [
     {
       label: "Active clients",
-      value: "4",
+      value: activeClients,
       description: "WordPress clients currently tracked",
     },
     {
       label: "Active projects",
-      value: "3",
+      value: activeProjects,
       description: "Websites, SEO tasks and improvements",
     },
     {
       label: "Open tasks",
-      value: "12",
+      value: openTasks,
       description: "Pending work items and follow-ups",
     },
     {
       label: "Work notes",
-      value: "8",
+      value: workNotes,
       description: "Internal notes and recent updates",
     },
-  ];
-
-  const quickActions = [
-    {
-      title: "Clients",
-      description:
-        "Manage WordPress clients, contact details and project status.",
-      href: "/dashboard/clients",
-    },
-    {
-      title: "Projects",
-      description:
-        "Track active websites, case studies and development progress.",
-      href: "/dashboard/projects",
-    },
-    {
-      title: "Tasks",
-      description: "Review open tasks, priorities and next actions.",
-      href: "/dashboard/tasks",
-    },
-    {
-      title: "Notes",
-      description: "Open work log, internal notes and daily progress records.",
-      href: "/dashboard/notes",
-    },
-  ];
-
-  const recentWork = [
-    "Public portfolio section completed.",
-    "Wellness Concept case study added.",
-    "Projects, Services, Process and Contact pages checked.",
-    "Dashboard structure prepared for private workspace.",
   ];
 
   return (
@@ -66,7 +60,7 @@ export default function DashboardPage() {
       </div>
 
       <div className="dashboard-stats-grid">
-        {stats.map((item) => (
+        {dashboardStats.map((item) => (
           <article className="dashboard-stat-card" key={item.label}>
             <span>{item.label}</span>
             <strong>{item.value}</strong>
@@ -100,16 +94,106 @@ export default function DashboardPage() {
       <div className="dashboard-section">
         <div className="dashboard-section-header">
           <div>
+            <p className="dashboard-label">Recent projects</p>
+            <h2>Project progress overview</h2>
+          </div>
+        </div>
+
+        <div className="dashboard-project-grid">
+          {recentProjects.map((project) => (
+            <article className="dashboard-project-card" key={project.name}>
+              <div className="dashboard-project-top">
+                <div>
+                  <h3>{project.name}</h3>
+                  <p>{project.client}</p>
+                </div>
+
+                <span
+                  className={`dashboard-status dashboard-status-${project.status
+                    .toLowerCase()
+                    .replaceAll(" ", "-")}`}
+                >
+                  {project.status}
+                </span>
+              </div>
+
+              <div className="dashboard-client-meta">
+                <span>{project.type}</span>
+                <span>Phase: {project.phase}</span>
+              </div>
+
+              <p className="dashboard-client-description">
+                {project.description}
+              </p>
+
+              <div className="dashboard-progress">
+                <div className="dashboard-progress-top">
+                  <span>Progress</span>
+                  <strong>{project.progress}</strong>
+                </div>
+
+                <div className="dashboard-progress-bar">
+                  <span style={{ width: project.progress }}></span>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <div className="dashboard-section">
+        <div className="dashboard-section-header">
+          <div>
+            <p className="dashboard-label">Open tasks</p>
+            <h2>Next work items</h2>
+          </div>
+        </div>
+
+        <div className="dashboard-task-list">
+          {openTaskPreview.map((task) => (
+            <article className="dashboard-task-card" key={task.title}>
+              <div className="dashboard-task-main">
+                <div>
+                  <h3>{task.title}</h3>
+                  <p>{task.description}</p>
+                </div>
+
+                <span
+                  className={`dashboard-status dashboard-status-${task.status
+                    .toLowerCase()
+                    .replaceAll(" ", "-")}`}
+                >
+                  {task.status}
+                </span>
+              </div>
+
+              <div className="dashboard-task-meta">
+                <span>Project: {task.project}</span>
+                <span>Priority: {task.priority}</span>
+                <span>Focus: {task.focus}</span>
+                <span>Due: {task.due}</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <div className="dashboard-section">
+        <div className="dashboard-section-header">
+          <div>
             <p className="dashboard-label">Recent work</p>
-            <h2>Latest project activity</h2>
+            <h2>Latest work notes</h2>
           </div>
         </div>
 
         <div className="dashboard-activity-list">
-          {recentWork.map((item) => (
-            <div className="dashboard-activity-item" key={item}>
+          {recentNotes.map((note) => (
+            <div className="dashboard-activity-item" key={note.title}>
               <span></span>
-              <p>{item}</p>
+              <div>
+                <strong>{note.title}</strong>
+                <p>{note.description}</p>
+              </div>
             </div>
           ))}
         </div>

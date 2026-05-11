@@ -544,3 +544,53 @@
     padding: 20px;
   }
 }
+.dashboard-client-link {
+  display: inline-block;
+  margin-top: 4px;
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.dashboard-client-link:hover {
+  text-decoration: underline;
+}
+@media (max-width: 900px) {
+  .dashboard-shell {
+    flex-direction: column;
+  }
+
+  .dashboard-main {
+    padding: 28px 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  .dashboard-main {
+    padding: 24px 16px;
+  }
+
+  .dashboard-section {
+    margin-top: 32px;
+  }
+}
+@media (max-width: 900px) {
+  .dashboard-shell {
+    flex-direction: column;
+  }
+
+  .dashboard-main {
+    padding: 28px 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  .dashboard-main {
+    padding: 24px 16px;
+  }
+
+  .dashboard-section {
+    margin-top: 32px;
+  }
+}

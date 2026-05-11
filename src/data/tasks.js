@@ -1,5 +1,6 @@
 export const tasks = [
   {
+    slug: "review-wellness-concept-mobile-performance",
     title: "Review Wellness Concept mobile performance",
     project: "Wellness Concept",
     priority: "High",
@@ -10,6 +11,7 @@ export const tasks = [
       "Proveriti mobilni prikaz, hero slike, spacing i osnovne performanse ključnih stranica.",
   },
   {
+    slug: "prepare-seo-descriptions-for-treatment-pages",
     title: "Prepare SEO descriptions for treatment pages",
     project: "Wellness Concept",
     priority: "High",
@@ -20,6 +22,7 @@ export const tasks = [
       "Dopuniti kratke SEO opise za relax, detox, terapeutske i premium tretmane.",
   },
   {
+    slug: "document-djordje-clienthub-public-section",
     title: "Document Djordje ClientHub public section",
     project: "Djordje ClientHub",
     priority: "Medium",
@@ -30,6 +33,7 @@ export const tasks = [
       "Zabeležiti završetak public portfolio dela i potvrditi proverene rute.",
   },
   {
+    slug: "build-dashboard-notes-structure",
     title: "Build dashboard notes structure",
     project: "Djordje ClientHub",
     priority: "Medium",
@@ -40,6 +44,7 @@ export const tasks = [
       "Pripremiti Notes / Work Log stranicu za dnevne beleške, status rada i istoriju aktivnosti.",
   },
   {
+    slug: "prepare-boommil-portfolio-case-note",
     title: "Prepare Boommil portfolio case note",
     project: "Boommil",
     priority: "Low",

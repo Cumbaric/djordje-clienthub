@@ -7,6 +7,10 @@
   border-right: 1px solid #1f2937;
 }
 
+.sidebarTop {
+  display: block;
+}
+
 .brand {
   margin-bottom: 40px;
 }
@@ -25,6 +29,14 @@
   font-size: 22px;
 }
 
+.menuButton {
+  display: none;
+}
+
+.menuContent {
+  display: block;
+}
+
 .nav {
   display: flex;
   flex-direction: column;
@@ -37,12 +49,20 @@
   color: #d1d5db;
   font-size: 15px;
   font-weight: 500;
+  text-decoration: none;
 }
 
 .nav a:hover {
   background: #1f2937;
   color: #ffffff;
 }
+
+.nav a.activeLink,
+.activeLink {
+  background: #2563eb;
+  color: #ffffff;
+}
+
 .sidebarFooter {
   margin-top: 40px;
   padding-top: 24px;
@@ -53,8 +73,107 @@
   color: #93c5fd;
   font-size: 14px;
   font-weight: 600;
+  text-decoration: none;
 }
 
 .sidebarFooter a:hover {
   color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    padding: 16px 20px;
+    border-right: none;
+    border-bottom: 1px solid #1f2937;
+  }
+
+  .sidebarTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .brand {
+    margin-bottom: 0;
+  }
+
+  .brandLabel {
+    margin-bottom: 4px;
+    font-size: 12px;
+  }
+
+  .brand strong {
+    font-size: 20px;
+  }
+
+  .menuButton {
+    display: inline-flex;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    border: 1px solid #374151;
+    border-radius: 12px;
+    background: #1f2937;
+    cursor: pointer;
+  }
+
+  .menuButton span {
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: #ffffff;
+  }
+
+  .menuContent {
+    display: none;
+    margin-top: 18px;
+  }
+
+  .menuContentOpen {
+    display: block;
+  }
+
+  .nav {
+    gap: 8px;
+  }
+
+  .nav a {
+    padding: 11px 12px;
+    font-size: 14px;
+  }
+
+  .sidebarFooter {
+    margin-top: 16px;
+    padding-top: 16px;
+  }
+}
+
+@media (max-width: 520px) {
+  .sidebar {
+    padding: 14px 16px;
+  }
+
+  .brand strong {
+    font-size: 19px;
+  }
+
+  .menuButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav a {
+    text-align: center;
+  }
+
+  .sidebarFooter a {
+    display: block;
+    text-align: center;
+  }
 }

@@ -1,44 +1,40 @@
+import { clients } from "@/data/clients";
+
 export default function ClientsPage() {
-  const clients = [
+  const totalClients = clients.length;
+
+  const activeClients = clients.filter(
+    (client) => client.status === "Active",
+  ).length;
+
+  const maintenanceClients = clients.filter(
+    (client) => client.status === "Maintenance",
+  ).length;
+
+  const pausedClients = clients.filter(
+    (client) => client.status === "Paused",
+  ).length;
+
+  const clientStats = [
     {
-      name: "Wellness Concept",
-      website: "wellnessconcept.rs",
-      type: "WordPress / Elementor",
-      status: "Active",
-      priority: "High",
-      description:
-        "Salon masaže i tretmana. Fokus na SEO, brzinu sajta, UX poboljšanja i jasnije predstavljanje usluga.",
-      notes: ["Elementor Pro", "SEO optimization", "Performance improvements"],
+      label: "Total clients",
+      value: totalClients,
+      description: "All tracked WordPress clients",
     },
     {
-      name: "Olivera Popović Edu",
-      website: "oliverapopovic.edu.rs",
-      type: "Education website",
-      status: "Active",
-      priority: "Medium",
-      description:
-        "Edukativni sajt sa fokusom na jasno predstavljanje sadržaja, strukturu stranica i osnovnu SEO optimizaciju.",
-      notes: ["WordPress", "Content structure", "SEO basics"],
+      label: "Active clients",
+      value: activeClients,
+      description: "Currently active client work",
     },
     {
-      name: "Mirko Topalović Tips",
-      website: "mirkotopalovictips.rs",
-      type: "Tips / Content platform",
-      status: "Maintenance",
-      priority: "Medium",
-      description:
-        "Sajt za objavu tipova i sadržaja, sa ACF poljima i dodatnim prilagođavanjima za administraciju.",
-      notes: ["ACF fields", "Custom content", "Admin workflow"],
+      label: "Maintenance",
+      value: maintenanceClients,
+      description: "Clients in maintenance phase",
     },
     {
-      name: "Boommil",
-      website: "boommil.rs",
-      type: "WooCommerce shop",
-      status: "Paused",
-      priority: "Low",
-      description:
-        "WooCommerce prodavnica za kućnu hemiju. Projekat trenutno nije aktivan zbog isteka domena/hostinga.",
-      notes: ["WooCommerce", "Product SEO", "Expired hosting/domain"],
+      label: "Paused",
+      value: pausedClients,
+      description: "Paused or archived client work",
     },
   ];
 
@@ -51,6 +47,16 @@ export default function ClientsPage() {
           Pregled WordPress klijenata, statusa projekata, tipa sajta i osnovnih
           radnih beleški.
         </p>
+      </div>
+
+      <div className="dashboard-stats-grid">
+        {clientStats.map((item) => (
+          <article className="dashboard-stat-card" key={item.label}>
+            <span>{item.label}</span>
+            <strong>{item.value}</strong>
+            <p>{item.description}</p>
+          </article>
+        ))}
       </div>
 
       <div className="dashboard-section">
@@ -66,8 +72,16 @@ export default function ClientsPage() {
             <article className="dashboard-client-card" key={client.name}>
               <div className="dashboard-client-top">
                 <div>
+                  <p className="dashboard-label">Client</p>
                   <h3>{client.name}</h3>
-                  <p>{client.website}</p>
+                  <a
+                    href={`https://${client.website}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="dashboard-client-link"
+                  >
+                    {client.website}
+                  </a>
                 </div>
 
                 <span
@@ -78,7 +92,7 @@ export default function ClientsPage() {
               </div>
 
               <div className="dashboard-client-meta">
-                <span>{client.type}</span>
+                <span>Type: {client.type}</span>
                 <span>Priority: {client.priority}</span>
               </div>
 
@@ -86,10 +100,14 @@ export default function ClientsPage() {
                 {client.description}
               </p>
 
-              <div className="dashboard-tag-list">
-                {client.notes.map((note) => (
-                  <span key={note}>{note}</span>
-                ))}
+              <div className="dashboard-next-steps">
+                <h4>Work focus</h4>
+
+                <div className="dashboard-tag-list">
+                  {client.notes.map((note) => (
+                    <span key={note}>{note}</span>
+                  ))}
+                </div>
               </div>
             </article>
           ))}

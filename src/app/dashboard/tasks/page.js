@@ -1,54 +1,36 @@
+import { tasks } from "@/data/tasks";
+
 export default function TasksPage() {
-  const tasks = [
+  const totalTasks = tasks.length;
+
+  const openTasks = tasks.filter((task) => task.status === "Open").length;
+
+  const inProgressTasks = tasks.filter(
+    (task) => task.status === "In progress",
+  ).length;
+
+  const doneTasks = tasks.filter((task) => task.status === "Done").length;
+
+  const taskStats = [
     {
-      title: "Review Wellness Concept mobile performance",
-      project: "Wellness Concept",
-      priority: "High",
-      status: "Open",
-      focus: "Mobile UX / Speed",
-      due: "This week",
-      description:
-        "Proveriti mobilni prikaz, hero slike, spacing i osnovne performanse ključnih stranica.",
+      label: "Total tasks",
+      value: totalTasks,
+      description: "All tracked work items",
     },
     {
-      title: "Prepare SEO descriptions for treatment pages",
-      project: "Wellness Concept",
-      priority: "High",
-      status: "In progress",
-      focus: "SEO content",
-      due: "Next focus block",
-      description:
-        "Dopuniti kratke SEO opise za relax, detox, terapeutske i premium tretmane.",
+      label: "Open tasks",
+      value: openTasks,
+      description: "Tasks waiting to be started",
     },
     {
-      title: "Document Djordje ClientHub public section",
-      project: "Djordje ClientHub",
-      priority: "Medium",
-      status: "Done",
-      focus: "Documentation",
-      due: "Completed",
-      description:
-        "Zabeležiti završetak public portfolio dela i potvrditi proverene rute.",
+      label: "In progress",
+      value: inProgressTasks,
+      description: "Tasks currently being worked on",
     },
     {
-      title: "Build dashboard notes structure",
-      project: "Djordje ClientHub",
-      priority: "Medium",
-      status: "Open",
-      focus: "Private dashboard",
-      due: "After tasks page",
-      description:
-        "Pripremiti Notes / Work Log stranicu za dnevne beleške, status rada i istoriju aktivnosti.",
-    },
-    {
-      title: "Prepare Boommil portfolio case note",
-      project: "Boommil",
-      priority: "Low",
-      status: "Backlog",
-      focus: "Portfolio archive",
-      due: "Later",
-      description:
-        "Sačuvati opis WooCommerce projekta za buduće prikazivanje u portfolio delu.",
+      label: "Done",
+      value: doneTasks,
+      description: "Completed work items",
     },
   ];
 
@@ -63,6 +45,16 @@ export default function TasksPage() {
         </p>
       </div>
 
+      <div className="dashboard-stats-grid">
+        {taskStats.map((item) => (
+          <article className="dashboard-stat-card" key={item.label}>
+            <span>{item.label}</span>
+            <strong>{item.value}</strong>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+
       <div className="dashboard-section">
         <div className="dashboard-section-header">
           <div>
@@ -73,9 +65,10 @@ export default function TasksPage() {
 
         <div className="dashboard-task-list">
           {tasks.map((task) => (
-            <article className="dashboard-task-card" key={task.title}>
+            <article className="dashboard-task-card" key={task.slug}>
               <div className="dashboard-task-main">
                 <div>
+                  <p className="dashboard-label">Task</p>
                   <h3>{task.title}</h3>
                   <p>{task.description}</p>
                 </div>

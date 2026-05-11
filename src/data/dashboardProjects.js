@@ -1,5 +1,6 @@
 export const dashboardProjects = [
   {
+    slug: "wellness-concept-seo-ux",
     name: "Wellness Concept — SEO & UX improvements",
     client: "Wellness Concept",
     type: "WordPress / Elementor",
@@ -15,6 +16,7 @@ export const dashboardProjects = [
     ],
   },
   {
+    slug: "djordje-clienthub",
     name: "Djordje ClientHub",
     client: "Internal project",
     type: "Next.js / React",
@@ -30,6 +32,7 @@ export const dashboardProjects = [
     ],
   },
   {
+    slug: "olivera-popovic-content-structure",
     name: "Olivera Popović Edu — Content structure",
     client: "Olivera Popović Edu",
     type: "WordPress",
@@ -45,6 +48,7 @@ export const dashboardProjects = [
     ],
   },
   {
+    slug: "boommil-woocommerce-archive",
     name: "Boommil — WooCommerce archive",
     client: "Boommil",
     type: "WooCommerce",
