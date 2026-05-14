@@ -1,6 +1,20 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 
+export const metadata = {
+  title: "Usluge | WordPress, SEO i website workflow",
+  description:
+    "Izrada WordPress sajtova, Elementor redizajn, WooCommerce podešavanje, SEO optimizacija, održavanje i AI-assisted workflow usluge.",
+  openGraph: {
+    title: "Usluge | Đorđe Popović",
+    description:
+      "WordPress, Elementor, WooCommerce, SEO i AI-assisted website workflow usluge.",
+  },
+  alternates: {
+    languages: { en: "/en/services", sr: "/sr/usluge" },
+  },
+};
+
 const usluge = [
   {
     title: "Izrada WordPress sajtova",

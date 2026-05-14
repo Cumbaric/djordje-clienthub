@@ -2,6 +2,20 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import { contactEmail } from "@/data/contact";
 
+export const metadata = {
+  title: "Contact | Đorđe Popović",
+  description:
+    "Contact Đorđe Popović for WordPress websites, Elementor improvements, WooCommerce setup, SEO optimization, maintenance and web workflow projects.",
+  openGraph: {
+    title: "Contact | Đorđe Popović",
+    description:
+      "Send a short project overview and define the next practical step for your website or workflow.",
+  },
+  alternates: {
+    languages: { en: "/en/contact", sr: "/sr/kontakt" },
+  },
+};
+
 const fitItems = [
   {
     title: "WordPress website development",

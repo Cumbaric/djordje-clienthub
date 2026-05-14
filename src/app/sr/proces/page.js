@@ -1,6 +1,20 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 
+export const metadata = {
+  title: "Proces | Od ideje do gotovog sajta",
+  description:
+    "Jasan workflow za sajtove: analiza, struktura, dizajn pravac, WordPress implementacija, SEO, performanse, testiranje i predaja.",
+  openGraph: {
+    title: "Proces | Đorđe Popović",
+    description:
+      "Praktičan proces za WordPress sajtove, SEO osnovu i strukturisane web projekte.",
+  },
+  alternates: {
+    languages: { en: "/en/process", sr: "/sr/proces" },
+  },
+};
+
 const koraci = [
   {
     number: "01",

@@ -1,6 +1,23 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 
+export const metadata = {
+  title: "Wellness Concept Case Study | Đorđe Popović",
+  description:
+    "WordPress, Elementor, UX i SEO case study za salon masaže i wellness usluga.",
+  openGraph: {
+    title: "Wellness Concept Case Study",
+    description:
+      "WordPress i SEO projekat za unapređenje strukture usluga, putanje za zakazivanje, UX-a i organizacije stranica.",
+  },
+  alternates: {
+    languages: {
+      en: "/en/projects/wellness-concept",
+      sr: "/sr/projekti/wellness-concept",
+    },
+  },
+};
+
 export default function WellnessConceptCaseStudyPage() {
   return (
     <main className="public-page">

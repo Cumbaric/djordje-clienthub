@@ -7,6 +7,20 @@ import { techStackContent } from "@/data/techStack";
 import { positioning } from "@/data/positioning";
 import styles from "../(public)/page.module.css";
 
+export const metadata = {
+  title: "Đorđe Popović | WordPress Developer & SEO-focused Website Builder",
+  description:
+    "WordPress developer focused on clean, fast and conversion-oriented websites, with SEO foundations, performance optimization and AI-assisted workflows.",
+  openGraph: {
+    title: "Đorđe Popović | WordPress Developer",
+    description:
+      "Clean WordPress websites, Elementor layouts, WooCommerce foundations, SEO structure and AI-assisted web workflows.",
+  },
+  alternates: {
+    languages: { en: "/en", sr: "/sr" },
+  },
+};
+
 const pos = positioning.en;
 const tech = techStackContent.en;
 

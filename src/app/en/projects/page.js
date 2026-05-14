@@ -2,6 +2,20 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import { projects } from "@/data/projects";
 
+export const metadata = {
+  title: "Projects | Đorđe Popović",
+  description:
+    "Selected WordPress, SEO, WooCommerce and web app projects, including Wellness Concept and Djordje ClientHub.",
+  openGraph: {
+    title: "Projects | Đorđe Popović",
+    description:
+      "A focused overview of WordPress, SEO, WooCommerce and Next.js portfolio projects.",
+  },
+  alternates: {
+    languages: { en: "/en/projects", sr: "/sr/projekti" },
+  },
+};
+
 export default function ProjectsPage() {
   return (
     <main className="public-page">

@@ -1,6 +1,20 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 
+export const metadata = {
+  title: "Process | From Website Idea to Launch",
+  description:
+    "A clear website workflow covering discovery, structure, design direction, WordPress implementation, SEO, performance, testing and delivery.",
+  openGraph: {
+    title: "Process | Đorđe Popović",
+    description:
+      "A practical workflow for clean WordPress websites, SEO foundations and structured web projects.",
+  },
+  alternates: {
+    languages: { en: "/en/process", sr: "/sr/proces" },
+  },
+};
+
 const steps = [
   {
     number: "01",
