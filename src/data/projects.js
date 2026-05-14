@@ -42,6 +42,20 @@ export const projects = [
       "WooCommerce project focused on product setup, store structure, basic SEO preparation and content organization for an online product catalog.",
   },
   {
+    title: "MirkoTopalovićTips",
+    slug: null,
+    type: "WordPress / Content structure / Sports tips platform",
+    category: "WordPress / Content Structure",
+    status: "Portfolio project",
+    url: "/en/projects",
+    featured: true,
+    tags: ["WordPress", "Content Structure", "SEO", "Automation Planning"],
+    description:
+      "Content WordPress projekat fokusiran na organizaciju tipserskog sadržaja, bolju strukturu objava i pripremu sajta za lakšu navigaciju i buduće automatizovane workflow-e.",
+    descriptionEn:
+      "Content-driven WordPress project focused on organizing sports tips, improving content structure and preparing the site for easier navigation and future automation workflows.",
+  },
+  {
     title: "Djordje ClientHub",
     slug: null,
     type: "Next.js / React / Dashboard / Internal Tool",
