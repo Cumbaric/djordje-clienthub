@@ -5,28 +5,53 @@ import { projects } from "@/data/projects";
 export default function ProjectsPage() {
   return (
     <main className="public-page">
-      <PageHero eyebrow="Portfolio" title="Projects">
-        Selected WordPress, WooCommerce, and custom content projects showcasing
-        my work with site structure, Elementor, SEO basics, content, and
-        technical setup.
+      <PageHero eyebrow="Projects" title="Selected WordPress, SEO and web app projects">
+        A focused overview of real WordPress work, SEO improvements, WooCommerce
+        structure and the Djordje ClientHub internal application built with
+        Next.js and React.
       </PageHero>
 
-      <section className="projects-list">
-        {projects.map((project) => (
-          <Link
-            key={project.title}
-            href={project.slug ? `/en/projects/${project.slug}` : "/en/projects"}
-            className="project-list-card"
-          >
-            <div>
-              <p className="project-category">{project.category}</p>
+      <section className="projects-grid">
+        {projects.map((project) => {
+          const href = `/en/projects/${project.slug}`;
+          const card = (
+            <div className="project-card">
+              <p className="project-card-type">{project.type}</p>
               <h2>{project.title}</h2>
-              <p>{project.descriptionEn || project.description}</p>
+              <p>{project.descriptionEn}</p>
+              <div className="project-tags">
+                {project.tags.map((tag) => (
+                  <span key={tag} className="project-tag">{tag}</span>
+                ))}
+              </div>
+              {!project.slug && (
+                <p className="project-coming-soon">Case study coming soon</p>
+              )}
             </div>
+          );
 
-            <span>{project.status}</span>
+          return project.slug ? (
+            <Link key={project.title} href={href} className="project-card-link">
+              {card}
+            </Link>
+          ) : (
+            <div key={project.title}>{card}</div>
+          );
+        })}
+      </section>
+
+      <section className="projects-cta">
+        <h2>Want to build something similar?</h2>
+        <p>
+          If you need a cleaner WordPress website, better structure or a
+          practical internal workflow, send me a short project description.
+        </p>
+        <div className="projects-cta-actions">
+          <Link href="/en/contact">Contact me</Link>
+          <Link href="/en/services" className="projects-cta-secondary">
+            View services
           </Link>
-        ))}
+        </div>
       </section>
     </main>
   );

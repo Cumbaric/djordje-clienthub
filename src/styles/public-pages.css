@@ -75,6 +75,145 @@
   }
 }
 
+/* PROJECTS PAGE */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-bottom: 56px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 30px;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  background: #ffffff;
+}
+
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.2s ease;
+}
+
+.project-card-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+}
+
+.project-card-type {
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.project-card h2 {
+  margin: 0;
+  color: #111827;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.project-card p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 16px;
+  line-height: 1.7;
+  flex: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-tag {
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #1e40af;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.project-coming-soon {
+  font-size: 13px;
+  font-weight: 700;
+  color: #9ca3af;
+}
+
+.projects-cta {
+  padding: 40px;
+  border-radius: 28px;
+  background: #111827;
+}
+
+.projects-cta h2 {
+  margin: 0 0 16px;
+  color: #ffffff;
+  font-size: 34px;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.projects-cta p {
+  color: #d1d5db;
+}
+
+.projects-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.projects-cta-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.projects-cta-actions a:hover {
+  background: #dbeafe;
+}
+
+.projects-cta-secondary {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff !important;
+}
+
+.projects-cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+@media (max-width: 800px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-cta {
+    padding: 28px;
+  }
+}
+
 /* CASE STUDY PAGE */
 
 .case-study-hero {
