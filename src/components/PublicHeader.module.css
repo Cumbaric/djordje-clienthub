@@ -29,3 +29,12 @@
 .nav a:hover {
   color: #2563eb;
 }
+
+.langSwitch {
+  font-weight: 700;
+  color: #2563eb;
+  border: 1px solid #2563eb;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+}
