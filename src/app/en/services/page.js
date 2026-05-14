@@ -1,60 +1,116 @@
+import Link from "next/link";
 import PageHero from "@/components/PageHero";
-import CTASection from "@/components/CTASection";
-import { services } from "@/data/services";
 
-const descriptionEn = {
-  "WordPress Website Development":
-    "Building presentation WordPress websites for small businesses, services, personal brands, and local companies. Focus on clear structure, well-organized sections, and easy content management.",
-  "Elementor Landing Pages":
-    "Creating landing pages for services, campaigns, promotions, and individual offerings. Pages are built with clear headings, CTA buttons, trust sections, and a logical user flow.",
-  "WooCommerce Setup":
-    "Setting up a basic WooCommerce store, adding products, categories, descriptions, images, basic SEO elements, and configuring the checkout process to match client needs.",
-  "SEO Structure & On-page Setup":
-    "Basic site SEO structure: headings, meta descriptions, page structure, internal content logic, service organization, and preparing the site for Google indexing.",
-  "React / Next.js Web Applications":
-    "Building modern custom web applications and internal tools using the React / Next.js stack. Focus on dashboard systems, client organization, tasks, projects, and workflow management.",
-  "Website Maintenance & Technical Fixes":
-    "WordPress site maintenance, minor technical changes, resolving display issues, plugin configuration, contact forms, basic performance improvements, and responsive display fixes.",
-};
+const services = [
+  {
+    title: "WordPress Website Development",
+    description:
+      "Clean, responsive WordPress websites built with a clear structure, practical UX and maintainable page layouts.",
+    includes: [
+      "Website structure and page setup",
+      "Elementor / Elementor Pro implementation",
+      "Responsive layout",
+      "Basic technical setup",
+    ],
+  },
+  {
+    title: "Elementor Website Redesign",
+    description:
+      "Improving existing Elementor websites by making layouts cleaner, more consistent and easier to use across devices.",
+    includes: [
+      "Section and layout cleanup",
+      "Mobile responsiveness improvements",
+      "Visual hierarchy improvements",
+      "Better CTA placement",
+    ],
+  },
+  {
+    title: "WooCommerce Store Setup",
+    description:
+      "Basic WooCommerce store setup for small businesses that need a clear product structure and simple purchasing flow.",
+    includes: [
+      "Product structure",
+      "Product page setup",
+      "Basic WooCommerce configuration",
+      "Checkout flow review",
+    ],
+  },
+  {
+    title: "SEO & Technical Optimization",
+    description:
+      "SEO-focused improvements that help websites become easier to understand for users and search engines.",
+    includes: [
+      "Page title and meta description basics",
+      "Heading structure",
+      "Internal linking suggestions",
+      "Technical SEO checks",
+    ],
+  },
+  {
+    title: "WordPress Maintenance",
+    description:
+      "Ongoing support for WordPress websites to keep content, plugins and structure stable and organized.",
+    includes: [
+      "Content updates",
+      "Plugin/theme update support",
+      "Basic troubleshooting",
+      "Site structure improvements",
+    ],
+  },
+  {
+    title: "AI-assisted Website Workflow",
+    description:
+      "Using AI tools to speed up planning, content structure, QA and development workflows while keeping human control over the final result.",
+    includes: [
+      "Content planning",
+      "Website structure planning",
+      "QA checklists",
+      "Workflow documentation",
+    ],
+  },
+];
 
 export default function ServicesPage() {
   return (
     <main className="public-page">
       <PageHero
         eyebrow="Services"
-        title="Services for WordPress, SEO, and custom web applications"
+        title="WordPress, SEO and website workflow services"
       >
-        I combine WordPress experience, Elementor, WooCommerce, SEO structure,
-        and modern React / Next.js application development for practical
-        business needs.
+        I help small businesses, service providers and content-driven projects
+        build cleaner, faster and better structured websites using WordPress,
+        Elementor, WooCommerce, SEO fundamentals and AI-assisted workflows.
       </PageHero>
 
       <section className="services-list">
         {services.map((service) => (
           <article key={service.title} className="service-list-card">
             <div className="service-list-content">
-              <p className="service-category">{service.category}</p>
               <h2>{service.title}</h2>
-              <p>{descriptionEn[service.title] || service.description}</p>
-            </div>
-
-            <div className="service-tech-list">
-              {service.technologies.map((technology) => (
-                <span key={technology}>{technology}</span>
-              ))}
+              <p>{service.description}</p>
+              <ul className="service-includes-list">
+                {service.includes.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </div>
           </article>
         ))}
       </section>
 
-      <CTASection
-        title="Do you need a website, redesign, or internal tool?"
-        action={{ href: "/en/contact", text: "Contact me" }}
-      >
-        Send a brief project description, your current problem, and the goal
-        you want to achieve. Based on that, I can suggest the best technical
-        approach.
-      </CTASection>
+      <section className="services-cta">
+        <h2>Need a cleaner and better structured website?</h2>
+        <p>
+          Send me a short description of your project and I can help you define
+          the next practical step.
+        </p>
+        <div className="services-cta-actions">
+          <Link href="/en/contact">Contact me</Link>
+          <Link href="/en/projects" className="services-cta-secondary">
+            View projects
+          </Link>
+        </div>
+      </section>
     </main>
   );
 }

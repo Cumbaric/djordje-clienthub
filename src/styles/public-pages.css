@@ -318,6 +318,37 @@
   background: #dbeafe;
 }
 
+.services-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.services-cta-actions a {
+  margin-top: 0;
+}
+
+.services-cta-secondary {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff !important;
+}
+
+.services-cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.service-includes-list {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding-left: 18px;
+  color: #4b5563;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
 @media (max-width: 800px) {
   .service-list-card {
     grid-template-columns: 1fr;
