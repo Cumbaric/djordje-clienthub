@@ -620,6 +620,76 @@
   background: #dbeafe;
 }
 
+.process-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.process-cta-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.process-cta-actions a:hover {
+  background: #dbeafe;
+}
+
+.process-cta-secondary {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff !important;
+}
+
+.process-cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.process-focus-list {
+  display: grid;
+  gap: 6px;
+  margin: 12px 0 0;
+  padding-left: 18px;
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.process-note {
+  padding: 32px 36px;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  background: #f9fafb;
+  margin-bottom: 32px;
+}
+
+.process-note h2 {
+  margin: 0 0 12px;
+  color: #111827;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.process-note p {
+  margin: 0;
+  max-width: 780px;
+  color: #4b5563;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
 @media (max-width: 700px) {
   .process-card {
     grid-template-columns: 1fr;
