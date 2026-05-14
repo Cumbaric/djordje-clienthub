@@ -1,52 +1,128 @@
+import Link from "next/link";
 import PageHero from "@/components/PageHero";
-import { contactItems, messageChecklist, contactEmail } from "@/data/contact";
+import { contactEmail } from "@/data/contact";
+
+const fitItems = [
+  {
+    title: "Izrada WordPress sajtova",
+    description:
+      "Pregledni i responsive WordPress sajtovi za male biznise, uslužne delatnosti i content projekte.",
+  },
+  {
+    title: "Elementor redizajn i unapređenje",
+    description:
+      "Unapređenje postojećih Elementor sajtova kroz bolji layout, strukturu, mobile prikaz i CTA pozicioniranje.",
+  },
+  {
+    title: "WooCommerce podešavanje",
+    description:
+      "Osnovna WooCommerce struktura, product stranice i podešavanje prodavnice za manje online prodavnice ili kataloge proizvoda.",
+  },
+  {
+    title: "SEO i performance unapređenja",
+    description:
+      "Tehnička struktura, heading elementi, metadata osnova, predlozi za interno linkovanje i workflow za optimizaciju slika.",
+  },
+  {
+    title: "Održavanje sajtova",
+    description:
+      "Ažuriranje sadržaja, podrška za plugin/theme izmene, manje ispravke i unapređenje strukture.",
+  },
+  {
+    title: "AI-assisted website workflow",
+    description:
+      "Planiranje, QA, struktura sadržaja i razvojna podrška uz AI alate i ljudsku kontrolu finalnog rezultata.",
+  },
+];
+
+const sendList = [
+  "URL sajta, ako ga već imaš",
+  "Kratak opis biznisa ili projekta",
+  "Šta želiš da unaprediš ili napraviš",
+  "Rok ili prioritet, ako postoji",
+  "Primere sajtova koji ti se dopadaju, ako ih imaš",
+  "Da li ti treba WordPress, WooCommerce, SEO, održavanje ili custom workflow",
+];
+
+const nextSteps = [
+  "Pregledam tvoju poruku i kontekst projekta",
+  "Identifikujem najpraktičniji sledeći korak",
+  "Definišemo obim, prioritete i okvirni rok",
+  "Predlažem jasan pravac ili plan implementacije",
+];
 
 export default function KontaktPage() {
   return (
     <main className="public-page">
-      <PageHero eyebrow="Contact" title="Hajde da razgovaramo o tvom projektu">
-        Ako ti treba WordPress sajt, WooCommerce prodavnica, SEO struktura,
-        tehnička pomoć ili custom React / Next.js alat, pošalji kratak opis
-        projekta i cilj koji želiš da postigneš.
+      <PageHero eyebrow="Kontakt" title="Hajde da pričamo o tvom sajtu ili workflow-u">
+        Ako ti treba pregledniji WordPress sajt, bolja struktura, SEO-focused
+        unapređenje ili praktičan web workflow, pošalji mi kratak opis projekta.
       </PageHero>
 
-      <section className="contact-layout">
-        <div className="contact-main-card">
-          <h2>Šta da pošalješ u prvoj poruci?</h2>
-          <p>
-            Najbolje je da odmah pošalješ osnovne informacije, kako bih mogao da
-            razumem šta je potrebno i predložim konkretan sledeći korak.
-          </p>
-
-          <ul>
-            {messageChecklist.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-
-          <a href={`mailto:${contactEmail}`}>Pošalji email</a>
+      <section>
+        <h2 style={{ marginBottom: "24px", fontSize: "30px", letterSpacing: "-0.02em" }}>
+          U čemu mogu da pomognem
+        </h2>
+        <div className="contact-fit-grid">
+          {fitItems.map((item) => (
+            <div key={item.title} className="contact-fit-card">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+          ))}
         </div>
-
-        <aside className="contact-info-card">
-          <h2>Project fit</h2>
-
-          <div className="contact-info-list">
-            {contactItems.map((item) => (
-              <div key={item.label}>
-                <span>{item.label}</span>
-                <strong>{item.value}</strong>
-              </div>
-            ))}
-          </div>
-        </aside>
       </section>
 
+      <div className="contact-what-to-send">
+        <h2>Šta da pošalješ u poruci</h2>
+        <ul className="contact-send-list">
+          {sendList.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="contact-next-steps">
+        <h2>Šta se dešava nakon poruke</h2>
+        <ol className="contact-next-list">
+          {nextSteps.map((step) => (
+            <li key={step}>{step}</li>
+          ))}
+        </ol>
+      </div>
+
+      <div className="contact-options-card">
+        <h2>Opcije za kontakt</h2>
+        <p>Za sada koristi jednu od sledećih opcija za kontakt.</p>
+        <ul className="contact-options-list">
+          <li>
+            <strong>Email: </strong>
+            <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+          </li>
+          <li>
+            <strong>Upwork: </strong>Uskoro
+          </li>
+          <li>
+            <strong>Fiverr: </strong>Uskoro
+          </li>
+          <li>
+            <strong>LinkedIn: </strong>Uskoro
+          </li>
+        </ul>
+      </div>
+
       <section className="contact-cta">
-        <h2>Najbolji prvi korak je kratak opis problema.</h2>
+        <h2>Spreman/spremna si da definišemo sledeći korak?</h2>
         <p>
-          Ne moraš imati spremnu kompletnu specifikaciju. Dovoljno je da opišeš
-          šta trenutno imaš, šta ne radi dobro i šta želiš da postigneš.
+          Pošalji mi kratku poruku sa ciljem sajta i pomoći ću ti da to
+          pretvorimo u praktičan plan.
         </p>
+        <div className="contact-cta-actions">
+          <a href={`mailto:${contactEmail}`}>Pošalji email</a>
+          <Link href="/sr/usluge" className="contact-cta-secondary">
+            Pogledaj usluge
+          </Link>
+        </div>
       </section>
     </main>
   );
