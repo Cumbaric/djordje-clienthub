@@ -1,0 +1,504 @@
+================================================================
+Djordje ClientHub — Poglavlje 6 završni izveštaj
+Bilingual public portfolio, content, SEO i responsive polish
+================================================================
+
+Datum: 14.05.2026.
+Status: Završeno
+
+----------------------------------------------------------------
+1. Status i cilj Poglavlja 6
+----------------------------------------------------------------
+
+Cilj Poglavlja 6 bio je da se javni portfolio deo aplikacije
+prebaci iz jedne public strukture u bilingual EN/SR strukturu.
+
+Razlozi:
+- Priprema portfolija za strano tržište (engleski kao primarni jezik)
+- Unapređenje sadržaja na svim public stranicama
+- Jasnije predstavljanje projekata, usluga i procesa rada
+- Dodavanje SEO metadata za bolje pozicioniranje na pretraživačima
+- Responsive QA ispravke za ispravan prikaz na svim uređajima
+
+Poglavlje 6 nije menjalo dashboard, login/logout sistem ni
+zaštitu ruta — ti delovi su ostali netaknuti iz Poglavlja 5.
+
+----------------------------------------------------------------
+2. Bilingual struktura ruta
+----------------------------------------------------------------
+
+Engleski je primarni jezik. Root ruta / redirectuje na /en.
+
+EN rute:
+  /en
+  /en/projects
+  /en/projects/wellness-concept
+  /en/services
+  /en/process
+  /en/contact
+
+SR rute:
+  /sr
+  /sr/projekti
+  /sr/projekti/wellness-concept
+  /sr/usluge
+  /sr/proces
+  /sr/kontakt
+
+Dashboard rute (nisu deo bilingual strukture):
+  /dashboard
+  /dashboard/clients
+  /dashboard/projects
+  /dashboard/tasks
+  /dashboard/notes
+
+Dashboard ostaje na engleskom, zaštićen je i nije prevođen.
+
+----------------------------------------------------------------
+3. Root redirect
+----------------------------------------------------------------
+
+Kreiran je fajl:
+
+  src/app/page.js
+
+koji koristi Next.js redirect() funkciju i preusmerava:
+
+  / → /en
+
+----------------------------------------------------------------
+4. PublicHeader i language switcher
+----------------------------------------------------------------
+
+Ažuriran je:
+
+  src/components/PublicHeader.js
+
+PublicHeader prima lang prop ("en" ili "sr") i prikazuje
+odgovarajuću navigaciju. Komponenta je Client Component
+("use client") i koristi usePathname() iz Next.js za
+određivanje trenutne rute.
+
+EN navigacija:
+  Logo → /en
+  Projects → /en/projects
+  Services → /en/services
+  Process → /en/process
+  Contact → /en/contact
+
+SR navigacija:
+  Logo → /sr
+  Projekti → /sr/projekti
+  Usluge → /sr/usluge
+  Proces → /sr/proces
+  Kontakt → /sr/kontakt
+
+Language switcher prebacuje između odgovarajućih parova:
+
+  /en                          ↔  /sr
+  /en/projects                 ↔  /sr/projekti
+  /en/projects/wellness-concept ↔ /sr/projekti/wellness-concept
+  /en/services                 ↔  /sr/usluge
+  /en/process                  ↔  /sr/proces
+  /en/contact                  ↔  /sr/kontakt
+
+Na EN stranicama prikazuje dugme "SR".
+Na SR stranicama prikazuje dugme "EN".
+Ako ruta nije u mapi, dugme se ne prikazuje.
+
+----------------------------------------------------------------
+5. Redirect starih public ruta
+----------------------------------------------------------------
+
+Stare public rute iz src/app/(public)/ više ne služe kao
+primarni sadržaj. Konvertovane su u redirect stranice koje
+preusmeravaju na EN verziju:
+
+  /projects                    → /en/projects
+  /projects/wellness-concept   → /en/projects/wellness-concept
+  /services                    → /en/services
+  /process                     → /en/process
+  /contact                     → /en/contact
+
+Fajl (public)/page.js je obrisan jer je konfliktovao sa
+app/page.js (oba su mapirala na istu / rutu).
+
+----------------------------------------------------------------
+6. Positioning i tech stack
+----------------------------------------------------------------
+
+Dodati/ažurirani data fajlovi:
+
+  src/data/positioning.js
+  src/data/techStack.js
+
+positioning.js sadrži bilingual sadržaj:
+  - headline (EN/SR)
+  - shortDescription (EN/SR)
+  - extendedDescription (EN/SR)
+
+techStack.js sada sadrži i bilingual techStackContent sa
+sledećim grupama:
+  - WordPress Development
+  - Frontend Development
+  - App Logic / Backend Basics
+  - SEO & Performance
+  - Workflow & Tools
+
+Novi skillovi dodati u techStackContent:
+  React, Next.js, Node.js basics, API Routes, App Router,
+  Environment variables, Auth protection, Git, GitHub,
+  Vercel, Claude Code, ChatGPT, AI-assisted development
+
+Stari techStack export je zadržan radi backward kompatibilnosti
+sa komponentama koje su ga koristile pre refaktora.
+
+----------------------------------------------------------------
+7. Home EN/SR stranice
+----------------------------------------------------------------
+
+Ažurirani fajlovi:
+  src/app/en/page.js
+  src/app/sr/page.js
+
+Obe Home stranice su povezane sa centralizovanim data fajlovima:
+
+EN Home koristi:
+  positioning.en — headline, shortDescription, extendedDescription
+  techStackContent.en — eyebrow, title, description, groups
+
+SR Home koristi:
+  positioning.sr — naslovni tekst, kratki i prošireni opis
+  techStackContent.sr — srpski nazivi grupa i stavki
+
+Tech stack sekcija sada prikazuje 5 bilingual grupa umesto
+starih 4 hardkodovane grupe.
+
+----------------------------------------------------------------
+8. Services / Usluge
+----------------------------------------------------------------
+
+Sređene stranice:
+  /en/services
+  /sr/usluge
+
+Svaka stranica prikazuje 6 usluga, definisanih inline u
+page.js fajlovima (bez zavisnosti od services.js data fajla).
+
+EN usluge:
+  1. WordPress Website Development
+  2. Elementor Website Redesign
+  3. WooCommerce Store Setup
+  4. SEO & Technical Optimization
+  5. WordPress Maintenance
+  6. AI-assisted Website Workflow
+
+SR usluge:
+  1. Izrada WordPress sajtova
+  2. Redizajn Elementor sajtova
+  3. Izrada WooCommerce prodavnica
+  4. SEO i tehnička optimizacija
+  5. Održavanje WordPress sajtova
+  6. AI-assisted website workflow
+
+Svaka usluga ima naslov, opis i includes listu (4 stavke).
+CTA sekcija ima dva dugmeta: primarni (kontakt) i sekundarni
+(projekti).
+
+----------------------------------------------------------------
+9. Projects / Projekti
+----------------------------------------------------------------
+
+Sređene stranice:
+  /en/projects
+  /sr/projekti
+
+Prikazuje se 5 projekata:
+  1. Wellness Concept
+  2. Olivera Popović Edu
+  3. BoomMil
+  4. MirkoTopalovićTips
+  5. Djordje ClientHub
+
+Wellness Concept je jedini klikabilan case study, vodi na:
+  /en/projects/wellness-concept
+  /sr/projekti/wellness-concept
+
+Ostali projekti prikazuju "Case study coming soon" (EN) i
+"Case study uskoro" (SR), bez linkova koji bi vodili na 404.
+
+Napomena: Tokom Poglavlja 6.6 greškom je izbačen projekat
+MirkoTopalovićTips. U korekciji (6.6.1) je vraćen, a
+Djordje ClientHub je dodat kao novi peti projekat.
+
+Sva 5 projekata imaju:
+  - type (tip projekta)
+  - EN i SR description
+  - tags (tagovi za prikaz)
+  - slug (samo wellness-concept)
+
+----------------------------------------------------------------
+10. Wellness Concept case study
+----------------------------------------------------------------
+
+Sređene stranice:
+  /en/projects/wellness-concept
+  /sr/projekti/wellness-concept
+
+Case study sada ima kompletnu strukturu:
+
+  1. Hero / intro
+  2. Meta informacije (tip, industrija, fokus, uloga)
+  3. Project overview / Pregled projekta
+  4. Challenge / Izazov (sa bullet listom)
+  5. Goals / Ciljevi (bullet lista)
+  6. Solution / Šta je unapređeno (4 bloka)
+  7. Tools and technologies / Alati i tehnologije
+  8. Result / Rezultat (tekst + bullet lista)
+  9. Possible next steps / Mogući sledeći koraci
+ 10. CTA sekcija (2 dugmeta)
+
+CTA vodi na:
+  EN: /en/contact i /en/services
+  SR: /sr/kontakt i /sr/usluge
+
+----------------------------------------------------------------
+11. Process / Proces
+----------------------------------------------------------------
+
+Sređene stranice:
+  /en/process
+  /sr/proces
+
+Proces sada prikazuje 7 koraka (prethodno 6), svaki sa
+opisom i listom focus points.
+
+EN koraci:
+  01. Discovery and project goals
+  02. Website structure and content planning
+  03. Design direction and UX flow
+  04. WordPress / frontend implementation
+  05. SEO and performance foundations
+  06. Testing and quality check
+  07. Delivery and next steps
+
+SR koraci:
+  01. Analiza i ciljevi projekta
+  02. Struktura sajta i planiranje sadržaja
+  03. Dizajn pravac i UX tok
+  04. WordPress / frontend implementacija
+  05. SEO i osnova performansi
+  06. Testiranje i quality check
+  07. Predaja i sledeći koraci
+
+Između koraka i CTA sekcije dodat je "workflow note" blok
+koji objašnjava zašto je ovaj proces važan.
+
+CTA vodi na:
+  EN: /en/contact i /en/services
+  SR: /sr/kontakt i /sr/usluge
+
+----------------------------------------------------------------
+12. Contact / Kontakt
+----------------------------------------------------------------
+
+Sređene stranice:
+  /en/contact
+  /sr/kontakt
+
+Kontakt stranice sada imaju 6 sekcija:
+
+  1. Hero / intro
+  2. Project fit sekcija (6 usluga u gridu)
+  3. What to include in your message / Šta da pošalješ
+  4. What happens next / Šta se dešava nakon poruke
+  5. Contact options (email + placeholderi)
+  6. CTA sekcija (2 dugmeta)
+
+Email CTA koristi:
+  mailto:hello@djordjepopovic.com
+
+Upwork, Fiverr i LinkedIn su ostavljeni kao placeholderi
+("Coming soon" / "Uskoro") bez izmišljenih URL-ova.
+Biće popunjeni kada profili budu aktivni.
+
+CTA vodi na:
+  EN: mailto:hello@djordjepopovic.com i /en/services
+  SR: mailto:hello@djordjepopovic.com i /sr/usluge
+
+----------------------------------------------------------------
+13. SEO metadata
+----------------------------------------------------------------
+
+Dodat je metadata export na 12 public page.js fajlova.
+
+Svaka stranica ima:
+  - title
+  - description
+  - openGraph (title + description)
+  - alternates.languages (EN/SR parovi)
+
+Fajlovi:
+  src/app/en/page.js
+  src/app/en/projects/page.js
+  src/app/en/projects/wellness-concept/page.js
+  src/app/en/services/page.js
+  src/app/en/process/page.js
+  src/app/en/contact/page.js
+  src/app/sr/page.js
+  src/app/sr/projekti/page.js
+  src/app/sr/projekti/wellness-concept/page.js
+  src/app/sr/usluge/page.js
+  src/app/sr/proces/page.js
+  src/app/sr/kontakt/page.js
+
+Napomena:
+metadataBase nije dodat jer finalni domen još nije potvrđen.
+Dodaće se u root layout.js kada se domen potvrdi:
+
+  export const metadata = {
+    metadataBase: new URL("https://djordjepopovic.com"),
+  };
+
+----------------------------------------------------------------
+14. Responsive QA
+----------------------------------------------------------------
+
+Urađena je završna responsive provera i ispravljeni su
+sledeći problemi:
+
+Problem 1: PublicHeader nije imao mobile responsive CSS.
+  Ispravka: Dodato u PublicHeader.module.css:
+  - Na 900px: smanjen padding i gap navigacije
+  - Na 640px: nav se wrapuje na drugu liniju na malim ekranima
+
+Problem 2: .public-page klasa nije bila definisana u CSS-u.
+  Stranice nisu imale max-width container ni horizontalni padding.
+  Ispravka: Dodata u public-pages.css:
+    max-width: 1180px, margin: 0 auto, padding: 48px 24px 80px
+  Mobile varijanta: padding: 32px 16px 64px ispod 700px
+
+Problem 3: .service-list-card koristio grid (1.5fr 1fr) sa
+  praznim desnim stubom jer nove services stranice imaju samo
+  jedno dete.
+  Ispravka: Promenjeno u display: block.
+
+Problem 4: .process-note imao fiksan padding koji je bio
+  prevelik na mobilnim ekranima.
+  Ispravka: Dodat responsive padding za mobile.
+
+Izmenjeni fajlovi:
+  src/components/PublicHeader.module.css
+  src/styles/public-pages.css
+
+----------------------------------------------------------------
+15. Dashboard i login status
+----------------------------------------------------------------
+
+Dashboard nije menjan u Poglavlju 6.
+
+Dashboard ostaje zaštićen preko:
+  src/proxy.js
+
+Bez login-a, /dashboard i sve dashboard podstranice
+redirectuju na /login.
+
+Login/logout sistem implementiran u Poglavlju 5 ostaje
+aktivan i nepromenjen.
+
+----------------------------------------------------------------
+16. Najvažniji fajlovi menjani u Poglavlju 6
+----------------------------------------------------------------
+
+src/app/page.js
+src/app/en/layout.js
+src/app/en/page.js
+src/app/en/projects/page.js
+src/app/en/projects/wellness-concept/page.js
+src/app/en/services/page.js
+src/app/en/process/page.js
+src/app/en/contact/page.js
+src/app/sr/layout.js
+src/app/sr/page.js
+src/app/sr/projekti/page.js
+src/app/sr/projekti/wellness-concept/page.js
+src/app/sr/usluge/page.js
+src/app/sr/proces/page.js
+src/app/sr/kontakt/page.js
+src/components/PublicHeader.js
+src/components/PublicHeader.module.css
+src/data/positioning.js
+src/data/techStack.js
+src/data/projects.js
+src/styles/public-pages.css
+
+----------------------------------------------------------------
+17. Šta još nije urađeno
+----------------------------------------------------------------
+
+- Finalni copy nije zaključan. Sadržaj se može dodatno menjati.
+- Nije urađen finalni vizuelni redizajn (tipografija, spacing, boje).
+- Nisu dodate prave slike za projekte ni OG (Open Graph) slike.
+- metadataBase nije dodat jer finalni domen nije potvrđen.
+- Deploy nije urađen. Sajt još nije online.
+- GitHub/Vercel preview flow još nije urađen.
+- Detaljne case study stranice za ostale projekte nisu urađene
+  (Olivera Popović Edu, BoomMil, MirkoTopalovićTips, Djordje ClientHub).
+- Kontakt profili Upwork, Fiverr i LinkedIn nemaju finalne linkove.
+- Public footer nije dodat.
+- Mobile hamburger meni nije implementiran.
+
+----------------------------------------------------------------
+18. Trenutni status projekta
+----------------------------------------------------------------
+
+  Poglavlje 1 — završeno
+  Poglavlje 2 — završeno
+  Poglavlje 3 — završeno
+  Poglavlje 4 — završeno
+  Poglavlje 5 — završeno
+  Poglavlje 6 — završeno
+
+----------------------------------------------------------------
+19. Sledeće poglavlje
+----------------------------------------------------------------
+
+Predlog:
+Poglavlje 7 — GitHub, Vercel preview deploy i priprema
+za javno objavljivanje
+
+Fokus Poglavlja 7:
+  - Finalna lokalna provera pre deploya
+  - GitHub status i commit organizacija
+  - Vercel preview deploy podešavanje
+  - Provera production build-a (npm run build)
+  - Provera public ruta online
+  - Provera dashboard zaštite na production URL-u
+  - Odluka o povezivanju finalnog domena (za kasnije)
+
+----------------------------------------------------------------
+20. Zaključak
+----------------------------------------------------------------
+
+Poglavlje 6 uspešno je završilo javni portfolio deo kao
+bilingual EN/SR strukturu.
+
+Public sajt sada ima:
+  - jasnu URL strukturu za oba jezika
+  - funkcionalan language switcher
+  - profesionalan sadržaj na EN i SR
+  - 5 projekata u portfoliju
+  - kompletan Wellness Concept case study
+  - 6 jasno definisanih usluga
+  - 7-koračni radni proces
+  - kontakt stranicu sa jasnim pozivom na akciju
+  - SEO metadata na svim stranicama
+  - ispravan responsive prikaz na desktop i mobilnim ekranima
+
+Public deo je sada mnogo bliži prvoj online preview verziji.
+Sledeći logičan korak je deploy na Vercel i provera svega
+u production okruženju.
+
+================================================================
+Kraj izveštaja — Poglavlje 6.
+================================================================
