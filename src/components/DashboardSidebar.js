@@ -1,39 +1,49 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import styles from "./DashboardSidebar.module.css";
 
 const navItems = [
-  {
-    label: "Overview",
-    href: "/dashboard",
-  },
-  {
-    label: "Clients",
-    href: "/dashboard/clients",
-  },
-  {
-    label: "Projects",
-    href: "/dashboard/projects",
-  },
-  {
-    label: "Tasks",
-    href: "/dashboard/tasks",
-  },
-  {
-    label: "Notes",
-    href: "/dashboard/notes",
-  },
+  { label: "Overview", href: "/dashboard" },
+  { label: "Clients", href: "/dashboard/clients" },
+  { label: "Projects", href: "/dashboard/projects" },
+  { label: "Tasks", href: "/dashboard/tasks" },
+  { label: "Notes", href: "/dashboard/notes" },
 ];
 
 export default function DashboardSidebar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   function closeMenu() {
     setIsMenuOpen(false);
+  }
+
+  async function handleLogout() {
+    setIsLoggingOut(true);
+    closeMenu();
+
+    try {
+      const res = await fetch("/api/auth/logout", { method: "POST" });
+
+      if (res.ok) {
+        router.push("/login");
+      } else {
+        if (process.env.NODE_ENV === "development") {
+          console.error("Logout failed:", res.status);
+        }
+        setIsLoggingOut(false);
+      }
+    } catch (err) {
+      if (process.env.NODE_ENV === "development") {
+        console.error("Logout error:", err);
+      }
+      setIsLoggingOut(false);
+    }
   }
 
   return (
@@ -86,6 +96,15 @@ export default function DashboardSidebar() {
           <Link href="/" onClick={closeMenu}>
             Back to portfolio
           </Link>
+
+          <button
+            type="button"
+            className={styles.logoutButton}
+            onClick={handleLogout}
+            disabled={isLoggingOut}
+          >
+            {isLoggingOut ? "Odjava..." : "Odjavi se"}
+          </button>
         </div>
       </div>
     </aside>
