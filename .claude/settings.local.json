@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(npm run *)",
-      "PowerShell(git -C \"C:\\\\Projects\\\\Portfolio Project\\\\djordje-clienthub\" branch --show-current)"
-    ]
-  }
-}
