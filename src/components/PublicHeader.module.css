@@ -38,3 +38,39 @@
   border-radius: 4px;
   font-size: 13px;
 }
+
+@media (max-width: 900px) {
+  .header {
+    padding: 16px 20px;
+  }
+
+  .nav {
+    gap: 16px;
+  }
+
+  .nav a {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: 14px 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .nav {
+    width: 100%;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .nav a {
+    font-size: 13px;
+  }
+}
