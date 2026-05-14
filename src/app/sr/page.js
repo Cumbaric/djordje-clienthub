@@ -3,8 +3,12 @@ import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
 import { featuredProjects } from "@/data/projects";
 import { serviceLabels } from "@/data/services";
-import { techStack } from "@/data/techStack";
+import { techStackContent } from "@/data/techStack";
+import { positioning } from "@/data/positioning";
 import styles from "../(public)/page.module.css";
+
+const pos = positioning.sr;
+const tech = techStackContent.sr;
 
 export default function Home() {
   return (
@@ -13,13 +17,9 @@ export default function Home() {
         <div className={styles.heroContent}>
           <p className={styles.eyebrow}>Djordje ClientHub</p>
 
-          <h1>WordPress portfolio i interni alat za rad sa klijentima</h1>
+          <h1>{pos.headline}</h1>
 
-          <p className={styles.description}>
-            Web aplikacija koja prikazuje moje WordPress projekte, usluge i
-            proces rada, uz privatni dashboard za organizaciju klijenata,
-            projekata, zadataka i radnih beleški.
-          </p>
+          <p className={styles.description}>{pos.shortDescription}</p>
 
           <div className={styles.heroActions}>
             <Link href="/sr/projekti" className={styles.primaryButton}>
@@ -43,20 +43,15 @@ export default function Home() {
       </section>
 
       <section className={styles.introSection}>
-        <p className={styles.sectionLabel}>About</p>
+        <p className={styles.sectionLabel}>O meni</p>
         <h2>Pravim praktična web rešenja za male biznise i freelance rad.</h2>
-        <p>
-          Fokus mi je na WordPress razvoju, Elementor sajtovima, WooCommerce
-          prodavnicama, osnovnoj SEO optimizaciji i jasnoj strukturi sadržaja.
-          Djordje ClientHub je moj portfolio projekat, ali i alat koji razvijam
-          za stvarnu organizaciju rada sa klijentima.
-        </p>
+        <p>{pos.extendedDescription}</p>
       </section>
 
       <section className={styles.section}>
         <SectionHeader
-          label="Projects"
-          title="Featured projects"
+          label="Projekti"
+          title="Izdvojeni projekti"
           link={{ href: "/sr/projekti", text: "Svi projekti" }}
         />
 
@@ -77,17 +72,18 @@ export default function Home() {
 
       <section className={styles.section}>
         <SectionHeader
-          label="Tech Stack"
-          title="Tehnologije koje koristim u radu"
+          label={tech.eyebrow}
+          title={tech.title}
         />
+        <p className={styles.sectionDescription}>{tech.description}</p>
 
         <div className={styles.techGrid}>
-          {techStack.map((stack) => (
-            <article key={stack.group} className={styles.techCard}>
-              <h3>{stack.group}</h3>
+          {tech.groups.map((group) => (
+            <article key={group.title} className={styles.techCard}>
+              <h3>{group.title}</h3>
 
               <div className={styles.techItems}>
-                {stack.items.map((item) => (
+                {group.items.map((item) => (
                   <span key={item}>{item}</span>
                 ))}
               </div>
@@ -98,7 +94,7 @@ export default function Home() {
 
       <section className={styles.section}>
         <SectionHeader
-          label="Services"
+          label="Usluge"
           title="Usluge koje mogu da ponudim klijentima"
           link={{ href: "/sr/usluge", text: "Detaljnije" }}
         />
@@ -113,7 +109,7 @@ export default function Home() {
       </section>
 
       <CTASection
-        eyebrow="Contact"
+        eyebrow="Kontakt"
         title="Imaš WordPress projekat koji treba srediti ili razviti?"
         action={{ href: "/sr/kontakt", text: "Kontaktiraj me" }}
       >

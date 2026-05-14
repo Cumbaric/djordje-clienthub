@@ -3,8 +3,12 @@ import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
 import { featuredProjects } from "@/data/projects";
 import { serviceLabels } from "@/data/services";
-import { techStack } from "@/data/techStack";
+import { techStackContent } from "@/data/techStack";
+import { positioning } from "@/data/positioning";
 import styles from "../(public)/page.module.css";
+
+const pos = positioning.en;
+const tech = techStackContent.en;
 
 export default function Home() {
   return (
@@ -13,13 +17,9 @@ export default function Home() {
         <div className={styles.heroContent}>
           <p className={styles.eyebrow}>Djordje ClientHub</p>
 
-          <h1>WordPress portfolio and internal client management tool</h1>
+          <h1>{pos.headline}</h1>
 
-          <p className={styles.description}>
-            A web application showcasing my WordPress projects, services, and
-            workflow — with a private dashboard for organizing clients,
-            projects, tasks, and work notes.
-          </p>
+          <p className={styles.description}>{pos.shortDescription}</p>
 
           <div className={styles.heroActions}>
             <Link href="/en/projects" className={styles.primaryButton}>
@@ -27,7 +27,7 @@ export default function Home() {
             </Link>
 
             <Link href="/en/contact" className={styles.secondaryButton}>
-              Contact
+              Contact me
             </Link>
           </div>
         </div>
@@ -45,12 +45,7 @@ export default function Home() {
       <section className={styles.introSection}>
         <p className={styles.sectionLabel}>About</p>
         <h2>I build practical web solutions for small businesses and freelance work.</h2>
-        <p>
-          My focus is on WordPress development, Elementor websites, WooCommerce
-          stores, basic SEO optimization, and clear content structure. Djordje
-          ClientHub is my portfolio project, and also a tool I&#39;m developing
-          for real client work organization.
-        </p>
+        <p>{pos.extendedDescription}</p>
       </section>
 
       <section className={styles.section}>
@@ -79,17 +74,18 @@ export default function Home() {
 
       <section className={styles.section}>
         <SectionHeader
-          label="Tech Stack"
-          title="Technologies I use in my work"
+          label={tech.eyebrow}
+          title={tech.title}
         />
+        <p className={styles.sectionDescription}>{tech.description}</p>
 
         <div className={styles.techGrid}>
-          {techStack.map((stack) => (
-            <article key={stack.group} className={styles.techCard}>
-              <h3>{stack.group}</h3>
+          {tech.groups.map((group) => (
+            <article key={group.title} className={styles.techCard}>
+              <h3>{group.title}</h3>
 
               <div className={styles.techItems}>
-                {stack.items.map((item) => (
+                {group.items.map((item) => (
                   <span key={item}>{item}</span>
                 ))}
               </div>
