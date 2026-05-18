@@ -19,7 +19,10 @@ export const metadata = {
 export default function ProjectsPage() {
   return (
     <main className="public-page">
-      <PageHero eyebrow="Projects" title="Selected WordPress, SEO and web app projects">
+      <PageHero
+        eyebrow="Projects"
+        title="Selected WordPress, SEO and web app projects"
+      >
         A focused overview of real WordPress work, SEO improvements, WooCommerce
         structure and the Djordje ClientHub internal application built with
         Next.js and React.
@@ -28,28 +31,32 @@ export default function ProjectsPage() {
       <section className="projects-grid">
         {projects.map((project) => {
           const href = `/en/projects/${project.slug}`;
-          const card = (
-            <div className="project-card">
+          const content = (
+            <>
               <p className="project-card-type">{project.type}</p>
               <h2>{project.title}</h2>
               <p>{project.descriptionEn}</p>
               <div className="project-tags">
                 {project.tags.map((tag) => (
-                  <span key={tag} className="project-tag">{tag}</span>
+                  <span key={tag} className="project-tag">
+                    {tag}
+                  </span>
                 ))}
               </div>
               {!project.slug && (
                 <p className="project-coming-soon">Case study coming soon</p>
               )}
-            </div>
+            </>
           );
 
           return project.slug ? (
             <Link key={project.title} href={href} className="project-card-link">
-              {card}
+              {content}
             </Link>
           ) : (
-            <div key={project.title}>{card}</div>
+            <div key={project.title} className="project-card">
+              {content}
+            </div>
           );
         })}
       </section>

@@ -3,23 +3,33 @@
   top: 0;
   z-index: 100;
   width: 100%;
-  padding: 0 28px;
-  height: 64px;
-  background: rgba(10, 10, 15, 0.82);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(30, 30, 46, 0.9);
+  padding: 18px 32px;
+  background: rgba(10, 10, 15, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(30, 30, 46, 0.6);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: border-color 0.3s ease;
+  transition:
+    padding 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.scrolled {
+  padding: 10px 32px;
+  background: rgba(10, 10, 15, 0.96);
+  border-bottom-color: rgba(59, 130, 246, 0.2);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
 }
 
 .logo {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 700;
   color: #f1f5f9;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   transition: color 0.2s ease;
 }
 
@@ -30,25 +40,43 @@
 .nav {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 
-.nav a {
-  padding: 6px 12px;
+.navLink {
+  position: relative;
+  padding: 6px 14px;
   border-radius: 8px;
   color: #94a3b8;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
-  transition: color 0.2s ease, background 0.2s ease;
+  transition: color 0.2s ease;
 }
 
-.nav a:hover {
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  width: 0;
+  height: 1.5px;
+  background: #3b82f6;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.25s ease;
+}
+
+.navLink:hover {
   color: #f1f5f9;
-  background: rgba(255, 255, 255, 0.06);
+}
+
+.navLink:hover::after {
+  width: calc(100% - 28px);
 }
 
 .langSwitch {
-  padding: 4px 10px !important;
+  margin-left: 8px;
+  padding: 4px 11px !important;
   border-radius: 6px !important;
   border: 1px solid rgba(59, 130, 246, 0.45) !important;
   color: #3b82f6 !important;
@@ -68,14 +96,15 @@
 @media (max-width: 900px) {
   .header {
     padding: 0 20px;
+    height: 60px;
   }
 
-  .nav {
-    gap: 2px;
+  .scrolled {
+    height: 52px;
   }
 
-  .nav a {
-    font-size: 13px;
+  .navLink {
+    font-size: 14px;
     padding: 5px 10px;
   }
 }
@@ -88,8 +117,12 @@
     gap: 8px;
   }
 
+  .scrolled {
+    height: auto;
+  }
+
   .logo {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .nav {
@@ -98,8 +131,8 @@
     gap: 2px;
   }
 
-  .nav a {
-    font-size: 12px;
+  .navLink {
+    font-size: 13px;
     padding: 4px 8px;
   }
 }

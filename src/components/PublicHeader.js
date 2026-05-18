@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 import styles from "./PublicHeader.module.css";
 
 const NAV = {
@@ -51,6 +52,14 @@ const DEFAULT_LINKS = [
 
 export default function PublicHeader({ lang }) {
   const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const nav = lang ? NAV[lang] : null;
   const homeHref = nav ? nav.home : "/";
   const links = nav ? nav.links : DEFAULT_LINKS;
@@ -58,14 +67,18 @@ export default function PublicHeader({ lang }) {
   const switchLabel = nav?.switchLabel ?? null;
 
   return (
-    <header className={styles.header}>
+    <header
+      className={[styles.header, scrolled && styles.scrolled]
+        .filter(Boolean)
+        .join(" ")}
+    >
       <Link href={homeHref} className={styles.logo}>
         Djordje ClientHub
       </Link>
 
       <nav className={styles.nav}>
         {links.map((link) => (
-          <Link key={link.href} href={link.href}>
+          <Link key={link.href} href={link.href} className={styles.navLink}>
             {link.label}
           </Link>
         ))}
@@ -74,7 +87,9 @@ export default function PublicHeader({ lang }) {
             {switchLabel}
           </Link>
         )}
-        <Link href="/login">Login</Link>
+        <Link href="/login" className={styles.navLink}>
+          Login
+        </Link>
       </nav>
     </header>
   );
