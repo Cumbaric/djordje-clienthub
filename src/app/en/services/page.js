@@ -86,7 +86,7 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <main className="public-page">
+    <main>
       <PageHero
         eyebrow="Services"
         title="WordPress, SEO and website workflow services"
@@ -106,6 +106,7 @@ export default function ServicesPage() {
         Elementor, WooCommerce, SEO fundamentals and AI-assisted workflows.
       </PageHero>
 
+      <div className="public-page">
       <section className="services-list">
         {services.map((service) => (
           <article key={service.title} className="service-list-card">
@@ -135,6 +136,7 @@ export default function ServicesPage() {
           </Link>
         </div>
       </section>
+      </div>
     </main>
   );
 }

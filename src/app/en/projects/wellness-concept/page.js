@@ -20,7 +20,7 @@ export const metadata = {
 
 export default function WellnessConceptCaseStudyPage() {
   return (
-    <main className="public-page">
+    <main>
       <PageHero
         eyebrow="Case Study"
         title="Wellness Concept — WordPress, UX and SEO structure improvement"
@@ -40,6 +40,7 @@ export default function WellnessConceptCaseStudyPage() {
         stronger booking paths and SEO-friendly page organization.
       </PageHero>
 
+      <div className="public-page">
       <section className="case-study-meta">
         <div>
           <span>Project type</span>
@@ -190,6 +191,7 @@ export default function WellnessConceptCaseStudyPage() {
           </Link>
         </div>
       </section>
+      </div>
     </main>
   );
 }

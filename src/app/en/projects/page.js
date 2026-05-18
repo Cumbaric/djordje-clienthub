@@ -18,7 +18,7 @@ export const metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main className="public-page">
+    <main>
       <PageHero
         eyebrow="Projects"
         title="Selected WordPress, SEO and web app projects"
@@ -28,6 +28,7 @@ export default function ProjectsPage() {
         Next.js and React.
       </PageHero>
 
+      <div className="public-page">
       <section className="projects-grid">
         {projects.map((project) => {
           const href = `/en/projects/${project.slug}`;
@@ -74,6 +75,7 @@ export default function ProjectsPage() {
           </Link>
         </div>
       </section>
+      </div>
     </main>
   );
 }

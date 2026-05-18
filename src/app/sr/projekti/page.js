@@ -18,7 +18,7 @@ export const metadata = {
 
 export default function ProjektiPage() {
   return (
-    <main className="public-page">
+    <main>
       <PageHero
         eyebrow="Projekti"
         title="Odabrani WordPress, SEO i web app projekti"
@@ -28,6 +28,7 @@ export default function ProjektiPage() {
         React.
       </PageHero>
 
+      <div className="public-page">
       <section className="projects-grid">
         {projects.map((project) => {
           const href = `/sr/projekti/${project.slug}`;
@@ -74,6 +75,7 @@ export default function ProjektiPage() {
           </Link>
         </div>
       </section>
+      </div>
     </main>
   );
 }

@@ -28,31 +28,33 @@ export default function Home() {
   return (
     <main className={styles.homePage}>
       <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          <p className={styles.eyebrow}>Djordje ClientHub</p>
+        <div className={styles.heroGrid}>
+          <div className={styles.heroContent}>
+            <p className={styles.eyebrow}>Djordje ClientHub</p>
 
-          <h1>{pos.headline}</h1>
+            <h1>{pos.headline}</h1>
 
-          <p className={styles.description}>{pos.shortDescription}</p>
+            <p className={styles.description}>{pos.shortDescription}</p>
 
-          <div className={styles.heroActions}>
-            <Link href="/sr/projekti" className={styles.primaryButton}>
-              Pogledaj projekte
-            </Link>
+            <div className={styles.heroActions}>
+              <Link href="/sr/projekti" className={styles.primaryButton}>
+                Pogledaj projekte
+              </Link>
 
-            <Link href="/sr/kontakt" className={styles.secondaryButton}>
-              Kontakt
-            </Link>
+              <Link href="/sr/kontakt" className={styles.secondaryButton}>
+                Kontakt
+              </Link>
+            </div>
           </div>
-        </div>
 
-        <div className={styles.heroCard}>
-          <p className={styles.cardLabel}>Focus</p>
-          <h2>WordPress, SEO, AI tools</h2>
-          <p>
-            Portfolio projekat napravljen u Next.js-u kao dokaz tehničkog
-            napretka, organizacije rada i razumevanja realnih potreba klijenata.
-          </p>
+          <div className={styles.heroCard}>
+            <p className={styles.cardLabel}>Focus</p>
+            <h2>WordPress, SEO, AI tools</h2>
+            <p>
+              Portfolio projekat napravljen u Next.js-u kao dokaz tehničkog
+              napretka, organizacije rada i razumevanja realnih potreba klijenata.
+            </p>
+          </div>
         </div>
       </section>
 

@@ -67,7 +67,7 @@ const nextSteps = [
 
 export default function ContactPage() {
   return (
-    <main className="public-page">
+    <main>
       <PageHero
         eyebrow="Contact"
         title="Let's talk about your website or workflow"
@@ -87,6 +87,7 @@ export default function ContactPage() {
         your project.
       </PageHero>
 
+      <div className="public-page">
       <section>
         <h2 style={{ marginBottom: "24px", fontSize: "30px", letterSpacing: "-0.02em" }}>
           What I can help with
@@ -152,6 +153,7 @@ export default function ContactPage() {
           </Link>
         </div>
       </section>
+      </div>
     </main>
   );
 }

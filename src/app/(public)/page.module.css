@@ -5,15 +5,10 @@
 /* HERO */
 
 .hero {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 48px;
-  align-items: center;
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 96px 24px 80px;
   position: relative;
   overflow: hidden;
+  padding: 96px 0 80px;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.08);
 }
 
 /* Blueprint grid overlay */
@@ -46,6 +41,17 @@
   );
   pointer-events: none;
   z-index: 0;
+}
+
+/* Inner grid — sadržaj je max-width, background je full-width */
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 48px;
+  align-items: center;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 .heroContent {
@@ -383,8 +389,11 @@
 
 @media (max-width: 900px) {
   .hero {
+    padding: 72px 0 56px;
+  }
+
+  .heroGrid {
     grid-template-columns: 1fr;
-    padding-top: 72px;
   }
 
   .hero h1 {
@@ -405,7 +414,11 @@
 
 @media (max-width: 600px) {
   .hero {
-    padding: 56px 20px 48px;
+    padding: 56px 0 48px;
+  }
+
+  .heroGrid {
+    padding: 0 20px;
   }
 
   .hero h1 {

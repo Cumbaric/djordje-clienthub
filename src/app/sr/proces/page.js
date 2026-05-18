@@ -112,7 +112,7 @@ const koraci = [
 
 export default function ProcesPage() {
   return (
-    <main className="public-page">
+    <main>
       <PageHero
         eyebrow="Proces"
         title="Jasan workflow od ideje do gotovog sajta"
@@ -133,6 +133,7 @@ export default function ProcesPage() {
         unapređenja.
       </PageHero>
 
+      <div className="public-page">
       <section className="process-list">
         {koraci.map((korak) => (
           <article key={korak.number} className="process-card">
@@ -172,6 +173,7 @@ export default function ProcesPage() {
           </Link>
         </div>
       </section>
+      </div>
     </main>
   );
 }

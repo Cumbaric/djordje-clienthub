@@ -67,7 +67,7 @@ const nextSteps = [
 
 export default function KontaktPage() {
   return (
-    <main className="public-page">
+    <main>
       <PageHero
         eyebrow="Kontakt"
         title="Hajde da pričamo o tvom sajtu ili workflow-u"
@@ -86,6 +86,7 @@ export default function KontaktPage() {
         unapređenje ili praktičan web workflow, pošalji mi kratak opis projekta.
       </PageHero>
 
+      <div className="public-page">
       <section>
         <h2 style={{ marginBottom: "24px", fontSize: "30px", letterSpacing: "-0.02em" }}>
           U čemu mogu da pomognem
@@ -151,6 +152,7 @@ export default function KontaktPage() {
           </Link>
         </div>
       </section>
+      </div>
     </main>
   );
 }

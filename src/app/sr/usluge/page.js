@@ -86,7 +86,7 @@ const usluge = [
 
 export default function UslugePage() {
   return (
-    <main className="public-page">
+    <main>
       <PageHero
         eyebrow="Usluge"
         title="WordPress, SEO i website workflow usluge"
@@ -106,6 +106,7 @@ export default function UslugePage() {
         Elementor, WooCommerce, SEO osnovu i AI-assisted workflow.
       </PageHero>
 
+      <div className="public-page">
       <section className="services-list">
         {usluge.map((usluga) => (
           <article key={usluga.title} className="service-list-card">
@@ -135,6 +136,7 @@ export default function UslugePage() {
           </Link>
         </div>
       </section>
+      </div>
     </main>
   );
 }

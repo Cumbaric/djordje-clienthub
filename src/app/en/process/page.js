@@ -112,7 +112,7 @@ const steps = [
 
 export default function ProcessPage() {
   return (
-    <main className="public-page">
+    <main>
       <PageHero
         eyebrow="Process"
         title="A clear workflow from idea to live website"
@@ -133,6 +133,7 @@ export default function ProcessPage() {
         improvements.
       </PageHero>
 
+      <div className="public-page">
       <section className="process-list">
         {steps.map((step) => (
           <article key={step.number} className="process-card">
@@ -172,6 +173,7 @@ export default function ProcessPage() {
           </Link>
         </div>
       </section>
+      </div>
     </main>
   );
 }
