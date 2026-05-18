@@ -2,6 +2,21 @@
   width: 100%;
 }
 
+/* ── Hero entry animation ── */
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
 /* HERO */
 
 .hero {
@@ -66,6 +81,8 @@
   justify-content: center;
   position: relative;
   z-index: 1;
+  animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.3s;
 }
 
 .eyebrow,
@@ -78,6 +95,12 @@
   text-transform: uppercase;
 }
 
+/* Animate only the hero eyebrow, not section labels */
+.heroContent .eyebrow {
+  animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.08s;
+}
+
 .hero h1 {
   max-width: 760px;
   margin: 0;
@@ -86,6 +109,8 @@
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.04em;
+  animation: heroFadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.22s;
 }
 
 .description {
@@ -94,6 +119,8 @@
   color: #94a3b8;
   font-size: 20px;
   line-height: 1.7;
+  animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.38s;
 }
 
 .heroActions {
@@ -101,6 +128,8 @@
   flex-wrap: wrap;
   gap: 14px;
   margin-top: 36px;
+  animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.54s;
 }
 
 .primaryButton,
@@ -553,5 +582,16 @@
   .projectCard,
   .techCard {
     transition: none;
+  }
+
+  .heroContent .eyebrow,
+  .hero h1,
+  .description,
+  .heroActions,
+  .heroVisual {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 }
