@@ -60,6 +60,14 @@
   z-index: 1;
 }
 
+.heroVisual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
 .eyebrow,
 .sectionLabel {
   margin-bottom: 16px;

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
+import HeroCube from "@/components/HeroCube";
 import { featuredProjects } from "@/data/projects";
 import { serviceLabels } from "@/data/services";
 import { techStackContent } from "@/data/techStack";
@@ -47,13 +48,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={styles.heroCard}>
-            <p className={styles.cardLabel}>Focus</p>
-            <h2>WordPress, SEO, AI tools</h2>
-            <p>
-              Portfolio project built in Next.js as proof of technical progress,
-              work organization, and understanding of real client needs.
-            </p>
+          <div className={styles.heroVisual}>
+            <HeroCube />
           </div>
         </div>
       </section>
