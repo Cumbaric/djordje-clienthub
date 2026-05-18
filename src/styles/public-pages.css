@@ -28,7 +28,9 @@
 .scroll-hidden {
   opacity: 0;
   transform: translateY(22px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease;
 }
 
 .scroll-revealed {
@@ -94,7 +96,10 @@
   background: #111118;
   color: inherit;
   text-decoration: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .project-list-card:hover {
@@ -165,7 +170,10 @@
   border: 1px solid #1e1e2e;
   border-radius: 24px;
   background: #111118;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .project-card:hover {
@@ -184,7 +192,10 @@
   border: 1px solid #1e1e2e;
   border-radius: 24px;
   background: #111118;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .project-card-link:hover {
@@ -277,7 +288,10 @@
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
 }
 
 .projects-cta-actions a:hover {
@@ -337,7 +351,9 @@
   border: 1px solid #1e1e2e;
   border-radius: 20px;
   background: #111118;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .case-study-meta div:hover {
@@ -387,7 +403,9 @@
   border: 1px solid #1e1e2e;
   border-radius: 22px;
   background: #111118;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .case-study-grid article:hover {
@@ -458,7 +476,10 @@
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
 }
 
 .case-study-button:hover {
@@ -486,7 +507,10 @@
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
 }
 
 .case-study-cta-actions a:hover {
@@ -538,7 +562,10 @@
   border: 1px solid #1e1e2e;
   border-radius: 24px;
   background: #111118;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .service-list-card:hover {
@@ -618,7 +645,10 @@
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
 }
 
 .services-cta a:hover {
@@ -693,7 +723,10 @@
   border: 1px solid #1e1e2e;
   border-radius: 24px;
   background: #111118;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .process-card:hover {
@@ -762,7 +795,10 @@
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
 }
 
 .process-cta a:hover {
@@ -794,7 +830,10 @@
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
   margin-top: 0;
 }
 
@@ -926,7 +965,10 @@
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
 }
 
 .contact-main-card a:hover {
@@ -1009,7 +1051,10 @@
   border: 1px solid #1e1e2e;
   border-radius: 20px;
   background: #111118;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .contact-fit-card:hover {
@@ -1145,7 +1190,10 @@
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
 }
 
 .contact-cta-actions a:hover {
@@ -1211,23 +1259,34 @@
 .public-layout .case-study-cta-actions a:not(.case-study-cta-secondary)::after,
 .public-layout .case-study-button::after,
 .public-layout .contact-main-card a::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 60%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.18),
+    transparent
+  );
   transform: skewX(-20deg);
   transition: left 0.5s ease;
   pointer-events: none;
 }
 
-.public-layout .projects-cta-actions a:not(.projects-cta-secondary):hover::after,
-.public-layout .services-cta-actions a:not(.services-cta-secondary):hover::after,
+.public-layout
+  .projects-cta-actions
+  a:not(.projects-cta-secondary):hover::after,
+.public-layout
+  .services-cta-actions
+  a:not(.services-cta-secondary):hover::after,
 .public-layout .process-cta-actions a:not(.process-cta-secondary):hover::after,
 .public-layout .contact-cta-actions a:not(.contact-cta-secondary):hover::after,
-.public-layout .case-study-cta-actions a:not(.case-study-cta-secondary):hover::after,
+.public-layout
+  .case-study-cta-actions
+  a:not(.case-study-cta-secondary):hover::after,
 .public-layout .case-study-button:hover::after,
 .public-layout .contact-main-card a:hover::after {
   left: 150%;
@@ -1289,11 +1348,15 @@
 .contact-fit-card::before,
 .case-study-meta > div::before,
 .case-study-grid > article::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 65%);
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 30%),
+    rgba(59, 130, 246, 0.1) 0%,
+    transparent 60%
+  );
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
