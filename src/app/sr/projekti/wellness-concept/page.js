@@ -24,6 +24,16 @@ export default function WellnessConceptCaseStudyPage() {
       <PageHero
         eyebrow="Case Study"
         title="Wellness Concept — WordPress, UX i SEO unapređenje strukture"
+        actions={
+          <>
+            <Link href="/sr/kontakt" className="hero-action-primary">
+              Pokreni sličan projekat
+            </Link>
+            <Link href="/sr/usluge" className="hero-action-secondary">
+              Pogledaj usluge
+            </Link>
+          </>
+        }
       >
         WordPress i Elementor projekat za salon masaže i wellness usluga,
         fokusiran na jasniju strukturu usluga, bolji korisnički tok, vidljivije

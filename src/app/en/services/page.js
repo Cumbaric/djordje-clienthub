@@ -90,6 +90,16 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="WordPress, SEO and website workflow services"
+        actions={
+          <>
+            <Link href="/en/contact" className="hero-action-primary">
+              Contact me
+            </Link>
+            <Link href="/en/projects" className="hero-action-secondary">
+              View projects
+            </Link>
+          </>
+        }
       >
         I help small businesses, service providers and content-driven projects
         build cleaner, faster and better structured websites using WordPress,

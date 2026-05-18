@@ -68,7 +68,20 @@ const nextSteps = [
 export default function ContactPage() {
   return (
     <main className="public-page">
-      <PageHero eyebrow="Contact" title="Let's talk about your website or workflow">
+      <PageHero
+        eyebrow="Contact"
+        title="Let's talk about your website or workflow"
+        actions={
+          <>
+            <a href={`mailto:${contactEmail}`} className="hero-action-primary">
+              Email me
+            </a>
+            <Link href="/en/services" className="hero-action-secondary">
+              View services
+            </Link>
+          </>
+        }
+      >
         If you need a cleaner WordPress website, better structure, SEO-focused
         improvements or a practical web workflow, send me a short overview of
         your project.

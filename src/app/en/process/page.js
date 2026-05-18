@@ -113,7 +113,20 @@ const steps = [
 export default function ProcessPage() {
   return (
     <main className="public-page">
-      <PageHero eyebrow="Process" title="A clear workflow from idea to live website">
+      <PageHero
+        eyebrow="Process"
+        title="A clear workflow from idea to live website"
+        actions={
+          <>
+            <Link href="/en/contact" className="hero-action-primary">
+              Start a project
+            </Link>
+            <Link href="/en/services" className="hero-action-secondary">
+              View services
+            </Link>
+          </>
+        }
+      >
         My process is focused on structure, clarity and practical execution. The
         goal is to understand the project, define the right website structure,
         build clean pages and prepare the site for SEO, performance and future

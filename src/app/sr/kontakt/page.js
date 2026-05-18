@@ -68,7 +68,20 @@ const nextSteps = [
 export default function KontaktPage() {
   return (
     <main className="public-page">
-      <PageHero eyebrow="Kontakt" title="Hajde da pričamo o tvom sajtu ili workflow-u">
+      <PageHero
+        eyebrow="Kontakt"
+        title="Hajde da pričamo o tvom sajtu ili workflow-u"
+        actions={
+          <>
+            <a href={`mailto:${contactEmail}`} className="hero-action-primary">
+              Pošalji email
+            </a>
+            <Link href="/sr/usluge" className="hero-action-secondary">
+              Pogledaj usluge
+            </Link>
+          </>
+        }
+      >
         Ako ti treba pregledniji WordPress sajt, bolja struktura, SEO-focused
         unapređenje ili praktičan web workflow, pošalji mi kratak opis projekta.
       </PageHero>

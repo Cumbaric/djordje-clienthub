@@ -90,6 +90,16 @@ export default function UslugePage() {
       <PageHero
         eyebrow="Usluge"
         title="WordPress, SEO i website workflow usluge"
+        actions={
+          <>
+            <Link href="/sr/kontakt" className="hero-action-primary">
+              Kontaktiraj me
+            </Link>
+            <Link href="/sr/projekti" className="hero-action-secondary">
+              Pogledaj projekte
+            </Link>
+          </>
+        }
       >
         Pomažem malim biznisima, uslužnim delatnostima i content projektima da
         naprave preglednije, brže i bolje strukturisane sajtove kroz WordPress,

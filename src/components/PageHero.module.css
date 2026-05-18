@@ -1,18 +1,111 @@
+/* ============================================
+   PAGE HERO — Public variant
+   ============================================ */
+
 .hero {
-  margin-bottom: 48px;
+  position: relative;
+  overflow: hidden;
+  padding: 64px 0 56px;
+  margin-bottom: 56px;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.1);
 }
 
-.heroDashboard {
-  margin-bottom: 32px;
+/* Subtle blueprint grid overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Background orbs ── */
+.heroBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heroOrbPrimary {
+  position: absolute;
+  top: -80px;
+  right: -60px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.14) 0%,
+    rgba(59, 130, 246, 0.04) 45%,
+    transparent 70%
+  );
+}
+
+.heroOrbSecondary {
+  position: absolute;
+  bottom: -100px;
+  left: -80px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(99, 179, 237, 0.07) 0%,
+    transparent 65%
+  );
+}
+
+/* ── Content ── */
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
 }
 
 .eyebrow {
-  margin: 0 0 12px;
-  color: var(--color-primary);
-  font-size: 14px;
+  margin: 0 0 16px;
+  color: #3b82f6;
+  font-size: 13px;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.title {
+  margin: 0 0 20px;
+  color: #f1f5f9;
+  font-size: 52px;
+  line-height: 1.07;
+  letter-spacing: -0.04em;
+}
+
+.description {
+  max-width: 680px;
+  margin: 0;
+  color: #94a3b8;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+/* ── Actions ── */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+/* ============================================
+   PAGE HERO — Dashboard variant
+   ============================================ */
+
+.heroDashboard {
+  margin-bottom: 32px;
 }
 
 .heroDashboard .eyebrow {
@@ -20,24 +113,58 @@
   font-size: 13px;
 }
 
-.title {
-  margin: 0 0 12px;
-  color: var(--color-text);
-  font-size: 42px;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-}
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 
-.description {
-  max-width: 720px;
-  margin: 0;
-  color: var(--color-text-muted);
-  font-size: 17px;
-  line-height: 1.7;
-}
+@media (max-width: 900px) {
+  .hero {
+    padding: 52px 0 44px;
+    margin-bottom: 44px;
+  }
 
-@media (max-width: 700px) {
   .title {
-    font-size: 36px;
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 40px 0 36px;
+    margin-bottom: 36px;
+  }
+
+  .title {
+    font-size: 34px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .heroOrbPrimary {
+    width: 280px;
+    height: 280px;
+    top: -40px;
+    right: -40px;
+  }
+
+  .heroOrbSecondary {
+    display: none;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .heroOrbPrimary,
+  .heroOrbSecondary {
+    display: none;
   }
 }

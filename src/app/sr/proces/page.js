@@ -113,7 +113,20 @@ const koraci = [
 export default function ProcesPage() {
   return (
     <main className="public-page">
-      <PageHero eyebrow="Proces" title="Jasan workflow od ideje do gotovog sajta">
+      <PageHero
+        eyebrow="Proces"
+        title="Jasan workflow od ideje do gotovog sajta"
+        actions={
+          <>
+            <Link href="/sr/kontakt" className="hero-action-primary">
+              Pokreni projekat
+            </Link>
+            <Link href="/sr/usluge" className="hero-action-secondary">
+              Pogledaj usluge
+            </Link>
+          </>
+        }
+      >
         Moj proces je fokusiran na strukturu, jasnoću i praktičnu realizaciju.
         Cilj je da razumemo projekat, definišemo pravu strukturu sajta,
         izgradimo čiste stranice i pripremimo sajt za SEO, performanse i buduća

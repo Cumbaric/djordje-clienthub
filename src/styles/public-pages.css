@@ -1236,6 +1236,91 @@
 }
 
 /* ============================================
+   HERO CTA BUTTONS (used inside PageHero actions)
+   ============================================ */
+
+.hero-action-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.hero-action-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.18),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.hero-action-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 28px rgba(59, 130, 246, 0.5);
+}
+
+.hero-action-primary:hover::after {
+  left: 150%;
+}
+
+.hero-action-primary:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+.hero-action-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #94a3b8;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.hero-action-secondary:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  color: #f1f5f9;
+  background: rgba(59, 130, 246, 0.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-action-primary::after {
+    display: none;
+  }
+  .hero-action-primary {
+    transition: none;
+  }
+}
+
+/* ============================================
    SHARED PRIMARY BUTTON MICROINTERACTIONS
    ============================================ */
 
