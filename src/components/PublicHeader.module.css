@@ -1,76 +1,105 @@
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   width: 100%;
-  padding: 24px;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  padding: 0 28px;
+  height: 64px;
+  background: rgba(10, 10, 15, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(30, 30, 46, 0.9);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: border-color 0.3s ease;
 }
 
 .logo {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
-  color: #111827;
+  color: #f1f5f9;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.logo:hover {
+  color: #3b82f6;
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 4px;
 }
 
 .nav a {
-  color: #4b5563;
-  font-size: 15px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: #94a3b8;
+  font-size: 14px;
   font-weight: 500;
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
 .nav a:hover {
-  color: #2563eb;
+  color: #f1f5f9;
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .langSwitch {
-  font-weight: 700;
-  color: #2563eb;
-  border: 1px solid #2563eb;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 13px;
+  padding: 4px 10px !important;
+  border-radius: 6px !important;
+  border: 1px solid rgba(59, 130, 246, 0.45) !important;
+  color: #3b82f6 !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em;
+  background: rgba(59, 130, 246, 0.08) !important;
+  transition: all 0.2s ease !important;
+}
+
+.langSwitch:hover {
+  background: rgba(59, 130, 246, 0.18) !important;
+  border-color: rgba(59, 130, 246, 0.7) !important;
+  color: #60a5fa !important;
 }
 
 @media (max-width: 900px) {
   .header {
-    padding: 16px 20px;
+    padding: 0 20px;
   }
 
   .nav {
-    gap: 16px;
+    gap: 2px;
   }
 
   .nav a {
-    font-size: 14px;
+    font-size: 13px;
+    padding: 5px 10px;
   }
 }
 
 @media (max-width: 640px) {
   .header {
-    padding: 14px 16px;
+    height: auto;
+    padding: 12px 16px;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
   }
 
   .logo {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .nav {
     width: 100%;
-    gap: 10px;
     flex-wrap: wrap;
+    gap: 2px;
   }
 
   .nav a {
-    font-size: 13px;
+    font-size: 12px;
+    padding: 4px 8px;
   }
 }
