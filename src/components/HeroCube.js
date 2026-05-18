@@ -78,24 +78,10 @@ export default function HeroCube() {
       {/* Ambient glow */}
       <div className={styles.glow} />
 
-      {/* Orbital rings */}
-      <div className={styles.orbit1}>
-        <div className={styles.dotTrack}>
-          <div className={`${styles.dot} ${styles.dotBlue}`} />
-        </div>
-      </div>
-
-      <div className={styles.orbit2}>
-        <div className={`${styles.dotTrack} ${styles.dotTrackReverse}`}>
-          <div className={`${styles.dot} ${styles.dotCyan}`} />
-        </div>
-      </div>
-
-      <div className={styles.orbit3}>
-        <div className={`${styles.dotTrack} ${styles.dotTrackSlow}`}>
-          <div className={`${styles.dot} ${styles.dotBlue}`} />
-        </div>
-      </div>
+      {/* Floating particles */}
+      {["p1","p2","p3","p4","p5","p6","p7","p8","p9","p10","p11","p12"].map((p) => (
+        <div key={p} className={`${styles.particle} ${styles[p]}`} />
+      ))}
 
       {/* 3D Cube */}
       <div className={styles.cubeScene}>
