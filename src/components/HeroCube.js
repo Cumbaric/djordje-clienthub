@@ -82,7 +82,7 @@ export default function HeroCube() {
   const rotRef = useRef({ x: -18, y: 0 });
   const isDragging = useRef(false);
   const isSnapping = useRef(false);
-  const dragStart = useRef({ px: 0, py: 0, rx: -18, ry: 0 });
+  const lastPointer = useRef({ x: 0, y: 0 });
   const rafRef = useRef(null);
   const lastTimeRef = useRef(null);
 
@@ -119,21 +119,17 @@ export default function HeroCube() {
     isSnapping.current = false;
     setDragging(true);
     setSnapping(false);
-    dragStart.current = {
-      px: e.clientX,
-      py: e.clientY,
-      rx: rotRef.current.x,
-      ry: rotRef.current.y,
-    };
+    lastPointer.current = { x: e.clientX, y: e.clientY };
   }, []);
 
   const onPointerMove = useCallback((e) => {
     if (!isDragging.current) return;
-    const dx = e.clientX - dragStart.current.px;
-    const dy = e.clientY - dragStart.current.py;
+    const dx = e.clientX - lastPointer.current.x;
+    const dy = e.clientY - lastPointer.current.y;
+    lastPointer.current = { x: e.clientX, y: e.clientY };
     const next = {
-      x: Math.max(-90, Math.min(90, dragStart.current.rx + dy * 0.4)),
-      y: dragStart.current.ry + dx * 0.5,
+      x: Math.max(-90, Math.min(90, rotRef.current.x + dy * 0.4)),
+      y: rotRef.current.y + dx * 0.5,
     };
     rotRef.current = next;
     setRot({ ...next });
