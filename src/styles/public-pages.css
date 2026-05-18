@@ -1186,3 +1186,185 @@
     padding: 24px;
   }
 }
+
+/* ============================================
+   SHARED PRIMARY BUTTON MICROINTERACTIONS
+   ============================================ */
+
+.public-layout .projects-cta-actions a:not(.projects-cta-secondary),
+.public-layout .services-cta-actions a:not(.services-cta-secondary),
+.public-layout .process-cta-actions a:not(.process-cta-secondary),
+.public-layout .contact-cta-actions a:not(.contact-cta-secondary),
+.public-layout .case-study-cta-actions a:not(.case-study-cta-secondary),
+.public-layout .case-study-button,
+.public-layout .contact-main-card a {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+/* Shimmer sweep na hover */
+.public-layout .projects-cta-actions a:not(.projects-cta-secondary)::after,
+.public-layout .services-cta-actions a:not(.services-cta-secondary)::after,
+.public-layout .process-cta-actions a:not(.process-cta-secondary)::after,
+.public-layout .contact-cta-actions a:not(.contact-cta-secondary)::after,
+.public-layout .case-study-cta-actions a:not(.case-study-cta-secondary)::after,
+.public-layout .case-study-button::after,
+.public-layout .contact-main-card a::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.public-layout .projects-cta-actions a:not(.projects-cta-secondary):hover::after,
+.public-layout .services-cta-actions a:not(.services-cta-secondary):hover::after,
+.public-layout .process-cta-actions a:not(.process-cta-secondary):hover::after,
+.public-layout .contact-cta-actions a:not(.contact-cta-secondary):hover::after,
+.public-layout .case-study-cta-actions a:not(.case-study-cta-secondary):hover::after,
+.public-layout .case-study-button:hover::after,
+.public-layout .contact-main-card a:hover::after {
+  left: 150%;
+}
+
+/* Hover lift + glow */
+.public-layout .projects-cta-actions a:not(.projects-cta-secondary):hover,
+.public-layout .services-cta-actions a:not(.services-cta-secondary):hover,
+.public-layout .process-cta-actions a:not(.process-cta-secondary):hover,
+.public-layout .contact-cta-actions a:not(.contact-cta-secondary):hover,
+.public-layout .case-study-cta-actions a:not(.case-study-cta-secondary):hover,
+.public-layout .case-study-button:hover,
+.public-layout .contact-main-card a:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 0 28px rgba(59, 130, 246, 0.5);
+}
+
+/* Active scale down */
+.public-layout .projects-cta-actions a:active,
+.public-layout .services-cta-actions a:active,
+.public-layout .process-cta-actions a:active,
+.public-layout .contact-cta-actions a:active,
+.public-layout .case-study-cta-actions a:active,
+.public-layout .case-study-button:active,
+.public-layout .contact-main-card a:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+/* Secondary button glass refinement */
+.projects-cta-secondary,
+.services-cta-secondary,
+.process-cta-secondary,
+.case-study-cta-secondary {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ============================================
+   CARD RADIAL GLOW (::before pseudo-element)
+   ============================================ */
+
+.project-card,
+.project-card-link,
+.service-list-card,
+.process-card,
+.contact-fit-card,
+.case-study-meta > div,
+.case-study-grid > article {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before,
+.project-card-link::before,
+.service-list-card::before,
+.process-card::before,
+.contact-fit-card::before,
+.case-study-meta > div::before,
+.case-study-grid > article::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.project-card:hover::before,
+.project-card-link:hover::before,
+.service-list-card:hover::before,
+.process-card:hover::before,
+.contact-fit-card:hover::before,
+.case-study-meta > div:hover::before,
+.case-study-grid > article:hover::before {
+  opacity: 1;
+}
+
+/* Sadržaj kartica ostaje iznad ::before */
+.project-card > *,
+.project-card-link > *,
+.service-list-card > *,
+.process-card > *,
+.contact-fit-card > *,
+.case-study-meta > div > *,
+.case-study-grid > article > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   PREFERS-REDUCED-MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hidden {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .scroll-revealed {
+    opacity: 1;
+    transform: none;
+  }
+
+  .project-card,
+  .project-card-link,
+  .service-list-card,
+  .process-card,
+  .contact-fit-card,
+  .case-study-meta > div,
+  .case-study-grid > article {
+    transition: border-color 0.2s ease;
+  }
+
+  .project-card::before,
+  .project-card-link::before,
+  .service-list-card::before,
+  .process-card::before,
+  .contact-fit-card::before,
+  .case-study-meta > div::before,
+  .case-study-grid > article::before {
+    display: none;
+  }
+
+  .public-layout .projects-cta-actions a::after,
+  .public-layout .services-cta-actions a::after,
+  .public-layout .process-cta-actions a::after,
+  .public-layout .contact-cta-actions a::after,
+  .public-layout .case-study-cta-actions a::after,
+  .public-layout .case-study-button::after,
+  .public-layout .contact-main-card a::after {
+    display: none;
+  }
+}

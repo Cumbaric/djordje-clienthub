@@ -411,3 +411,88 @@
     border-radius: 24px;
   }
 }
+
+/* ============================================
+   BUTTON MICROINTERACTIONS (HOME PAGE)
+   ============================================ */
+
+.primaryButton {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+.primaryButton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.primaryButton:hover::after {
+  left: 150%;
+}
+
+/* ============================================
+   CARD RADIAL GLOW (HOME PAGE)
+   ============================================ */
+
+.projectCard,
+.techCard,
+.heroCard {
+  position: relative;
+  overflow: hidden;
+}
+
+.projectCard::before,
+.techCard::before,
+.heroCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.projectCard:hover::before,
+.techCard:hover::before,
+.heroCard:hover::before {
+  opacity: 1;
+}
+
+.projectCard > *,
+.techCard > *,
+.heroCard > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   PREFERS-REDUCED-MOTION (HOME PAGE)
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryButton::after,
+  .projectCard::before,
+  .techCard::before,
+  .heroCard::before {
+    display: none;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .projectCard,
+  .techCard {
+    transition: none;
+  }
+}
