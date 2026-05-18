@@ -89,18 +89,21 @@
   perspective: 700px;
   width: 180px;
   height: 180px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .cube {
   width: 180px;
   height: 180px;
   transform-style: preserve-3d;
-  animation: spinCube 20s linear infinite;
+  /* rotation is driven by JS — no CSS animation */
 }
 
-@keyframes spinCube {
-  0%   { transform: rotateX(-18deg) rotateY(0deg); }
-  100% { transform: rotateX(-18deg) rotateY(360deg); }
+/* Smooth snap-to-face transition on pointer release */
+.cubeSnap {
+  transition: transform 0.48s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* ── Faces ─────────────────────────────────── */
@@ -211,10 +214,8 @@
     animation: none;
   }
 
-  .cube {
-    animation: none;
-    transform: rotateX(-18deg) rotateY(25deg);
-  }
+  /* JS auto-spin is skipped via matchMedia check in component */
+  /* Cube stays at its initial transform: rotateX(-18deg) rotateY(0deg) */
 
   .particle {
     animation: none;

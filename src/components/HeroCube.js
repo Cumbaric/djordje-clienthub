@@ -1,3 +1,5 @@
+"use client";
+import { useRef, useState, useEffect, useCallback } from "react";
 import styles from "./HeroCube.module.css";
 
 const faces = [
@@ -73,6 +75,90 @@ const faces = [
 ];
 
 export default function HeroCube() {
+  const [rot, setRot] = useState({ x: -18, y: 0 });
+  const [dragging, setDragging] = useState(false);
+  const [snapping, setSnapping] = useState(false);
+
+  const rotRef = useRef({ x: -18, y: 0 });
+  const isDragging = useRef(false);
+  const isSnapping = useRef(false);
+  const dragStart = useRef({ px: 0, py: 0, rx: -18, ry: 0 });
+  const rafRef = useRef(null);
+  const lastTimeRef = useRef(null);
+
+  // Auto-spin via RAF — pauses while dragging or snapping
+  useEffect(() => {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
+
+    function frame(t) {
+      if (!isDragging.current && !isSnapping.current) {
+        if (lastTimeRef.current !== null) {
+          const dt = t - lastTimeRef.current;
+          rotRef.current = {
+            x: rotRef.current.x,
+            y: rotRef.current.y + dt * 0.018, // ~18 deg/s
+          };
+          setRot({ ...rotRef.current });
+        }
+        lastTimeRef.current = t;
+      } else {
+        lastTimeRef.current = null;
+      }
+      rafRef.current = requestAnimationFrame(frame);
+    }
+
+    rafRef.current = requestAnimationFrame(frame);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, []);
+
+  const onPointerDown = useCallback((e) => {
+    e.preventDefault();
+    e.currentTarget.setPointerCapture(e.pointerId);
+    isDragging.current = true;
+    isSnapping.current = false;
+    setDragging(true);
+    setSnapping(false);
+    dragStart.current = {
+      px: e.clientX,
+      py: e.clientY,
+      rx: rotRef.current.x,
+      ry: rotRef.current.y,
+    };
+  }, []);
+
+  const onPointerMove = useCallback((e) => {
+    if (!isDragging.current) return;
+    const dx = e.clientX - dragStart.current.px;
+    const dy = e.clientY - dragStart.current.py;
+    const next = {
+      x: Math.max(-90, Math.min(90, dragStart.current.rx + dy * 0.4)),
+      y: dragStart.current.ry + dx * 0.5,
+    };
+    rotRef.current = next;
+    setRot({ ...next });
+  }, []);
+
+  const onPointerUp = useCallback(() => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+    setDragging(false);
+
+    // Snap to nearest face (multiples of 90°)
+    const snapX = Math.max(-90, Math.min(90, Math.round(rotRef.current.x / 90) * 90));
+    const snapY = Math.round(rotRef.current.y / 90) * 90;
+
+    isSnapping.current = true;
+    setSnapping(true);
+    rotRef.current = { x: snapX, y: snapY };
+    setRot({ x: snapX, y: snapY });
+
+    setTimeout(() => {
+      isSnapping.current = false;
+      setSnapping(false);
+    }, 480);
+  }, []);
+
   return (
     <div className={styles.scene} aria-hidden="true">
       {/* Ambient glow */}
@@ -83,9 +169,19 @@ export default function HeroCube() {
         <div key={p} className={`${styles.particle} ${styles[p]}`} />
       ))}
 
-      {/* 3D Cube */}
-      <div className={styles.cubeScene}>
-        <div className={styles.cube}>
+      {/* 3D Cube — drag to rotate */}
+      <div
+        className={styles.cubeScene}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerLeave={onPointerUp}
+        style={{ cursor: dragging ? "grabbing" : "grab" }}
+      >
+        <div
+          className={`${styles.cube} ${snapping ? styles.cubeSnap : ""}`}
+          style={{ transform: `rotateX(${rot.x}deg) rotateY(${rot.y}deg)` }}
+        >
           {faces.map((face) => (
             <div
               key={face.id}
