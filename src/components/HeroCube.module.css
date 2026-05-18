@@ -45,9 +45,14 @@
   border: 1px solid rgba(59, 130, 246, 0.18);
 }
 
+/* Gotovo horizontalna — vidi se kao tanka elipsa odozdo */
 .orbit1 { transform: perspective(500px) rotateX(72deg); }
-.orbit2 { transform: perspective(500px) rotateX(72deg) rotateZ(55deg); }
-.orbit3 { transform: perspective(500px) rotateX(72deg) rotateZ(110deg); }
+
+/* Blago nagnuta prema gledaocu — jasno vidljiva elipsa sa prednje strane */
+.orbit2 { transform: perspective(500px) rotateX(22deg); }
+
+/* Dijagonalna — ide koso oko kocke */
+.orbit3 { transform: perspective(500px) rotateX(50deg) rotateZ(35deg); }
 
 /* Rotating wrapper carries the dot around the ring */
 .dotTrack {
