@@ -1,4 +1,5 @@
 import Link from "next/link";
+import HeroGlow from "./HeroGlow";
 import styles from "./PublicFooter.module.css";
 
 const CONTENT = {
@@ -67,6 +68,9 @@ export default function PublicFooter({ lang }) {
     <footer className={styles.footer}>
       {/* Decorative blueprint grid */}
       <div className={styles.footerBg} aria-hidden="true" />
+
+      {/* Cursor grid spotlight */}
+      <HeroGlow />
 
       {/* Main content */}
       <div className={styles.footerInner}>
