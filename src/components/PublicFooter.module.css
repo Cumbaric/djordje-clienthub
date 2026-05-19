@@ -111,14 +111,32 @@
 }
 
 .colLink {
+  position: relative;
   color: #475569;
   font-size: 14px;
   font-weight: 500;
   transition: color 0.2s ease;
 }
 
+.colLink::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 1.5px;
+  background: #3b82f6;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.25s ease;
+}
+
 .colLink:hover {
   color: #94a3b8;
+}
+
+.colLink:hover::after {
+  width: 100%;
 }
 
 .colItem {

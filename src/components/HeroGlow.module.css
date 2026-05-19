@@ -6,25 +6,9 @@
   opacity: 0;
   transition: opacity 0.5s ease;
 
-  /* Bright grid — identical pattern to hero background, higher opacity */
+  /* Bright grid — mask-image set via JS inline style */
   background-image:
     linear-gradient(rgba(59, 130, 246, 0.45) 1px, transparent 1px),
     linear-gradient(90deg, rgba(59, 130, 246, 0.45) 1px, transparent 1px);
   background-size: 48px 48px;
-
-  /* Mask reveals only the area around the cursor */
-  mask-image: radial-gradient(
-    circle 180px at var(--gx, -999px) var(--gy, -999px),
-    black 0%,
-    transparent 100%
-  );
-  -webkit-mask-image: radial-gradient(
-    circle 180px at var(--gx, -999px) var(--gy, -999px),
-    black 0%,
-    transparent 100%
-  );
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .glow { display: none; }
 }
