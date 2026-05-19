@@ -1,3 +1,4 @@
+import HeroGlow from "./HeroGlow";
 import styles from "./PageHero.module.css";
 
 export default function PageHero({
@@ -24,7 +25,7 @@ export default function PageHero({
         <div className={styles.heroOrbPrimary} />
         <div className={styles.heroOrbSecondary} />
       </div>
-
+      <HeroGlow />
       {/* Content */}
       <div className={styles.heroContent}>
         {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}

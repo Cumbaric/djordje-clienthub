@@ -12,7 +12,7 @@ export default function HeroGlow() {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) return;
 
-    const hero = el.parentElement;
+    const hero = el.closest("[data-glow-container]") ?? el.parentElement;
 
     const onMove = (e) => {
       const rect = hero.getBoundingClientRect();

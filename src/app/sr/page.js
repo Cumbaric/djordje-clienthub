@@ -7,6 +7,7 @@ import { serviceLabels } from "@/data/services";
 import { techStackContent } from "@/data/techStack";
 import { positioning } from "@/data/positioning";
 import styles from "../(public)/page.module.css";
+import HeroGlow from "@/components/HeroGlow";
 
 export const metadata = {
   title: "Đorđe Popović | WordPress developer i SEO-focused izrada sajtova",
@@ -28,7 +29,8 @@ const tech = techStackContent.sr;
 export default function Home() {
   return (
     <main className={styles.homePage}>
-      <section className={styles.hero}>
+      <section className={styles.hero} data-glow-container>
+        <HeroGlow />
         <div className={styles.heroGrid}>
           <div className={styles.heroContent}>
             <p className={styles.eyebrow}>Djordje ClientHub</p>
@@ -71,7 +73,9 @@ export default function Home() {
           {featuredProjects.map((project) => (
             <Link
               key={project.title}
-              href={project.slug ? `/sr/projekti/${project.slug}` : "/sr/projekti"}
+              href={
+                project.slug ? `/sr/projekti/${project.slug}` : "/sr/projekti"
+              }
               className={styles.projectCard}
             >
               <p className={styles.cardType}>{project.type}</p>
@@ -83,10 +87,7 @@ export default function Home() {
       </section>
 
       <section className={styles.section}>
-        <SectionHeader
-          label={tech.eyebrow}
-          title={tech.title}
-        />
+        <SectionHeader label={tech.eyebrow} title={tech.title} />
         <p className={styles.sectionDescription}>{tech.description}</p>
 
         <div className={styles.techGrid}>

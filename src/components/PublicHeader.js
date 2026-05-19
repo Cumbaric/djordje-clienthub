@@ -108,7 +108,7 @@ export default function PublicHeader({ lang }) {
               {switchLabel}
             </Link>
           )}
-          <Link href="/login" className={styles.navLink}>
+          <Link href="/login" className={styles.navLogin}>
             Login
           </Link>
         </nav>

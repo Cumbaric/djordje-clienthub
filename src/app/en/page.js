@@ -7,6 +7,7 @@ import { serviceLabels } from "@/data/services";
 import { techStackContent } from "@/data/techStack";
 import { positioning } from "@/data/positioning";
 import styles from "../(public)/page.module.css";
+import HeroGlow from "@/components/HeroGlow";
 
 export const metadata = {
   title: "Đorđe Popović | WordPress Developer & SEO-focused Website Builder",
@@ -28,7 +29,8 @@ const tech = techStackContent.en;
 export default function Home() {
   return (
     <main className={styles.homePage}>
-      <section className={styles.hero}>
+      <section className={styles.hero} data-glow-container>
+         <HeroGlow /> 
         <div className={styles.heroGrid}>
           <div className={styles.heroContent}>
             <p className={styles.eyebrow}>Djordje ClientHub</p>
@@ -52,6 +54,7 @@ export default function Home() {
             <HeroCube />
           </div>
         </div>
+        <div className={styles.heroBottomFade} aria-hidden="true" /> 
       </section>
 
       <section className={styles.introSection}>

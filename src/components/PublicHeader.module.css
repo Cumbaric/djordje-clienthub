@@ -115,6 +115,23 @@
   transition: all 0.2s ease !important;
 }
 
+.navLogin {
+  margin-left: 6px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  font-size: 14px;
+  font-weight: 600;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.navLogin:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  color: #f1f5f9;
+  background: rgba(59, 130, 246, 0.08);
+}
+
 .langSwitch:hover {
   background: rgba(59, 130, 246, 0.18) !important;
   border-color: rgba(59, 130, 246, 0.7) !important;

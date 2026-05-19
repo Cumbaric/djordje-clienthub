@@ -65,7 +65,7 @@ export default function PublicFooter({ lang }) {
   const c = CONTENT[lang] ?? CONTENT.en;
 
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} data-glow-container>
       {/* Decorative blueprint grid */}
       <div className={styles.footerBg} aria-hidden="true" />
 
