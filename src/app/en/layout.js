@@ -1,4 +1,5 @@
 import PublicHeader from "@/components/PublicHeader";
+import PublicFooter from "@/components/PublicFooter";
 import ScrollAnimator from "@/components/ScrollAnimator";
 import "@/styles/public-pages.css";
 
@@ -8,6 +9,7 @@ export default function EnLayout({ children }) {
       <PublicHeader lang="en" />
       <ScrollAnimator />
       {children}
+      <PublicFooter lang="en" />
     </div>
   );
 }
