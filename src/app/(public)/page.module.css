@@ -233,7 +233,8 @@
   padding: 72px 24px;
 }
 
-/* About section — 2-column inner grid */
+/* ── About section ── */
+
 .introSection {
   border-top: 1px solid rgba(30, 30, 46, 0.7);
 }
@@ -243,126 +244,261 @@
   margin: 0 auto;
   padding: 72px 24px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 72px;
-  align-items: center;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 56px;
+  align-items: start;
 }
 
-/* Left column — text stays default flow */
+/* ── Left column ── */
+
 .introText {
   display: flex;
   flex-direction: column;
 }
 
-/* Right column — visual */
-.introVisual {
+.aboutHeading {
+  margin: 12px 0 20px;
+  color: #f1f5f9;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.aboutHeadingAccent {
+  color: #3b82f6;
+}
+
+.aboutDesc {
+  margin: 0 0 20px;
+  color: #94a3b8;
+  font-size: 17px;
+  line-height: 1.75;
+  max-width: 520px;
+}
+
+.aboutQuote {
+  margin: 0 0 32px;
+  padding-left: 16px;
+  border-left: 2px solid rgba(59, 130, 246, 0.4);
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* Feature pills — 3 column grid */
+.featurePills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.featurePill {
+  padding: 14px 12px;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  border-radius: 12px;
+  background: rgba(59, 130, 246, 0.03);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.featurePill:hover {
+  border-color: rgba(59, 130, 246, 0.22);
+  background: rgba(59, 130, 246, 0.06);
+}
+
+.featurePillIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #60a5fa;
+  margin-bottom: 10px;
 }
 
-/* ── Highlights card ── */
+.featurePillIcon svg {
+  width: 15px;
+  height: 15px;
+}
 
-.introCard {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-  padding: 32px;
-  border-radius: 24px;
-  border: 1px solid rgba(59, 130, 246, 0.18);
-  background: rgba(10, 16, 50, 0.35);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+.featurePillTitle {
+  margin: 0 0 4px;
+  color: #e2e8f0;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.featurePillDesc {
+  margin: 0;
+  color: #475569;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* ── Right column — card stack ── */
+
+.introVisual {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.aboutCard {
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  border-radius: 14px;
+  background: #0f0f1a;
   overflow: hidden;
+  transition: border-color 0.25s ease;
 }
 
-/* Blueprint grid inside card */
-.introCard::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
-  background-size: 28px 28px;
-  pointer-events: none;
-  z-index: 0;
+.aboutCard:hover {
+  border-color: rgba(59, 130, 246, 0.22);
 }
 
-/* Top-right glow inside card */
-.introCard::after {
-  content: "";
-  position: absolute;
-  top: -60px;
-  right: -60px;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(59, 130, 246, 0.14) 0%,
-    transparent 70%
-  );
-  pointer-events: none;
-  z-index: 0;
+.aboutCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.07);
 }
 
-.introCardLabel {
-  position: relative;
-  z-index: 1;
-  margin: 0 0 24px;
+.aboutCardNum {
   color: #3b82f6;
   font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
 }
 
-.introCardList {
+.aboutCardTitle {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Card 01 — workspace image */
+.aboutCardImg {
   position: relative;
-  z-index: 1;
-  list-style: none;
-  margin: 0 0 28px;
-  padding: 0;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.aboutCardImg img {
+  transition: transform 0.5s ease;
+}
+
+.aboutCard:hover .aboutCardImg img {
+  transform: scale(1.02);
+}
+
+/* Card 02 — workflow */
+.workflowSteps {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  padding: 14px 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.workflowSteps::-webkit-scrollbar {
+  display: none;
+}
+
+.workflowStep {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-}
-
-.introCardItem {
-  display: flex;
   align-items: center;
-  gap: 12px;
-  color: #cbd5e1;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.4;
+  gap: 6px;
+  flex: 1;
+  min-width: 44px;
+  text-align: center;
 }
 
-.introCardIcon {
-  flex-shrink: 0;
-  width: 20px;
-  height: 20px;
+.workflowStepIcon {
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  background: rgba(59, 130, 246, 0.15);
-  border: 1px solid rgba(59, 130, 246, 0.3);
+  border: 1.5px solid rgba(59, 130, 246, 0.3);
+  background: rgba(59, 130, 246, 0.07);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #60a5fa;
 }
 
-.introCardIcon svg {
-  width: 11px;
-  height: 11px;
+.workflowStepIcon svg {
+  width: 14px;
+  height: 14px;
 }
 
+.workflowStepLabel {
+  color: #64748b;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+}
+
+.workflowArrow {
+  flex-shrink: 0;
+  margin-top: 10px;
+  padding: 0 2px;
+  color: #1e293b;
+  font-size: 14px;
+}
+
+/* Card row — 02 + 03 side by side */
+.aboutCardRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Card 03 — skills */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 10px 12px 12px;
+}
+
+.skillBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 7px;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  background: rgba(59, 130, 246, 0.04);
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.skillDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3b82f6;
+  flex-shrink: 0;
+}
+
+/* Status badge */
 .introCardStatus {
-  position: relative;
-  z-index: 1;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  margin-top: 28px;
   padding: 7px 14px;
   border-radius: 999px;
   border: 1px solid rgba(34, 197, 94, 0.2);
@@ -370,6 +506,7 @@
   color: #4ade80;
   font-size: 13px;
   font-weight: 600;
+  width: fit-content;
 }
 
 .introCardStatusDot {
@@ -386,11 +523,35 @@
   50%       { opacity: 0.5; transform: scale(0.75); }
 }
 
-/* Responsive — intro section */
+/* Responsive — about section */
+@media (max-width: 1024px) {
+  .aboutHeading {
+    font-size: 40px;
+  }
+
+  .featurePills {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 900px) {
   .introInner {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+
+  .aboutHeading {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .featurePills {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutCardRow {
+    grid-template-columns: 1fr;
   }
 }
 

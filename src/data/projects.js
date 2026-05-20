@@ -2,7 +2,7 @@ export const projects = [
   {
     title: "Wellness Concept",
     slug: "wellness-concept",
-    coverImage: "/projects/Wellness_Concept_1.png",
+    coverImage: "/Projects/Wellness_Concept_1.png",
     type: "WordPress / Elementor / SEO / Performance",
     category: "WordPress / Elementor / SEO / Performance",
     status: "Active project",
