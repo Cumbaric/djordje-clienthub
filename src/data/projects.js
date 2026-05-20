@@ -16,7 +16,7 @@ export const projects = [
   },
   {
     title: "Olivera Popović Edu",
-    slug: null,
+    slug: "olivera-popovic-edu",
     coverImage: "/Projects/Olvera_Popovic_1.png",
     type: "WordPress / Education / SEO structure",
     category: "WordPress / Education Website",
@@ -31,7 +31,7 @@ export const projects = [
   },
   {
     title: "BoomMil",
-    slug: null,
+    slug: "boommil",
     coverImage: null,
     type: "WooCommerce / WordPress / Product structure",
     category: "WooCommerce / Product SEO",
@@ -46,7 +46,7 @@ export const projects = [
   },
   {
     title: "MirkoTopalovićTips",
-    slug: null,
+    slug: "mirko-topalovic-tips",
     coverImage: null,
     type: "WordPress / Content structure / Sports tips platform",
     category: "WordPress / Content Structure",
@@ -61,7 +61,7 @@ export const projects = [
   },
   {
     title: "Djordje ClientHub",
-    slug: null,
+    slug: "djordje-clienthub",
     coverImage: null,
     type: "Next.js / React / Dashboard / Internal Tool",
     category: "Next.js / React / Dashboard",
