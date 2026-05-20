@@ -59,6 +59,7 @@ export default function Home() {
 
       {/* ── O meni / Intro ── */}
       <section className={styles.introSection}>
+        <div className={styles.introInner}>
         <div className={styles.introText}>
           <p className={styles.sectionLabel}>O meni</p>
           <h2>Pravim praktična web rešenja za male biznise i freelance rad.</h2>
@@ -92,10 +93,11 @@ export default function Home() {
             </span>
           </div>
         </div>
+        </div>
       </section>
 
-      {/* ── Work showcase strip ── */}
-      <section className={styles.workSection}>
+      {/* ── Work showcase strip — alt bg ── */}
+      <section className={`${styles.workSection} ${styles.sectionAlt}`}>
         <div className={styles.workSectionHeader}>
           <p className={styles.sectionLabel}>Radovi</p>
           <h2>Projekti koji govore sami za sebe</h2>
@@ -143,62 +145,71 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Projekti — base bg */}
       <section className={styles.section}>
-        <SectionHeader
-          label="Projekti"
-          title="Izdvojeni projekti"
-          link={{ href: "/sr/projekti", text: "Svi projekti" }}
-        />
+        <div className={styles.sectionInner}>
+          <SectionHeader
+            label="Projekti"
+            title="Izdvojeni projekti"
+            link={{ href: "/sr/projekti", text: "Svi projekti" }}
+          />
 
-        <div className={styles.projectGrid}>
-          {featuredProjects.map((project) => (
-            <Link
-              key={project.title}
-              href={
-                project.slug ? `/sr/projekti/${project.slug}` : "/sr/projekti"
-              }
-              className={styles.projectCard}
-            >
-              <p className={styles.cardType}>{project.type}</p>
-              <h3>{project.title}</h3>
-              <p className={styles.cardDescription}>{project.description}</p>
-            </Link>
-          ))}
+          <div className={styles.projectGrid}>
+            {featuredProjects.map((project) => (
+              <Link
+                key={project.title}
+                href={
+                  project.slug ? `/sr/projekti/${project.slug}` : "/sr/projekti"
+                }
+                className={styles.projectCard}
+              >
+                <p className={styles.cardType}>{project.type}</p>
+                <h3>{project.title}</h3>
+                <p className={styles.cardDescription}>{project.description}</p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
+      {/* Tech Stack — alt bg */}
+      <section className={`${styles.section} ${styles.sectionAlt}`}>
+        <div className={styles.sectionInner}>
+          <SectionHeader label={tech.eyebrow} title={tech.title} />
+          <p className={styles.sectionDescription}>{tech.description}</p>
+
+          <div className={styles.techGrid}>
+            {tech.groups.map((group) => (
+              <article key={group.title} className={styles.techCard}>
+                <h3>{group.title}</h3>
+
+                <div className={styles.techItems}>
+                  {group.items.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Usluge — base bg */}
       <section className={styles.section}>
-        <SectionHeader label={tech.eyebrow} title={tech.title} />
-        <p className={styles.sectionDescription}>{tech.description}</p>
+        <div className={styles.sectionInner}>
+          <SectionHeader
+            label="Usluge"
+            title="Usluge koje mogu da ponudim klijentima"
+            link={{ href: "/sr/usluge", text: "Detaljnije" }}
+          />
 
-        <div className={styles.techGrid}>
-          {tech.groups.map((group) => (
-            <article key={group.title} className={styles.techCard}>
-              <h3>{group.title}</h3>
-
-              <div className={styles.techItems}>
-                {group.items.map((item) => (
-                  <span key={item}>{item}</span>
-                ))}
+          <div className={styles.servicesGrid}>
+            {serviceLabels.map((service) => (
+              <div key={service} className={styles.serviceItem}>
+                {service}
               </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <SectionHeader
-          label="Usluge"
-          title="Usluge koje mogu da ponudim klijentima"
-          link={{ href: "/sr/usluge", text: "Detaljnije" }}
-        />
-
-        <div className={styles.servicesGrid}>
-          {serviceLabels.map((service) => (
-            <div key={service} className={styles.serviceItem}>
-              {service}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 

@@ -60,6 +60,7 @@ export default function Home() {
 
       {/* ── About / Intro ── */}
       <section className={styles.introSection}>
+        <div className={styles.introInner}>
         <div className={styles.introText}>
           <p className={styles.sectionLabel}>About</p>
           <h2>I build practical web solutions for small businesses and freelance work.</h2>
@@ -93,10 +94,11 @@ export default function Home() {
             </span>
           </div>
         </div>
+        </div>
       </section>
 
-      {/* ── Work showcase strip ── */}
-      <section className={styles.workSection}>
+      {/* ── Work showcase strip — alt bg ── */}
+      <section className={`${styles.workSection} ${styles.sectionAlt}`}>
         <div className={styles.workSectionHeader}>
           <p className={styles.sectionLabel}>Recent Work</p>
           <h2>Projects that speak for themselves</h2>
@@ -144,65 +146,74 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Projects — base bg */}
       <section className={styles.section}>
-        <SectionHeader
-          label="Projects"
-          title="Featured projects"
-          link={{ href: "/en/projects", text: "All projects" }}
-        />
+        <div className={styles.sectionInner}>
+          <SectionHeader
+            label="Projects"
+            title="Featured projects"
+            link={{ href: "/en/projects", text: "All projects" }}
+          />
 
-        <div className={styles.projectGrid}>
-          {featuredProjects.map((project) => (
-            <Link
-              key={project.title}
-              href={project.slug ? `/en/projects/${project.slug}` : "/en/projects"}
-              className={styles.projectCard}
-            >
-              <p className={styles.cardType}>{project.type}</p>
-              <h3>{project.title}</h3>
-              <p className={styles.cardDescription}>
-                {project.descriptionEn || project.description}
-              </p>
-            </Link>
-          ))}
+          <div className={styles.projectGrid}>
+            {featuredProjects.map((project) => (
+              <Link
+                key={project.title}
+                href={project.slug ? `/en/projects/${project.slug}` : "/en/projects"}
+                className={styles.projectCard}
+              >
+                <p className={styles.cardType}>{project.type}</p>
+                <h3>{project.title}</h3>
+                <p className={styles.cardDescription}>
+                  {project.descriptionEn || project.description}
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
+      {/* Tech Stack — alt bg */}
+      <section className={`${styles.section} ${styles.sectionAlt}`}>
+        <div className={styles.sectionInner}>
+          <SectionHeader
+            label={tech.eyebrow}
+            title={tech.title}
+          />
+          <p className={styles.sectionDescription}>{tech.description}</p>
+
+          <div className={styles.techGrid}>
+            {tech.groups.map((group) => (
+              <article key={group.title} className={styles.techCard}>
+                <h3>{group.title}</h3>
+
+                <div className={styles.techItems}>
+                  {group.items.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services — base bg */}
       <section className={styles.section}>
-        <SectionHeader
-          label={tech.eyebrow}
-          title={tech.title}
-        />
-        <p className={styles.sectionDescription}>{tech.description}</p>
+        <div className={styles.sectionInner}>
+          <SectionHeader
+            label="Services"
+            title="Services I can offer clients"
+            link={{ href: "/en/services", text: "Learn more" }}
+          />
 
-        <div className={styles.techGrid}>
-          {tech.groups.map((group) => (
-            <article key={group.title} className={styles.techCard}>
-              <h3>{group.title}</h3>
-
-              <div className={styles.techItems}>
-                {group.items.map((item) => (
-                  <span key={item}>{item}</span>
-                ))}
+          <div className={styles.servicesGrid}>
+            {serviceLabels.map((service) => (
+              <div key={service} className={styles.serviceItem}>
+                {service}
               </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <SectionHeader
-          label="Services"
-          title="Services I can offer clients"
-          link={{ href: "/en/services", text: "Learn more" }}
-        />
-
-        <div className={styles.servicesGrid}>
-          {serviceLabels.map((service) => (
-            <div key={service} className={styles.serviceItem}>
-              {service}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 

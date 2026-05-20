@@ -214,16 +214,34 @@
 
 /* GENERAL SECTIONS */
 
+/* Full-width section wrappers */
 .introSection,
 .section,
 .ctaSection {
+  width: 100%;
+}
+
+/* Alternating background */
+.sectionAlt {
+  background: #070b18;
+}
+
+/* Max-width content wrappers */
+.sectionInner {
   max-width: 1180px;
   margin: 0 auto;
   padding: 72px 24px;
 }
 
+/* About section — 2-column inner grid */
 .introSection {
-  border-top: 1px solid #1e1e2e;
+  border-top: 1px solid rgba(30, 30, 46, 0.7);
+}
+
+.introInner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 72px 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 72px;
@@ -370,14 +388,14 @@
 
 /* Responsive — intro section */
 @media (max-width: 900px) {
-  .introSection {
+  .introInner {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 }
 
-.introSection h2,
-.section h2,
+.introInner h2,
+.sectionInner h2,
 .ctaSection h2 {
   max-width: 760px;
   margin: 0;
@@ -387,7 +405,7 @@
   letter-spacing: -0.03em;
 }
 
-.introSection p:not(.sectionLabel),
+.introInner p:not(.sectionLabel),
 .ctaSection p:not(.sectionLabel) {
   max-width: 760px;
   margin-top: 20px;
@@ -616,14 +634,17 @@
     font-size: 17px;
   }
 
-  .introSection,
-  .section,
+  .sectionInner,
+  .introInner {
+    padding: 56px 20px;
+  }
+
   .ctaSection {
     padding: 56px 20px;
   }
 
-  .introSection h2,
-  .section h2,
+  .introInner h2,
+  .sectionInner h2,
   .ctaSection h2 {
     font-size: 32px;
   }
