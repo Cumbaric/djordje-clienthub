@@ -17,7 +17,7 @@ export const projects = [
   {
     title: "Olivera Popović Edu",
     slug: null,
-    coverImage: null,
+    coverImage: "/Projects/Olvera_Popovic_1.png",
     type: "WordPress / Education / SEO structure",
     category: "WordPress / Education Website",
     status: "Portfolio project",
