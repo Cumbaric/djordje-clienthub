@@ -57,6 +57,43 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── O meni / Intro ── */}
+      <section className={styles.introSection}>
+        <div className={styles.introText}>
+          <p className={styles.sectionLabel}>O meni</p>
+          <h2>Pravim praktična web rešenja za male biznise i freelance rad.</h2>
+          <p>{pos.extendedDescription}</p>
+        </div>
+
+        <div className={styles.introVisual}>
+          <div className={styles.introCard}>
+            <p className={styles.introCardLabel}>Šta donosim</p>
+            <ul className={styles.introCardList}>
+              {[
+                "WordPress razvoj i Elementor",
+                "SEO struktura i on-page osnove",
+                "WooCommerce postavljanje proizvoda",
+                "Optimizacija brzine i performansi",
+                "AI-assisted workflow konsalting",
+              ].map((item) => (
+                <li key={item} className={styles.introCardItem}>
+                  <span className={styles.introCardIcon}>
+                    <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <span className={styles.introCardStatus}>
+              <span className={styles.introCardStatusDot} />
+              Dostupan za nove projekte
+            </span>
+          </div>
+        </div>
+      </section>
+
       {/* ── Work showcase strip ── */}
       <section className={styles.workSection}>
         <div className={styles.workSectionHeader}>
@@ -104,12 +141,6 @@ export default function Home() {
             );
           })}
         </div>
-      </section>
-
-      <section className={styles.introSection}>
-        <p className={styles.sectionLabel}>O meni</p>
-        <h2>Pravim praktična web rešenja za male biznise i freelance rad.</h2>
-        <p>{pos.extendedDescription}</p>
       </section>
 
       <section className={styles.section}>

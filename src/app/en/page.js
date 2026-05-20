@@ -58,6 +58,43 @@ export default function Home() {
         <div className={styles.heroBottomFade} aria-hidden="true" /> 
       </section>
 
+      {/* ── About / Intro ── */}
+      <section className={styles.introSection}>
+        <div className={styles.introText}>
+          <p className={styles.sectionLabel}>About</p>
+          <h2>I build practical web solutions for small businesses and freelance work.</h2>
+          <p>{pos.extendedDescription}</p>
+        </div>
+
+        <div className={styles.introVisual}>
+          <div className={styles.introCard}>
+            <p className={styles.introCardLabel}>What I bring</p>
+            <ul className={styles.introCardList}>
+              {[
+                "WordPress development & Elementor",
+                "SEO structure & on-page basics",
+                "WooCommerce product setup",
+                "Speed & performance optimization",
+                "AI-assisted workflow consulting",
+              ].map((item) => (
+                <li key={item} className={styles.introCardItem}>
+                  <span className={styles.introCardIcon}>
+                    <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <span className={styles.introCardStatus}>
+              <span className={styles.introCardStatusDot} />
+              Available for new projects
+            </span>
+          </div>
+        </div>
+      </section>
+
       {/* ── Work showcase strip ── */}
       <section className={styles.workSection}>
         <div className={styles.workSectionHeader}>
@@ -105,12 +142,6 @@ export default function Home() {
             );
           })}
         </div>
-      </section>
-
-      <section className={styles.introSection}>
-        <p className={styles.sectionLabel}>About</p>
-        <h2>I build practical web solutions for small businesses and freelance work.</h2>
-        <p>{pos.extendedDescription}</p>
       </section>
 
       <section className={styles.section}>

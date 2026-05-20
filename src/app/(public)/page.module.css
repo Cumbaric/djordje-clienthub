@@ -224,6 +224,156 @@
 
 .introSection {
   border-top: 1px solid #1e1e2e;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+/* Left column — text stays default flow */
+.introText {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Right column — visual */
+.introVisual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Highlights card ── */
+
+.introCard {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  background: rgba(10, 16, 50, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+/* Blueprint grid inside card */
+.introCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Top-right glow inside card */
+.introCard::after {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.14) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.introCardLabel {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 24px;
+  color: #3b82f6;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.introCardList {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.introCardItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #cbd5e1;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.introCardIcon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #60a5fa;
+}
+
+.introCardIcon svg {
+  width: 11px;
+  height: 11px;
+}
+
+.introCardStatus {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  background: rgba(34, 197, 94, 0.06);
+  color: #4ade80;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.introCardStatusDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.6);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.75); }
+}
+
+/* Responsive — intro section */
+@media (max-width: 900px) {
+  .introSection {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 
 .introSection h2,
@@ -593,6 +743,10 @@
     opacity: 1;
     transform: none;
     filter: none;
+  }
+
+  .introCardStatusDot {
+    animation: none;
   }
 }
 /* ============================================
