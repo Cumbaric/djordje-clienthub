@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
 import HeroCube from "@/components/HeroCube";
@@ -53,6 +54,55 @@ export default function Home() {
           <div className={styles.heroVisual}>
             <HeroCube />
           </div>
+        </div>
+      </section>
+
+      {/* ── Work showcase strip ── */}
+      <section className={styles.workSection}>
+        <div className={styles.workSectionHeader}>
+          <p className={styles.sectionLabel}>Radovi</p>
+          <h2>Projekti koji govore sami za sebe</h2>
+        </div>
+        <div className={styles.workCards}>
+          {featuredProjects.map((project) => {
+            const inner = (
+              <>
+                <div className={styles.workCardImg}>
+                  {project.coverImage ? (
+                    <Image
+                      src={project.coverImage}
+                      alt={project.title}
+                      fill
+                      sizes="252px"
+                      style={{ objectFit: "cover" }}
+                    />
+                  ) : (
+                    <div className={styles.workCardPlaceholder}>
+                      <span>{project.title}</span>
+                    </div>
+                  )}
+                </div>
+                <div className={styles.workCardInfo}>
+                  <p className={styles.workCardTitle}>{project.title}</p>
+                  <p className={styles.workCardType}>{project.type}</p>
+                </div>
+              </>
+            );
+
+            return project.slug ? (
+              <Link
+                key={project.title}
+                href={`/sr/projekti/${project.slug}`}
+                className={styles.workCard}
+              >
+                {inner}
+              </Link>
+            ) : (
+              <div key={project.title} className={styles.workCard}>
+                {inner}
+              </div>
+            );
+          })}
         </div>
       </section>
 

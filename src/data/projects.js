@@ -2,6 +2,7 @@ export const projects = [
   {
     title: "Wellness Concept",
     slug: "wellness-concept",
+    coverImage: "/projects/Wellness_Concept_1.png",
     type: "WordPress / Elementor / SEO / Performance",
     category: "WordPress / Elementor / SEO / Performance",
     status: "Active project",
@@ -16,6 +17,7 @@ export const projects = [
   {
     title: "Olivera Popović Edu",
     slug: null,
+    coverImage: null,
     type: "WordPress / Education / SEO structure",
     category: "WordPress / Education Website",
     status: "Portfolio project",
@@ -30,6 +32,7 @@ export const projects = [
   {
     title: "BoomMil",
     slug: null,
+    coverImage: null,
     type: "WooCommerce / WordPress / Product structure",
     category: "WooCommerce / Product SEO",
     status: "Completed project",
@@ -44,6 +47,7 @@ export const projects = [
   {
     title: "MirkoTopalovićTips",
     slug: null,
+    coverImage: null,
     type: "WordPress / Content structure / Sports tips platform",
     category: "WordPress / Content Structure",
     status: "Portfolio project",
@@ -58,6 +62,7 @@ export const projects = [
   {
     title: "Djordje ClientHub",
     slug: null,
+    coverImage: null,
     type: "Next.js / React / Dashboard / Internal Tool",
     category: "Next.js / React / Dashboard",
     status: "In development",
