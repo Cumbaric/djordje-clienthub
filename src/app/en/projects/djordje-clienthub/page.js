@@ -1,5 +1,15 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import ProjectCarousel from "@/components/ProjectCarousel";
+
+const IMAGES = [
+  "/Projects/djordje_clienthub_1.png",
+  "/Projects/djordje_clienthub_2.png",
+  "/Projects/djordje_clienthub_3.png",
+  "/Projects/djordje_clienthub_4.png",
+  "/Projects/djordje_clienthub_5.png",
+  "/Projects/djordje_clienthub_6.png",
+];
 
 export const metadata = {
   title: "Djordje ClientHub Case Study | Đorđe Popović",
@@ -59,6 +69,11 @@ export default function DjordjeClientHubPage() {
           <span>Role</span>
           <strong>Full-stack development, architecture, design, deployment</strong>
         </div>
+      </section>
+
+      <section className="case-study-section">
+        <h2>Project gallery</h2>
+        <ProjectCarousel images={IMAGES} alt="Djordje ClientHub" />
       </section>
 
       <section className="case-study-section">

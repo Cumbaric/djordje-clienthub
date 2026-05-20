@@ -32,7 +32,7 @@ export const projects = [
   {
     title: "BoomMil",
     slug: "boommil",
-    coverImage: null,
+    coverImage: "/Projects/boommil_1.png",
     type: "WooCommerce / WordPress / Product structure",
     category: "WooCommerce / Product SEO",
     status: "Completed project",
@@ -47,7 +47,7 @@ export const projects = [
   {
     title: "MirkoTopalovićTips",
     slug: "mirko-topalovic-tips",
-    coverImage: null,
+    coverImage: "/Projects/mirko_topalovic_1.png",
     type: "WordPress / Content structure / Sports tips platform",
     category: "WordPress / Content Structure",
     status: "Portfolio project",
@@ -62,7 +62,7 @@ export const projects = [
   {
     title: "Djordje ClientHub",
     slug: "djordje-clienthub",
-    coverImage: null,
+    coverImage: "/Projects/djordje_clienthub_1.png",
     type: "Next.js / React / Dashboard / Internal Tool",
     category: "Next.js / React / Dashboard",
     status: "In development",
