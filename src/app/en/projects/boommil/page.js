@@ -1,5 +1,14 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import ProjectCarousel from "@/components/ProjectCarousel";
+
+const IMAGES = [
+  "/Projects/boommil_1.png",
+  "/Projects/boommil_2.png",
+  "/Projects/boommil_3.png",
+  "/Projects/boommil_4.png",
+  "/Projects/boommil_5.png",
+];
 
 export const metadata = {
   title: "BoomMil Case Study | Đorđe Popović",
@@ -58,6 +67,11 @@ export default function BoomMilPage() {
             <span>Role</span>
             <strong>WooCommerce setup, product entry, store structure, content organization</strong>
           </div>
+        </section>
+
+        <section className="case-study-section">
+          <h2>Project gallery</h2>
+          <ProjectCarousel images={IMAGES} alt="BoomMil" />
         </section>
 
         <section className="case-study-section">

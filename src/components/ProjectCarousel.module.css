@@ -1,0 +1,120 @@
+/* =============================================
+   PROJECT CAROUSEL
+   ============================================= */
+
+.carousel {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0a0f1e;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  margin: 0 0 8px;
+}
+
+/* ── Track ── */
+.track {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+/* ── Slides ── */
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+
+.slideActive {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Nav buttons ── */
+.btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(7, 11, 24, 0.75);
+  backdrop-filter: blur(6px);
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s, color 0.18s;
+}
+
+.btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.btn:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+  color: #93c5fd;
+}
+
+.btnPrev { left: 12px; }
+.btnNext { right: 12px; }
+
+/* ── Footer (counter + dots) ── */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(7, 11, 24, 0.85);
+  border-top: 1px solid rgba(148, 163, 184, 0.08);
+}
+
+.counter {
+  font-size: 12px;
+  color: #64748b;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+/* ── Dots ── */
+.dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(148, 163, 184, 0.25);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.18s, transform 0.18s;
+}
+
+.dot:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+.dotActive {
+  background: #3b82f6;
+  transform: scale(1.25);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .slide {
+    transition: none;
+  }
+}

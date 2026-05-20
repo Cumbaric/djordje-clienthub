@@ -1,5 +1,14 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import ProjectCarousel from "@/components/ProjectCarousel";
+
+const IMAGES = [
+  "/Projects/Wellness_Concept_1.png",
+  "/Projects/Wellness_Concept_2.png",
+  "/Projects/Wellness_Concept_3.png",
+  "/Projects/Wellness_Concept_4.png",
+  "/Projects/Wellness_Concept_5.png",
+];
 
 export const metadata = {
   title: "Wellness Concept Case Study | Đorđe Popović",
@@ -58,6 +67,11 @@ export default function WellnessConceptCaseStudyPage() {
           <span>Uloga</span>
           <strong>WordPress razvoj, struktura stranica, SEO osnova, UX unapređenja</strong>
         </div>
+      </section>
+
+      <section className="case-study-section">
+        <h2>Galerija projekta</h2>
+        <ProjectCarousel images={IMAGES} alt="Wellness Concept" />
       </section>
 
       <section className="case-study-section">

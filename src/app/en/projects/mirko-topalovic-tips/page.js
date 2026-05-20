@@ -1,5 +1,13 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import ProjectCarousel from "@/components/ProjectCarousel";
+
+const IMAGES = [
+  "/Projects/mirko_topalovic_1.png",
+  "/Projects/mirko_topalovic_2.png",
+  "/Projects/mirko_topalovic_3.png",
+  "/Projects/mirko_topalovic_4.png",
+];
 
 export const metadata = {
   title: "MirkoTopalovićTips Case Study | Đorđe Popović",
@@ -59,6 +67,11 @@ export default function MirkoTopalovicTipsPage() {
             <span>Role</span>
             <strong>WordPress development, content structure, post organization, workflow planning</strong>
           </div>
+        </section>
+
+        <section className="case-study-section">
+          <h2>Project gallery</h2>
+          <ProjectCarousel images={IMAGES} alt="MirkoTopalovićTips" />
         </section>
 
         <section className="case-study-section">
