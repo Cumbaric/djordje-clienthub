@@ -231,21 +231,24 @@
   max-width: 1180px;
   margin: 0 auto;
   padding: 72px 24px;
+  position: relative;
 }
 
 /* ── About section ── */
 
 .introSection {
   border-top: 1px solid rgba(30, 30, 46, 0.7);
+  position: relative;
+  overflow: hidden; /* clips orb trail, prevents horizontal scroll */
 }
 
 .introInner {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 72px 24px;
+  padding: 100px 24px 112px;
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: 56px;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
   align-items: start;
 }
 
@@ -254,6 +257,7 @@
 .introText {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .aboutHeading {
@@ -279,30 +283,33 @@
 
 .aboutQuote {
   margin: 0 0 32px;
-  padding-left: 16px;
-  border-left: 2px solid rgba(59, 130, 246, 0.4);
+  padding-left: 18px;
+  border-left: 2px solid rgba(6, 182, 212, 0.55);
   color: #64748b;
   font-size: 15px;
   line-height: 1.75;
+  font-style: italic;
 }
 
-/* Feature items — icon left, text right (no card border) */
+/* Feature items — 3 side by side */
 .featurePills {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 16px;
+  margin-bottom: 4px;
 }
 
 .featurePill {
   display: flex;
-  gap: 14px;
+  flex-direction: row;
   align-items: flex-start;
+  gap: 12px;
 }
 
 .featurePillIcon {
   flex-shrink: 0;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 10px;
   background: rgba(59, 130, 246, 0.1);
   border: 1px solid rgba(59, 130, 246, 0.2);
@@ -313,8 +320,8 @@
 }
 
 .featurePillIcon svg {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
 }
 
 .featurePillText {
@@ -343,42 +350,44 @@
 .introVisual {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 20px;
 }
 
 .aboutCard {
-  border: 1px solid rgba(59, 130, 246, 0.1);
-  border-radius: 14px;
-  background: #0f0f1a;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.6);
   overflow: hidden;
-  transition: border-color 0.25s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .aboutCard:hover {
-  border-color: rgba(59, 130, 246, 0.22);
+  border-color: rgba(148, 163, 184, 0.3);
+  box-shadow: 0 0 32px rgba(59, 130, 246, 0.08);
 }
 
 .aboutCardHeader {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 14px;
-  border-bottom: 1px solid rgba(59, 130, 246, 0.07);
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
 }
 
 .aboutCardNum {
   color: #3b82f6;
   font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   font-variant-numeric: tabular-nums;
 }
 
 .aboutCardTitle {
-  color: #64748b;
+  color: #94a3b8;
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 /* Card 01 — workspace image */
@@ -402,7 +411,7 @@
   display: flex;
   align-items: flex-start;
   gap: 0;
-  padding: 14px 10px;
+  padding: 18px 14px 20px;
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -415,15 +424,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   flex: 1;
   min-width: 48px;
   text-align: center;
 }
 
 .workflowStepIcon {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: 1.5px solid rgba(59, 130, 246, 0.35);
   background: rgba(59, 130, 246, 0.08);
@@ -439,7 +448,7 @@
 }
 
 .workflowStepLabel {
-  color: #94a3b8;
+  color: #cbd5e1;
   font-size: 10px;
   font-weight: 700;
   text-transform: none;
@@ -448,42 +457,42 @@
 }
 
 .workflowStepDesc {
-  color: #334155;
+  color: #475569;
   font-size: 9px;
   line-height: 1.4;
-  max-width: 56px;
+  max-width: 60px;
 }
 
 .workflowArrow {
   flex-shrink: 0;
-  margin-top: 12px;
-  padding: 0 1px;
-  color: #1e293b;
-  font-size: 16px;
+  margin-top: 10px;
+  padding: 0 2px;
+  color: #334155;
+  font-size: 14px;
   line-height: 1;
 }
 
-/* Card row — 02 + 03 side by side */
-.aboutCardRow {
+/* Bottom row — workflow (wider) + skills (narrower) */
+.rightVisualGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  grid-template-columns: 1.2fr 0.9fr;
+  gap: 20px;
 }
 
 /* Card 03 — skills */
 .skillsGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 7px;
-  padding: 12px;
+  gap: 8px;
+  padding: 14px;
 }
 
 .skillBadge {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 9px 10px;
-  border-radius: 9px;
+  padding: 10px 11px;
+  border-radius: 10px;
   border: 1px solid var(--skill-border, rgba(59, 130, 246, 0.15));
   background: var(--skill-bg, rgba(59, 130, 246, 0.05));
   color: #cbd5e1;
@@ -540,12 +549,13 @@
 
 /* Responsive — about section */
 @media (max-width: 1024px) {
-  .aboutHeading {
-    font-size: 40px;
+  .introInner {
+    gap: 48px;
+    padding: 80px 24px 96px;
   }
 
-  .featurePills {
-    grid-template-columns: 1fr 1fr;
+  .aboutHeading {
+    font-size: 40px;
   }
 }
 
@@ -553,6 +563,7 @@
   .introInner {
     grid-template-columns: 1fr;
     gap: 40px;
+    padding: 72px 24px 80px;
   }
 
   .aboutHeading {
@@ -564,13 +575,8 @@
   .featurePills {
     grid-template-columns: 1fr;
   }
-
-  .aboutCardRow {
-    grid-template-columns: 1fr;
-  }
 }
 
-.introInner h2,
 .sectionInner h2,
 .ctaSection h2 {
   max-width: 760px;
@@ -581,7 +587,6 @@
   letter-spacing: -0.03em;
 }
 
-.introInner p:not(.sectionLabel),
 .ctaSection p:not(.sectionLabel) {
   max-width: 760px;
   margin-top: 20px;
@@ -960,6 +965,8 @@
   max-width: 1180px;
   margin: 0 auto 8px;
   padding: 0 24px;
+  position: relative;
+  overflow: hidden;
 }
 
 .workSectionHeader h2 {

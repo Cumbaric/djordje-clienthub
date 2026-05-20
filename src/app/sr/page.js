@@ -9,6 +9,7 @@ import { techStackContent } from "@/data/techStack";
 import { positioning } from "@/data/positioning";
 import styles from "../(public)/page.module.css";
 import HeroGlow from "@/components/HeroGlow";
+import SectionOrb from "@/components/SectionOrb";
 
 export const metadata = {
   title: "Đorđe Popović | WordPress developer i SEO-focused izrada sajtova",
@@ -55,14 +56,25 @@ export default function Home() {
             <HeroCube />
           </div>
         </div>
+        <div className={styles.heroBottomFade} aria-hidden="true" />
       </section>
 
       {/* ── O meni / Intro ── */}
       <section className={styles.introSection}>
         <div className={styles.introInner}>
 
-          {/* Levo — tekst */}
+          {/* Levo — tekst + itemi + workflow */}
           <div className={styles.introText}>
+            <SectionOrb
+              delay="0.3s"
+              style={{
+                "--orb-top": "8px",
+                "--orb-left": "340px",
+                "--orb-right": "auto",
+                "--orb-bottom": "auto",
+                "--orb-travel": "-340px",
+              }}
+            />
             <p className={styles.sectionLabel}>O meni</p>
             <h2 className={styles.aboutHeading}>
               O Djordje{" "}
@@ -76,6 +88,7 @@ export default function Home() {
               {pos.extendedDescription}
             </blockquote>
 
+            {/* 3 featured itema — jedan pored drugog */}
             <div className={styles.featurePills}>
               <div className={styles.featurePill}>
                 <div className={styles.featurePillIcon}>
@@ -106,13 +119,46 @@ export default function Home() {
               </div>
             </div>
 
+            {/* Kartica 02 — Workflow (u levoj koloni, ispod itema) */}
+            <div className={styles.aboutCard}>
+              <div className={styles.aboutCardHeader}>
+                <span className={styles.aboutCardNum}>02</span>
+                <span className={styles.aboutCardTitle}>Workflow</span>
+              </div>
+              <div className={styles.workflowSteps}>
+                {[
+                  { label: "Analiza",   desc: "Ciljevi i publika",        icon: <path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zm0 2a3 3 0 1 1 0 6A3 3 0 0 1 8 5z" fill="currentColor"/> },
+                  { label: "Struktura", desc: "Informaciona arhitektura", icon: <><rect x="3" y="3" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/><rect x="9" y="3" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/><rect x="3" y="9" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/><rect x="9" y="9" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/></> },
+                  { label: "Dizajn",    desc: "UI u Elementoru",          icon: <><path d="M4 12l2.5-2.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/><rect x="6" y="3" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.4"/></> },
+                  { label: "Razvoj",    desc: "Brz WordPress",            icon: <path d="M3 13l3.5-3.5 2 2L13 5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/> },
+                  { label: "SEO",       desc: "On-page i tehnički SEO",   icon: <><circle cx="7" cy="7" r="3.5" stroke="currentColor" strokeWidth="1.4"/><path d="M9.5 9.5L12 12" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/></> },
+                  { label: "Launch",    desc: "Test i objava",            icon: <path d="M8 12V8m0-4c0 0 2.5 2 2.5 4h-5C5.5 6 8 4 8 4zM6 12h4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/> },
+                ].map((step, i, arr) => (
+                  <div key={step.label} style={{ display: "contents" }}>
+                    <div className={styles.workflowStep}>
+                      <div className={styles.workflowStepIcon}>
+                        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          {step.icon}
+                        </svg>
+                      </div>
+                      <span className={styles.workflowStepLabel}>{step.label}</span>
+                      <span className={styles.workflowStepDesc}>{step.desc}</span>
+                    </div>
+                    {i < arr.length - 1 && (
+                      <span className={styles.workflowArrow}>→</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
             <span className={styles.introCardStatus}>
               <span className={styles.introCardStatusDot} />
               Dostupan za nove projekte
             </span>
           </div>
 
-          {/* Desno — kartice */}
+          {/* Desno — workspace slika + skills */}
           <div className={styles.introVisual}>
 
             {/* Kartica 01 — Workspace */}
@@ -126,78 +172,43 @@ export default function Home() {
                   src="/Projects/about_workspace.png"
                   alt="Developer workspace"
                   fill
-                  sizes="(max-width: 900px) 100vw, 540px"
+                  sizes="(max-width: 900px) 100vw, 500px"
                   style={{ objectFit: "cover" }}
                   priority
                 />
               </div>
             </div>
 
-            <div className={styles.aboutCardRow}>
-              {/* Kartica 02 — Workflow */}
-              <div className={styles.aboutCard}>
-                <div className={styles.aboutCardHeader}>
-                  <span className={styles.aboutCardNum}>02</span>
-                  <span className={styles.aboutCardTitle}>Workflow</span>
-                </div>
-                <div className={styles.workflowSteps}>
-                  {[
-                    { label: "Analiza",   desc: "Ciljevi i publika",       icon: <path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zm0 2a3 3 0 1 1 0 6A3 3 0 0 1 8 5z" fill="currentColor"/> },
-                    { label: "Struktura", desc: "Informaciona arhitektura", icon: <><rect x="3" y="3" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/><rect x="9" y="3" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/><rect x="3" y="9" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/><rect x="9" y="9" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/></> },
-                    { label: "Dizajn",    desc: "UI u Elementoru",          icon: <><path d="M4 12l2.5-2.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/><rect x="6" y="3" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.4"/></> },
-                    { label: "Razvoj",    desc: "Brz WordPress",            icon: <path d="M3 13l3.5-3.5 2 2L13 5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/> },
-                    { label: "SEO",       desc: "On-page i tehnički SEO",   icon: <><circle cx="7" cy="7" r="3.5" stroke="currentColor" strokeWidth="1.4"/><path d="M9.5 9.5L12 12" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/></> },
-                    { label: "Launch",    desc: "Test i objava",            icon: <path d="M8 12V8m0-4c0 0 2.5 2 2.5 4h-5C5.5 6 8 4 8 4zM6 12h4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/> },
-                  ].map((step, i, arr) => (
-                    <div key={step.label} style={{ display: "contents" }}>
-                      <div className={styles.workflowStep}>
-                        <div className={styles.workflowStepIcon}>
-                          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            {step.icon}
-                          </svg>
-                        </div>
-                        <span className={styles.workflowStepLabel}>{step.label}</span>
-                        <span className={styles.workflowStepDesc}>{step.desc}</span>
-                      </div>
-                      {i < arr.length - 1 && (
-                        <span className={styles.workflowArrow}>→</span>
-                      )}
-                    </div>
-                  ))}
-                </div>
+            {/* Kartica 03 — Skills */}
+            <div className={styles.aboutCard}>
+              <div className={styles.aboutCardHeader}>
+                <span className={styles.aboutCardNum}>03</span>
+                <span className={styles.aboutCardTitle}>Stack</span>
               </div>
-
-              {/* Kartica 03 — Skills */}
-              <div className={styles.aboutCard}>
-                <div className={styles.aboutCardHeader}>
-                  <span className={styles.aboutCardNum}>03</span>
-                  <span className={styles.aboutCardTitle}>Stack</span>
-                </div>
-                <div className={styles.skillsGrid}>
-                  {[
-                    { name: "WordPress",   abbr: "WP",  bg: "rgba(0,115,170,0.15)",   border: "rgba(0,115,170,0.3)",   color: "#0096d6" },
-                    { name: "Elementor",   abbr: "E",   bg: "rgba(226,80,76,0.12)",   border: "rgba(226,80,76,0.28)",  color: "#e2504c" },
-                    { name: "WooCommerce", abbr: "Woo", bg: "rgba(127,84,179,0.12)",  border: "rgba(127,84,179,0.28)", color: "#9b6dff" },
-                    { name: "SEO",         abbr: "SEO", bg: "rgba(34,197,94,0.1)",    border: "rgba(34,197,94,0.25)",  color: "#22c55e" },
-                    { name: "Performance", abbr: "⚡",  bg: "rgba(6,182,212,0.1)",    border: "rgba(6,182,212,0.25)",  color: "#06b6d4" },
-                    { name: "AI Workflow", abbr: "AI",  bg: "rgba(139,92,246,0.12)",  border: "rgba(139,92,246,0.28)", color: "#a78bfa" },
-                    { name: "Next.js",     abbr: "N",   bg: "rgba(255,255,255,0.05)", border: "rgba(255,255,255,0.12)",color: "#f1f5f9" },
-                  ].map((skill) => (
-                    <div
-                      key={skill.name}
-                      className={styles.skillBadge}
-                      style={{
-                        "--skill-bg": skill.bg,
-                        "--skill-border": skill.border,
-                        "--skill-icon-bg": skill.bg,
-                        "--skill-color": skill.color,
-                      }}
-                    >
-                      <span className={styles.skillIcon} style={{ color: skill.color }}>{skill.abbr}</span>
-                      {skill.name}
-                    </div>
-                  ))}
-                </div>
+              <div className={styles.skillsGrid}>
+                {[
+                  { name: "WordPress",   abbr: "WP",  bg: "rgba(0,115,170,0.15)",   border: "rgba(0,115,170,0.3)",   color: "#0096d6" },
+                  { name: "Elementor",   abbr: "E",   bg: "rgba(226,80,76,0.12)",   border: "rgba(226,80,76,0.28)",  color: "#e2504c" },
+                  { name: "WooCommerce", abbr: "Woo", bg: "rgba(127,84,179,0.12)",  border: "rgba(127,84,179,0.28)", color: "#9b6dff" },
+                  { name: "SEO",         abbr: "SEO", bg: "rgba(34,197,94,0.1)",    border: "rgba(34,197,94,0.25)",  color: "#22c55e" },
+                  { name: "Performance", abbr: "⚡",  bg: "rgba(6,182,212,0.1)",    border: "rgba(6,182,212,0.25)",  color: "#06b6d4" },
+                  { name: "AI Workflow", abbr: "AI",  bg: "rgba(139,92,246,0.12)",  border: "rgba(139,92,246,0.28)", color: "#a78bfa" },
+                  { name: "Next.js",     abbr: "N",   bg: "rgba(255,255,255,0.05)", border: "rgba(255,255,255,0.12)",color: "#f1f5f9" },
+                ].map((skill) => (
+                  <div
+                    key={skill.name}
+                    className={styles.skillBadge}
+                    style={{
+                      "--skill-bg": skill.bg,
+                      "--skill-border": skill.border,
+                      "--skill-icon-bg": skill.bg,
+                      "--skill-color": skill.color,
+                    }}
+                  >
+                    <span className={styles.skillIcon} style={{ color: skill.color }}>{skill.abbr}</span>
+                    {skill.name}
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -208,6 +219,16 @@ export default function Home() {
       {/* ── Work showcase strip — alt bg ── */}
       <section className={`${styles.workSection} ${styles.sectionAlt}`}>
         <div className={styles.workSectionHeader}>
+          <SectionOrb
+            delay="0s"
+            style={{
+              "--orb-top": "6px",
+              "--orb-left": "340px",
+              "--orb-right": "auto",
+              "--orb-travel": "-340px",
+              "--orb-duration": "1.8s",
+            }}
+          />
           <p className={styles.sectionLabel}>Radovi</p>
           <h2>Projekti koji govore sami za sebe</h2>
         </div>
@@ -257,6 +278,16 @@ export default function Home() {
       {/* Projekti — base bg */}
       <section className={styles.section}>
         <div className={styles.sectionInner}>
+          <SectionOrb
+            delay="0s"
+            style={{
+              "--orb-top": "78px",
+              "--orb-left": "340px",
+              "--orb-right": "auto",
+              "--orb-travel": "-340px",
+              "--orb-duration": "1.8s",
+            }}
+          />
           <SectionHeader
             label="Projekti"
             title="Izdvojeni projekti"
@@ -284,6 +315,16 @@ export default function Home() {
       {/* Tech Stack — alt bg */}
       <section className={`${styles.section} ${styles.sectionAlt}`}>
         <div className={styles.sectionInner}>
+          <SectionOrb
+            delay="0s"
+            style={{
+              "--orb-top": "78px",
+              "--orb-left": "340px",
+              "--orb-right": "auto",
+              "--orb-travel": "-340px",
+              "--orb-duration": "1.8s",
+            }}
+          />
           <SectionHeader label={tech.eyebrow} title={tech.title} />
           <p className={styles.sectionDescription}>{tech.description}</p>
 
@@ -306,6 +347,16 @@ export default function Home() {
       {/* Usluge — base bg */}
       <section className={styles.section}>
         <div className={styles.sectionInner}>
+          <SectionOrb
+            delay="0s"
+            style={{
+              "--orb-top": "78px",
+              "--orb-left": "340px",
+              "--orb-right": "auto",
+              "--orb-travel": "-340px",
+              "--orb-duration": "1.8s",
+            }}
+          />
           <SectionHeader
             label="Usluge"
             title="Usluge koje mogu da ponudim klijentima"
