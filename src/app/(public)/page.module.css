@@ -286,48 +286,47 @@
   line-height: 1.75;
 }
 
-/* Feature pills — 3 column grid */
+/* Feature items — icon left, text right (no card border) */
 .featurePills {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 20px;
 }
 
 .featurePill {
-  padding: 14px 12px;
-  border: 1px solid rgba(59, 130, 246, 0.1);
-  border-radius: 12px;
-  background: rgba(59, 130, 246, 0.03);
-  transition: border-color 0.2s ease, background 0.2s ease;
-}
-
-.featurePill:hover {
-  border-color: rgba(59, 130, 246, 0.22);
-  background: rgba(59, 130, 246, 0.06);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
 }
 
 .featurePillIcon {
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
   background: rgba(59, 130, 246, 0.1);
   border: 1px solid rgba(59, 130, 246, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #60a5fa;
-  margin-bottom: 10px;
 }
 
 .featurePillIcon svg {
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
+}
+
+.featurePillText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .featurePillTitle {
-  margin: 0 0 4px;
+  margin: 0;
   color: #e2e8f0;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.3;
 }
@@ -336,7 +335,7 @@
   margin: 0;
   color: #475569;
   font-size: 12px;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 /* ── Right column — card stack ── */
@@ -418,16 +417,16 @@
   align-items: center;
   gap: 6px;
   flex: 1;
-  min-width: 44px;
+  min-width: 48px;
   text-align: center;
 }
 
 .workflowStepIcon {
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  border: 1.5px solid rgba(59, 130, 246, 0.3);
-  background: rgba(59, 130, 246, 0.07);
+  border: 1.5px solid rgba(59, 130, 246, 0.35);
+  background: rgba(59, 130, 246, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -435,25 +434,33 @@
 }
 
 .workflowStepIcon svg {
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
 }
 
 .workflowStepLabel {
-  color: #64748b;
-  font-size: 9px;
+  color: #94a3b8;
+  font-size: 10px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  text-transform: none;
+  letter-spacing: 0;
   line-height: 1.3;
+}
+
+.workflowStepDesc {
+  color: #334155;
+  font-size: 9px;
+  line-height: 1.4;
+  max-width: 56px;
 }
 
 .workflowArrow {
   flex-shrink: 0;
-  margin-top: 10px;
-  padding: 0 2px;
+  margin-top: 12px;
+  padding: 0 1px;
   color: #1e293b;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 1;
 }
 
 /* Card row — 02 + 03 side by side */
@@ -467,30 +474,38 @@
 .skillsGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6px;
-  padding: 10px 12px 12px;
+  gap: 7px;
+  padding: 12px;
 }
 
 .skillBadge {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 8px;
-  border-radius: 7px;
-  border: 1px solid rgba(59, 130, 246, 0.1);
-  background: rgba(59, 130, 246, 0.04);
-  color: #94a3b8;
-  font-size: 11px;
+  gap: 8px;
+  padding: 9px 10px;
+  border-radius: 9px;
+  border: 1px solid var(--skill-border, rgba(59, 130, 246, 0.15));
+  background: var(--skill-bg, rgba(59, 130, 246, 0.05));
+  color: #cbd5e1;
+  font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
+  overflow: hidden;
 }
 
-.skillDot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #3b82f6;
+.skillIcon {
   flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  background: var(--skill-icon-bg, rgba(59, 130, 246, 0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 900;
+  color: var(--skill-color, #60a5fa);
+  letter-spacing: -0.03em;
 }
 
 /* Status badge */

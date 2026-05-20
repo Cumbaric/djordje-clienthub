@@ -82,22 +82,28 @@ export default function Home() {
                 <div className={styles.featurePillIcon}>
                   <svg viewBox="0 0 16 16" fill="none"><path d="M8 2L9.5 6.5H14L10.5 9L12 13.5L8 11L4 13.5L5.5 9L2 6.5H6.5L8 2Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/></svg>
                 </div>
-                <p className={styles.featurePillTitle}>Performance First</p>
-                <p className={styles.featurePillDesc}>Speed-optimized and Core Web Vitals ready.</p>
+                <div className={styles.featurePillText}>
+                  <p className={styles.featurePillTitle}>Performance First</p>
+                  <p className={styles.featurePillDesc}>Speed-optimized and Core Web Vitals ready.</p>
+                </div>
               </div>
               <div className={styles.featurePill}>
                 <div className={styles.featurePillIcon}>
                   <svg viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="4.5" stroke="currentColor" strokeWidth="1.4"/><path d="M10.5 10.5L13.5 13.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/></svg>
                 </div>
-                <p className={styles.featurePillTitle}>SEO Focused</p>
-                <p className={styles.featurePillDesc}>Technical SEO, clean structure, better rankings.</p>
+                <div className={styles.featurePillText}>
+                  <p className={styles.featurePillTitle}>SEO Focused</p>
+                  <p className={styles.featurePillDesc}>Technical SEO, clean structure, better rankings.</p>
+                </div>
               </div>
               <div className={styles.featurePill}>
                 <div className={styles.featurePillIcon}>
                   <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h2l2-5 2 10 2-5 1 3 1-3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </div>
-                <p className={styles.featurePillTitle}>AI Enhanced</p>
-                <p className={styles.featurePillDesc}>AI workflow support for faster delivery &amp; scale.</p>
+                <div className={styles.featurePillText}>
+                  <p className={styles.featurePillTitle}>AI Enhanced</p>
+                  <p className={styles.featurePillDesc}>AI workflow support for faster delivery &amp; scale.</p>
+                </div>
               </div>
             </div>
 
@@ -137,11 +143,12 @@ export default function Home() {
                 </div>
                 <div className={styles.workflowSteps}>
                   {[
-                    { label: "Discovery", icon: <path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zm0 2a3 3 0 1 1 0 6A3 3 0 0 1 8 5z" fill="currentColor"/> },
-                    { label: "Structure", icon: <><rect x="3" y="3" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/><rect x="9" y="3" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/><rect x="3" y="9" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/><rect x="9" y="9" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/></> },
-                    { label: "Build", icon: <path d="M4 12l3-3 2 2 4-5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/> },
-                    { label: "SEO", icon: <><circle cx="7" cy="7" r="3.5" stroke="currentColor" strokeWidth="1.4"/><path d="M9.5 9.5L12 12" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/></> },
-                    { label: "Launch", icon: <path d="M8 13V8m0-5c0 0 3 2.5 3 5H5c0-2.5 3-5 3-5zM6 13h4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/> },
+                    { label: "Discovery", desc: "Understand goals & audience", icon: <path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zm0 2a3 3 0 1 1 0 6A3 3 0 0 1 8 5z" fill="currentColor"/> },
+                    { label: "Structure", desc: "Plan information architecture", icon: <><rect x="3" y="3" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/><rect x="9" y="3" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/><rect x="3" y="9" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/><rect x="9" y="9" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/></> },
+                    { label: "Design", desc: "Clean UI in Elementor", icon: <><path d="M4 12l2.5-2.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/><rect x="6" y="3" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.4"/></> },
+                    { label: "Build", desc: "Fast scalable WordPress", icon: <path d="M3 13l3.5-3.5 2 2L13 5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/> },
+                    { label: "SEO", desc: "On-page & technical SEO", icon: <><circle cx="7" cy="7" r="3.5" stroke="currentColor" strokeWidth="1.4"/><path d="M9.5 9.5L12 12" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/></> },
+                    { label: "Launch", desc: "Test, optimize & go live", icon: <path d="M8 12V8m0-4c0 0 2.5 2 2.5 4h-5C5.5 6 8 4 8 4zM6 12h4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/> },
                   ].map((step, i, arr) => (
                     <div key={step.label} style={{ display: "contents" }}>
                       <div className={styles.workflowStep}>
@@ -151,9 +158,10 @@ export default function Home() {
                           </svg>
                         </div>
                         <span className={styles.workflowStepLabel}>{step.label}</span>
+                        <span className={styles.workflowStepDesc}>{step.desc}</span>
                       </div>
                       {i < arr.length - 1 && (
-                        <span className={styles.workflowArrow}>›</span>
+                        <span className={styles.workflowArrow}>→</span>
                       )}
                     </div>
                   ))}
@@ -167,10 +175,27 @@ export default function Home() {
                   <span className={styles.aboutCardTitle}>Skills &amp; Stack</span>
                 </div>
                 <div className={styles.skillsGrid}>
-                  {["WordPress", "Elementor", "WooCommerce", "SEO", "Performance", "AI Workflow", "Next.js"].map((skill) => (
-                    <div key={skill} className={styles.skillBadge}>
-                      <span className={styles.skillDot} />
-                      {skill}
+                  {[
+                    { name: "WordPress",   abbr: "WP",  bg: "rgba(0,115,170,0.15)",   border: "rgba(0,115,170,0.3)",   color: "#0096d6" },
+                    { name: "Elementor",   abbr: "E",   bg: "rgba(226,80,76,0.12)",   border: "rgba(226,80,76,0.28)",  color: "#e2504c" },
+                    { name: "WooCommerce", abbr: "Woo", bg: "rgba(127,84,179,0.12)",  border: "rgba(127,84,179,0.28)", color: "#9b6dff" },
+                    { name: "SEO",         abbr: "SEO", bg: "rgba(34,197,94,0.1)",    border: "rgba(34,197,94,0.25)",  color: "#22c55e" },
+                    { name: "Performance", abbr: "⚡",  bg: "rgba(6,182,212,0.1)",    border: "rgba(6,182,212,0.25)",  color: "#06b6d4" },
+                    { name: "AI Workflow", abbr: "AI",  bg: "rgba(139,92,246,0.12)",  border: "rgba(139,92,246,0.28)", color: "#a78bfa" },
+                    { name: "Next.js",     abbr: "N",   bg: "rgba(255,255,255,0.05)", border: "rgba(255,255,255,0.12)",color: "#f1f5f9" },
+                  ].map((skill) => (
+                    <div
+                      key={skill.name}
+                      className={styles.skillBadge}
+                      style={{
+                        "--skill-bg": skill.bg,
+                        "--skill-border": skill.border,
+                        "--skill-icon-bg": skill.bg,
+                        "--skill-color": skill.color,
+                      }}
+                    >
+                      <span className={styles.skillIcon} style={{ color: skill.color }}>{skill.abbr}</span>
+                      {skill.name}
                     </div>
                   ))}
                 </div>
