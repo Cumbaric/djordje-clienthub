@@ -189,11 +189,12 @@ export default function Home() {
                 {[
                   { name: "WordPress",   abbr: "WP",  bg: "rgba(0,115,170,0.15)",   border: "rgba(0,115,170,0.3)",   color: "#0096d6" },
                   { name: "Elementor",   abbr: "E",   bg: "rgba(226,80,76,0.12)",   border: "rgba(226,80,76,0.28)",  color: "#e2504c" },
-                  { name: "WooCommerce", abbr: "Woo", bg: "rgba(127,84,179,0.12)",  border: "rgba(127,84,179,0.28)", color: "#9b6dff" },
+                  { name: "CSS",         abbr: "CSS", bg: "rgba(38,77,228,0.12)",   border: "rgba(38,77,228,0.28)",  color: "#264de4" },
                   { name: "SEO",         abbr: "SEO", bg: "rgba(34,197,94,0.1)",    border: "rgba(34,197,94,0.25)",  color: "#22c55e" },
-                  { name: "Performance", abbr: "⚡",  bg: "rgba(6,182,212,0.1)",    border: "rgba(6,182,212,0.25)",  color: "#06b6d4" },
+                  { name: "HTML",        abbr: "HTML",bg: "rgba(227,79,38,0.12)",   border: "rgba(227,79,38,0.28)",  color: "#e34f26" },
                   { name: "AI Workflow", abbr: "AI",  bg: "rgba(139,92,246,0.12)",  border: "rgba(139,92,246,0.28)", color: "#a78bfa" },
                   { name: "Next.js",     abbr: "N",   bg: "rgba(255,255,255,0.05)", border: "rgba(255,255,255,0.12)",color: "#f1f5f9" },
+                  { name: "JS",          abbr: "JS",  bg: "rgba(247,223,30,0.1)",   border: "rgba(247,223,30,0.25)", color: "#f7df1e" },
                 ].map((skill) => (
                   <div
                     key={skill.name}
