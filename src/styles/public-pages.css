@@ -583,10 +583,11 @@
   letter-spacing: 0.06em;
 }
 
-.service-list-card h2 {
+.service-list-card h2,
+.service-list-card h3 {
   margin: 0 0 14px;
   color: #f1f5f9;
-  font-size: 30px;
+  font-size: 26px;
   line-height: 1.2;
   letter-spacing: -0.03em;
 }
@@ -749,12 +750,13 @@
   border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
-.process-card h2 {
+.process-card h2,
+.process-card h3 {
   margin: 0 0 12px;
   color: #f1f5f9;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 1.2;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
 }
 
 .process-card p {
@@ -1418,8 +1420,12 @@
 .project-card,
 .project-card-link,
 .service-list-card,
+.services-overview-card,
+.services-value-card,
 .process-card,
+.process-principle-card,
 .contact-fit-card,
+.contact-option-card,
 .case-study-meta > div,
 .case-study-grid > article {
   position: relative;
@@ -1429,8 +1435,12 @@
 .project-card::before,
 .project-card-link::before,
 .service-list-card::before,
+.services-overview-card::before,
+.services-value-card::before,
 .process-card::before,
+.process-principle-card::before,
 .contact-fit-card::before,
+.contact-option-card::before,
 .case-study-meta > div::before,
 .case-study-grid > article::before {
   content: "";
@@ -1451,8 +1461,12 @@
 .project-card:hover::before,
 .project-card-link:hover::before,
 .service-list-card:hover::before,
+.services-overview-card:hover::before,
+.services-value-card:hover::before,
 .process-card:hover::before,
+.process-principle-card:hover::before,
 .contact-fit-card:hover::before,
+.contact-option-card:hover::before,
 .case-study-meta > div:hover::before,
 .case-study-grid > article:hover::before {
   opacity: 1;
@@ -1462,8 +1476,12 @@
 .project-card > *,
 .project-card-link > *,
 .service-list-card > *,
+.services-overview-card > *,
+.services-value-card > *,
 .process-card > *,
+.process-principle-card > *,
 .contact-fit-card > *,
+.contact-option-card > *,
 .case-study-meta > div > *,
 .case-study-grid > article > * {
   position: relative;
@@ -1489,8 +1507,12 @@
   .project-card,
   .project-card-link,
   .service-list-card,
+  .services-overview-card,
+  .services-value-card,
   .process-card,
+  .process-principle-card,
   .contact-fit-card,
+  .contact-option-card,
   .case-study-meta > div,
   .case-study-grid > article {
     transition: border-color 0.2s ease;
@@ -1499,8 +1521,12 @@
   .project-card::before,
   .project-card-link::before,
   .service-list-card::before,
+  .services-overview-card::before,
+  .services-value-card::before,
   .process-card::before,
+  .process-principle-card::before,
   .contact-fit-card::before,
+  .contact-option-card::before,
   .case-study-meta > div::before,
   .case-study-grid > article::before {
     display: none;
@@ -1514,5 +1540,553 @@
   .public-layout .case-study-button::after,
   .public-layout .contact-main-card a::after {
     display: none;
+  }
+}
+
+/* ============================================
+   SHARED SECTION TITLE
+   ============================================ */
+
+.section-title {
+  margin: 0 0 28px;
+  color: #f1f5f9;
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* ============================================
+   SERVICES PAGE — EXTENDED (Korak 11)
+   ============================================ */
+
+/* Intro / positioning */
+.services-intro {
+  margin-bottom: 64px;
+  padding: 40px;
+  border-radius: 28px;
+  border: 1px solid #1e1e2e;
+  background: #0f0f1a;
+}
+
+.services-intro-label {
+  margin: 0 0 12px;
+  color: #3b82f6;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.services-intro h2 {
+  margin: 0 0 16px;
+  color: #f1f5f9;
+  font-size: 34px;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.services-intro > p {
+  max-width: 680px;
+  margin: 0 0 28px;
+  color: #94a3b8;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.services-intro-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.services-intro-highlight {
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Overview grid */
+.services-overview {
+  margin-bottom: 64px;
+}
+
+.services-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.services-overview-card {
+  padding: 26px;
+  border: 1px solid #1e1e2e;
+  border-radius: 22px;
+  background: #111118;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.services-overview-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 32px rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.services-overview-card h3 {
+  margin: 0 0 10px;
+  color: #f1f5f9;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.services-overview-card p {
+  margin: 0;
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* Detail section */
+.services-detail {
+  margin-bottom: 64px;
+}
+
+/* Value section */
+.services-value {
+  margin-bottom: 64px;
+}
+
+.services-value > p {
+  margin: -12px 0 28px;
+  color: #94a3b8;
+  font-size: 17px;
+  max-width: 640px;
+}
+
+.services-value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.services-value-card {
+  padding: 24px;
+  border: 1px solid #1e1e2e;
+  border-radius: 20px;
+  background: #111118;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.services-value-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 24px rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.25);
+}
+
+.services-value-card h3 {
+  margin: 0 0 8px;
+  color: #f1f5f9;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.services-value-card p {
+  margin: 0;
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .services-overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-value-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .services-intro {
+    padding: 28px 22px;
+  }
+
+  .services-overview-grid,
+  .services-value-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   PROCESS PAGE — EXTENDED (Korak 11)
+   ============================================ */
+
+/* Overview section */
+.process-overview {
+  margin-bottom: 64px;
+  padding: 36px 40px;
+  border-radius: 28px;
+  border: 1px solid #1e1e2e;
+  background: #0f0f1a;
+}
+
+.process-overview-header {
+  margin-bottom: 28px;
+}
+
+.process-overview-header h2 {
+  margin: 0 0 10px;
+  color: #f1f5f9;
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.process-overview-header p {
+  margin: 0;
+  max-width: 600px;
+  color: #94a3b8;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.process-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.process-overview-item {
+  padding: 22px;
+  border: 1px solid rgba(59, 130, 246, 0.12);
+  border-radius: 18px;
+  background: rgba(59, 130, 246, 0.04);
+}
+
+.process-overview-item h3 {
+  margin: 0 0 8px;
+  color: #f1f5f9;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.process-overview-item p {
+  margin: 0;
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* Steps section wrapper */
+.process-steps-section {
+  margin-bottom: 64px;
+}
+
+/* Process card — updated classnames */
+.process-card-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  font-size: 18px;
+  font-weight: 800;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  flex-shrink: 0;
+}
+
+.process-card-content {
+  min-width: 0;
+}
+
+/* Working principles */
+.process-principles {
+  margin-bottom: 48px;
+}
+
+.process-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.process-principle-card {
+  padding: 24px;
+  border: 1px solid #1e1e2e;
+  border-radius: 20px;
+  background: #111118;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.process-principle-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 24px rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.25);
+}
+
+.process-principle-card h3 {
+  margin: 0 0 8px;
+  color: #f1f5f9;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.process-principle-card p {
+  margin: 0;
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .process-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .process-principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .process-overview {
+    padding: 26px 22px;
+  }
+
+  .process-principles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   CONTACT PAGE — EXTENDED (Korak 11)
+   ============================================ */
+
+/* Contact options section */
+.contact-options-section {
+  margin-bottom: 64px;
+}
+
+.contact-options-section > p {
+  margin: -12px 0 28px;
+  color: #94a3b8;
+  font-size: 17px;
+}
+
+.contact-options-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.contact-option-card {
+  padding: 26px 24px;
+  border: 1px solid #1e1e2e;
+  border-radius: 20px;
+  background: #111118;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.contact-option-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 28px rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.contact-option-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #3b82f6;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-option-card h3 {
+  margin: 0 0 6px;
+  color: #f1f5f9;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.contact-option-card p {
+  margin: 0;
+  color: #64748b;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.contact-option-card a {
+  color: #3b82f6;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  word-break: break-all;
+}
+
+.contact-option-card a:hover {
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
+/* Inquiry section — 2-column */
+.contact-inquiry {
+  margin-bottom: 64px;
+  padding: 40px;
+  border-radius: 28px;
+  border: 1px solid #1e1e2e;
+  background: #0f0f1a;
+}
+
+.contact-inquiry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.contact-inquiry-left h2 {
+  margin: 0 0 16px;
+  color: #f1f5f9;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.contact-inquiry-left p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.contact-inquiry-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-inquiry-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #94a3b8;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.contact-inquiry-list li::before {
+  content: "✓";
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: #3b82f6;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+/* Fit section */
+.contact-fit-section {
+  margin-bottom: 64px;
+}
+
+/* Steps section */
+.contact-steps-section {
+  margin-bottom: 64px;
+}
+
+.contact-steps-list {
+  display: grid;
+  gap: 14px;
+  max-width: 720px;
+}
+
+.contact-step-item {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 20px 26px;
+  border: 1px solid #1e1e2e;
+  border-radius: 18px;
+  background: #111118;
+}
+
+.contact-step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: #3b82f6;
+  font-size: 14px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.contact-step-text {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .contact-options-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .contact-inquiry {
+    padding: 28px 22px;
+  }
+
+  .contact-inquiry-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-options-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-step-item {
+    grid-template-columns: 38px 1fr;
+    gap: 14px;
+    padding: 16px 18px;
   }
 }

@@ -110,6 +110,47 @@ const steps = [
   },
 ];
 
+const overviewItems = [
+  {
+    title: "Structure first",
+    description:
+      "Clear pages, logical navigation and prioritized content before any design or development.",
+  },
+  {
+    title: "Build with clarity",
+    description:
+      "Implementation focused on maintainability, responsive behavior and practical UX.",
+  },
+  {
+    title: "Test before delivery",
+    description:
+      "Every project goes through a quality check covering devices, links and user flows.",
+  },
+];
+
+const principles = [
+  {
+    title: "Clear communication",
+    description:
+      "Scope, timeline and priorities are defined before implementation starts.",
+  },
+  {
+    title: "Structured workflow",
+    description:
+      "Every project follows the same clear process from discovery to delivery.",
+  },
+  {
+    title: "Responsive implementation",
+    description:
+      "All pages are checked and optimized for desktop, tablet and mobile.",
+  },
+  {
+    title: "SEO-aware delivery",
+    description:
+      "Basic SEO foundations are part of every project, not an afterthought.",
+  },
+];
+
 export default function ProcessPage() {
   return (
     <main>
@@ -134,45 +175,85 @@ export default function ProcessPage() {
       </PageHero>
 
       <div className="public-page">
-      <section className="process-list">
-        {steps.map((step) => (
-          <article key={step.number} className="process-card">
-            <span>{step.number}</span>
-            <div>
-              <h2>{step.title}</h2>
-              <p>{step.description}</p>
-              <ul className="process-focus-list">
-                {step.focus.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </article>
-        ))}
-      </section>
 
-      <div className="process-note">
-        <h2>Why this process matters</h2>
-        <p>
-          A good website is not only about design. It needs structure, clear
-          content, fast user flow, technical stability and a practical plan for
-          future improvements.
-        </p>
-      </div>
+        {/* 2. Process overview */}
+        <section className="process-overview">
+          <div className="process-overview-header">
+            <h2>How I approach every project</h2>
+            <p>
+              A consistent process keeps projects on track and delivers
+              predictable results.
+            </p>
+          </div>
+          <div className="process-overview-grid">
+            {overviewItems.map((item) => (
+              <div key={item.title} className="process-overview-item">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
-      <section className="process-cta">
-        <h2>Ready to improve your website?</h2>
-        <p>
-          Send me a short description of your website or project and I can help
-          you define the next practical step.
-        </p>
-        <div className="process-cta-actions">
-          <Link href="/en/contact">Contact me</Link>
-          <Link href="/en/services" className="process-cta-secondary">
-            View services
-          </Link>
+        {/* 3. Process timeline / step cards */}
+        <section className="process-steps-section">
+          <h2 className="section-title">The workflow step by step</h2>
+          <div className="process-list">
+            {steps.map((step) => (
+              <article key={step.number} className="process-card">
+                <span className="process-card-number">{step.number}</span>
+                <div className="process-card-content">
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                  <ul className="process-focus-list">
+                    {step.focus.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* 4. Working principles */}
+        <section className="process-principles">
+          <h2 className="section-title">Working principles</h2>
+          <div className="process-principles-grid">
+            {principles.map((item) => (
+              <div key={item.title} className="process-principle-card">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 5. Why this process matters */}
+        <div className="process-note">
+          <h2>Why this process matters</h2>
+          <p>
+            A good website is not only about design. It needs structure, clear
+            content, fast user flow, technical stability and a practical plan
+            for future improvements.
+          </p>
         </div>
-      </section>
+
+        {/* 6. Final CTA */}
+        <section className="process-cta">
+          <h2>Ready to improve your website?</h2>
+          <p>
+            Send me a short description of your website or project and I can
+            help you define the next practical step.
+          </p>
+          <div className="process-cta-actions">
+            <Link href="/en/contact">Contact me</Link>
+            <Link href="/en/services" className="process-cta-secondary">
+              View services
+            </Link>
+          </div>
+        </section>
+
       </div>
     </main>
   );

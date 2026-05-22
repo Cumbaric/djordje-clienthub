@@ -84,6 +84,41 @@ const services = [
   },
 ];
 
+const introHighlights = [
+  "WordPress & Elementor",
+  "WooCommerce",
+  "SEO foundations",
+  "AI-assisted workflow",
+];
+
+const valueItems = [
+  {
+    title: "Clear structure",
+    description:
+      "Pages and sections that are logically organized and easy to navigate.",
+  },
+  {
+    title: "Responsive implementation",
+    description:
+      "Layouts that work correctly across desktop, tablet and mobile.",
+  },
+  {
+    title: "SEO-aware setup",
+    description:
+      "Technical foundations — headings, meta, internal linking — set up correctly from the start.",
+  },
+  {
+    title: "Practical handover",
+    description:
+      "A website that is easy to update and maintain after delivery.",
+  },
+  {
+    title: "Maintainable workflow",
+    description:
+      "Clean implementation that makes future changes straightforward.",
+  },
+];
+
 export default function ServicesPage() {
   return (
     <main>
@@ -107,35 +142,91 @@ export default function ServicesPage() {
       </PageHero>
 
       <div className="public-page">
-      <section className="services-list">
-        {services.map((service) => (
-          <article key={service.title} className="service-list-card">
-            <div className="service-list-content">
-              <h2>{service.title}</h2>
-              <p>{service.description}</p>
-              <ul className="service-includes-list">
-                {service.includes.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </article>
-        ))}
-      </section>
 
-      <section className="services-cta">
-        <h2>Need a cleaner and better structured website?</h2>
-        <p>
-          Send me a short description of your project and I can help you define
-          the next practical step.
-        </p>
-        <div className="services-cta-actions">
-          <Link href="/en/contact">Contact me</Link>
-          <Link href="/en/projects" className="services-cta-secondary">
-            View projects
-          </Link>
-        </div>
-      </section>
+        {/* 2. Intro / positioning */}
+        <section className="services-intro">
+          <p className="services-intro-label">What I do</p>
+          <h2>Practical web services for small businesses</h2>
+          <p>
+            I work with small businesses, service providers and content-driven
+            projects that need a cleaner, better structured web presence. Each
+            service is focused on practical execution — clear pages, proper
+            structure and a maintainable result.
+          </p>
+          <div className="services-intro-highlights">
+            {introHighlights.map((item) => (
+              <span key={item} className="services-intro-highlight">
+                {item}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {/* 3. Services overview grid */}
+        <section className="services-overview">
+          <h2 className="section-title">Services overview</h2>
+          <div className="services-overview-grid">
+            {services.map((service) => (
+              <div key={service.title} className="services-overview-card">
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 4. Detailed services */}
+        <section className="services-detail">
+          <h2 className="section-title">What each service includes</h2>
+          <div className="services-list">
+            {services.map((service) => (
+              <article key={service.title} className="service-list-card">
+                <div className="service-list-content">
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  <ul className="service-includes-list">
+                    {service.includes.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* 5. What you get */}
+        <section className="services-value">
+          <h2 className="section-title">What you get</h2>
+          <p>
+            Every project is focused on delivering a practical and maintainable
+            result.
+          </p>
+          <div className="services-value-grid">
+            {valueItems.map((item) => (
+              <div key={item.title} className="services-value-card">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 6. Final CTA */}
+        <section className="services-cta">
+          <h2>Need a cleaner and better structured website?</h2>
+          <p>
+            Send me a short description of your project and I can help you
+            define the next practical step.
+          </p>
+          <div className="services-cta-actions">
+            <Link href="/en/contact">Contact me</Link>
+            <Link href="/en/projects" className="services-cta-secondary">
+              View projects
+            </Link>
+          </div>
+        </section>
+
       </div>
     </main>
   );

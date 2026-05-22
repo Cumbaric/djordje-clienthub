@@ -110,6 +110,47 @@ const koraci = [
   },
 ];
 
+const pregled = [
+  {
+    title: "Struktura pre svega",
+    description:
+      "Jasne stranice, logična navigacija i prioritizovan sadržaj pre dizajna ili razvoja.",
+  },
+  {
+    title: "Izgradnja sa jasnoćom",
+    description:
+      "Implementacija fokusirana na održivost, responsive ponašanje i praktičan UX.",
+  },
+  {
+    title: "Testiranje pre predaje",
+    description:
+      "Svaki projekat prolazi kroz quality check koji pokriva uređaje, linkove i korisničke tokove.",
+  },
+];
+
+const principi = [
+  {
+    title: "Jasna komunikacija",
+    description:
+      "Obim, rok i prioriteti se definišu pre nego što implementacija počne.",
+  },
+  {
+    title: "Strukturisan workflow",
+    description:
+      "Svaki projekat prati isti jasan proces od analize do predaje.",
+  },
+  {
+    title: "Responsive implementacija",
+    description:
+      "Sve stranice se proveravaju i optimizuju za desktop, tablet i mobilni.",
+  },
+  {
+    title: "SEO-aware predaja",
+    description:
+      "SEO osnova je deo svakog projekta, a ne naknadna dopuna.",
+  },
+];
+
 export default function ProcesPage() {
   return (
     <main>
@@ -134,45 +175,85 @@ export default function ProcesPage() {
       </PageHero>
 
       <div className="public-page">
-      <section className="process-list">
-        {koraci.map((korak) => (
-          <article key={korak.number} className="process-card">
-            <span>{korak.number}</span>
-            <div>
-              <h2>{korak.title}</h2>
-              <p>{korak.description}</p>
-              <ul className="process-focus-list">
-                {korak.focus.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </article>
-        ))}
-      </section>
 
-      <div className="process-note">
-        <h2>Zašto je ovaj proces važan</h2>
-        <p>
-          Dobar sajt nije samo dizajn. Potrebni su struktura, jasan sadržaj,
-          brz korisnički tok, tehnička stabilnost i praktičan plan za buduća
-          unapređenja.
-        </p>
-      </div>
+        {/* 2. Pregled procesa */}
+        <section className="process-overview">
+          <div className="process-overview-header">
+            <h2>Kako pristupam svakom projektu</h2>
+            <p>
+              Konzistentan proces drži projekte na pravom putu i isporučuje
+              predvidive rezultate.
+            </p>
+          </div>
+          <div className="process-overview-grid">
+            {pregled.map((item) => (
+              <div key={item.title} className="process-overview-item">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
-      <section className="process-cta">
-        <h2>Spreman/spremna si da unaprediš svoj sajt?</h2>
-        <p>
-          Pošalji mi kratak opis sajta ili projekta i mogu da ti pomognem da
-          definišemo sledeći praktičan korak.
-        </p>
-        <div className="process-cta-actions">
-          <Link href="/sr/kontakt">Kontakt</Link>
-          <Link href="/sr/usluge" className="process-cta-secondary">
-            Pogledaj usluge
-          </Link>
+        {/* 3. Koraci procesa */}
+        <section className="process-steps-section">
+          <h2 className="section-title">Workflow korak po korak</h2>
+          <div className="process-list">
+            {koraci.map((korak) => (
+              <article key={korak.number} className="process-card">
+                <span className="process-card-number">{korak.number}</span>
+                <div className="process-card-content">
+                  <h3>{korak.title}</h3>
+                  <p>{korak.description}</p>
+                  <ul className="process-focus-list">
+                    {korak.focus.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* 4. Principi rada */}
+        <section className="process-principles">
+          <h2 className="section-title">Principi rada</h2>
+          <div className="process-principles-grid">
+            {principi.map((item) => (
+              <div key={item.title} className="process-principle-card">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 5. Zašto je ovaj proces važan */}
+        <div className="process-note">
+          <h2>Zašto je ovaj proces važan</h2>
+          <p>
+            Dobar sajt nije samo dizajn. Potrebni su struktura, jasan sadržaj,
+            brz korisnički tok, tehnička stabilnost i praktičan plan za buduća
+            unapređenja.
+          </p>
         </div>
-      </section>
+
+        {/* 6. Final CTA */}
+        <section className="process-cta">
+          <h2>Spreman/spremna si da unaprediš svoj sajt?</h2>
+          <p>
+            Pošalji mi kratak opis sajta ili projekta i mogu da ti pomognem da
+            definišemo sledeći praktičan korak.
+          </p>
+          <div className="process-cta-actions">
+            <Link href="/sr/kontakt">Kontakt</Link>
+            <Link href="/sr/usluge" className="process-cta-secondary">
+              Pogledaj usluge
+            </Link>
+          </div>
+        </section>
+
       </div>
     </main>
   );

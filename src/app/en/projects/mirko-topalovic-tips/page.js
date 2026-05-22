@@ -79,7 +79,7 @@ export default function MirkoTopalovicTipsPage() {
           <p>
             Content platform publishing regular sports betting tips where readers
             need to quickly find recent tips, browse by sport or category and
-            trust the site's structure. Goal was a well-organized content
+            trust the site&apos;s structure. Goal was a well-organized content
             platform ready for consistent publishing and future scaling.
           </p>
         </section>

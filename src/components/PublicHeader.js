@@ -64,7 +64,8 @@ export default function PublicHeader({ lang }) {
 
   // Close menu on route change
   useEffect(() => {
-    setMenuOpen(false);
+    const close = () => setMenuOpen(false);
+    close();
   }, [pathname]);
 
   // Lock body scroll while menu is open

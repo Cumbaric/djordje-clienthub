@@ -84,6 +84,41 @@ const usluge = [
   },
 ];
 
+const introHighlights = [
+  "WordPress & Elementor",
+  "WooCommerce",
+  "SEO osnova",
+  "AI-assisted workflow",
+];
+
+const valueItems = [
+  {
+    title: "Jasna struktura",
+    description:
+      "Stranice i sekcije koje su logički organizovane i lako se koriste.",
+  },
+  {
+    title: "Responsive implementacija",
+    description:
+      "Layouti koji ispravno funkcionišu na desktopu, tabletu i mobilnom.",
+  },
+  {
+    title: "SEO osnova",
+    description:
+      "Tehnički temelji — headinzi, meta, interno linkovanje — postavljeni ispravno od početka.",
+  },
+  {
+    title: "Praktična predaja",
+    description:
+      "Sajt koji je lako ažurirati i održavati nakon isporuke.",
+  },
+  {
+    title: "Održiv workflow",
+    description:
+      "Čista implementacija koja olakšava buduće izmene.",
+  },
+];
+
 export default function UslugePage() {
   return (
     <main>
@@ -107,35 +142,90 @@ export default function UslugePage() {
       </PageHero>
 
       <div className="public-page">
-      <section className="services-list">
-        {usluge.map((usluga) => (
-          <article key={usluga.title} className="service-list-card">
-            <div className="service-list-content">
-              <h2>{usluga.title}</h2>
-              <p>{usluga.description}</p>
-              <ul className="service-includes-list">
-                {usluga.includes.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </article>
-        ))}
-      </section>
 
-      <section className="services-cta">
-        <h2>Treba ti pregledniji i bolje strukturisan sajt?</h2>
-        <p>
-          Pošalji mi kratak opis projekta i mogu da ti pomognem da definišemo
-          sledeći praktičan korak.
-        </p>
-        <div className="services-cta-actions">
-          <Link href="/sr/kontakt">Kontakt</Link>
-          <Link href="/sr/projekti" className="services-cta-secondary">
-            Pogledaj projekte
-          </Link>
-        </div>
-      </section>
+        {/* 2. Intro / pozicioniranje */}
+        <section className="services-intro">
+          <p className="services-intro-label">Šta radim</p>
+          <h2>Praktične web usluge za male biznise</h2>
+          <p>
+            Radim sa malim biznisima, uslužnim delatnostima i content projektima
+            kojima treba pregledniji i bolje strukturisan web nastup. Svaka
+            usluga je fokusirana na praktičnu realizaciju — jasne stranice,
+            ispravna struktura i održiv rezultat.
+          </p>
+          <div className="services-intro-highlights">
+            {introHighlights.map((item) => (
+              <span key={item} className="services-intro-highlight">
+                {item}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {/* 3. Pregled usluga — grid */}
+        <section className="services-overview">
+          <h2 className="section-title">Pregled usluga</h2>
+          <div className="services-overview-grid">
+            {usluge.map((usluga) => (
+              <div key={usluga.title} className="services-overview-card">
+                <h3>{usluga.title}</h3>
+                <p>{usluga.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 4. Detaljan prikaz usluga */}
+        <section className="services-detail">
+          <h2 className="section-title">Šta uključuje svaka usluga</h2>
+          <div className="services-list">
+            {usluge.map((usluga) => (
+              <article key={usluga.title} className="service-list-card">
+                <div className="service-list-content">
+                  <h3>{usluga.title}</h3>
+                  <p>{usluga.description}</p>
+                  <ul className="service-includes-list">
+                    {usluga.includes.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* 5. Šta dobijaš */}
+        <section className="services-value">
+          <h2 className="section-title">Šta dobijaš</h2>
+          <p>
+            Svaki projekat je usmeren ka praktičnom i održivom rezultatu.
+          </p>
+          <div className="services-value-grid">
+            {valueItems.map((item) => (
+              <div key={item.title} className="services-value-card">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 6. Final CTA */}
+        <section className="services-cta">
+          <h2>Treba ti pregledniji i bolje strukturisan sajt?</h2>
+          <p>
+            Pošalji mi kratak opis projekta i mogu da ti pomognem da
+            definišemo sledeći praktičan korak.
+          </p>
+          <div className="services-cta-actions">
+            <Link href="/sr/kontakt">Kontakt</Link>
+            <Link href="/sr/projekti" className="services-cta-secondary">
+              Pogledaj projekte
+            </Link>
+          </div>
+        </section>
+
       </div>
     </main>
   );
