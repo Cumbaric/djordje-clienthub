@@ -12,13 +12,13 @@ import HeroGlow from "@/components/HeroGlow";
 import SectionOrb from "@/components/SectionOrb";
 
 export const metadata = {
-  title: "Đorđe Popović | WordPress developer i SEO-focused izrada sajtova",
+  title: "Đorđe Popović | Web developer — Pregledni, strukturisani i SEO-friendly sajtovi",
   description:
-    "WordPress developer fokusiran na brze, pregledne i prodajno orijentisane sajtove, uz SEO osnovu, optimizaciju performansi i AI-assisted workflow.",
+    "Web developer koji pravi pregledne, dobro strukturisane i SEO-friendly sajtove sa fokusom na performanse, praktičan UX i održiv workflow.",
   openGraph: {
-    title: "Đorđe Popović | WordPress developer",
+    title: "Đorđe Popović | Web developer",
     description:
-      "WordPress sajtovi, Elementor layout-i, WooCommerce osnove, SEO struktura i AI-assisted web workflow.",
+      "Pregledni, strukturisani sajtovi sa SEO osnovom, optimizacijom performansi i AI-assisted workflow-om za male biznise i uslužne delatnosti.",
   },
   alternates: {
     languages: { en: "/en", sr: "/sr" },

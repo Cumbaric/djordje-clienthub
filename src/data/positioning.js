@@ -1,18 +1,18 @@
 export const positioning = {
   en: {
     headline:
-      "WordPress Developer for fast, clean and conversion-focused websites",
+      "Web developer for clean, structured and SEO-ready websites",
     shortDescription:
-      "I build WordPress websites, Elementor layouts and WooCommerce foundations with a focus on SEO structure, performance and practical user experience.",
+      "I build well-structured websites with a focus on SEO foundations, performance and practical user experience — using the right technology for each project.",
     extendedDescription:
-      "My main focus is WordPress development for small businesses, service providers and content-driven projects. Alongside WordPress, I am expanding into React, Next.js and AI-assisted full-stack workflows through practical internal tools like Djordje ClientHub.",
+      "I help small businesses, service providers and content-driven projects build better websites — structured for clarity, optimized for search and built to be maintained. Alongside web development, I work with React, Next.js and AI-assisted workflows through practical projects like Djordje ClientHub.",
   },
   sr: {
     headline:
-      "WordPress developer za brze, pregledne i prodajno orijentisane sajtove",
+      "Web developer za pregledne, strukturisane i SEO-friendly sajtove",
     shortDescription:
-      "Izrađujem WordPress sajtove, Elementor stranice i WooCommerce osnove, uz fokus na SEO strukturu, performanse i praktično korisničko iskustvo.",
+      "Pravim dobro strukturisane sajtove sa fokusom na SEO osnovu, performanse i praktično korisničko iskustvo — birajući pravu tehnologiju za svaki projekat.",
     extendedDescription:
-      "Moj glavni fokus je WordPress razvoj za male biznise, uslužne delatnosti i content projekte. Pored WordPress-a, razvijam veštine u React, Next.js i AI-assisted full-stack workflow-u kroz praktične interne alate kao što je Djordje ClientHub.",
+      "Pomažem malim biznisima, uslužnim delatnostima i content projektima da naprave bolje sajtove — strukturisane za jasnoću, optimizovane za pretragu i napravljene da se lako održavaju. Pored web razvoja, radim sa React, Next.js i AI-assisted workflow-om kroz praktične projekte kao što je Djordje ClientHub.",
   },
 };
