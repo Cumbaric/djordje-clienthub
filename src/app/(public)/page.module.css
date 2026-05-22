@@ -637,6 +637,23 @@
     overflow: hidden;
   }
 
+  /* Workflow card — wrap into 3×2 grid on mobile */
+  .workflowSteps {
+    flex-wrap: wrap;
+    gap: 12px 6px;
+    padding: 14px 12px 16px;
+  }
+
+  .workflowStep {
+    flex: 0 0 calc(33.333% - 4px);
+    min-width: 0;
+  }
+
+  /* Hide arrows — they don't make sense in a grid layout */
+  .workflowArrow {
+    display: none;
+  }
+
   /* Skills card — compact on mobile */
   .skillsGrid {
     padding: 10px;
