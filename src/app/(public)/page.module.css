@@ -1195,7 +1195,7 @@
   text-overflow: ellipsis;
 }
 
-/* Mobile: horizontal scroll strip */
+/* Tablet: horizontal scroll strip */
 @media (max-width: 900px) {
   .workCards {
     justify-content: flex-start;
@@ -1227,17 +1227,39 @@
   }
 }
 
+/* Mobile: snappy card slider */
 @media (max-width: 600px) {
   .workSection {
-    padding: 56px 0 64px;
+    padding: 48px 0 56px;
+  }
+
+  .workSectionHeader {
+    padding: 0 20px;
   }
 
   .workSectionHeader h2 {
-    font-size: 32px;
+    font-size: 28px;
+  }
+
+  .workCards {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 28px 20px 32px;
+    gap: 12px;
+    /* Right padding shows peek of next card */
+    padding-right: 48px;
   }
 
   .workCard {
-    width: 200px;
+    width: 85vw;
+    max-width: 320px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    transform: none !important;
+  }
+
+  .workCard:hover {
+    transform: none !important;
   }
 }
 
