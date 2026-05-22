@@ -587,9 +587,74 @@
   }
 }
 
+/* Tablet — 2-col pills, layout refinements */
+@media (max-width: 768px) {
+  .featurePills {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .introInner {
+    padding: 60px 20px 72px;
+    gap: 32px;
+  }
+
+  .aboutHeading {
+    font-size: 32px;
+  }
+}
+
+/* Mobile — single column, compact sizing */
 @media (max-width: 600px) {
   .featurePills {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .aboutHeading {
+    font-size: 28px;
+  }
+
+  .aboutDesc {
+    font-size: 15px;
+  }
+
+  .aboutQuote {
+    font-size: 14px;
+  }
+
+  .introInner {
+    padding: 48px 18px 56px;
+    gap: 28px;
+  }
+
+  /* Skills card — compact on mobile */
+  .skillsGrid {
+    padding: 10px;
+    gap: 0 8px;
+  }
+
+  .skillBadge {
+    padding: 7px 8px;
+    font-size: 11px;
+    gap: 6px;
+  }
+
+  .skillIcon {
+    width: 20px;
+    height: 20px;
+    font-size: 8px;
+  }
+
+  .skillsGroupLabel {
+    font-size: 9px;
+  }
+}
+
+/* Hide hero cube on small phones — saves vertical space */
+@media (max-width: 640px) {
+  .heroVisual {
+    display: none;
   }
 }
 
