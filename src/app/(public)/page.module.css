@@ -258,6 +258,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  min-width: 0; /* CSS Grid fix — prevents item from expanding beyond grid cell */
 }
 
 .aboutHeading {
@@ -279,6 +280,7 @@
   font-size: 17px;
   line-height: 1.75;
   max-width: 520px;
+  width: 100%; /* prevents expanding beyond grid cell */
 }
 
 .aboutQuote {
@@ -351,6 +353,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-width: 0; /* CSS Grid fix */
 }
 
 .aboutCard {
@@ -617,6 +620,7 @@
 
   .aboutDesc {
     font-size: 15px;
+    max-width: 100%;
   }
 
   .aboutQuote {
@@ -626,6 +630,11 @@
   .introInner {
     padding: 48px 18px 56px;
     gap: 28px;
+  }
+
+  /* Contain absolute orb so it doesn't push layout */
+  .introText {
+    overflow: hidden;
   }
 
   /* Skills card — compact on mobile */
