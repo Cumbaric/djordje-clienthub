@@ -187,30 +187,56 @@ export default function Home() {
                 <span className={styles.aboutCardTitle}>Skills &amp; Stack</span>
               </div>
               <div className={styles.skillsGrid}>
-                {[
-                  { name: "WordPress",   abbr: "WP",  bg: "rgba(0,115,170,0.15)",   border: "rgba(0,115,170,0.3)",   color: "#0096d6" },
-                  { name: "Elementor",   abbr: "E",   bg: "rgba(226,80,76,0.12)",   border: "rgba(226,80,76,0.28)",  color: "#e2504c" },
-                  { name: "CSS",         abbr: "CSS", bg: "rgba(38,77,228,0.12)",   border: "rgba(38,77,228,0.28)",  color: "#264de4" },
-                  { name: "SEO",         abbr: "SEO", bg: "rgba(34,197,94,0.1)",    border: "rgba(34,197,94,0.25)",  color: "#22c55e" },
-                  { name: "HTML",        abbr: "HTML",bg: "rgba(227,79,38,0.12)",   border: "rgba(227,79,38,0.28)",  color: "#e34f26" },
-                  { name: "AI Workflow", abbr: "AI",  bg: "rgba(139,92,246,0.12)",  border: "rgba(139,92,246,0.28)", color: "#a78bfa" },
-                  { name: "Next.js",     abbr: "N",   bg: "rgba(255,255,255,0.05)", border: "rgba(255,255,255,0.12)",color: "#f1f5f9" },
-                  { name: "JS",          abbr: "JS",  bg: "rgba(247,223,30,0.1)",   border: "rgba(247,223,30,0.25)", color: "#f7df1e" },
-                ].map((skill) => (
-                  <div
-                    key={skill.name}
-                    className={styles.skillBadge}
-                    style={{
-                      "--skill-bg": skill.bg,
-                      "--skill-border": skill.border,
-                      "--skill-icon-bg": skill.bg,
-                      "--skill-color": skill.color,
-                    }}
-                  >
-                    <span className={styles.skillIcon} style={{ color: skill.color }}>{skill.abbr}</span>
-                    {skill.name}
-                  </div>
-                ))}
+                {/* Frontend group */}
+                <div className={styles.skillsGroup}>
+                  <p className={styles.skillsGroupLabel}>Frontend</p>
+                  {[
+                    { name: "HTML",    abbr: "HTML", bg: "rgba(227,79,38,0.12)",   border: "rgba(227,79,38,0.28)",   color: "#e34f26" },
+                    { name: "CSS",     abbr: "CSS",  bg: "rgba(38,77,228,0.12)",   border: "rgba(38,77,228,0.28)",   color: "#264de4" },
+                    { name: "JS",      abbr: "JS",   bg: "rgba(247,223,30,0.1)",   border: "rgba(247,223,30,0.25)",  color: "#f7df1e" },
+                    { name: "React",   abbr: "R",    bg: "rgba(97,218,251,0.1)",   border: "rgba(97,218,251,0.25)",  color: "#61dafb" },
+                    { name: "Next.js", abbr: "N",    bg: "rgba(255,255,255,0.05)", border: "rgba(255,255,255,0.12)", color: "#f1f5f9" },
+                  ].map((skill) => (
+                    <div
+                      key={skill.name}
+                      className={styles.skillBadge}
+                      style={{
+                        "--skill-bg": skill.bg,
+                        "--skill-border": skill.border,
+                        "--skill-icon-bg": skill.bg,
+                        "--skill-color": skill.color,
+                      }}
+                    >
+                      <span className={styles.skillIcon} style={{ color: skill.color }}>{skill.abbr}</span>
+                      {skill.name}
+                    </div>
+                  ))}
+                </div>
+                {/* WordPress group */}
+                <div className={styles.skillsGroup}>
+                  <p className={styles.skillsGroupLabel}>WordPress</p>
+                  {[
+                    { name: "WordPress",      abbr: "WP",  bg: "rgba(0,115,170,0.15)",   border: "rgba(0,115,170,0.3)",    color: "#0096d6" },
+                    { name: "WooCommerce",    abbr: "WC",  bg: "rgba(127,84,179,0.12)",  border: "rgba(127,84,179,0.28)",  color: "#7f54b3" },
+                    { name: "Elementor",      abbr: "E",   bg: "rgba(226,80,76,0.12)",   border: "rgba(226,80,76,0.28)",   color: "#e2504c" },
+                    { name: "Yoast SEO",      abbr: "YST", bg: "rgba(161,29,45,0.12)",   border: "rgba(161,29,45,0.28)",   color: "#c0392b" },
+                    { name: "W3 Total Cache", abbr: "W3C", bg: "rgba(59,130,246,0.1)",   border: "rgba(59,130,246,0.25)",  color: "#60a5fa" },
+                  ].map((skill) => (
+                    <div
+                      key={skill.name}
+                      className={styles.skillBadge}
+                      style={{
+                        "--skill-bg": skill.bg,
+                        "--skill-border": skill.border,
+                        "--skill-icon-bg": skill.bg,
+                        "--skill-color": skill.color,
+                      }}
+                    >
+                      <span className={styles.skillIcon} style={{ color: skill.color }}>{skill.abbr}</span>
+                      {skill.name}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
