@@ -81,8 +81,9 @@ export default function Home() {
               <span className={styles.aboutHeadingAccent}>ClientHub</span>
             </h2>
             <p className={styles.aboutDesc}>
-              WordPress developer fokusiran na izgradnju brzih, SEO-friendly
-              sajtova koji pomažu biznisima da rastu.
+              Web developer fokusiran na čistu strukturu, SEO osnovu i
+              praktično korisničko iskustvo — pomažem malim biznisima da
+              izgrade bolji digitalni nastup.
             </p>
             <blockquote className={styles.aboutQuote}>
               {pos.extendedDescription}
@@ -96,7 +97,7 @@ export default function Home() {
                 </div>
                 <div className={styles.featurePillText}>
                   <p className={styles.featurePillTitle}>Performanse</p>
-                  <p className={styles.featurePillDesc}>Optimizovano za brzinu i Core Web Vitals.</p>
+                  <p className={styles.featurePillDesc}>Brze stranice, optimizovani resursi i solidni Core Web Vitals.</p>
                 </div>
               </div>
               <div className={styles.featurePill}>
@@ -114,7 +115,7 @@ export default function Home() {
                 </div>
                 <div className={styles.featurePillText}>
                   <p className={styles.featurePillTitle}>AI pristup</p>
-                  <p className={styles.featurePillDesc}>AI workflow za brži razvoj i bolji rezultat.</p>
+                  <p className={styles.featurePillDesc}>AI-assisted planiranje, QA i workflow za bolje rezultate.</p>
                 </div>
               </div>
             </div>
@@ -129,8 +130,8 @@ export default function Home() {
                 {[
                   { label: "Analiza",   desc: "Ciljevi i publika",        icon: <path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zm0 2a3 3 0 1 1 0 6A3 3 0 0 1 8 5z" fill="currentColor"/> },
                   { label: "Struktura", desc: "Informaciona arhitektura", icon: <><rect x="3" y="3" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/><rect x="9" y="3" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/><rect x="3" y="9" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/><rect x="9" y="9" width="4" height="4" rx="1" stroke="currentColor" strokeWidth="1.4"/></> },
-                  { label: "Dizajn",    desc: "UI u Elementoru",          icon: <><path d="M4 12l2.5-2.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/><rect x="6" y="3" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.4"/></> },
-                  { label: "Razvoj",    desc: "Brz WordPress",            icon: <path d="M3 13l3.5-3.5 2 2L13 5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/> },
+                  { label: "Dizajn",    desc: "Čist, responsive UI",      icon: <><path d="M4 12l2.5-2.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/><rect x="6" y="3" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.4"/></> },
+                  { label: "Razvoj",    desc: "Strukturisan frontend",    icon: <path d="M3 13l3.5-3.5 2 2L13 5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/> },
                   { label: "SEO",       desc: "On-page i tehnički SEO",   icon: <><circle cx="7" cy="7" r="3.5" stroke="currentColor" strokeWidth="1.4"/><path d="M9.5 9.5L12 12" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/></> },
                   { label: "Launch",    desc: "Test i objava",            icon: <path d="M8 12V8m0-4c0 0 2.5 2 2.5 4h-5C5.5 6 8 4 8 4zM6 12h4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/> },
                 ].map((step, i, arr) => (
