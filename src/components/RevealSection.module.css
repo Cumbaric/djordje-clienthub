@@ -1,0 +1,26 @@
+/* ── Initial hidden state ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity  0.65s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0s);
+  will-change: opacity, transform;
+}
+
+/* ── Visible — added by IntersectionObserver ── */
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Respect system reduced-motion preference ── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+}

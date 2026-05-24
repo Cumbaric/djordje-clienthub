@@ -9,6 +9,7 @@ import { techStackContent } from "@/data/techStack";
 import TechSlider from "@/components/TechSlider";
 import { faqContent } from "@/data/faq";
 import StatsSection from "@/components/StatsSection";
+import RevealSection from "@/components/RevealSection";
 import { positioning } from "@/data/positioning";
 import styles from "../(public)/page.module.css";
 import HeroGlow from "@/components/HeroGlow";
@@ -64,6 +65,7 @@ export default function Home() {
       </section>
 
       {/* ── About / Intro ── */}
+      <RevealSection>
       <section className={styles.introSection}>
         <div className={styles.introInner}>
 
@@ -247,8 +249,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </RevealSection>
 
       {/* Services — alt bg */}
+      <RevealSection>
       <section className={`${styles.section} ${styles.sectionAlt}`}>
         <div className={styles.sectionInner}>
           <SectionOrb
@@ -280,8 +284,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </RevealSection>
 
       {/* Tech Stack — base bg */}
+      <RevealSection>
       <section className={styles.section}>
         <div className={styles.sectionInner}>
           <SectionOrb
@@ -303,8 +309,10 @@ export default function Home() {
           <TechSlider groups={tech.groups} />
         </div>
       </section>
+      </RevealSection>
 
       {/* ── Work showcase strip — alt bg ── */}
+      <RevealSection>
       <section className={`${styles.workSection} ${styles.sectionAlt}`}>
         <div className={styles.workSectionHeader}>
           <SectionOrb
@@ -362,11 +370,15 @@ export default function Home() {
           })}
         </div>
       </section>
+      </RevealSection>
 
       {/* ── Stats ── */}
-      <StatsSection lang="en" />
+      <RevealSection>
+        <StatsSection lang="en" />
+      </RevealSection>
 
       {/* ── FAQ ── */}
+      <RevealSection>
       <section className={`${styles.section} ${styles.sectionAlt}`}>
         <div className={styles.sectionInner}>
           <SectionHeader label={faq.eyebrow} title={faq.title} />
@@ -385,7 +397,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </RevealSection>
 
+      <RevealSection>
       <CTASection
         eyebrow="Contact"
         title="Do you have a WordPress project that needs attention?"
@@ -394,6 +408,7 @@ export default function Home() {
         Send me a message with a brief project description, your current
         problem, or the goal you want to achieve.
       </CTASection>
+      </RevealSection>
     </main>
   );
 }
