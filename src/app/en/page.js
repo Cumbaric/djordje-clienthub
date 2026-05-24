@@ -4,7 +4,7 @@ import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
 import HeroCube from "@/components/HeroCube";
 import { featuredProjects } from "@/data/projects";
-import { serviceLabels } from "@/data/services";
+import { services } from "@/data/services";
 import { techStackContent } from "@/data/techStack";
 import { positioning } from "@/data/positioning";
 import styles from "../(public)/page.module.css";
@@ -358,10 +358,14 @@ export default function Home() {
           />
 
           <div className={styles.servicesGrid}>
-            {serviceLabels.map((service) => (
-              <div key={service} className={styles.serviceItem}>
-                {service}
-              </div>
+            {services.map((service) => (
+              <Link
+                key={service.slug}
+                href={`/en/services/${service.slug}`}
+                className={styles.serviceItem}
+              >
+                {service.shortLabelEn}
+              </Link>
             ))}
           </div>
         </div>
