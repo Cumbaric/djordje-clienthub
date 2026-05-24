@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import RevealSection from "@/components/RevealSection";
 import { services } from "@/data/services";
 
 export const metadata = {
@@ -128,85 +129,93 @@ export default function ServicesPage() {
       <div className="public-page">
 
         {/* 2. Intro / positioning */}
-        <section className="services-intro">
-          <p className="services-intro-label">What I do</p>
-          <h2>Practical web services for small businesses</h2>
-          <p>
-            I work with small businesses, service providers and content-driven
-            projects that need a cleaner, better structured web presence. Each
-            service is focused on practical execution — clear pages, proper
-            structure and a maintainable result.
-          </p>
-          <div className="services-intro-highlights">
-            {introHighlights.map((item) => (
-              <span key={item} className="services-intro-highlight">
-                {item}
-              </span>
-            ))}
-          </div>
-        </section>
+        <RevealSection>
+          <section className="services-intro">
+            <p className="services-intro-label">What I do</p>
+            <h2>Practical web services for small businesses</h2>
+            <p>
+              I work with small businesses, service providers and content-driven
+              projects that need a cleaner, better structured web presence. Each
+              service is focused on practical execution — clear pages, proper
+              structure and a maintainable result.
+            </p>
+            <div className="services-intro-highlights">
+              {introHighlights.map((item) => (
+                <span key={item} className="services-intro-highlight">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </section>
+        </RevealSection>
 
         {/* 3. Unified services grid — icon + description + includes + link */}
-        <section className="services-unified">
-          <h2 className="section-title">Services overview</h2>
-          <div className="services-unified-grid">
-            {services.map((service) => (
-              <Link
-                key={service.slug}
-                href={`/en/services/${service.slug}`}
-                className="service-card"
-              >
-                <div className="service-card-header">
-                  <div className="service-card-icon">
-                    {serviceIcons[service.slug]}
+        <RevealSection delay={0.08}>
+          <section className="services-unified">
+            <h2 className="section-title">Services overview</h2>
+            <div className="services-unified-grid">
+              {services.map((service) => (
+                <Link
+                  key={service.slug}
+                  href={`/en/services/${service.slug}`}
+                  className="service-card"
+                >
+                  <div className="service-card-header">
+                    <div className="service-card-icon">
+                      {serviceIcons[service.slug]}
+                    </div>
+                    <h3>{service.titleEn}</h3>
                   </div>
-                  <h3>{service.titleEn}</h3>
-                </div>
-                <p className="service-card-desc">{service.descriptionEn}</p>
-                <ul className="service-includes-list">
-                  {service.includesEn.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-                <div className="service-card-cta">
-                  View details <span>→</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
+                  <p className="service-card-desc">{service.descriptionEn}</p>
+                  <ul className="service-includes-list">
+                    {service.includesEn.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                  <div className="service-card-cta">
+                    View details <span>→</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        </RevealSection>
 
         {/* 4. What you get */}
-        <section className="services-value">
-          <h2 className="section-title">What you get</h2>
-          <p>
-            Every project is focused on delivering a practical and maintainable
-            result.
-          </p>
-          <div className="services-value-grid">
-            {valueItems.map((item) => (
-              <div key={item.title} className="services-value-card">
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <RevealSection delay={0.05}>
+          <section className="services-value">
+            <h2 className="section-title">What you get</h2>
+            <p>
+              Every project is focused on delivering a practical and maintainable
+              result.
+            </p>
+            <div className="services-value-grid">
+              {valueItems.map((item) => (
+                <div key={item.title} className="services-value-card">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </RevealSection>
 
         {/* 5. Final CTA */}
-        <section className="services-cta">
-          <h2>Need a cleaner and better structured website?</h2>
-          <p>
-            Send me a short description of your project and I can help you
-            define the next practical step.
-          </p>
-          <div className="services-cta-actions">
-            <Link href="/en/contact">Contact me</Link>
-            <Link href="/en/projects" className="services-cta-secondary">
-              View projects
-            </Link>
-          </div>
-        </section>
+        <RevealSection delay={0.05}>
+          <section className="services-cta">
+            <h2>Need a cleaner and better structured website?</h2>
+            <p>
+              Send me a short description of your project and I can help you
+              define the next practical step.
+            </p>
+            <div className="services-cta-actions">
+              <Link href="/en/contact">Contact me</Link>
+              <Link href="/en/projects" className="services-cta-secondary">
+                View projects
+              </Link>
+            </div>
+          </section>
+        </RevealSection>
 
       </div>
     </main>

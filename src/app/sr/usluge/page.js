@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import RevealSection from "@/components/RevealSection";
 import { services } from "@/data/services";
 
 export const metadata = {
@@ -128,84 +129,92 @@ export default function UslugePage() {
       <div className="public-page">
 
         {/* 2. Intro / pozicioniranje */}
-        <section className="services-intro">
-          <p className="services-intro-label">Šta radim</p>
-          <h2>Praktične web usluge za male biznise</h2>
-          <p>
-            Radim sa malim biznisima, uslužnim delatnostima i content projektima
-            kojima treba pregledniji i bolje strukturisan web nastup. Svaka
-            usluga je fokusirana na praktičnu realizaciju — jasne stranice,
-            ispravna struktura i održiv rezultat.
-          </p>
-          <div className="services-intro-highlights">
-            {introHighlights.map((item) => (
-              <span key={item} className="services-intro-highlight">
-                {item}
-              </span>
-            ))}
-          </div>
-        </section>
+        <RevealSection>
+          <section className="services-intro">
+            <p className="services-intro-label">Šta radim</p>
+            <h2>Praktične web usluge za male biznise</h2>
+            <p>
+              Radim sa malim biznisima, uslužnim delatnostima i content projektima
+              kojima treba pregledniji i bolje strukturisan web nastup. Svaka
+              usluga je fokusirana na praktičnu realizaciju — jasne stranice,
+              ispravna struktura i održiv rezultat.
+            </p>
+            <div className="services-intro-highlights">
+              {introHighlights.map((item) => (
+                <span key={item} className="services-intro-highlight">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </section>
+        </RevealSection>
 
         {/* 3. Unified services grid — ikona + opis + stavke + link */}
-        <section className="services-unified">
-          <h2 className="section-title">Pregled usluga</h2>
-          <div className="services-unified-grid">
-            {services.map((service) => (
-              <Link
-                key={service.slug}
-                href={`/sr/usluge/${service.slug}`}
-                className="service-card"
-              >
-                <div className="service-card-header">
-                  <div className="service-card-icon">
-                    {serviceIcons[service.slug]}
+        <RevealSection delay={0.08}>
+          <section className="services-unified">
+            <h2 className="section-title">Pregled usluga</h2>
+            <div className="services-unified-grid">
+              {services.map((service) => (
+                <Link
+                  key={service.slug}
+                  href={`/sr/usluge/${service.slug}`}
+                  className="service-card"
+                >
+                  <div className="service-card-header">
+                    <div className="service-card-icon">
+                      {serviceIcons[service.slug]}
+                    </div>
+                    <h3>{service.title}</h3>
                   </div>
-                  <h3>{service.title}</h3>
-                </div>
-                <p className="service-card-desc">{service.description}</p>
-                <ul className="service-includes-list">
-                  {service.includes.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-                <div className="service-card-cta">
-                  Pogledaj detalje <span>→</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
+                  <p className="service-card-desc">{service.description}</p>
+                  <ul className="service-includes-list">
+                    {service.includes.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                  <div className="service-card-cta">
+                    Pogledaj detalje <span>→</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        </RevealSection>
 
         {/* 4. Šta dobijaš */}
-        <section className="services-value">
-          <h2 className="section-title">Šta dobijaš</h2>
-          <p>
-            Svaki projekat je usmeren ka praktičnom i održivom rezultatu.
-          </p>
-          <div className="services-value-grid">
-            {valueItems.map((item) => (
-              <div key={item.title} className="services-value-card">
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <RevealSection delay={0.05}>
+          <section className="services-value">
+            <h2 className="section-title">Šta dobijaš</h2>
+            <p>
+              Svaki projekat je usmeren ka praktičnom i održivom rezultatu.
+            </p>
+            <div className="services-value-grid">
+              {valueItems.map((item) => (
+                <div key={item.title} className="services-value-card">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </RevealSection>
 
         {/* 5. Final CTA */}
-        <section className="services-cta">
-          <h2>Treba ti pregledniji i bolje strukturisan sajt?</h2>
-          <p>
-            Pošalji mi kratak opis projekta i mogu da ti pomognem da
-            definišemo sledeći praktičan korak.
-          </p>
-          <div className="services-cta-actions">
-            <Link href="/sr/kontakt">Kontakt</Link>
-            <Link href="/sr/projekti" className="services-cta-secondary">
-              Pogledaj projekte
-            </Link>
-          </div>
-        </section>
+        <RevealSection delay={0.05}>
+          <section className="services-cta">
+            <h2>Treba ti pregledniji i bolje strukturisan sajt?</h2>
+            <p>
+              Pošalji mi kratak opis projekta i mogu da ti pomognem da
+              definišemo sledeći praktičan korak.
+            </p>
+            <div className="services-cta-actions">
+              <Link href="/sr/kontakt">Kontakt</Link>
+              <Link href="/sr/projekti" className="services-cta-secondary">
+                Pogledaj projekte
+              </Link>
+            </div>
+          </section>
+        </RevealSection>
 
       </div>
     </main>
