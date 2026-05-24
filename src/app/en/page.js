@@ -267,7 +267,7 @@ export default function Home() {
             {services.map((service) => (
               <Link
                 key={service.slug}
-                href={`/en/services/${service.slug}`}
+                href="/en/services"
                 className={styles.serviceItem}
               >
                 {service.shortLabelEn}
