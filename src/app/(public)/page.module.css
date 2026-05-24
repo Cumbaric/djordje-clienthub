@@ -834,17 +834,56 @@
 .techItems {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
-.techItems span {
-  padding: 8px 11px;
+/* Branded tech pill */
+.techItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 12px 7px 8px;
   border-radius: 999px;
-  background: rgba(59, 130, 246, 0.1);
-  color: #60a5fa;
+  background: var(--brand-bg, rgba(59,130,246,0.08));
+  border: 1px solid var(--brand-border, rgba(59,130,246,0.18));
+  color: #94a3b8;
   font-size: 13px;
-  font-weight: 700;
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  font-weight: 600;
+  cursor: default;
+  transition:
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    color 0.2s ease,
+    background 0.25s ease;
+}
+
+.techItem:hover {
+  box-shadow: 0 0 14px var(--brand-glow, rgba(59,130,246,0.35));
+  border-color: var(--brand-color, #3b82f6);
+  color: var(--brand-color, #60a5fa);
+  background: var(--brand-bg, rgba(59,130,246,0.12));
+}
+
+/* Colored icon badge inside the pill */
+.techItemIcon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: var(--brand-bg, rgba(59,130,246,0.15));
+  color: var(--brand-color, #60a5fa);
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  transition: background 0.25s ease;
+}
+
+.techItem:hover .techItemIcon {
+  background: color-mix(in srgb, var(--brand-color, #3b82f6) 20%, transparent);
 }
 
 /* CTA */
