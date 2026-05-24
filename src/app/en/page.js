@@ -6,6 +6,7 @@ import HeroCube from "@/components/HeroCube";
 import { featuredProjects } from "@/data/projects";
 import { services } from "@/data/services";
 import { techBrands } from "@/data/techBrands";
+import TechIcon from "@/components/TechIcon";
 import { techStackContent } from "@/data/techStack";
 import { positioning } from "@/data/positioning";
 import styles from "../(public)/page.module.css";
@@ -316,7 +317,7 @@ export default function Home() {
                           "--brand-glow":   brand.glow,
                         }}
                       >
-                        <span className={styles.techItemIcon}>{brand.abbr}</span>
+                        <span className={styles.techItemIcon}><TechIcon name={item} size={13} /></span>
                         {item}
                       </span>
                     );
