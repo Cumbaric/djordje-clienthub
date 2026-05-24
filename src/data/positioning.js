@@ -1,7 +1,7 @@
 export const positioning = {
   en: {
     headline:
-      "Web developer for clean, structured and SEO-ready websites",
+      "Web developer for custom websites and WordPress — clean, fast, optimized",
     shortDescription:
       "I build well-structured websites with a focus on SEO foundations, performance and practical user experience — using the right technology for each project.",
     extendedDescription:
@@ -9,7 +9,7 @@ export const positioning = {
   },
   sr: {
     headline:
-      "Web developer za pregledne, strukturisane i SEO-friendly sajtove",
+      "Web developer za custom sajtove i WordPress — čisto, brzo, optimizovano",
     shortDescription:
       "Pravim dobro strukturisane sajtove sa fokusom na SEO osnovu, performanse i praktično korisničko iskustvo — birajući pravu tehnologiju za svaki projekat.",
     extendedDescription:
