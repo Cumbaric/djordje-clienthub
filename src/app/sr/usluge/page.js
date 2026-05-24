@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import { services } from "@/data/services";
 
 export const metadata = {
   title: "Usluge | WordPress, SEO i website workflow",
@@ -15,80 +16,63 @@ export const metadata = {
   },
 };
 
-const usluge = [
-  {
-    title: "Izrada WordPress sajtova",
-    description:
-      "Pregledni i responsive WordPress sajtovi sa jasnom strukturom, praktičnim UX pristupom i održivim layout-ima.",
-    includes: [
-      "Struktura sajta i postavljanje stranica",
-      "Elementor / Elementor Pro implementacija",
-      "Responsive layout",
-      "Osnovno tehničko podešavanje",
-    ],
-  },
-  {
-    title: "Redizajn Elementor sajtova",
-    description:
-      "Unapređenje postojećih Elementor sajtova kroz čistiji layout, bolju konzistentnost i bolji prikaz na svim uređajima.",
-    includes: [
-      "Čišćenje sekcija i layout-a",
-      "Unapređenje mobilnog prikaza",
-      "Bolja vizuelna hijerarhija",
-      "Bolje pozicioniranje CTA elemenata",
-    ],
-  },
-  {
-    title: "Izrada WooCommerce prodavnica",
-    description:
-      "Osnovno postavljanje WooCommerce prodavnice za manje biznise kojima treba jasna struktura proizvoda i jednostavan tok kupovine.",
-    includes: [
-      "Struktura proizvoda",
-      "Podešavanje product stranica",
-      "Osnovna WooCommerce konfiguracija",
-      "Pregled checkout toka",
-    ],
-  },
-  {
-    title: "SEO i tehnička optimizacija",
-    description:
-      "SEO unapređenja koja pomažu da sajt bude jasniji korisnicima i pretraživačima.",
-    includes: [
-      "Osnovni title i meta description",
-      "Struktura headinga",
-      "Predlozi za interno linkovanje",
-      "Technical SEO provera",
-    ],
-  },
-  {
-    title: "Održavanje WordPress sajtova",
-    description:
-      "Kontinuirana podrška za WordPress sajtove kako bi sadržaj, pluginovi i struktura ostali stabilni i organizovani.",
-    includes: [
-      "Ažuriranje sadržaja",
-      "Podrška za plugin/theme update",
-      "Osnovni troubleshooting",
-      "Unapređenje strukture sajta",
-    ],
-  },
-  {
-    title: "AI-assisted website workflow",
-    description:
-      "Korišćenje AI alata za brže planiranje, strukturu sadržaja, QA i razvojni workflow, uz ljudsku kontrolu nad finalnim rezultatom.",
-    includes: [
-      "Planiranje sadržaja",
-      "Planiranje strukture sajta",
-      "QA checkliste",
-      "Dokumentacija workflow-a",
-    ],
-  },
-];
+/* ── Ikone po slug-u (Feather-style SVG) ── */
+const serviceIcons = {
+  "html-css-js": (
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <polyline points="16 18 22 12 16 6" />
+      <polyline points="8 6 2 12 8 18" />
+    </svg>
+  ),
+  "react-nextjs": (
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+    </svg>
+  ),
+  "seo-optimization": (
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="8" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+    </svg>
+  ),
+  "wordpress-website-development": (
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+      <line x1="3" y1="9" x2="21" y2="9" />
+      <line x1="9" y1="21" x2="9" y2="9" />
+    </svg>
+  ),
+  "ecommerce-store": (
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <path d="M16 10a4 4 0 0 1-8 0" />
+    </svg>
+  ),
+  "website-maintenance": (
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+    </svg>
+  ),
+};
 
 const introHighlights = [
   "WordPress & Elementor",
   "WooCommerce",
-  "SEO osnova",
-  "AI-assisted workflow",
+  "SEO optimizacija",
+  "React / Next.js",
 ];
 
 const valueItems = [
@@ -162,40 +146,37 @@ export default function UslugePage() {
           </div>
         </section>
 
-        {/* 3. Pregled usluga — grid */}
-        <section className="services-overview">
+        {/* 3. Unified services grid — ikona + opis + stavke + link */}
+        <section className="services-unified">
           <h2 className="section-title">Pregled usluga</h2>
-          <div className="services-overview-grid">
-            {usluge.map((usluga) => (
-              <div key={usluga.title} className="services-overview-card">
-                <h3>{usluga.title}</h3>
-                <p>{usluga.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 4. Detaljan prikaz usluga */}
-        <section className="services-detail">
-          <h2 className="section-title">Šta uključuje svaka usluga</h2>
-          <div className="services-list">
-            {usluge.map((usluga) => (
-              <article key={usluga.title} className="service-list-card">
-                <div className="service-list-content">
-                  <h3>{usluga.title}</h3>
-                  <p>{usluga.description}</p>
-                  <ul className="service-includes-list">
-                    {usluga.includes.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
+          <div className="services-unified-grid">
+            {services.map((service) => (
+              <Link
+                key={service.slug}
+                href={`/sr/usluge/${service.slug}`}
+                className="service-card"
+              >
+                <div className="service-card-header">
+                  <div className="service-card-icon">
+                    {serviceIcons[service.slug]}
+                  </div>
+                  <h3>{service.title}</h3>
                 </div>
-              </article>
+                <p className="service-card-desc">{service.description}</p>
+                <ul className="service-includes-list">
+                  {service.includes.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <div className="service-card-cta">
+                  Pogledaj detalje <span>→</span>
+                </div>
+              </Link>
             ))}
           </div>
         </section>
 
-        {/* 5. Šta dobijaš */}
+        {/* 4. Šta dobijaš */}
         <section className="services-value">
           <h2 className="section-title">Šta dobijaš</h2>
           <p>
@@ -211,7 +192,7 @@ export default function UslugePage() {
           </div>
         </section>
 
-        {/* 6. Final CTA */}
+        {/* 5. Final CTA */}
         <section className="services-cta">
           <h2>Treba ti pregledniji i bolje strukturisan sajt?</h2>
           <p>

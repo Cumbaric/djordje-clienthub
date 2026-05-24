@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import { services } from "@/data/services";
 
 export const metadata = {
   title: "Services | WordPress, SEO and Website Workflow",
@@ -15,80 +16,63 @@ export const metadata = {
   },
 };
 
-const services = [
-  {
-    title: "WordPress Website Development",
-    description:
-      "Clean, responsive WordPress websites built with a clear structure, practical UX and maintainable page layouts.",
-    includes: [
-      "Website structure and page setup",
-      "Elementor / Elementor Pro implementation",
-      "Responsive layout",
-      "Basic technical setup",
-    ],
-  },
-  {
-    title: "Elementor Website Redesign",
-    description:
-      "Improving existing Elementor websites by making layouts cleaner, more consistent and easier to use across devices.",
-    includes: [
-      "Section and layout cleanup",
-      "Mobile responsiveness improvements",
-      "Visual hierarchy improvements",
-      "Better CTA placement",
-    ],
-  },
-  {
-    title: "WooCommerce Store Setup",
-    description:
-      "Basic WooCommerce store setup for small businesses that need a clear product structure and simple purchasing flow.",
-    includes: [
-      "Product structure",
-      "Product page setup",
-      "Basic WooCommerce configuration",
-      "Checkout flow review",
-    ],
-  },
-  {
-    title: "SEO & Technical Optimization",
-    description:
-      "SEO-focused improvements that help websites become easier to understand for users and search engines.",
-    includes: [
-      "Page title and meta description basics",
-      "Heading structure",
-      "Internal linking suggestions",
-      "Technical SEO checks",
-    ],
-  },
-  {
-    title: "WordPress Maintenance",
-    description:
-      "Ongoing support for WordPress websites to keep content, plugins and structure stable and organized.",
-    includes: [
-      "Content updates",
-      "Plugin/theme update support",
-      "Basic troubleshooting",
-      "Site structure improvements",
-    ],
-  },
-  {
-    title: "AI-assisted Website Workflow",
-    description:
-      "Using AI tools to speed up planning, content structure, QA and development workflows while keeping human control over the final result.",
-    includes: [
-      "Content planning",
-      "Website structure planning",
-      "QA checklists",
-      "Workflow documentation",
-    ],
-  },
-];
+/* ── Icons per slug (Feather-style SVG) ── */
+const serviceIcons = {
+  "html-css-js": (
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <polyline points="16 18 22 12 16 6" />
+      <polyline points="8 6 2 12 8 18" />
+    </svg>
+  ),
+  "react-nextjs": (
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+    </svg>
+  ),
+  "seo-optimization": (
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="8" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+    </svg>
+  ),
+  "wordpress-website-development": (
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+      <line x1="3" y1="9" x2="21" y2="9" />
+      <line x1="9" y1="21" x2="9" y2="9" />
+    </svg>
+  ),
+  "ecommerce-store": (
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <path d="M16 10a4 4 0 0 1-8 0" />
+    </svg>
+  ),
+  "website-maintenance": (
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+    </svg>
+  ),
+};
 
 const introHighlights = [
   "WordPress & Elementor",
   "WooCommerce",
-  "SEO foundations",
-  "AI-assisted workflow",
+  "SEO optimization",
+  "React / Next.js",
 ];
 
 const valueItems = [
@@ -162,40 +146,37 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* 3. Services overview grid */}
-        <section className="services-overview">
+        {/* 3. Unified services grid — icon + description + includes + link */}
+        <section className="services-unified">
           <h2 className="section-title">Services overview</h2>
-          <div className="services-overview-grid">
+          <div className="services-unified-grid">
             {services.map((service) => (
-              <div key={service.title} className="services-overview-card">
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 4. Detailed services */}
-        <section className="services-detail">
-          <h2 className="section-title">What each service includes</h2>
-          <div className="services-list">
-            {services.map((service) => (
-              <article key={service.title} className="service-list-card">
-                <div className="service-list-content">
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-                  <ul className="service-includes-list">
-                    {service.includes.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
+              <Link
+                key={service.slug}
+                href={`/en/services/${service.slug}`}
+                className="service-card"
+              >
+                <div className="service-card-header">
+                  <div className="service-card-icon">
+                    {serviceIcons[service.slug]}
+                  </div>
+                  <h3>{service.titleEn}</h3>
                 </div>
-              </article>
+                <p className="service-card-desc">{service.descriptionEn}</p>
+                <ul className="service-includes-list">
+                  {service.includesEn.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <div className="service-card-cta">
+                  View details <span>→</span>
+                </div>
+              </Link>
             ))}
           </div>
         </section>
 
-        {/* 5. What you get */}
+        {/* 4. What you get */}
         <section className="services-value">
           <h2 className="section-title">What you get</h2>
           <p>
@@ -212,7 +193,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* 6. Final CTA */}
+        {/* 5. Final CTA */}
         <section className="services-cta">
           <h2>Need a cleaner and better structured website?</h2>
           <p>
