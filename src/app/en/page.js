@@ -5,9 +5,8 @@ import CTASection from "@/components/CTASection";
 import HeroCube from "@/components/HeroCube";
 import { featuredProjects } from "@/data/projects";
 import { services } from "@/data/services";
-import { techBrands } from "@/data/techBrands";
-import TechIcon from "@/components/TechIcon";
 import { techStackContent } from "@/data/techStack";
+import TechSlider from "@/components/TechSlider";
 import { positioning } from "@/data/positioning";
 import styles from "../(public)/page.module.css";
 import HeroGlow from "@/components/HeroGlow";
@@ -298,34 +297,7 @@ export default function Home() {
           />
           <p className={styles.sectionDescription}>{tech.description}</p>
 
-          <div className={styles.techGrid}>
-            {tech.groups.map((group) => (
-              <article key={group.title} className={styles.techCard}>
-                <h3>{group.title}</h3>
-
-                <div className={styles.techItems}>
-                  {group.items.map((item) => {
-                    const brand = techBrands[item] || techBrands._default;
-                    return (
-                      <span
-                        key={item}
-                        className={styles.techItem}
-                        style={{
-                          "--brand-color":  brand.color,
-                          "--brand-bg":     brand.bg,
-                          "--brand-border": brand.border,
-                          "--brand-glow":   brand.glow,
-                        }}
-                      >
-                        <span className={styles.techItemIcon}><TechIcon name={item} size={13} /></span>
-                        {item}
-                      </span>
-                    );
-                  })}
-                </div>
-              </article>
-            ))}
-          </div>
+          <TechSlider groups={tech.groups} />
         </div>
       </section>
 
