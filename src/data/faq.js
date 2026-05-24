@@ -5,15 +5,15 @@ export const faqContent = {
     items: [
       {
         q: "Koliko košta izrada sajta?",
-        a: "Cena zavisi od kompleksnosti projekta — da li je u pitanju prezentacioni sajt, sajt do 5 stranica ili veći projekat sa više stranica. Takođe zavisi i od načina izrade: WordPress sajt i custom code (React/Next.js) imaju različit scope i cenu. Pošalji mi kratak opis projekta i dobićeš konkretnu ponudu.",
+        a: "Cena zavisi od kompleksnosti projekta — da li je u pitanju prezentacioni sajt, sajt do 5 stranica ili veći projekat sa više stranica. Takođe zavisi i od načina izrade: WordPress sajt i custom code imaju različit scope i cenu. Pošalji mi kratak opis projekta i dobićeš konkretnu ponudu.",
       },
       {
         q: "Koliko traje izrada?",
-        a: "Landing page: 3–5 dana. WordPress prezentacioni sajt: 1–2 nedelje. WooCommerce prodavnica: zavisi od broja proizvoda, obično 2–4 nedelje. Custom Next.js projekat: 4–8 nedelja. Rokovi zavise od kompleksnosti projekta i tvoje dostupnosti za feedback.",
+        a: "Landing page: 3–5 dana. WordPress prezentacioni sajt: 1–2 nedelje. WooCommerce prodavnica: zavisi od broja proizvoda, obično 2–4 nedelje. Custom code projekat: 4–8 nedelja. Rokovi zavise od kompleksnosti projekta i tvoje dostupnosti za feedback.",
       },
       {
         q: "Radite i WordPress i custom sajtove?",
-        a: "Da — radim oba. WordPress je odličan za prezentacione sajtove i e-commerce kada je brza isporuka prioritet. Custom React/Next.js je bolja opcija za projekte koji zahtevaju specifične funkcionalnosti, bolji SEO kontrolu ili dugoročnu skalabilnost.",
+        a: "Da — radim oba. WordPress je odličan za prezentacione sajtove i e-commerce kada je brza isporuka prioritet. Custom code je bolja opcija za projekte koji zahtevaju specifične funkcionalnosti, bolju SEO kontrolu ili dugoročnu skalabilnost.",
       },
       {
         q: "Šta je uključeno u cenu?",
@@ -35,15 +35,15 @@ export const faqContent = {
     items: [
       {
         q: "How much does a website cost?",
-        a: "The price depends on the complexity of the project — whether it's a presentation site, a site with up to 5 pages, or a larger multi-page build. It also depends on the development approach: WordPress and custom code (React/Next.js) have different scopes and price ranges. Send me a brief project description and you'll get a concrete quote.",
+        a: "The price depends on the complexity of the project — whether it's a presentation site, a site with up to 5 pages, or a larger multi-page build. It also depends on the development approach: WordPress and custom code have different scopes and price ranges. Send me a brief project description and you'll get a concrete quote.",
       },
       {
         q: "How long does it take to build?",
-        a: "Landing page: 3–5 days. WordPress presentation site: 1–2 weeks. WooCommerce store: depends on the number of products, usually 2–4 weeks. Custom Next.js project: 4–8 weeks. Timelines depend on the project scope and how quickly you can provide feedback.",
+        a: "Landing page: 3–5 days. WordPress presentation site: 1–2 weeks. WooCommerce store: depends on the number of products, usually 2–4 weeks. Custom code project: 4–8 weeks. Timelines depend on the project scope and how quickly you can provide feedback.",
       },
       {
         q: "Do you build both WordPress and custom websites?",
-        a: "Yes — I do both. WordPress is great for presentation sites and e-commerce when fast delivery is the priority. Custom React/Next.js is a better fit for projects that need specific functionality, greater SEO control or long-term scalability.",
+        a: "Yes — I do both. WordPress is great for presentation sites and e-commerce when fast delivery is the priority. Custom code is a better fit for projects that need specific functionality, greater SEO control or long-term scalability.",
       },
       {
         q: "What is included in the price?",
