@@ -402,7 +402,7 @@ export default function Home() {
       <RevealSection>
       <CTASection
         eyebrow="Contact"
-        title="Do you have a WordPress project that needs attention?"
+        title="Start your project — a website built around your needs"
         action={{ href: "/en/contact", text: "Contact me" }}
       >
         Send me a message with a brief project description, your current

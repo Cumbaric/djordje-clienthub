@@ -399,7 +399,7 @@ export default function Home() {
       <RevealSection>
       <CTASection
         eyebrow="Kontakt"
-        title="Imaš WordPress projekat koji treba srediti ili razviti?"
+        title="Pokreni projekat — izrada sajta po tvojoj meri"
         action={{ href: "/sr/kontakt", text: "Kontaktiraj me" }}
       >
         Pošalji mi poruku sa kratkim opisom projekta, trenutnim problemom ili
