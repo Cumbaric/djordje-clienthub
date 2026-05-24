@@ -5,11 +5,11 @@ export const faqContent = {
     items: [
       {
         q: "Koliko košta izrada sajta?",
-        a: "Cena zavisi od tipa i kompleksnosti projekta — prezentacioni sajt, WordPress sajt ili custom Next.js rešenje imaju različit scope. Pošalji mi kratak opis projekta i dobićeš konkretnu ponudu.",
+        a: "Cena zavisi od kompleksnosti projekta — da li je u pitanju prezentacioni sajt, sajt do 5 stranica ili veći projekat sa više stranica. Takođe zavisi i od načina izrade: WordPress sajt i custom code (React/Next.js) imaju različit scope i cenu. Pošalji mi kratak opis projekta i dobićeš konkretnu ponudu.",
       },
       {
         q: "Koliko traje izrada?",
-        a: "Landing page ili manji prezentacioni sajt: 1–2 nedelje. WordPress sajt sa više strana: 2–4 nedelje. Custom Next.js projekat: 4–8 nedelja. Rokovi zavise od kompleksnosti projekta i tvoje dostupnosti za feedback.",
+        a: "Landing page: 3–5 dana. WordPress prezentacioni sajt: 1–2 nedelje. WooCommerce prodavnica: zavisi od broja proizvoda, obično 2–4 nedelje. Custom Next.js projekat: 4–8 nedelja. Rokovi zavise od kompleksnosti projekta i tvoje dostupnosti za feedback.",
       },
       {
         q: "Radite i WordPress i custom sajtove?",
@@ -35,11 +35,11 @@ export const faqContent = {
     items: [
       {
         q: "How much does a website cost?",
-        a: "The price depends on the type and complexity of the project — a landing page, WordPress site or custom Next.js build each have a different scope. Send me a brief description and you'll get a concrete quote.",
+        a: "The price depends on the complexity of the project — whether it's a presentation site, a site with up to 5 pages, or a larger multi-page build. It also depends on the development approach: WordPress and custom code (React/Next.js) have different scopes and price ranges. Send me a brief project description and you'll get a concrete quote.",
       },
       {
         q: "How long does it take to build?",
-        a: "A landing page or smaller website: 1–2 weeks. A multi-page WordPress site: 2–4 weeks. A custom Next.js project: 4–8 weeks. Timelines depend on the project scope and how quickly you can provide feedback.",
+        a: "Landing page: 3–5 days. WordPress presentation site: 1–2 weeks. WooCommerce store: depends on the number of products, usually 2–4 weeks. Custom Next.js project: 4–8 weeks. Timelines depend on the project scope and how quickly you can provide feedback.",
       },
       {
         q: "Do you build both WordPress and custom websites?",
