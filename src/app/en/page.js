@@ -244,8 +244,41 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tech Stack — alt bg (immediately after About) */}
+      {/* Services — alt bg */}
       <section className={`${styles.section} ${styles.sectionAlt}`}>
+        <div className={styles.sectionInner}>
+          <SectionOrb
+            delay="0s"
+            style={{
+              "--orb-top": "78px",
+              "--orb-left": "340px",
+              "--orb-right": "auto",
+              "--orb-travel": "-340px",
+              "--orb-duration": "1.8s",
+            }}
+          />
+          <SectionHeader
+            label="Services"
+            title="Services I can offer clients"
+            link={{ href: "/en/services", text: "Learn more" }}
+          />
+
+          <div className={styles.servicesGrid}>
+            {services.map((service) => (
+              <Link
+                key={service.slug}
+                href={`/en/services/${service.slug}`}
+                className={styles.serviceItem}
+              >
+                {service.shortLabelEn}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tech Stack — base bg */}
+      <section className={styles.section}>
         <div className={styles.sectionInner}>
           <SectionOrb
             delay="0s"
@@ -279,8 +312,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Work showcase strip — base bg ── */}
-      <section className={styles.workSection}>
+      {/* ── Work showcase strip — alt bg ── */}
+      <section className={`${styles.workSection} ${styles.sectionAlt}`}>
         <div className={styles.workSectionHeader}>
           <SectionOrb
             delay="0s"
@@ -335,39 +368,6 @@ export default function Home() {
               </div>
             );
           })}
-        </div>
-      </section>
-
-      {/* Services — alt bg */}
-      <section className={`${styles.section} ${styles.sectionAlt}`}>
-        <div className={styles.sectionInner}>
-          <SectionOrb
-            delay="0s"
-            style={{
-              "--orb-top": "78px",
-              "--orb-left": "340px",
-              "--orb-right": "auto",
-              "--orb-travel": "-340px",
-              "--orb-duration": "1.8s",
-            }}
-          />
-          <SectionHeader
-            label="Services"
-            title="Services I can offer clients"
-            link={{ href: "/en/services", text: "Learn more" }}
-          />
-
-          <div className={styles.servicesGrid}>
-            {services.map((service) => (
-              <Link
-                key={service.slug}
-                href={`/en/services/${service.slug}`}
-                className={styles.serviceItem}
-              >
-                {service.shortLabelEn}
-              </Link>
-            ))}
-          </div>
         </div>
       </section>
 
