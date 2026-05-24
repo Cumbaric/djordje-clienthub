@@ -8,6 +8,7 @@ import { services } from "@/data/services";
 import { techStackContent } from "@/data/techStack";
 import TechSlider from "@/components/TechSlider";
 import { faqContent } from "@/data/faq";
+import StatsSection from "@/components/StatsSection";
 import { positioning } from "@/data/positioning";
 import styles from "../(public)/page.module.css";
 import HeroGlow from "@/components/HeroGlow";
@@ -359,23 +360,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Stats bar ── */}
-      <div className={styles.statsSection}>
-        <div className={styles.statsInner}>
-          <div className={styles.statItem}>
-            <span className={styles.statValue}>6</span>
-            <span className={styles.statLabel}>završenih projekata</span>
-          </div>
-          <div className={styles.statItem}>
-            <span className={styles.statValue}>2+</span>
-            <span className={styles.statLabel}>godine iskustva</span>
-          </div>
-          <div className={styles.statItem}>
-            <span className={styles.statValue}>&lt;24h</span>
-            <span className={styles.statLabel}>vreme odgovora</span>
-          </div>
-        </div>
-      </div>
+      {/* ── Stats ── */}
+      <StatsSection lang="sr" />
 
       {/* ── FAQ ── */}
       <section className={`${styles.section} ${styles.sectionAlt}`}>

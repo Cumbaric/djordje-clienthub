@@ -1,0 +1,225 @@
+/* ============================================================
+   StatsSection — 4-card stats grid with count-up animation
+   ============================================================ */
+
+/* ── Full-width section wrapper ── */
+.section {
+  border-top: 1px solid rgba(30, 30, 46, 0.8);
+  border-bottom: 1px solid rgba(30, 30, 46, 0.8);
+}
+
+/* ── 4-column grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+/* ── Stat card ── */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px 20px 28px;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 24px;
+  background: #111118;
+  overflow: hidden;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.card:hover {
+  border-color: var(--accent, rgba(59, 130, 246, 0.35));
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent, #3b82f6) 15%, transparent),
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 0 28px color-mix(in srgb, var(--accent, #3b82f6) 12%, transparent);
+  transform: translateY(-3px);
+}
+
+/* Radial top glow — shown on hover */
+.cardGlow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 50% -5%,
+    color-mix(in srgb, var(--accent, #3b82f6) 16%, transparent) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card:hover .cardGlow {
+  opacity: 1;
+}
+
+/* ── Icon badge ── */
+.iconWrap {
+  position: relative;
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--accent-bg, rgba(59, 130, 246, 0.1));
+  border: 1px solid var(--accent-border, rgba(59, 130, 246, 0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent, #60a5fa);
+  margin-bottom: 20px;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover .iconWrap {
+  background: color-mix(in srgb, var(--accent, #3b82f6) 18%, transparent);
+  border-color: color-mix(in srgb, var(--accent, #3b82f6) 40%, transparent);
+}
+
+/* ── Value row (number + optional live dot) ── */
+.valueRow {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* ── Animated number ── */
+.value {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  /* gradient tinted with card accent */
+  background: linear-gradient(
+    135deg,
+    #f1f5f9 30%,
+    var(--accent, #93c5fd) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  /* start invisible, animate in */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.valueIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Live pulsing dot ── */
+.liveDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: #4ade80;
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.7);
+  animation: livePulse 2.2s ease-in-out infinite;
+  /* align with number baseline */
+  margin-top: 4px;
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.45; transform: scale(0.7); }
+}
+
+/* ── Label ── */
+.label {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  max-width: 110px;
+  transition: color 0.25s ease;
+}
+
+.card:hover .label {
+  color: #64748b;
+}
+
+/* ── Tablet: 2×2 grid ── */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    padding: 40px 24px;
+  }
+
+  .value {
+    font-size: 44px;
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 32px 18px;
+  }
+
+  .card {
+    padding: 24px 14px 20px;
+    border-radius: 18px;
+  }
+
+  .iconWrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    margin-bottom: 16px;
+  }
+
+  .value {
+    font-size: 38px;
+  }
+
+  .label {
+    font-size: 13px;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .value {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .card {
+    transition: none;
+    transform: none !important;
+  }
+
+  .cardGlow {
+    transition: none;
+  }
+
+  .liveDot {
+    animation: none;
+  }
+}
