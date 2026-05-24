@@ -244,8 +244,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Work showcase strip — alt bg ── */}
-      <section className={`${styles.workSection} ${styles.sectionAlt}`}>
+      {/* Tech Stack — alt bg (odmah ispod O meni) */}
+      <section className={`${styles.section} ${styles.sectionAlt}`}>
+        <div className={styles.sectionInner}>
+          <SectionOrb
+            delay="0s"
+            style={{
+              "--orb-top": "78px",
+              "--orb-left": "340px",
+              "--orb-right": "auto",
+              "--orb-travel": "-340px",
+              "--orb-duration": "1.8s",
+            }}
+          />
+          <SectionHeader label={tech.eyebrow} title={tech.title} />
+          <p className={styles.sectionDescription}>{tech.description}</p>
+
+          <div className={styles.techGrid}>
+            {tech.groups.map((group) => (
+              <article key={group.title} className={styles.techCard}>
+                <h3>{group.title}</h3>
+
+                <div className={styles.techItems}>
+                  {group.items.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Work showcase strip — base bg ── */}
+      <section className={styles.workSection}>
         <div className={styles.workSectionHeader}>
           <SectionOrb
             delay="0s"
@@ -303,77 +335,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projekti — base bg */}
-      <section className={styles.section}>
-        <div className={styles.sectionInner}>
-          <SectionOrb
-            delay="0s"
-            style={{
-              "--orb-top": "78px",
-              "--orb-left": "340px",
-              "--orb-right": "auto",
-              "--orb-travel": "-340px",
-              "--orb-duration": "1.8s",
-            }}
-          />
-          <SectionHeader
-            label="Projekti"
-            title="Izdvojeni projekti"
-            link={{ href: "/sr/projekti", text: "Svi projekti" }}
-          />
-
-          <div className={styles.projectGrid}>
-            {featuredProjects.map((project) => (
-              <Link
-                key={project.title}
-                href={
-                  project.slug ? `/sr/projekti/${project.slug}` : "/sr/projekti"
-                }
-                className={styles.projectCard}
-              >
-                <p className={styles.cardType}>{project.type}</p>
-                <h3>{project.title}</h3>
-                <p className={styles.cardDescription}>{project.description}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Tech Stack — alt bg */}
+      {/* Usluge — alt bg */}
       <section className={`${styles.section} ${styles.sectionAlt}`}>
-        <div className={styles.sectionInner}>
-          <SectionOrb
-            delay="0s"
-            style={{
-              "--orb-top": "78px",
-              "--orb-left": "340px",
-              "--orb-right": "auto",
-              "--orb-travel": "-340px",
-              "--orb-duration": "1.8s",
-            }}
-          />
-          <SectionHeader label={tech.eyebrow} title={tech.title} />
-          <p className={styles.sectionDescription}>{tech.description}</p>
-
-          <div className={styles.techGrid}>
-            {tech.groups.map((group) => (
-              <article key={group.title} className={styles.techCard}>
-                <h3>{group.title}</h3>
-
-                <div className={styles.techItems}>
-                  {group.items.map((item) => (
-                    <span key={item}>{item}</span>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Usluge — base bg */}
-      <section className={styles.section}>
         <div className={styles.sectionInner}>
           <SectionOrb
             delay="0s"
