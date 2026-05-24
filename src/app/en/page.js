@@ -7,6 +7,7 @@ import { featuredProjects } from "@/data/projects";
 import { services } from "@/data/services";
 import { techStackContent } from "@/data/techStack";
 import TechSlider from "@/components/TechSlider";
+import { faqContent } from "@/data/faq";
 import { positioning } from "@/data/positioning";
 import styles from "../(public)/page.module.css";
 import HeroGlow from "@/components/HeroGlow";
@@ -28,6 +29,7 @@ export const metadata = {
 
 const pos = positioning.en;
 const tech = techStackContent.en;
+const faq = faqContent.en;
 
 export default function Home() {
   return (
@@ -357,6 +359,44 @@ export default function Home() {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* ── Stats bar ── */}
+      <div className={styles.statsSection}>
+        <div className={styles.statsInner}>
+          <div className={styles.statItem}>
+            <span className={styles.statValue}>6</span>
+            <span className={styles.statLabel}>completed projects</span>
+          </div>
+          <div className={styles.statItem}>
+            <span className={styles.statValue}>2+</span>
+            <span className={styles.statLabel}>years of experience</span>
+          </div>
+          <div className={styles.statItem}>
+            <span className={styles.statValue}>&lt;24h</span>
+            <span className={styles.statLabel}>response time</span>
+          </div>
+        </div>
+      </div>
+
+      {/* ── FAQ ── */}
+      <section className={`${styles.section} ${styles.sectionAlt}`}>
+        <div className={styles.sectionInner}>
+          <SectionHeader label={faq.eyebrow} title={faq.title} />
+          <div className={styles.faqList}>
+            {faq.items.map((item) => (
+              <details key={item.q} className={styles.faqItem}>
+                <summary>
+                  {item.q}
+                  <svg className={styles.faqChevron} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </summary>
+                <p className={styles.faqAnswer}>{item.a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
