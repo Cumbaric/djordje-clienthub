@@ -22,3 +22,9 @@ export const messageChecklist = [
 ];
 
 export const contactEmail = "hello@djordjepopovic.com";
+
+export const socialLinks = {
+  upwork: "https://www.upwork.com/freelancers/~013a3b5a0980f240a7",
+  fiverr: "https://pro.fiverr.com/users/djordje1991",
+  linkedin: "https://www.linkedin.com/in/djordje-popovic-018859312/",
+};

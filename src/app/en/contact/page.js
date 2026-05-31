@@ -1,11 +1,14 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-import { contactEmail } from "@/data/contact";
+import RevealSection from "@/components/RevealSection";
+import SectionOrb from "@/components/SectionOrb";
+import PageIcon from "@/components/PageIcon";
+import { contactEmail, socialLinks } from "@/data/contact";
 
 export const metadata = {
   title: "Contact | Đorđe Popović",
   description:
-    "Contact Đorđe Popović for WordPress websites, Elementor improvements, WooCommerce setup, SEO optimization, maintenance and web workflow projects.",
+    "Contact Đorđe Popović for custom-coded and WordPress websites, WooCommerce setup, SEO optimization, maintenance and web workflow projects.",
   openGraph: {
     title: "Contact | Đorđe Popović",
     description:
@@ -20,6 +23,7 @@ const contactOptions = [
   {
     label: "Email",
     title: "Email",
+    icon: "email",
     value: contactEmail,
     href: `mailto:${contactEmail}`,
     isLink: true,
@@ -27,20 +31,29 @@ const contactOptions = [
   {
     label: "Upwork",
     title: "Upwork",
-    value: "Coming soon",
-    isLink: false,
+    icon: "upwork",
+    value: "View profile",
+    href: socialLinks.upwork,
+    isLink: true,
+    external: true,
   },
   {
     label: "Fiverr",
     title: "Fiverr",
-    value: "Coming soon",
-    isLink: false,
+    icon: "fiverr",
+    value: "View profile",
+    href: socialLinks.fiverr,
+    isLink: true,
+    external: true,
   },
   {
     label: "LinkedIn",
     title: "LinkedIn",
-    value: "Coming soon",
-    isLink: false,
+    icon: "linkedin",
+    value: "View profile",
+    href: socialLinks.linkedin,
+    isLink: true,
+    external: true,
   },
 ];
 
@@ -50,39 +63,45 @@ const sendList = [
   "What you want to improve or build",
   "Any deadline or priority",
   "Examples of websites you like, if you have them",
-  "Whether you need WordPress, WooCommerce, SEO, maintenance or a custom workflow",
+  "Whether you need a custom-coded site, WordPress, WooCommerce, SEO or maintenance",
 ];
 
 const fitItems = [
   {
-    title: "WordPress website development",
+    icon: "code",
+    title: "Custom-coded websites",
     description:
-      "Clean, responsive WordPress websites for small businesses, service providers and content projects.",
+      "Websites, landing pages and web apps built from scratch with HTML, CSS, JavaScript, React and Next.js — for fast, fully custom results with full control over code and design.",
   },
   {
-    title: "Elementor redesign and improvement",
+    icon: "wordpress",
+    title: "WordPress & Elementor websites",
     description:
-      "Improving existing Elementor websites through better layout, structure, mobile experience and CTA placement.",
+      "Presentation WordPress websites built and designed with Elementor — clear structure, readable sections and easy content management.",
   },
   {
-    title: "WooCommerce setup",
+    icon: "woocommerce",
+    title: "E-commerce / online store",
     description:
-      "Basic WooCommerce structure, product pages and store setup for smaller online stores or product catalogs.",
+      "WooCommerce store setup — category and product structure, product pages and checkout configuration for smaller online stores.",
   },
   {
-    title: "SEO and performance improvements",
+    icon: "seo",
+    title: "SEO and on-page optimization",
     description:
-      "Technical structure, headings, metadata basics, internal linking ideas and image optimization workflow.",
+      "Technical and on-page SEO — heading structure, metadata, internal linking, load speed and Google indexing preparation. Works for existing sites too.",
   },
   {
-    title: "Website maintenance",
+    icon: "maintenance",
+    title: "Website maintenance and support",
     description:
-      "Content updates, plugin/theme support, small fixes and structure improvements.",
+      "Content updates, plugin/theme support, technical fixes and small structure or CSS improvements.",
   },
   {
+    icon: "ai",
     title: "AI-assisted website workflow",
     description:
-      "Planning, QA, content structure and development support using AI tools with human control.",
+      "Planning, QA, content structure and development support using AI tools with human control over the final result.",
   },
 ];
 
@@ -110,94 +129,123 @@ export default function ContactPage() {
           </>
         }
       >
-        If you need a cleaner WordPress website, better structure, SEO-focused
-        improvements or a practical web workflow, send me a short overview of
-        your project.
+        Whether you need a custom-coded website, a WordPress site, better
+        structure, SEO-focused improvements or a practical web workflow, send me
+        a short overview of your project.
       </PageHero>
 
       <div className="public-page">
 
         {/* 2. Contact options — first section after hero */}
-        <section className="contact-options-section">
-          <h2 className="section-title">Contact options</h2>
-          <p>Choose the channel that works best for you.</p>
-          <div className="contact-options-grid">
-            {contactOptions.map((option) => (
-              <div key={option.title} className="contact-option-card">
-                <span className="contact-option-label">{option.label}</span>
-                <h3>{option.title}</h3>
-                {option.isLink ? (
-                  <a href={option.href}>{option.value}</a>
-                ) : (
-                  <p>{option.value}</p>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
+        <RevealSection>
+          <section className="contact-options-section">
+            <span className="contact-availability">
+              <span className="contact-availability-dot" />
+              Available for new projects
+            </span>
+            <h2 className="section-title">Contact options</h2>
+            <p>Choose the channel that works best for you.</p>
+            <div className="contact-options-grid">
+              {contactOptions.map((option) => (
+                <div key={option.title} className="contact-option-card">
+                  <span className="contact-option-icon">
+                    <PageIcon name={option.icon} size={22} />
+                  </span>
+                  <span className="contact-option-label">{option.label}</span>
+                  <h3>{option.title}</h3>
+                  {option.isLink ? (
+                    <a
+                      href={option.href}
+                      {...(option.external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                    >
+                      {option.value}
+                    </a>
+                  ) : (
+                    <p>{option.value}</p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+        </RevealSection>
 
         {/* 3. Project inquiry / What to send */}
-        <section className="contact-inquiry">
-          <div className="contact-inquiry-grid">
-            <div className="contact-inquiry-left">
-              <h2>What to include in your message</h2>
-              <p>
-                A short, clear project overview helps me understand the
-                situation and suggest the most practical next step quickly.
-              </p>
+        <RevealSection delay={0.05}>
+          <section className="contact-inquiry has-orb">
+            <SectionOrb style={{ "--orb-top": "30px", "--orb-right": "44px" }} />
+            <div className="contact-inquiry-grid">
+              <div className="contact-inquiry-left">
+                <h2>What to include in your message</h2>
+                <p>
+                  A short, clear project overview helps me understand the
+                  situation and suggest the most practical next step quickly.
+                </p>
+              </div>
+              <div className="contact-inquiry-right">
+                <ul className="contact-inquiry-list">
+                  {sendList.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <div className="contact-inquiry-right">
-              <ul className="contact-inquiry-list">
-                {sendList.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
+          </section>
+        </RevealSection>
 
         {/* 4. What I can help with */}
-        <section className="contact-fit-section">
-          <h2 className="section-title">What I can help with</h2>
-          <div className="contact-fit-grid">
-            {fitItems.map((item) => (
-              <div key={item.title} className="contact-fit-card">
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <RevealSection delay={0.05}>
+          <section className="contact-fit-section">
+            <h2 className="section-title">What I can help with</h2>
+            <div className="contact-fit-grid">
+              {fitItems.map((item) => (
+                <div key={item.title} className="contact-fit-card">
+                  <span className="contact-fit-icon">
+                    <PageIcon name={item.icon} size={22} />
+                  </span>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </RevealSection>
 
         {/* 5. What happens next */}
-        <section className="contact-steps-section">
-          <h2 className="section-title">What happens next</h2>
-          <div className="contact-steps-list">
-            {nextSteps.map((step, index) => (
-              <div key={step} className="contact-step-item">
-                <span className="contact-step-number">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <p className="contact-step-text">{step}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <RevealSection delay={0.05}>
+          <section className="contact-steps-section">
+            <h2 className="section-title">What happens next</h2>
+            <div className="contact-steps-list contact-steps-timeline">
+              {nextSteps.map((step, index) => (
+                <div key={step} className="contact-step-item">
+                  <span className="contact-step-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <p className="contact-step-text">{step}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </RevealSection>
 
         {/* 6. Final CTA */}
-        <section className="contact-cta">
-          <h2>Ready to define the next step?</h2>
-          <p>
-            Send me a short message with your website goal and I will help you
-            turn it into a practical plan.
-          </p>
-          <div className="contact-cta-actions">
-            <a href={`mailto:${contactEmail}`}>Email me</a>
-            <Link href="/en/services" className="contact-cta-secondary">
-              View services
-            </Link>
-          </div>
-        </section>
+        <RevealSection delay={0.08}>
+          <section className="contact-cta has-orb">
+            <SectionOrb style={{ "--orb-top": "30px", "--orb-right": "44px" }} />
+            <h2>Ready to define the next step?</h2>
+            <p>
+              Send me a short message with your website goal and I will help you
+              turn it into a practical plan.
+            </p>
+            <div className="contact-cta-actions">
+              <a href={`mailto:${contactEmail}`}>Email me</a>
+              <Link href="/en/services" className="contact-cta-secondary">
+                View services
+              </Link>
+            </div>
+          </section>
+        </RevealSection>
 
       </div>
     </main>

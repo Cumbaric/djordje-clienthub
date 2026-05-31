@@ -2328,3 +2328,235 @@
     padding: 16px 18px;
   }
 }
+
+/* ============================================
+   PROCESS + CONTACT — VISUAL LAYER (Korak 1)
+   timeline spine, icons, availability, mini-timeline
+   ============================================ */
+
+/* Sections that host a decorative SectionOrb */
+.has-orb {
+  position: relative;
+}
+
+/* ── Process timeline ── */
+.process-timeline {
+  position: relative;
+}
+
+/* Continuous spine behind the cards (fills the gaps) */
+.process-timeline::before {
+  content: "";
+  position: absolute;
+  top: 38px;
+  bottom: 38px;
+  left: 58px;
+  width: 2px;
+  transform: translateX(-1px);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(59, 130, 246, 0.35) 6%,
+    rgba(59, 130, 246, 0.35) 94%,
+    transparent 100%
+  );
+  z-index: 0;
+}
+
+/* Per-card spine segment (drawn over each card body, behind the node) */
+.process-timeline .process-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 58px;
+  width: 2px;
+  transform: translateX(-1px);
+  background: rgba(59, 130, 246, 0.28);
+  z-index: 0;
+}
+
+/* Node = icon + number stacked at the spine */
+.process-timeline .process-card-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 56px;
+  height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.process-timeline .process-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #10131f;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  color: #60a5fa;
+  box-shadow: 0 0 0 4px #111118;
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.process-timeline .process-card-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.process-timeline .process-card:hover .process-card-icon {
+  border-color: rgba(59, 130, 246, 0.6);
+  color: #93c5fd;
+  box-shadow:
+    0 0 0 4px #111118,
+    0 0 18px rgba(59, 130, 246, 0.3);
+}
+
+@media (max-width: 700px) {
+  .process-timeline::before,
+  .process-timeline .process-card::after {
+    display: none;
+  }
+
+  .process-timeline .process-card-node {
+    flex-direction: row;
+    gap: 12px;
+    width: auto;
+  }
+}
+
+/* ── Contact: availability badge ── */
+.contact-availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 18px;
+  padding: 7px 15px;
+  border-radius: 999px;
+  background: rgba(74, 222, 128, 0.08);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  color: #4ade80;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.contact-availability-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.7);
+  animation: contactPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes contactPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.7);
+  }
+}
+
+/* ── Contact: channel + help-card icon badges ── */
+.contact-option-icon,
+.contact-fit-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.contact-option-card:hover .contact-option-icon,
+.contact-fit-card:hover .contact-fit-icon {
+  background: rgba(59, 130, 246, 0.18);
+  border-color: rgba(59, 130, 246, 0.45);
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.25);
+}
+
+/* ── Contact: "what happens next" mini-timeline ── */
+.contact-steps-timeline .contact-step-item {
+  position: relative;
+}
+
+.contact-steps-timeline .contact-step-item::before {
+  content: "";
+  position: absolute;
+  left: 45px;
+  top: 0;
+  bottom: -14px;
+  width: 2px;
+  transform: translateX(-1px);
+  background: rgba(59, 130, 246, 0.25);
+  z-index: 0;
+}
+
+.contact-steps-timeline .contact-step-item:first-child::before {
+  top: 50%;
+}
+
+.contact-steps-timeline .contact-step-item:last-child::before {
+  bottom: 50%;
+}
+
+.contact-steps-timeline .contact-step-number,
+.contact-steps-timeline .contact-step-text {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-steps-timeline .contact-step-number {
+  background: #10131f;
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+@media (max-width: 480px) {
+  .contact-steps-timeline .contact-step-item::before {
+    left: 37px;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .contact-availability-dot {
+    animation: none;
+  }
+
+  .process-timeline .process-card-icon,
+  .contact-option-icon,
+  .contact-fit-icon {
+    transition: none;
+  }
+}

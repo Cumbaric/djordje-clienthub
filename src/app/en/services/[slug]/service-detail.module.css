@@ -95,6 +95,182 @@
   color: #94a3b8;
 }
 
+/* ── Meta bar (category · timeline · price) ── */
+.metaBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.metaBar .category {
+  margin: 0;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.06);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.metaPrice {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(74, 222, 128, 0.08);
+  border: 1px solid rgba(74, 222, 128, 0.22);
+  color: #4ade80;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ── Overview ── */
+.overview {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 680px;
+}
+
+.overview p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+/* ── Who it's for ── */
+.idealList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.idealItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: #cbd5e1;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.idealMarker {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: #60a5fa;
+  font-weight: 700;
+}
+
+/* ── How it works (steps) ── */
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.stepNum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.22);
+  color: #60a5fa;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.stepBody h3 {
+  margin: 0 0 4px;
+  color: #f1f5f9;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.stepBody p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ── FAQ ── */
+.faqList {
+  display: grid;
+  gap: 12px;
+}
+
+.faqItem {
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  overflow: hidden;
+}
+
+.faqQuestion {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 20px;
+  color: #f1f5f9;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.faqQuestion::-webkit-details-marker {
+  display: none;
+}
+
+.faqQuestion::after {
+  content: "+";
+  flex-shrink: 0;
+  color: #60a5fa;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.faqItem[open] .faqQuestion::after {
+  content: "−";
+}
+
+.faqAnswer {
+  margin: 0;
+  padding: 0 20px 18px;
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
 @media (max-width: 600px) {
   .inner {
     padding: 48px 20px 64px;
@@ -106,5 +282,16 @@
 
   .includesItem {
     font-size: 14px;
+  }
+
+  .step {
+    grid-template-columns: 36px 1fr;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .stepNum {
+    width: 34px;
+    height: 34px;
   }
 }

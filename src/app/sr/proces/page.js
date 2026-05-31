@@ -1,14 +1,17 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import RevealSection from "@/components/RevealSection";
+import SectionOrb from "@/components/SectionOrb";
+import PageIcon from "@/components/PageIcon";
 
 export const metadata = {
   title: "Proces | Od ideje do gotovog sajta",
   description:
-    "Jasan workflow za sajtove: analiza, struktura, dizajn pravac, WordPress implementacija, SEO, performanse, testiranje i predaja.",
+    "Jasan workflow za sajtove: analiza, struktura, dizajn pravac, razvoj, SEO, performanse, testiranje i predaja.",
   openGraph: {
     title: "Proces | Đorđe Popović",
     description:
-      "Praktičan proces za WordPress sajtove, SEO osnovu i strukturisane web projekte.",
+      "Praktičan proces za sajtove kodirane od nule i WordPress sajtove, SEO osnovu i strukturisane web projekte.",
   },
   alternates: {
     languages: { en: "/en/process", sr: "/sr/proces" },
@@ -18,6 +21,7 @@ export const metadata = {
 const koraci = [
   {
     number: "01",
+    icon: "discovery",
     title: "Analiza i ciljevi projekta",
     description:
       "Počinjemo od razumevanja biznisa, publike, trenutnog stanja sajta i glavnog cilja projekta.",
@@ -31,6 +35,7 @@ const koraci = [
   },
   {
     number: "02",
+    icon: "structure",
     title: "Struktura sajta i planiranje sadržaja",
     description:
       "Pre dizajna ili izrade, sajt treba da ima jasnu strukturu. To uključuje stranice, sekcije, navigaciju i prioritete sadržaja.",
@@ -44,6 +49,7 @@ const koraci = [
   },
   {
     number: "03",
+    icon: "design",
     title: "Dizajn pravac i UX tok",
     description:
       "Vizuelni pravac treba da podrži upotrebljivost. Fokus je na čistim layout-ima, čitljivim sekcijama, jasnim CTA elementima i mobile-friendly strukturi.",
@@ -57,19 +63,21 @@ const koraci = [
   },
   {
     number: "04",
-    title: "WordPress / frontend implementacija",
+    icon: "build",
+    title: "Razvoj i implementacija",
     description:
-      "Sajt se izrađuje kroz praktičnu i održivu implementaciju, u zavisnosti od projekta: WordPress, Elementor, WooCommerce ili moderni frontend alati.",
+      "Sajt se izrađuje na način koji odgovara projektu — ili kodiranjem od nule u HTML, CSS, JavaScript, React i Next.js-u, ili na WordPress-u sa Elementorom i WooCommerce-om kada CMS ima smisla.",
     focus: [
-      "Postavljanje WordPress stranica",
-      "Elementor / Elementor Pro implementacija",
-      "WooCommerce osnova kada je potrebna",
+      "Stranice kodirane od nule (HTML, CSS, JS, React, Next.js)",
+      "WordPress / Elementor implementacija",
+      "WooCommerce kada je potrebno",
       "Responsive frontend",
-      "Čista CSS struktura",
+      "Čist i održiv kod",
     ],
   },
   {
     number: "05",
+    icon: "seo",
     title: "SEO i osnova performansi",
     description:
       "Sajt treba da bude tehnički organizovan i pripremljen za bolju vidljivost i brzinu. To uključuje osnovnu SEO strukturu, headinge, metadata i performance unapređenja.",
@@ -84,6 +92,7 @@ const koraci = [
   },
   {
     number: "06",
+    icon: "test",
     title: "Testiranje i quality check",
     description:
       "Pre isporuke, sajt treba proveriti kroz ključne stranice, uređaje i korisničke tokove.",
@@ -97,6 +106,7 @@ const koraci = [
   },
   {
     number: "07",
+    icon: "deliver",
     title: "Predaja i sledeći koraci",
     description:
       "Kada je prva verzija spremna, proveravamo rezultat, definišemo moguća unapređenja i pripremamo sajt za budući sadržaj, SEO ili održavanje.",
@@ -177,82 +187,97 @@ export default function ProcesPage() {
       <div className="public-page">
 
         {/* 2. Pregled procesa */}
-        <section className="process-overview">
-          <div className="process-overview-header">
-            <h2>Kako pristupam svakom projektu</h2>
-            <p>
-              Konzistentan proces drži projekte na pravom putu i isporučuje
-              predvidive rezultate.
-            </p>
-          </div>
-          <div className="process-overview-grid">
-            {pregled.map((item) => (
-              <div key={item.title} className="process-overview-item">
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <RevealSection>
+          <section className="process-overview has-orb">
+            <SectionOrb style={{ "--orb-top": "26px", "--orb-right": "44px" }} />
+            <div className="process-overview-header">
+              <h2>Kako pristupam svakom projektu</h2>
+              <p>
+                Konzistentan proces drži projekte na pravom putu i isporučuje
+                predvidive rezultate.
+              </p>
+            </div>
+            <div className="process-overview-grid">
+              {pregled.map((item) => (
+                <div key={item.title} className="process-overview-item">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </RevealSection>
 
         {/* 3. Koraci procesa */}
-        <section className="process-steps-section">
-          <h2 className="section-title">Workflow korak po korak</h2>
-          <div className="process-list">
-            {koraci.map((korak) => (
-              <article key={korak.number} className="process-card">
-                <span className="process-card-number">{korak.number}</span>
-                <div className="process-card-content">
-                  <h3>{korak.title}</h3>
-                  <p>{korak.description}</p>
-                  <ul className="process-focus-list">
-                    {korak.focus.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
+        <RevealSection delay={0.05}>
+          <section className="process-steps-section">
+            <h2 className="section-title">Workflow korak po korak</h2>
+            <div className="process-list process-timeline">
+              {koraci.map((korak) => (
+                <article key={korak.number} className="process-card">
+                  <span className="process-card-node">
+                    <span className="process-card-icon">
+                      <PageIcon name={korak.icon} size={22} />
+                    </span>
+                    <span className="process-card-number">{korak.number}</span>
+                  </span>
+                  <div className="process-card-content">
+                    <h3>{korak.title}</h3>
+                    <p>{korak.description}</p>
+                    <ul className="process-focus-list">
+                      {korak.focus.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        </RevealSection>
 
         {/* 4. Principi rada */}
-        <section className="process-principles">
-          <h2 className="section-title">Principi rada</h2>
-          <div className="process-principles-grid">
-            {principi.map((item) => (
-              <div key={item.title} className="process-principle-card">
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <RevealSection delay={0.05}>
+          <section className="process-principles">
+            <h2 className="section-title">Principi rada</h2>
+            <div className="process-principles-grid">
+              {principi.map((item) => (
+                <div key={item.title} className="process-principle-card">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </RevealSection>
 
         {/* 5. Zašto je ovaj proces važan */}
-        <div className="process-note">
-          <h2>Zašto je ovaj proces važan</h2>
-          <p>
-            Dobar sajt nije samo dizajn. Potrebni su struktura, jasan sadržaj,
-            brz korisnički tok, tehnička stabilnost i praktičan plan za buduća
-            unapređenja.
-          </p>
-        </div>
-
-        {/* 6. Final CTA */}
-        <section className="process-cta">
-          <h2>Spreman/spremna si da unaprediš svoj sajt?</h2>
-          <p>
-            Pošalji mi kratak opis sajta ili projekta i mogu da ti pomognem da
-            definišemo sledeći praktičan korak.
-          </p>
-          <div className="process-cta-actions">
-            <Link href="/sr/kontakt">Kontakt</Link>
-            <Link href="/sr/usluge" className="process-cta-secondary">
-              Pogledaj usluge
-            </Link>
+        <RevealSection delay={0.08}>
+          <div className="process-note">
+            <h2>Zašto je ovaj proces važan</h2>
+            <p>
+              Dobar sajt nije samo dizajn. Potrebni su struktura, jasan sadržaj,
+              brz korisnički tok, tehnička stabilnost i praktičan plan za buduća
+              unapređenja.
+            </p>
           </div>
-        </section>
+
+          {/* 6. Final CTA */}
+          <section className="process-cta has-orb">
+            <SectionOrb style={{ "--orb-top": "30px", "--orb-right": "44px" }} />
+            <h2>Spreman/spremna si da unaprediš svoj sajt?</h2>
+            <p>
+              Pošalji mi kratak opis sajta ili projekta i mogu da ti pomognem da
+              definišemo sledeći praktičan korak.
+            </p>
+            <div className="process-cta-actions">
+              <Link href="/sr/kontakt">Kontakt</Link>
+              <Link href="/sr/usluge" className="process-cta-secondary">
+                Pogledaj usluge
+              </Link>
+            </div>
+          </section>
+        </RevealSection>
 
       </div>
     </main>

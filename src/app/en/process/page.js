@@ -1,14 +1,17 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import RevealSection from "@/components/RevealSection";
+import SectionOrb from "@/components/SectionOrb";
+import PageIcon from "@/components/PageIcon";
 
 export const metadata = {
   title: "Process | From Website Idea to Launch",
   description:
-    "A clear website workflow covering discovery, structure, design direction, WordPress implementation, SEO, performance, testing and delivery.",
+    "A clear website workflow covering discovery, structure, design direction, development, SEO, performance, testing and delivery.",
   openGraph: {
     title: "Process | Đorđe Popović",
     description:
-      "A practical workflow for clean WordPress websites, SEO foundations and structured web projects.",
+      "A practical workflow for clean custom-coded and WordPress websites, SEO foundations and structured web projects.",
   },
   alternates: {
     languages: { en: "/en/process", sr: "/sr/proces" },
@@ -18,6 +21,7 @@ export const metadata = {
 const steps = [
   {
     number: "01",
+    icon: "discovery",
     title: "Discovery and project goals",
     description:
       "We start by understanding the business, audience, current website situation and the main goal of the project.",
@@ -31,6 +35,7 @@ const steps = [
   },
   {
     number: "02",
+    icon: "structure",
     title: "Website structure and content planning",
     description:
       "Before design or development, the website needs a clear structure. This includes pages, sections, navigation and content priorities.",
@@ -44,6 +49,7 @@ const steps = [
   },
   {
     number: "03",
+    icon: "design",
     title: "Design direction and UX flow",
     description:
       "The visual direction should support usability. I focus on clean layouts, readable sections, clear calls to action and mobile-friendly structure.",
@@ -57,19 +63,21 @@ const steps = [
   },
   {
     number: "04",
-    title: "WordPress / frontend implementation",
+    icon: "build",
+    title: "Development and implementation",
     description:
-      "The website is built using practical and maintainable implementation, depending on the project: WordPress, Elementor, WooCommerce or modern frontend tools.",
+      "The website is built in the way that fits the project — either custom-coded from scratch with HTML, CSS, JavaScript, React and Next.js, or built on WordPress with Elementor and WooCommerce when a CMS makes sense.",
     focus: [
-      "WordPress page setup",
-      "Elementor / Elementor Pro implementation",
-      "WooCommerce basics when needed",
+      "Custom-coded pages (HTML, CSS, JS, React, Next.js)",
+      "WordPress / Elementor implementation",
+      "WooCommerce when needed",
       "Responsive frontend",
-      "Clean CSS structure",
+      "Clean, maintainable code",
     ],
   },
   {
     number: "05",
+    icon: "seo",
     title: "SEO and performance foundations",
     description:
       "The site should be technically organized and prepared for better visibility and speed. This includes basic SEO structure, headings, metadata and performance improvements.",
@@ -84,6 +92,7 @@ const steps = [
   },
   {
     number: "06",
+    icon: "test",
     title: "Testing and quality check",
     description:
       "Before delivery, the website should be tested across key pages, devices and user flows.",
@@ -97,6 +106,7 @@ const steps = [
   },
   {
     number: "07",
+    icon: "deliver",
     title: "Delivery and next steps",
     description:
       "After the first version is ready, we review the result, define potential improvements and prepare the website for future content, SEO or maintenance work.",
@@ -177,82 +187,97 @@ export default function ProcessPage() {
       <div className="public-page">
 
         {/* 2. Process overview */}
-        <section className="process-overview">
-          <div className="process-overview-header">
-            <h2>How I approach every project</h2>
-            <p>
-              A consistent process keeps projects on track and delivers
-              predictable results.
-            </p>
-          </div>
-          <div className="process-overview-grid">
-            {overviewItems.map((item) => (
-              <div key={item.title} className="process-overview-item">
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <RevealSection>
+          <section className="process-overview has-orb">
+            <SectionOrb style={{ "--orb-top": "26px", "--orb-right": "44px" }} />
+            <div className="process-overview-header">
+              <h2>How I approach every project</h2>
+              <p>
+                A consistent process keeps projects on track and delivers
+                predictable results.
+              </p>
+            </div>
+            <div className="process-overview-grid">
+              {overviewItems.map((item) => (
+                <div key={item.title} className="process-overview-item">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </RevealSection>
 
         {/* 3. Process timeline / step cards */}
-        <section className="process-steps-section">
-          <h2 className="section-title">The workflow step by step</h2>
-          <div className="process-list">
-            {steps.map((step) => (
-              <article key={step.number} className="process-card">
-                <span className="process-card-number">{step.number}</span>
-                <div className="process-card-content">
-                  <h3>{step.title}</h3>
-                  <p>{step.description}</p>
-                  <ul className="process-focus-list">
-                    {step.focus.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
+        <RevealSection delay={0.05}>
+          <section className="process-steps-section">
+            <h2 className="section-title">The workflow step by step</h2>
+            <div className="process-list process-timeline">
+              {steps.map((step) => (
+                <article key={step.number} className="process-card">
+                  <span className="process-card-node">
+                    <span className="process-card-icon">
+                      <PageIcon name={step.icon} size={22} />
+                    </span>
+                    <span className="process-card-number">{step.number}</span>
+                  </span>
+                  <div className="process-card-content">
+                    <h3>{step.title}</h3>
+                    <p>{step.description}</p>
+                    <ul className="process-focus-list">
+                      {step.focus.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        </RevealSection>
 
         {/* 4. Working principles */}
-        <section className="process-principles">
-          <h2 className="section-title">Working principles</h2>
-          <div className="process-principles-grid">
-            {principles.map((item) => (
-              <div key={item.title} className="process-principle-card">
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <RevealSection delay={0.05}>
+          <section className="process-principles">
+            <h2 className="section-title">Working principles</h2>
+            <div className="process-principles-grid">
+              {principles.map((item) => (
+                <div key={item.title} className="process-principle-card">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </RevealSection>
 
         {/* 5. Why this process matters */}
-        <div className="process-note">
-          <h2>Why this process matters</h2>
-          <p>
-            A good website is not only about design. It needs structure, clear
-            content, fast user flow, technical stability and a practical plan
-            for future improvements.
-          </p>
-        </div>
-
-        {/* 6. Final CTA */}
-        <section className="process-cta">
-          <h2>Ready to improve your website?</h2>
-          <p>
-            Send me a short description of your website or project and I can
-            help you define the next practical step.
-          </p>
-          <div className="process-cta-actions">
-            <Link href="/en/contact">Contact me</Link>
-            <Link href="/en/services" className="process-cta-secondary">
-              View services
-            </Link>
+        <RevealSection delay={0.08}>
+          <div className="process-note">
+            <h2>Why this process matters</h2>
+            <p>
+              A good website is not only about design. It needs structure, clear
+              content, fast user flow, technical stability and a practical plan
+              for future improvements.
+            </p>
           </div>
-        </section>
+
+          {/* 6. Final CTA */}
+          <section className="process-cta has-orb">
+            <SectionOrb style={{ "--orb-top": "30px", "--orb-right": "44px" }} />
+            <h2>Ready to improve your website?</h2>
+            <p>
+              Send me a short description of your website or project and I can
+              help you define the next practical step.
+            </p>
+            <div className="process-cta-actions">
+              <Link href="/en/contact">Contact me</Link>
+              <Link href="/en/services" className="process-cta-secondary">
+                View services
+              </Link>
+            </div>
+          </section>
+        </RevealSection>
 
       </div>
     </main>
