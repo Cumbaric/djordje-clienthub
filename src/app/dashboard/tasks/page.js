@@ -3,6 +3,7 @@ import { tasks as tasksTable } from "@/db/schema";
 import { createTask } from "./actions";
 import TaskControls from "./TaskControls";
 import { statusLabel, priorityLabel } from "@/lib/dashboardLabels";
+import DashboardEmpty from "@/components/DashboardEmpty";
 import "@/styles/dashboard-forms.css";
 
 export const dynamic = "force-dynamic";
@@ -134,6 +135,9 @@ export default async function TasksPage() {
         </div>
 
         <div className="dashboard-task-list">
+          {tasks.length === 0 && (
+            <DashboardEmpty message="Još nema zadataka — dodaj prvi pomoću forme iznad." />
+          )}
           {tasks.map((task) => (
             <article className="dashboard-task-card" key={task.id}>
               <div className="dashboard-task-main">

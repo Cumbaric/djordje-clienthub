@@ -3,6 +3,7 @@ import { clients as clientsTable } from "@/db/schema";
 import { statusLabel, priorityLabel } from "@/lib/dashboardLabels";
 import { createClient } from "./actions";
 import ClientControls from "./ClientControls";
+import DashboardEmpty from "@/components/DashboardEmpty";
 import "@/styles/dashboard-forms.css";
 
 export const dynamic = "force-dynamic";
@@ -138,6 +139,9 @@ export default async function ClientsPage() {
         </div>
 
         <div className="dashboard-client-grid">
+          {clients.length === 0 && (
+            <DashboardEmpty message="Još nema klijenata — dodaj prvog pomoću forme iznad." />
+          )}
           {clients.map((client) => (
             <article className="dashboard-client-card" key={client.id}>
               <div className="dashboard-client-top">

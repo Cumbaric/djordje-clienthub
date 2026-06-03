@@ -3,6 +3,7 @@ import { projects as projectsTable } from "@/db/schema";
 import { statusLabel } from "@/lib/dashboardLabels";
 import { createProject } from "./actions";
 import ProjectControls from "./ProjectControls";
+import DashboardEmpty from "@/components/DashboardEmpty";
 import "@/styles/dashboard-forms.css";
 
 export const dynamic = "force-dynamic";
@@ -142,6 +143,9 @@ export default async function DashboardProjectsPage() {
         </div>
 
         <div className="dashboard-project-grid">
+          {dashboardProjects.length === 0 && (
+            <DashboardEmpty message="Još nema projekata — dodaj prvi pomoću forme iznad." />
+          )}
           {dashboardProjects.map((project) => (
             <article className="dashboard-project-card" key={project.id}>
               <div className="dashboard-project-top">
