@@ -12,7 +12,7 @@ const IMAGES = [
 ];
 
 export const metadata = {
-  title: "Djordje ClientHub Case Study | Đorđe Popović",
+  title: "Djordje ClientHub Case Study",
   description:
     "Next.js bilingual portfolio and private dashboard application built with React, App Router, route protection and AI-assisted development workflow.",
   openGraph: {

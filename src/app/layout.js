@@ -8,13 +8,17 @@ const geist = Geist({
 });
 
 export const metadata = {
-  title: "Djordje ClientHub",
-  description: "Portfolio i interni alat za WordPress freelance posao.",
+  metadataBase: new URL("https://djordjepopovic.com"),
+  title: {
+    default: "Đorđe Popović | Web Developer",
+    template: " %s | Đorđe Popović",
+  },
+  description: "Web developer building clean, structured and SEO-ready websites with a focus on preformance and practical user expiriance",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="sr" className={geist.variable}>
+    <html lang="en" className={geist.variable}>
       <body>{children}</body>
     </html>
   );

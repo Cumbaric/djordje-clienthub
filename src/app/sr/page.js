@@ -16,7 +16,10 @@ import HeroGlow from "@/components/HeroGlow";
 import SectionOrb from "@/components/SectionOrb";
 
 export const metadata = {
-  title: "Đorđe Popović | Web developer — Pregledni, strukturisani i SEO-friendly sajtovi",
+  title: {
+    absolute:
+      "Đorđe Popović | Web developer — Pregledni, strukturisani i SEO-friendly sajtovi",
+  },
   description:
     "Web developer koji pravi pregledne, dobro strukturisane i SEO-friendly sajtove sa fokusom na performanse, praktičan UX i održiv workflow.",
   openGraph: {

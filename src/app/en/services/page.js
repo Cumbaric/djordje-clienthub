@@ -4,7 +4,7 @@ import RevealSection from "@/components/RevealSection";
 import { services } from "@/data/services";
 
 export const metadata = {
-  title: "Services | WordPress, SEO and Website Workflow",
+  title: "Services — WordPress, SEO & Website Workflow",
   description:
     "WordPress website development, Elementor redesign, WooCommerce setup, SEO optimization, maintenance and AI-assisted website workflow services.",
   openGraph: {

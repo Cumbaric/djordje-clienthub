@@ -11,7 +11,7 @@ const IMAGES = [
 ];
 
 export const metadata = {
-  title: "BoomMil Case Study | Đorđe Popović",
+  title: "BoomMil Case Study",
   description:
     "WooCommerce projekat fokusiran na unos proizvoda, strukturu prodavnice, SEO pripremu i organizaciju sadržaja za online katalog.",
   openGraph: {

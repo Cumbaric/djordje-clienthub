@@ -5,7 +5,7 @@ import SectionOrb from "@/components/SectionOrb";
 import PageIcon from "@/components/PageIcon";
 
 export const metadata = {
-  title: "Process | From Website Idea to Launch",
+  title: "Process — From Website Idea to Launch",
   description:
     "A clear website workflow covering discovery, structure, design direction, development, SEO, performance, testing and delivery.",
   openGraph: {

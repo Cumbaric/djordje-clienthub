@@ -6,7 +6,7 @@ import PageIcon from "@/components/PageIcon";
 import { contactEmail, socialLinks } from "@/data/contact";
 
 export const metadata = {
-  title: "Contact | Đorđe Popović",
+  title: "Contact",
   description:
     "Contact Đorđe Popović for custom-coded and WordPress websites, WooCommerce setup, SEO optimization, maintenance and web workflow projects.",
   openGraph: {

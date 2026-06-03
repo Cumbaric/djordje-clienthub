@@ -5,7 +5,7 @@ import SectionOrb from "@/components/SectionOrb";
 import PageIcon from "@/components/PageIcon";
 
 export const metadata = {
-  title: "Proces | Od ideje do gotovog sajta",
+  title: "Proces — Od ideje do gotovog sajta",
   description:
     "Jasan workflow za sajtove: analiza, struktura, dizajn pravac, razvoj, SEO, performanse, testiranje i predaja.",
   openGraph: {

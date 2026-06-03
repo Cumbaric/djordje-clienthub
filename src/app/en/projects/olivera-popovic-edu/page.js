@@ -11,7 +11,7 @@ const IMAGES = [
 ];
 
 export const metadata = {
-  title: "Olivera Popović Edu Case Study | Đorđe Popović",
+  title: "Olivera Popović Edu Case Study",
   description:
     "WordPress educational website project focused on content structure, page organization and SEO foundations for better visibility and easier navigation.",
   openGraph: {

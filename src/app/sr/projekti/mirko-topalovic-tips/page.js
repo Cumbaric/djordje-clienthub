@@ -10,7 +10,7 @@ const IMAGES = [
 ];
 
 export const metadata = {
-  title: "MirkoTopalovićTips Case Study | Đorđe Popović",
+  title: "MirkoTopalovićTips Case Study",
   description:
     "WordPress platforma za sportske tipove fokusirana na organizaciju sadržaja, strukturu objava i pripremu za buduće automatizovane workflow-e.",
   openGraph: {

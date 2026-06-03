@@ -11,7 +11,7 @@ const IMAGES = [
 ];
 
 export const metadata = {
-  title: "Wellness Concept Case Study | Đorđe Popović",
+  title: "Wellness Concept Case Study",
   description:
     "WordPress, Elementor, UX i SEO case study za salon masaže i wellness usluga.",
   openGraph: {

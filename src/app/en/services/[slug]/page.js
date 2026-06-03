@@ -15,7 +15,7 @@ export async function generateMetadata({ params }) {
   const service = services.find((s) => s.slug === slug);
   if (!service) return {};
   return {
-    title: `${service.titleEn} | Services — Đorđe Popović`,
+    title: `${service.titleEn} — Services`,
     description: service.descriptionEn,
     alternates: {
       languages: {

@@ -4,7 +4,7 @@ import PageHero from "@/components/PageHero";
 import { projects } from "@/data/projects";
 
 export const metadata = {
-  title: "Projects | Đorđe Popović",
+  title: "Projects",
   description:
     "Selected WordPress, SEO, WooCommerce and web app projects, including Wellness Concept and Djordje ClientHub.",
   openGraph: {
