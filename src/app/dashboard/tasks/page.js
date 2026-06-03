@@ -2,6 +2,7 @@ import { db } from "@/db";
 import { tasks as tasksTable } from "@/db/schema";
 import { createTask } from "./actions";
 import TaskControls from "./TaskControls";
+import { statusLabel, priorityLabel } from "@/lib/dashboardLabels";
 import "@/styles/dashboard-forms.css";
 
 export const dynamic = "force-dynamic";
@@ -21,32 +22,32 @@ export default async function TasksPage() {
 
   const taskStats = [
     {
-      label: "Total tasks",
+      label: "Ukupno zadataka",
       value: totalTasks,
-      description: "All tracked work items",
+      description: "Svi praćeni zadaci",
     },
     {
-      label: "Open tasks",
+      label: "Otvoreni",
       value: openTasks,
-      description: "Tasks waiting to be started",
+      description: "Zadaci koji čekaju da se započnu",
     },
     {
-      label: "In progress",
+      label: "U toku",
       value: inProgressTasks,
-      description: "Tasks currently being worked on",
+      description: "Zadaci na kojima se trenutno radi",
     },
     {
-      label: "Done",
+      label: "Završeni",
       value: doneTasks,
-      description: "Completed work items",
+      description: "Završeni zadaci",
     },
   ];
 
   return (
     <section className="dashboard-page">
       <div className="dashboard-header">
-        <p className="dashboard-label">Task management</p>
-        <h1>Tasks</h1>
+        <p className="dashboard-label">Upravljanje zadacima</p>
+        <h1>Zadaci</h1>
         <p>
           Pregled zadataka, prioriteta, statusa rada i sledećih aktivnosti po
           klijentima i projektima.
@@ -66,59 +67,59 @@ export default async function TasksPage() {
       <div className="dashboard-section">
         <div className="dashboard-section-header">
           <div>
-            <p className="dashboard-label">Add new</p>
-            <h2>Create a task</h2>
+            <p className="dashboard-label">Dodaj novo</p>
+            <h2>Kreiraj zadatak</h2>
           </div>
         </div>
 
         <form action={createTask} className="dashboard-form">
           <div className="dashboard-form-row">
             <label className="dashboard-field dashboard-field-wide">
-              <span>Title *</span>
-              <input name="title" type="text" required placeholder="What needs to be done?" />
+              <span>Naslov *</span>
+              <input name="title" type="text" required placeholder="Šta treba uraditi?" />
             </label>
             <label className="dashboard-field">
-              <span>Project</span>
-              <input name="project" type="text" placeholder="e.g. Wellness Concept" />
+              <span>Projekat</span>
+              <input name="project" type="text" placeholder="npr. Wellness Concept" />
             </label>
           </div>
 
           <div className="dashboard-form-row">
             <label className="dashboard-field">
-              <span>Priority</span>
+              <span>Prioritet</span>
               <select name="priority" defaultValue="Medium">
-                <option>High</option>
-                <option>Medium</option>
-                <option>Low</option>
+                <option value="High">Visok</option>
+                <option value="Medium">Srednji</option>
+                <option value="Low">Nizak</option>
               </select>
             </label>
             <label className="dashboard-field">
               <span>Status</span>
               <select name="status" defaultValue="Open">
-                <option>Open</option>
-                <option>In progress</option>
-                <option>Done</option>
-                <option>Backlog</option>
+                <option value="Open">Otvoren</option>
+                <option value="In progress">U toku</option>
+                <option value="Done">Završen</option>
+                <option value="Backlog">Za kasnije</option>
               </select>
             </label>
             <label className="dashboard-field">
-              <span>Focus</span>
-              <input name="focus" type="text" placeholder="e.g. SEO content" />
+              <span>Fokus</span>
+              <input name="focus" type="text" placeholder="npr. SEO sadržaj" />
             </label>
             <label className="dashboard-field">
-              <span>Due</span>
-              <input name="due" type="text" placeholder="e.g. This week" />
+              <span>Rok</span>
+              <input name="due" type="text" placeholder="npr. Ove nedelje" />
             </label>
           </div>
 
           <label className="dashboard-field dashboard-field-wide">
-            <span>Description</span>
-            <textarea name="description" rows={2} placeholder="Optional details" />
+            <span>Opis</span>
+            <textarea name="description" rows={2} placeholder="Opcioni detalji" />
           </label>
 
           <div className="dashboard-form-actions">
             <button type="submit" className="dashboard-primary-btn">
-              Add task
+              Dodaj zadatak
             </button>
           </div>
         </form>
@@ -127,8 +128,8 @@ export default async function TasksPage() {
       <div className="dashboard-section">
         <div className="dashboard-section-header">
           <div>
-            <p className="dashboard-label">Overview</p>
-            <h2>Task list</h2>
+            <p className="dashboard-label">Pregled</p>
+            <h2>Lista zadataka</h2>
           </div>
         </div>
 
@@ -137,7 +138,7 @@ export default async function TasksPage() {
             <article className="dashboard-task-card" key={task.id}>
               <div className="dashboard-task-main">
                 <div>
-                  <p className="dashboard-label">Task</p>
+                  <p className="dashboard-label">Zadatak</p>
                   <h3>{task.title}</h3>
                   <p>{task.description}</p>
                 </div>
@@ -147,15 +148,15 @@ export default async function TasksPage() {
                     .toLowerCase()
                     .replaceAll(" ", "-")}`}
                 >
-                  {task.status}
+                  {statusLabel(task.status)}
                 </span>
               </div>
 
               <div className="dashboard-task-meta">
-                <span>Project: {task.project}</span>
-                <span>Priority: {task.priority}</span>
-                <span>Focus: {task.focus}</span>
-                <span>Due: {task.due}</span>
+                <span>Projekat: {task.project}</span>
+                <span>Prioritet: {priorityLabel(task.priority)}</span>
+                <span>Fokus: {task.focus}</span>
+                <span>Rok: {task.due}</span>
               </div>
 
               <TaskControls task={task} />

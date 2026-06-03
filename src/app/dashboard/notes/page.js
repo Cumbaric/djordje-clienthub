@@ -1,5 +1,6 @@
 import { db } from "@/db";
 import { notes as notesTable } from "@/db/schema";
+import { statusLabel } from "@/lib/dashboardLabels";
 
 export const dynamic = "force-dynamic";
 
@@ -16,32 +17,32 @@ export default async function NotesPage() {
 
   const noteStats = [
     {
-      label: "Total notes",
+      label: "Ukupno beleški",
       value: totalNotes,
-      description: "All work log notes",
+      description: "Sve beleške radnog dnevnika",
     },
     {
-      label: "Done notes",
+      label: "Završene",
       value: doneNotes,
-      description: "Completed project notes",
+      description: "Završene beleške projekata",
     },
     {
-      label: "Open notes",
+      label: "Otvorene",
       value: openNotes,
-      description: "Notes that need follow-up",
+      description: "Beleške koje traže naredni korak",
     },
     {
-      label: "Backlog notes",
+      label: "Za kasnije",
       value: backlogNotes,
-      description: "Ideas or notes for later phases",
+      description: "Ideje ili beleške za naredne faze",
     },
   ];
 
   return (
     <section className="dashboard-page">
       <div className="dashboard-header">
-        <p className="dashboard-label">Work log</p>
-        <h1>Notes</h1>
+        <p className="dashboard-label">Radni dnevnik</p>
+        <h1>Beleške</h1>
         <p>
           Radne beleške, dnevnik aktivnosti i tehničke napomene po klijentima i
           projektima.
@@ -61,8 +62,8 @@ export default async function NotesPage() {
       <div className="dashboard-section">
         <div className="dashboard-section-header">
           <div>
-            <p className="dashboard-label">Overview</p>
-            <h2>Recent notes</h2>
+            <p className="dashboard-label">Pregled</p>
+            <h2>Nedavne beleške</h2>
           </div>
         </div>
 
@@ -71,7 +72,7 @@ export default async function NotesPage() {
             <article className="dashboard-note-card" key={note.slug}>
               <div className="dashboard-note-main">
                 <div>
-                  <p className="dashboard-label">Note</p>
+                  <p className="dashboard-label">Beleška</p>
                   <h3>{note.title}</h3>
                   <p>{note.description}</p>
                 </div>
@@ -81,14 +82,14 @@ export default async function NotesPage() {
                     .toLowerCase()
                     .replaceAll(" ", "-")}`}
                 >
-                  {note.status}
+                  {statusLabel(note.status)}
                 </span>
               </div>
 
               <div className="dashboard-task-meta">
-                <span>Project: {note.project}</span>
-                <span>Type: {note.type}</span>
-                <span>Date: {note.date}</span>
+                <span>Projekat: {note.project}</span>
+                <span>Tip: {note.type}</span>
+                <span>Datum: {note.date}</span>
               </div>
             </article>
           ))}

@@ -1,5 +1,6 @@
 import { db } from "@/db";
 import { clients as clientsTable } from "@/db/schema";
+import { statusLabel, priorityLabel } from "@/lib/dashboardLabels";
 
 export const dynamic = "force-dynamic";
 
@@ -22,32 +23,32 @@ export default async function ClientsPage() {
 
   const clientStats = [
     {
-      label: "Total clients",
+      label: "Ukupno klijenata",
       value: totalClients,
-      description: "All tracked WordPress clients",
+      description: "Svi praćeni WordPress klijenti",
     },
     {
-      label: "Active clients",
+      label: "Aktivni klijenti",
       value: activeClients,
-      description: "Currently active client work",
+      description: "Trenutno aktivan rad sa klijentima",
     },
     {
-      label: "Maintenance",
+      label: "Održavanje",
       value: maintenanceClients,
-      description: "Clients in maintenance phase",
+      description: "Klijenti u fazi održavanja",
     },
     {
-      label: "Paused",
+      label: "Pauzirani",
       value: pausedClients,
-      description: "Paused or archived client work",
+      description: "Pauziran ili arhiviran rad",
     },
   ];
 
   return (
     <section className="dashboard-page">
       <div className="dashboard-header">
-        <p className="dashboard-label">Client management</p>
-        <h1>Clients</h1>
+        <p className="dashboard-label">Upravljanje klijentima</p>
+        <h1>Klijenti</h1>
         <p>
           Pregled WordPress klijenata, statusa projekata, tipa sajta i osnovnih
           radnih beleški.
@@ -67,8 +68,8 @@ export default async function ClientsPage() {
       <div className="dashboard-section">
         <div className="dashboard-section-header">
           <div>
-            <p className="dashboard-label">Overview</p>
-            <h2>Client list</h2>
+            <p className="dashboard-label">Pregled</p>
+            <h2>Lista klijenata</h2>
           </div>
         </div>
 
@@ -77,7 +78,7 @@ export default async function ClientsPage() {
             <article className="dashboard-client-card" key={client.name}>
               <div className="dashboard-client-top">
                 <div>
-                  <p className="dashboard-label">Client</p>
+                  <p className="dashboard-label">Klijent</p>
                   <h3>{client.name}</h3>
                   <a
                     href={`https://${client.website}`}
@@ -92,13 +93,13 @@ export default async function ClientsPage() {
                 <span
                   className={`dashboard-status dashboard-status-${client.status.toLowerCase()}`}
                 >
-                  {client.status}
+                  {statusLabel(client.status)}
                 </span>
               </div>
 
               <div className="dashboard-client-meta">
-                <span>Type: {client.type}</span>
-                <span>Priority: {client.priority}</span>
+                <span>Tip: {client.type}</span>
+                <span>Prioritet: {priorityLabel(client.priority)}</span>
               </div>
 
               <p className="dashboard-client-description">
@@ -106,7 +107,7 @@ export default async function ClientsPage() {
               </p>
 
               <div className="dashboard-next-steps">
-                <h4>Work focus</h4>
+                <h4>Fokus rada</h4>
 
                 <div className="dashboard-tag-list">
                   {client.notes.map((note) => (

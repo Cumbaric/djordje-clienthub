@@ -1,24 +1,24 @@
 export const quickActions = [
   {
-    title: "Clients",
+    title: "Klijenti",
     description:
-      "Manage WordPress clients, contact details and project status.",
+      "Upravljaj WordPress klijentima, kontakt podacima i statusom projekata.",
     href: "/dashboard/clients",
   },
   {
-    title: "Projects",
+    title: "Projekti",
     description:
-      "Track active websites, case studies and development progress.",
+      "Prati aktivne sajtove, case study-je i napredak u razvoju.",
     href: "/dashboard/projects",
   },
   {
-    title: "Tasks",
-    description: "Review open tasks, priorities and next actions.",
+    title: "Zadaci",
+    description: "Pregledaj otvorene zadatke, prioritete i naredne korake.",
     href: "/dashboard/tasks",
   },
   {
-    title: "Notes",
-    description: "Open work log, internal notes and daily progress records.",
+    title: "Beleške",
+    description: "Otvori radni dnevnik, interne beleške i dnevni napredak.",
     href: "/dashboard/notes",
   },
 ];

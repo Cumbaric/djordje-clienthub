@@ -2,7 +2,12 @@
 
 import { updateTaskStatus, deleteTask } from "./actions";
 
-const STATUSES = ["Open", "In progress", "Done", "Backlog"];
+const STATUSES = [
+  { value: "Open", label: "Otvoren" },
+  { value: "In progress", label: "U toku" },
+  { value: "Done", label: "Završen" },
+  { value: "Backlog", label: "Za kasnije" },
+];
 
 export default function TaskControls({ task }) {
   return (
@@ -19,8 +24,8 @@ export default function TaskControls({ task }) {
             className="dashboard-select"
           >
             {STATUSES.map((s) => (
-              <option key={s} value={s}>
-                {s}
+              <option key={s.value} value={s.value}>
+                {s.label}
               </option>
             ))}
           </select>
@@ -31,7 +36,7 @@ export default function TaskControls({ task }) {
       <form action={deleteTask} className="dashboard-inline-form">
         <input type="hidden" name="id" value={task.id} />
         <button type="submit" className="dashboard-delete-btn">
-          Delete
+          Obriši
         </button>
       </form>
     </div>

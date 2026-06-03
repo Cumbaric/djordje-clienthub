@@ -1,5 +1,6 @@
 import { db } from "@/db";
 import { projects as projectsTable } from "@/db/schema";
+import { statusLabel } from "@/lib/dashboardLabels";
 
 export const dynamic = "force-dynamic";
 
@@ -25,32 +26,32 @@ export default async function DashboardProjectsPage() {
 
   const projectStats = [
     {
-      label: "Total projects",
+      label: "Ukupno projekata",
       value: totalProjects,
-      description: "All tracked dashboard projects",
+      description: "Svi praćeni projekti",
     },
     {
-      label: "Active / In progress",
+      label: "Aktivni / U toku",
       value: activeProjects,
-      description: "Projects currently moving forward",
+      description: "Projekti koji su trenutno u radu",
     },
     {
-      label: "Planning",
+      label: "Planiranje",
       value: planningProjects,
-      description: "Projects in planning or review phase",
+      description: "Projekti u fazi planiranja ili pregleda",
     },
     {
-      label: "Paused",
+      label: "Pauzirani",
       value: pausedProjects,
-      description: "Paused or archived project work",
+      description: "Pauziran ili arhiviran rad",
     },
   ];
 
   return (
     <section className="dashboard-page">
       <div className="dashboard-header">
-        <p className="dashboard-label">Project management</p>
-        <h1>Dashboard Projects</h1>
+        <p className="dashboard-label">Upravljanje projektima</p>
+        <h1>Projekti</h1>
         <p>
           Interni pregled aktivnih, planiranih i pauziranih projekata po
           klijentima, statusima i sledećim koracima.
@@ -70,8 +71,8 @@ export default async function DashboardProjectsPage() {
       <div className="dashboard-section">
         <div className="dashboard-section-header">
           <div>
-            <p className="dashboard-label">Overview</p>
-            <h2>Project list</h2>
+            <p className="dashboard-label">Pregled</p>
+            <h2>Lista projekata</h2>
           </div>
         </div>
 
@@ -80,7 +81,7 @@ export default async function DashboardProjectsPage() {
             <article className="dashboard-project-card" key={project.slug}>
               <div className="dashboard-project-top">
                 <div>
-                  <p className="dashboard-label">Project</p>
+                  <p className="dashboard-label">Projekat</p>
                   <h3>{project.name}</h3>
                   <p>{project.client}</p>
                 </div>
@@ -90,13 +91,13 @@ export default async function DashboardProjectsPage() {
                     .toLowerCase()
                     .replaceAll(" ", "-")}`}
                 >
-                  {project.status}
+                  {statusLabel(project.status)}
                 </span>
               </div>
 
               <div className="dashboard-client-meta">
-                <span>Type: {project.type}</span>
-                <span>Phase: {project.phase}</span>
+                <span>Tip: {project.type}</span>
+                <span>Faza: {project.phase}</span>
               </div>
 
               <p className="dashboard-client-description">
@@ -105,7 +106,7 @@ export default async function DashboardProjectsPage() {
 
               <div className="dashboard-progress">
                 <div className="dashboard-progress-top">
-                  <span>Progress</span>
+                  <span>Napredak</span>
                   <strong>{project.progress}</strong>
                 </div>
 
@@ -115,7 +116,7 @@ export default async function DashboardProjectsPage() {
               </div>
 
               <div className="dashboard-next-steps">
-                <h4>Next steps</h4>
+                <h4>Sledeći koraci</h4>
 
                 <ul>
                   {project.nextSteps.map((step) => (

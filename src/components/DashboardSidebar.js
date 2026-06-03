@@ -6,11 +6,11 @@ import { useState } from "react";
 import styles from "./DashboardSidebar.module.css";
 
 const navItems = [
-  { label: "Overview", href: "/dashboard" },
-  { label: "Clients", href: "/dashboard/clients" },
-  { label: "Projects", href: "/dashboard/projects" },
-  { label: "Tasks", href: "/dashboard/tasks" },
-  { label: "Notes", href: "/dashboard/notes" },
+  { label: "Pregled", href: "/dashboard" },
+  { label: "Klijenti", href: "/dashboard/clients" },
+  { label: "Projekti", href: "/dashboard/projects" },
+  { label: "Zadaci", href: "/dashboard/tasks" },
+  { label: "Beleške", href: "/dashboard/notes" },
 ];
 
 export default function DashboardSidebar() {
@@ -51,14 +51,14 @@ export default function DashboardSidebar() {
       <div className={styles.sidebarTop}>
         <div className={styles.brand}>
           <span className={styles.brandLabel}>ClientHub</span>
-          <strong>Dashboard</strong>
+          <strong>Kontrolna tabla</strong>
         </div>
 
         <button
           type="button"
           className={styles.menuButton}
           onClick={() => setIsMenuOpen((current) => !current)}
-          aria-label={isMenuOpen ? "Close dashboard menu" : "Open dashboard menu"}
+          aria-label={isMenuOpen ? "Zatvori meni" : "Otvori meni"}
           aria-expanded={isMenuOpen}
         >
           <span></span>
@@ -94,7 +94,7 @@ export default function DashboardSidebar() {
 
         <div className={styles.sidebarFooter}>
           <Link href="/" onClick={closeMenu}>
-            Back to portfolio
+            Nazad na portfolio
           </Link>
 
           <button

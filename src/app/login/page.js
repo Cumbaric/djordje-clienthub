@@ -53,7 +53,7 @@ export default function LoginPage() {
             <span className={styles.appBadgeDot} />
             Djordje ClientHub
           </span>
-          <h1 className={styles.loginTitle}>Private Dashboard Access</h1>
+          <h1 className={styles.loginTitle}>Pristup kontrolnoj tabli</h1>
           <p className={styles.loginSubtitle}>
             Ovo je privatni deo aplikacije. Pristup imaju samo ovlašćeni korisnici.
           </p>
@@ -118,7 +118,7 @@ export default function LoginPage() {
             ← Nazad na portfolio
           </Link>
           <p className={styles.demoNote}>
-            Temporary local access for development phase.
+            Pristup je dozvoljen samo ovlašćenim korisnicima.
           </p>
         </div>
 

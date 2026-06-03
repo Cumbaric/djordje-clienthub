@@ -6,6 +6,7 @@ import {
   notes as notesTable,
 } from "@/db/schema";
 import { quickActions } from "@/data/dashboardOverview";
+import { statusLabel, priorityLabel } from "@/lib/dashboardLabels";
 
 export const dynamic = "force-dynamic";
 
@@ -39,32 +40,32 @@ export default async function DashboardPage() {
 
   const dashboardStats = [
     {
-      label: "Active clients",
+      label: "Aktivni klijenti",
       value: activeClients,
-      description: "WordPress clients currently tracked",
+      description: "WordPress klijenti koje trenutno pratiš",
     },
     {
-      label: "Active projects",
+      label: "Aktivni projekti",
       value: activeProjects,
-      description: "Websites, SEO tasks and improvements",
+      description: "Sajtovi, SEO zadaci i poboljšanja",
     },
     {
-      label: "Open tasks",
+      label: "Otvoreni zadaci",
       value: openTasks,
-      description: "Pending work items and follow-ups",
+      description: "Zadaci na čekanju i naredne aktivnosti",
     },
     {
-      label: "Work notes",
+      label: "Radne beleške",
       value: workNotes,
-      description: "Internal notes and recent updates",
+      description: "Interne beleške i nedavna ažuriranja",
     },
   ];
 
   return (
     <section className="dashboard-page">
       <div className="dashboard-header">
-        <p className="dashboard-label">Private workspace</p>
-        <h1>Dashboard</h1>
+        <p className="dashboard-label">Privatni radni prostor</p>
+        <h1>Kontrolna tabla</h1>
         <p>
           Privatni pregled klijenata, projekata, zadataka i radnih beleški za
           WordPress freelance posao.
@@ -84,8 +85,8 @@ export default async function DashboardPage() {
       <div className="dashboard-section">
         <div className="dashboard-section-header">
           <div>
-            <p className="dashboard-label">Quick actions</p>
-            <h2>Main workspace areas</h2>
+            <p className="dashboard-label">Brze akcije</p>
+            <h2>Glavne oblasti</h2>
           </div>
         </div>
 
@@ -106,8 +107,8 @@ export default async function DashboardPage() {
       <div className="dashboard-section">
         <div className="dashboard-section-header">
           <div>
-            <p className="dashboard-label">Recent projects</p>
-            <h2>Project progress overview</h2>
+            <p className="dashboard-label">Nedavni projekti</p>
+            <h2>Napredak projekata</h2>
           </div>
         </div>
 
@@ -125,13 +126,13 @@ export default async function DashboardPage() {
                     .toLowerCase()
                     .replaceAll(" ", "-")}`}
                 >
-                  {project.status}
+                  {statusLabel(project.status)}
                 </span>
               </div>
 
               <div className="dashboard-client-meta">
                 <span>{project.type}</span>
-                <span>Phase: {project.phase}</span>
+                <span>Faza: {project.phase}</span>
               </div>
 
               <p className="dashboard-client-description">
@@ -140,7 +141,7 @@ export default async function DashboardPage() {
 
               <div className="dashboard-progress">
                 <div className="dashboard-progress-top">
-                  <span>Progress</span>
+                  <span>Napredak</span>
                   <strong>{project.progress}</strong>
                 </div>
 
@@ -156,8 +157,8 @@ export default async function DashboardPage() {
       <div className="dashboard-section">
         <div className="dashboard-section-header">
           <div>
-            <p className="dashboard-label">Open tasks</p>
-            <h2>Next work items</h2>
+            <p className="dashboard-label">Otvoreni zadaci</p>
+            <h2>Sledeći zadaci</h2>
           </div>
         </div>
 
@@ -175,15 +176,15 @@ export default async function DashboardPage() {
                     .toLowerCase()
                     .replaceAll(" ", "-")}`}
                 >
-                  {task.status}
+                  {statusLabel(task.status)}
                 </span>
               </div>
 
               <div className="dashboard-task-meta">
-                <span>Project: {task.project}</span>
-                <span>Priority: {task.priority}</span>
-                <span>Focus: {task.focus}</span>
-                <span>Due: {task.due}</span>
+                <span>Projekat: {task.project}</span>
+                <span>Prioritet: {priorityLabel(task.priority)}</span>
+                <span>Fokus: {task.focus}</span>
+                <span>Rok: {task.due}</span>
               </div>
             </article>
           ))}
@@ -193,8 +194,8 @@ export default async function DashboardPage() {
       <div className="dashboard-section">
         <div className="dashboard-section-header">
           <div>
-            <p className="dashboard-label">Recent work</p>
-            <h2>Latest work notes</h2>
+            <p className="dashboard-label">Nedavni rad</p>
+            <h2>Najnovije beleške</h2>
           </div>
         </div>
 
