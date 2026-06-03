@@ -1,6 +1,11 @@
-import { tasks } from "@/data/tasks";
+import { db } from "@/db";
+import { tasks as tasksTable } from "@/db/schema";
 
-export default function TasksPage() {
+export const dynamic = "force-dynamic";
+
+export default async function TasksPage() {
+  const tasks = await db.select().from(tasksTable).orderBy(tasksTable.id);
+
   const totalTasks = tasks.length;
 
   const openTasks = tasks.filter((task) => task.status === "Open").length;

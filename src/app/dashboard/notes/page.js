@@ -1,6 +1,11 @@
-import { notes } from "@/data/notes";
+import { db } from "@/db";
+import { notes as notesTable } from "@/db/schema";
 
-export default function NotesPage() {
+export const dynamic = "force-dynamic";
+
+export default async function NotesPage() {
+  const notes = await db.select().from(notesTable).orderBy(notesTable.id);
+
   const totalNotes = notes.length;
 
   const doneNotes = notes.filter((note) => note.status === "Done").length;

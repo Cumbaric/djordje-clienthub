@@ -1,6 +1,14 @@
-import { dashboardProjects } from "@/data/dashboardProjects";
+import { db } from "@/db";
+import { projects as projectsTable } from "@/db/schema";
 
-export default function DashboardProjectsPage() {
+export const dynamic = "force-dynamic";
+
+export default async function DashboardProjectsPage() {
+  const dashboardProjects = await db
+    .select()
+    .from(projectsTable)
+    .orderBy(projectsTable.id);
+
   const totalProjects = dashboardProjects.length;
 
   const activeProjects = dashboardProjects.filter((project) =>

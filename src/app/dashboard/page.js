@@ -1,10 +1,22 @@
-import { clients } from "@/data/clients";
-import { dashboardProjects } from "@/data/dashboardProjects";
-import { notes } from "@/data/notes";
-import { tasks } from "@/data/tasks";
+import { db } from "@/db";
+import {
+  clients as clientsTable,
+  projects as projectsTable,
+  tasks as tasksTable,
+  notes as notesTable,
+} from "@/db/schema";
 import { quickActions } from "@/data/dashboardOverview";
 
-export default function DashboardPage() {
+export const dynamic = "force-dynamic";
+
+export default async function DashboardPage() {
+  const [clients, dashboardProjects, tasks, notes] = await Promise.all([
+    db.select().from(clientsTable).orderBy(clientsTable.id),
+    db.select().from(projectsTable).orderBy(projectsTable.id),
+    db.select().from(tasksTable).orderBy(tasksTable.id),
+    db.select().from(notesTable).orderBy(notesTable.id),
+  ]);
+
   const activeClients = clients.filter(
     (client) => client.status === "Active",
   ).length;

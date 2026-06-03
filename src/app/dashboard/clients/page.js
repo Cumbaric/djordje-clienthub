@@ -1,6 +1,11 @@
-import { clients } from "@/data/clients";
+import { db } from "@/db";
+import { clients as clientsTable } from "@/db/schema";
 
-export default function ClientsPage() {
+export const dynamic = "force-dynamic";
+
+export default async function ClientsPage() {
+  const clients = await db.select().from(clientsTable).orderBy(clientsTable.id);
+
   const totalClients = clients.length;
 
   const activeClients = clients.filter(
