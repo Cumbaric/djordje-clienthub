@@ -43,7 +43,7 @@ export default function Home() {
         <HeroGlow />
         <div className={styles.heroGrid}>
           <div className={styles.heroContent}>
-            <p className={styles.eyebrow}>Djordje ClientHub</p>
+            <p className={styles.eyebrow}>Freelance Web Developer</p>
 
             <h1>{pos.headline}</h1>
 
