@@ -2,18 +2,18 @@ import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import * as schema from "./schema";
 
-const connectionString = process.env.DATABASE_URL;
-
-if (!connectionString) {
-  throw new Error(
-    "DATABASE_URL is not set. Add it to .env.local (local) and Vercel env (production).",
-  );
-}
-
-// Reuse a single postgres client across hot-reloads / serverless invocations.
+/*
+  postgres-js connects lazily — creating the client does NOT open a connection,
+  so importing this module during `next build` (while Next collects page data)
+  is safe even if DATABASE_URL is momentarily unavailable. The real connection
+  happens on the first query, at request time, where DATABASE_URL must be set
+  (Vercel env in production, .env.local locally).
+*/
 const globalForDb = globalThis;
+
 const client =
-  globalForDb.__clienthubPg ?? postgres(connectionString, { prepare: false });
+  globalForDb.__clienthubPg ??
+  postgres(process.env.DATABASE_URL, { prepare: false });
 
 if (process.env.NODE_ENV !== "production") {
   globalForDb.__clienthubPg = client;
