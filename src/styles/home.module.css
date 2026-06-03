@@ -654,27 +654,14 @@
     display: none;
   }
 
-  /* Skills card — stack groups, badges become wrapping chips */
+  /* Skills card — compact on mobile */
   .skillsGrid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 12px;
-  }
-
-  .skillsGroup {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .skillsGroupLabel {
-    flex-basis: 100%;
-    margin-bottom: 0;
-    font-size: 9px;
+    padding: 10px;
+    gap: 0 8px;
   }
 
   .skillBadge {
-    padding: 7px 10px;
+    padding: 7px 8px;
     font-size: 11px;
     gap: 6px;
   }
@@ -683,6 +670,10 @@
     width: 20px;
     height: 20px;
     font-size: 8px;
+  }
+
+  .skillsGroupLabel {
+    font-size: 9px;
   }
 }
 

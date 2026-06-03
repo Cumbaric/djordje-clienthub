@@ -298,12 +298,12 @@
   .navNext { right: 2px; }
 
   .track {
-    padding: 10px max(calc(50% - 175px), 52px) 20px;
-    gap: 14px;
+    padding: 10px 20px 20px;
+    gap: 12px;
   }
 
   .slide {
-    flex: 0 0 min(350px, calc(100% - 100px));
+    flex: 0 0 calc(100% - 40px);
     padding: 22px 18px;
     border-radius: 18px;
   }
