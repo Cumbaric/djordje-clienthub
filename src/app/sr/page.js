@@ -86,8 +86,8 @@ export default function Home() {
             />
             <p className={styles.sectionLabel}>O meni</p>
             <h2 className={styles.aboutHeading}>
-              O Djordje{" "}
-              <span className={styles.aboutHeadingAccent}>ClientHub</span>
+              O Đorđu{" "}
+              <span className={styles.aboutHeadingAccent}>Popoviću</span>
             </h2>
             <p className={styles.aboutDesc}>
               Web developer fokusiran na čistu strukturu, SEO osnovu i
