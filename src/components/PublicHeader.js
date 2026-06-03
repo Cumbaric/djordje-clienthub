@@ -30,20 +30,28 @@ const NAV = {
   },
 };
 
-const SWITCH_MAP = {
-  "/en": "/sr",
-  "/en/projects": "/sr/projekti",
-  "/en/projects/wellness-concept": "/sr/projekti/wellness-concept",
-  "/en/services": "/sr/usluge",
-  "/en/process": "/sr/proces",
-  "/en/contact": "/sr/kontakt",
-  "/sr": "/en",
-  "/sr/projekti": "/en/projects",
-  "/sr/projekti/wellness-concept": "/en/projects/wellness-concept",
-  "/sr/usluge": "/en/services",
-  "/sr/proces": "/en/process",
-  "/sr/kontakt": "/en/contact",
+// Section-segment translations (first path part after the language prefix).
+// Deeper segments (project/service slugs) are shared across languages.
+const SEGMENT_MAP = {
+  en: { projects: "projekti", services: "usluge", process: "proces", contact: "kontakt" },
+  sr: { projekti: "projects", usluge: "services", proces: "process", kontakt: "contact" },
 };
+
+// Build the equivalent path in the other language for ANY public route,
+// including project case studies and service detail pages.
+function getSwitchHref(pathname) {
+  const parts = pathname.split("/").filter(Boolean); // ["en", "projects", "boommil"]
+  const lang = parts[0];
+  if (lang !== "en" && lang !== "sr") return null;
+
+  const targetLang = lang === "en" ? "sr" : "en";
+  const segMap = SEGMENT_MAP[lang];
+  const rest = parts
+    .slice(1)
+    .map((seg, i) => (i === 0 ? segMap[seg] ?? seg : seg));
+
+  return "/" + [targetLang, ...rest].join("/");
+}
 
 const DEFAULT_LINKS = [
   { href: "/", label: "Home" },
@@ -86,7 +94,7 @@ export default function PublicHeader({ lang }) {
   const nav = lang ? NAV[lang] : null;
   const homeHref = nav ? nav.home : "/";
   const links = nav ? nav.links : DEFAULT_LINKS;
-  const switchHref = SWITCH_MAP[pathname] ?? null;
+  const switchHref = getSwitchHref(pathname);
   const switchLabel = nav?.switchLabel ?? null;
 
   return (
