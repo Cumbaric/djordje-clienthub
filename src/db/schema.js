@@ -1,21 +1,21 @@
-import { pgTable, serial, text, jsonb, timestamp } from "drizzle-orm/pg-core";
+import { mysqlTable, int, text, json, timestamp } from "drizzle-orm/mysql-core";
 
 /* Clients — WordPress / web clients tracked in the dashboard */
-export const clients = pgTable("clients", {
-  id: serial("id").primaryKey(),
+export const clients = mysqlTable("clients", {
+  id: int("id").primaryKey().autoincrement(),
   name: text("name").notNull(),
   website: text("website"),
   type: text("type"),
   status: text("status"),
   priority: text("priority"),
   description: text("description"),
-  notes: jsonb("notes").$type().default([]),
+  notes: json("notes").$type(),
   createdAt: timestamp("created_at").defaultNow(),
 });
 
 /* Projects — work projects shown in the dashboard */
-export const projects = pgTable("projects", {
-  id: serial("id").primaryKey(),
+export const projects = mysqlTable("projects", {
+  id: int("id").primaryKey().autoincrement(),
   slug: text("slug"),
   name: text("name").notNull(),
   client: text("client"),
@@ -24,13 +24,13 @@ export const projects = pgTable("projects", {
   phase: text("phase"),
   progress: text("progress"),
   description: text("description"),
-  nextSteps: jsonb("next_steps").$type().default([]),
+  nextSteps: json("next_steps").$type(),
   createdAt: timestamp("created_at").defaultNow(),
 });
 
 /* Tasks — open / in-progress / done work items */
-export const tasks = pgTable("tasks", {
-  id: serial("id").primaryKey(),
+export const tasks = mysqlTable("tasks", {
+  id: int("id").primaryKey().autoincrement(),
   slug: text("slug"),
   title: text("title").notNull(),
   project: text("project"),
@@ -43,8 +43,8 @@ export const tasks = pgTable("tasks", {
 });
 
 /* Notes — internal work log / notes */
-export const notes = pgTable("notes", {
-  id: serial("id").primaryKey(),
+export const notes = mysqlTable("notes", {
+  id: int("id").primaryKey().autoincrement(),
   slug: text("slug"),
   title: text("title").notNull(),
   project: text("project"),
