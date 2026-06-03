@@ -78,7 +78,7 @@ export default function PublicFooter({ lang }) {
 
           {/* Brand */}
           <div className={styles.brand}>
-            <span className={styles.brandName}>Djordje ClientHub</span>
+            <span className={styles.brandName}>Đorđe Popović</span>
             <p className={styles.brandDesc}>{c.description}</p>
             <span className={styles.brandBadge}>{c.badge}</span>
           </div>

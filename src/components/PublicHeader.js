@@ -9,6 +9,7 @@ const NAV = {
   en: {
     home: "/en",
     links: [
+      { href: "/en", label: "Home" },
       { href: "/en/projects", label: "Projects" },
       { href: "/en/services", label: "Services" },
       { href: "/en/process", label: "Process" },
@@ -19,6 +20,7 @@ const NAV = {
   sr: {
     home: "/sr",
     links: [
+      { href: "/sr", label: "Početna" },
       { href: "/sr/projekti", label: "Projekti" },
       { href: "/sr/usluge", label: "Usluge" },
       { href: "/sr/proces", label: "Proces" },
@@ -44,6 +46,7 @@ const SWITCH_MAP = {
 };
 
 const DEFAULT_LINKS = [
+  { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
   { href: "/services", label: "Services" },
   { href: "/process", label: "Process" },
@@ -94,7 +97,7 @@ export default function PublicHeader({ lang }) {
           .join(" ")}
       >
         <Link href={homeHref} className={styles.logo}>
-          Djordje ClientHub
+          Đorđe Popović
         </Link>
 
         {/* Desktop nav */}
@@ -109,9 +112,6 @@ export default function PublicHeader({ lang }) {
               {switchLabel}
             </Link>
           )}
-          <Link href="/login" className={styles.navLogin}>
-            Login
-          </Link>
         </nav>
 
         {/* Hamburger button — mobile only */}
@@ -147,13 +147,6 @@ export default function PublicHeader({ lang }) {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/login"
-              className={styles.mobileNavLink}
-              onClick={() => setMenuOpen(false)}
-            >
-              Login
-            </Link>
             {switchHref && switchLabel && (
               <Link
                 href={switchHref}
