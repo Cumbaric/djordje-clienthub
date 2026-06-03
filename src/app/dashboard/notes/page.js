@@ -1,6 +1,9 @@
 import { db } from "@/db";
 import { notes as notesTable } from "@/db/schema";
 import { statusLabel } from "@/lib/dashboardLabels";
+import { createNote } from "./actions";
+import NoteControls from "./NoteControls";
+import "@/styles/dashboard-forms.css";
 
 export const dynamic = "force-dynamic";
 
@@ -62,6 +65,58 @@ export default async function NotesPage() {
       <div className="dashboard-section">
         <div className="dashboard-section-header">
           <div>
+            <p className="dashboard-label">Dodaj novo</p>
+            <h2>Nova beleška</h2>
+          </div>
+        </div>
+
+        <form action={createNote} className="dashboard-form">
+          <div className="dashboard-form-row">
+            <label className="dashboard-field dashboard-field-wide">
+              <span>Naslov *</span>
+              <input name="title" type="text" required placeholder="Naslov beleške" />
+            </label>
+            <label className="dashboard-field">
+              <span>Projekat</span>
+              <input name="project" type="text" placeholder="npr. Wellness Concept" />
+            </label>
+          </div>
+
+          <div className="dashboard-form-row">
+            <label className="dashboard-field">
+              <span>Tip</span>
+              <input name="type" type="text" placeholder="npr. Beleška klijenta" />
+            </label>
+            <label className="dashboard-field">
+              <span>Status</span>
+              <select name="status" defaultValue="Open">
+                <option value="Open">Otvoren</option>
+                <option value="Done">Završen</option>
+                <option value="Backlog">Za kasnije</option>
+              </select>
+            </label>
+            <label className="dashboard-field">
+              <span>Datum</span>
+              <input name="date" type="text" placeholder="npr. 03.06.2026." />
+            </label>
+          </div>
+
+          <label className="dashboard-field dashboard-field-wide">
+            <span>Opis</span>
+            <textarea name="description" rows={2} placeholder="Sadržaj beleške" />
+          </label>
+
+          <div className="dashboard-form-actions">
+            <button type="submit" className="dashboard-primary-btn">
+              Dodaj belešku
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div className="dashboard-section">
+        <div className="dashboard-section-header">
+          <div>
             <p className="dashboard-label">Pregled</p>
             <h2>Nedavne beleške</h2>
           </div>
@@ -69,7 +124,7 @@ export default async function NotesPage() {
 
         <div className="dashboard-notes-list">
           {notes.map((note) => (
-            <article className="dashboard-note-card" key={note.slug}>
+            <article className="dashboard-note-card" key={note.id}>
               <div className="dashboard-note-main">
                 <div>
                   <p className="dashboard-label">Beleška</p>
@@ -91,6 +146,8 @@ export default async function NotesPage() {
                 <span>Tip: {note.type}</span>
                 <span>Datum: {note.date}</span>
               </div>
+
+              <NoteControls note={note} />
             </article>
           ))}
         </div>

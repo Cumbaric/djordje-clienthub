@@ -1,6 +1,9 @@
 import { db } from "@/db";
 import { clients as clientsTable } from "@/db/schema";
 import { statusLabel, priorityLabel } from "@/lib/dashboardLabels";
+import { createClient } from "./actions";
+import ClientControls from "./ClientControls";
+import "@/styles/dashboard-forms.css";
 
 export const dynamic = "force-dynamic";
 
@@ -68,6 +71,67 @@ export default async function ClientsPage() {
       <div className="dashboard-section">
         <div className="dashboard-section-header">
           <div>
+            <p className="dashboard-label">Dodaj novo</p>
+            <h2>Novi klijent</h2>
+          </div>
+        </div>
+
+        <form action={createClient} className="dashboard-form">
+          <div className="dashboard-form-row">
+            <label className="dashboard-field dashboard-field-wide">
+              <span>Ime *</span>
+              <input name="name" type="text" required placeholder="Naziv klijenta" />
+            </label>
+            <label className="dashboard-field">
+              <span>Sajt</span>
+              <input name="website" type="text" placeholder="npr. primer.rs" />
+            </label>
+          </div>
+
+          <div className="dashboard-form-row">
+            <label className="dashboard-field">
+              <span>Tip</span>
+              <input name="type" type="text" placeholder="npr. WordPress / Elementor" />
+            </label>
+            <label className="dashboard-field">
+              <span>Status</span>
+              <select name="status" defaultValue="Active">
+                <option value="Active">Aktivan</option>
+                <option value="Maintenance">Održavanje</option>
+                <option value="Paused">Pauziran</option>
+              </select>
+            </label>
+            <label className="dashboard-field">
+              <span>Prioritet</span>
+              <select name="priority" defaultValue="Medium">
+                <option value="High">Visok</option>
+                <option value="Medium">Srednji</option>
+                <option value="Low">Nizak</option>
+              </select>
+            </label>
+          </div>
+
+          <label className="dashboard-field dashboard-field-wide">
+            <span>Opis</span>
+            <textarea name="description" rows={2} placeholder="Kratak opis klijenta" />
+          </label>
+
+          <label className="dashboard-field dashboard-field-wide">
+            <span>Fokus rada (odvoji zarezom)</span>
+            <input name="notes" type="text" placeholder="npr. SEO, Performanse, Elementor" />
+          </label>
+
+          <div className="dashboard-form-actions">
+            <button type="submit" className="dashboard-primary-btn">
+              Dodaj klijenta
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div className="dashboard-section">
+        <div className="dashboard-section-header">
+          <div>
             <p className="dashboard-label">Pregled</p>
             <h2>Lista klijenata</h2>
           </div>
@@ -75,7 +139,7 @@ export default async function ClientsPage() {
 
         <div className="dashboard-client-grid">
           {clients.map((client) => (
-            <article className="dashboard-client-card" key={client.name}>
+            <article className="dashboard-client-card" key={client.id}>
               <div className="dashboard-client-top">
                 <div>
                   <p className="dashboard-label">Klijent</p>
@@ -115,6 +179,8 @@ export default async function ClientsPage() {
                   ))}
                 </div>
               </div>
+
+              <ClientControls client={client} />
             </article>
           ))}
         </div>
