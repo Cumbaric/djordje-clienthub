@@ -21,7 +21,7 @@ export const messageChecklist = [
   "Da li je u pitanju WordPress, WooCommerce ili custom aplikacija",
 ];
 
-export const contactEmail = "hello@djordjepopovic.com";
+export const contactEmail = "info@djordjepopovic.com";
 
 export const socialLinks = {
   upwork: "https://www.upwork.com/freelancers/~013a3b5a0980f240a7",
