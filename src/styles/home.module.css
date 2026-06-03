@@ -460,7 +460,7 @@
 }
 
 .workflowStepDesc {
-  color: #475569;
+  color: #64748b;
   font-size: 9px;
   line-height: 1.4;
   max-width: 60px;
@@ -499,7 +499,7 @@
 
 .skillsGroupLabel {
   margin: 0 0 4px;
-  color: #475569;
+  color: #64748b;
   font-size: 10px;
   font-weight: 800;
   text-transform: uppercase;
@@ -1225,7 +1225,7 @@
 
 .workCardType {
   margin: 0;
-  color: #475569;
+  color: #64748b;
   font-size: 11px;
   font-weight: 500;
   line-height: 1.4;
@@ -1361,7 +1361,7 @@
 
 .statLabel {
   margin-top: 10px;
-  color: #475569;
+  color: #64748b;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.5;

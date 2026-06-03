@@ -65,7 +65,7 @@
 
 .brandDesc {
   margin: 0;
-  color: #475569;
+  color: #64748b;
   font-size: 14px;
   line-height: 1.75;
   max-width: 260px;
@@ -112,7 +112,7 @@
 
 .colLink {
   position: relative;
-  color: #475569;
+  color: #64748b;
   font-size: 14px;
   font-weight: 500;
   transition: color 0.2s ease;
@@ -140,7 +140,7 @@
 }
 
 .colItem {
-  color: #475569;
+  color: #64748b;
   font-size: 14px;
   line-height: 1.5;
 }
@@ -164,7 +164,7 @@
 
 .ctaText {
   margin: 0;
-  color: #475569;
+  color: #64748b;
   font-size: 14px;
   line-height: 1.75;
 }
