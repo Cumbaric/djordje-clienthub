@@ -1,0 +1,130 @@
+/* Dashboard CRUD — create form + per-card controls (light theme) */
+
+.dashboard-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 22px;
+  background: #ffffff;
+}
+
+.dashboard-form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.dashboard-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 160px;
+  min-width: 0;
+}
+
+.dashboard-field-wide {
+  flex-basis: 100%;
+}
+
+.dashboard-field > span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.dashboard-field input,
+.dashboard-field select,
+.dashboard-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: #f9fafb;
+  color: #111827;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.dashboard-field textarea {
+  resize: vertical;
+}
+
+.dashboard-field input:focus,
+.dashboard-field select:focus,
+.dashboard-field textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.dashboard-form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dashboard-primary-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dashboard-primary-btn:hover {
+  background: #1d4ed8;
+}
+
+.dashboard-task-controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.dashboard-inline-form {
+  margin: 0;
+}
+
+.dashboard-control-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.dashboard-select {
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #f9fafb;
+  color: #111827;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.dashboard-delete-btn {
+  padding: 8px 14px;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  background: #fef2f2;
+  color: #dc2626;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.dashboard-delete-btn:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+}
