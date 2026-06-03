@@ -11,7 +11,7 @@ import { faqContent } from "@/data/faq";
 import StatsSection from "@/components/StatsSection";
 import RevealSection from "@/components/RevealSection";
 import { positioning } from "@/data/positioning";
-import styles from "../(public)/page.module.css";
+import styles from "@/styles/home.module.css";
 import HeroGlow from "@/components/HeroGlow";
 import SectionOrb from "@/components/SectionOrb";
 
