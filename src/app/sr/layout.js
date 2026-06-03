@@ -4,7 +4,8 @@ import PublicFooter from "@/components/PublicFooter";
 import ScrollAnimator from "@/components/ScrollAnimator";
 import "@/styles/public-pages.css";
 
-const gaId = process.env.NEXT_PUBLIC_GA_ID;
+// GA4 Measurement ID — public (visible in page source), safe to hardcode.
+const gaId = "G-T8R88TQFCE";
 
 export default function SrLayout({ children }) {
   return (
