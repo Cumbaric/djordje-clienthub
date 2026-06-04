@@ -27,3 +27,18 @@ export function statusLabel(value) {
 export function priorityLabel(value) {
   return PRIORITY_LABELS[value] ?? value;
 }
+
+// JSON array columns come back as strings on MariaDB (Hostinger) — normalize
+// to a real array so .map() works whether the driver parses it or not.
+export function toArray(value) {
+  if (Array.isArray(value)) return value;
+  if (typeof value === "string") {
+    try {
+      const parsed = JSON.parse(value);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  }
+  return [];
+}

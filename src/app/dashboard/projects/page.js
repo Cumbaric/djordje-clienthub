@@ -1,6 +1,6 @@
 import { db } from "@/db";
 import { projects as projectsTable } from "@/db/schema";
-import { statusLabel } from "@/lib/dashboardLabels";
+import { statusLabel, toArray } from "@/lib/dashboardLabels";
 import { createProject } from "./actions";
 import ProjectControls from "./ProjectControls";
 import DashboardEmpty from "@/components/DashboardEmpty";
@@ -188,7 +188,7 @@ export default async function DashboardProjectsPage() {
                 <h4>Sledeći koraci</h4>
 
                 <ul>
-                  {project.nextSteps.map((step) => (
+                  {toArray(project.nextSteps).map((step) => (
                     <li key={step}>{step}</li>
                   ))}
                 </ul>

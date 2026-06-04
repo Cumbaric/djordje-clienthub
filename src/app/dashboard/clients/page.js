@@ -1,6 +1,6 @@
 import { db } from "@/db";
 import { clients as clientsTable } from "@/db/schema";
-import { statusLabel, priorityLabel } from "@/lib/dashboardLabels";
+import { statusLabel, priorityLabel, toArray } from "@/lib/dashboardLabels";
 import { createClient } from "./actions";
 import ClientControls from "./ClientControls";
 import DashboardEmpty from "@/components/DashboardEmpty";
@@ -178,7 +178,7 @@ export default async function ClientsPage() {
                 <h4>Fokus rada</h4>
 
                 <div className="dashboard-tag-list">
-                  {client.notes.map((note) => (
+                  {toArray(client.notes).map((note) => (
                     <span key={note}>{note}</span>
                   ))}
                 </div>
