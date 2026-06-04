@@ -206,7 +206,7 @@ export default function StatsSection({ lang = "sr" }) {
             {/* Value */}
             <div className={styles.valueRow}>
               {stat.live && (
-                <span className={styles.liveDot} aria-label="active" />
+                <span className={styles.liveDot} aria-hidden="true" />
               )}
               <span
                 className={`${styles.value} ${animated ? styles.valueIn : ""}`}
