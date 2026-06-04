@@ -271,7 +271,7 @@ export default function Home() {
           <SectionHeader
             label="Services"
             title="Services I can offer clients"
-            link={{ href: "/en/services", text: "View all services" }}
+            link={{ href: "/en/services", text: "Learn more" }}
           />
 
           <div className={styles.servicesGrid}>
