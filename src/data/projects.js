@@ -74,6 +74,21 @@ export const projects = [
     descriptionEn:
       "A bilingual portfolio and private dashboard application built with Next.js, React, App Router, route protection and AI-assisted development workflow. The project combines public portfolio pages with a protected internal dashboard for clients, projects, tasks and work notes.",
   },
+  {
+    title: "Ben Akiba Dashboard",
+    slug: "ben-akiba-dashboard",
+    coverImage: "/Projects/ben-akiba-dashboard_1.png",
+    type: "Next.js / React / Supabase / Admin Dashboard",
+    category: "Web App / Event Management Dashboard",
+    status: "Portfolio project",
+    url: "/en/projects/ben-akiba-dashboard",
+    featured: true,
+    tags: ["Next.js", "React", "JavaScript", "CSS", "Supabase", "Vercel", "Admin Dashboard"],
+    description:
+      "Admin dashboard aplikacija za Ben Akiba dogadjaje, sa javnim front page prikazom stand up i zurka repertoara, izvodjaca, cena i broja rezervisanih gostiju. Projekat kombinuje javni pregled dogadjaja sa internim panelom za upravljanje rezervacijama i unos novih dogadjaja.",
+    descriptionEn:
+      "Admin dashboard application for Ben Akiba events, with a public front page for stand-up and party listings, performers, prices and reservation counts. The project combines a public event overview with an internal panel for managing reservations and creating new events.",
+  },
 ];
 
 export const featuredProjects = projects.filter((project) => project.featured);
