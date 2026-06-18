@@ -115,6 +115,9 @@ export const projects = [
 
 export const featuredProjects = projects.filter((project) => project.featured);
 
+// The most recently added projects, shown in the homepage "Recent Work" section.
+export const recentProjects = projects.slice(-4);
+
 // Returns an object keyed by PROJECT_CATEGORIES with an array of projects for each.
 export function getProjectsByCategory() {
   return Object.keys(PROJECT_CATEGORIES).reduce((grouped, key) => {

@@ -3,7 +3,7 @@ import Image from "next/image";
 import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
 import HeroCube from "@/components/HeroCube";
-import { featuredProjects } from "@/data/projects";
+import { recentProjects } from "@/data/projects";
 import { services } from "@/data/services";
 import { techStackContent } from "@/data/techStack";
 import TechSlider from "@/components/TechSlider";
@@ -332,7 +332,7 @@ export default function Home() {
           <h2>Projects that speak for themselves</h2>
         </div>
         <div className={styles.workCards}>
-          {featuredProjects.map((project) => {
+          {recentProjects.map((project) => {
             const inner = (
               <>
                 <div className={styles.workCardImg}>
