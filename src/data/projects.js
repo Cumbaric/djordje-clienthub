@@ -100,16 +100,16 @@ export const projects = [
     title: "Lumera Wellness",
     slug: "lumera-wellness",
     coverImage: null,
-    type: "Next.js / React / Wellness Website",
+    type: "Next.js / React / Wellness Booking Template",
     category: "nextjs",
     status: "In development",
     url: "/en/projects/lumera-wellness",
     featured: false,
-    tags: ["Next.js", "React", "App Router", "Wellness", "Performance", "SEO"],
+    tags: ["Next.js", "React", "App Router", "Booking System", "Admin Dashboard", "Template"],
     description:
-      "Moderan wellness sajt izrađen u Next.js-u, fokusiran na brz prikaz, jasnu strukturu usluga i SEO-friendly stranice za spa i wellness ponudu. Trenutno u razvoju.",
+      "Next.js template za zakazivanje namenjen wellness i masažnim salonima. Spaja uglađen, prilagodljiv javni sajt sa zaštićenim admin dashboard-om za obradu zahteva za termin, upravljanje rezervacijama i klijentima i praćenje rezervacija i prihoda. Napravljen kao proizvod koji se brendira i prodaje različitim salonima — prikazani sadržaj je generički demo.",
     descriptionEn:
-      "A modern wellness website built with Next.js, focused on fast rendering, a clear service structure and SEO-friendly pages for spa and wellness offerings. Currently in development.",
+      "A Next.js booking template for wellness and massage studios. It pairs a polished, customizable public site with a protected admin dashboard for handling appointment requests, managing reservations and clients, and tracking bookings and revenue. Built as a reusable product that can be branded and sold to different salons — the content shown is a generic demo.",
   },
 ];
 

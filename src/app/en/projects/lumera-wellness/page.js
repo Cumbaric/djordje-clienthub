@@ -4,11 +4,11 @@ import PageHero from "@/components/PageHero";
 export const metadata = {
   title: "Lumera Wellness Case Study",
   description:
-    "A modern Next.js wellness website focused on fast rendering, clear service structure and SEO-friendly pages.",
+    "A Next.js wellness booking template combining a customizable public site with an admin dashboard for reservations, clients and revenue.",
   openGraph: {
     title: "Lumera Wellness Case Study",
     description:
-      "A Next.js and React wellness website built for performance, clean structure and SEO-friendly content.",
+      "A reusable Next.js booking platform for wellness studios — public marketing site plus a protected admin dashboard.",
   },
   alternates: {
     languages: {
@@ -23,7 +23,7 @@ export default function LumeraWellnessCaseStudyPage() {
     <main>
       <PageHero
         eyebrow="Case Study"
-        title="Lumera Wellness — a modern Next.js wellness website"
+        title="Lumera Wellness — a reusable Next.js booking template for wellness studios"
         actions={
           <>
             <Link href="/en/contact" className="hero-action-primary">
@@ -35,9 +35,10 @@ export default function LumeraWellnessCaseStudyPage() {
           </>
         }
       >
-        A modern wellness website built with Next.js and React, focused on fast
-        rendering, a clear service structure and SEO-friendly pages for spa and
-        wellness offerings. This project is currently in development.
+        Lumera Wellness is a Next.js booking platform built as a product — a
+        polished public website paired with a protected admin dashboard, ready
+        to be branded and offered to wellness and massage studios. The content
+        shown is a generic demo.
       </PageHero>
 
       <div className="public-page">
@@ -48,77 +49,110 @@ export default function LumeraWellnessCaseStudyPage() {
         <section className="case-study-meta">
           <div>
             <span>Project type</span>
-            <strong>Next.js / React / Wellness website</strong>
+            <strong>Next.js / React booking template</strong>
           </div>
           <div>
-            <span>Industry</span>
-            <strong>Wellness / Spa / Self-care</strong>
+            <span>Audience</span>
+            <strong>Wellness, spa and massage studios</strong>
           </div>
           <div>
             <span>Focus</span>
-            <strong>Performance, structure, SEO and clean UX</strong>
+            <strong>Booking flow, admin dashboard, reusability</strong>
           </div>
           <div>
             <span>Role</span>
-            <strong>Frontend development, page structure, SEO foundations</strong>
+            <strong>Concept, frontend, dashboard, booking system</strong>
           </div>
         </section>
 
         <section className="case-study-section">
           <h2>Project overview</h2>
           <p>
-            Lumera Wellness is a modern wellness website built with Next.js. The
-            goal is to present spa and wellness services through a fast, clean
-            and well-structured experience, where visitors can quickly find
-            treatments, understand the offer and reach a clear contact path.
-            This is placeholder content that will be expanded as the project
-            develops.
+            Lumera Wellness is a productized booking platform rather than a
+            one-off website. The goal was to build a complete, good-looking
+            wellness solution once — a public marketing site plus an admin
+            dashboard — and make it easy to rebrand and offer to different
+            wellness and massage studios. All names, treatments and contact
+            details in the demo are generic placeholders that each studio would
+            replace with their own.
           </p>
         </section>
 
         <section className="case-study-section">
-          <h2>Project goals</h2>
+          <h2>The idea</h2>
+          <p>
+            Small wellness studios often need both an attractive online presence
+            and a simple way to handle appointment requests, but rarely want a
+            full custom build. Lumera packages both into one reusable product
+            that can be set up quickly and tailored to each studio&apos;s brand.
+          </p>
           <ul className="case-study-list">
-            <li>Build a fast Next.js website with strong performance</li>
-            <li>Present wellness services with a clear, scannable structure</li>
-            <li>Prepare SEO-friendly pages for better visibility</li>
-            <li>Keep the design clean, calm and easy to navigate</li>
-            <li>Deliver a smooth experience across desktop and mobile</li>
+            <li>One polished template instead of building from scratch each time</li>
+            <li>A public site that presents services and drives bookings</li>
+            <li>An admin area to review and manage incoming requests</li>
+            <li>Generic demo content that is easy to replace per client</li>
+            <li>A consistent, calm visual style suited to wellness brands</li>
           </ul>
         </section>
 
         <section className="case-study-section">
-          <h2>What is being built</h2>
+          <h2>What it includes</h2>
           <div className="case-study-grid">
             <article>
-              <h3>Service structure</h3>
+              <h3>Public marketing site</h3>
               <p>
-                Wellness treatments are organized into clear categories so
-                visitors can understand the offer and compare options easily.
+                A modern landing experience with hero, &quot;why us&quot;
+                highlights, about and story sections, services, pricing,
+                contact, a newsletter signup and clear booking calls to action.
               </p>
             </article>
             <article>
-              <h3>Performance first</h3>
+              <h3>Online booking requests</h3>
               <p>
-                Next.js rendering, image optimization and clean components keep
-                the site fast and responsive on every device.
+                Visitors can request an appointment for a treatment and time,
+                which lands in the admin dashboard as a new pending request to
+                review.
               </p>
             </article>
             <article>
-              <h3>SEO foundations</h3>
+              <h3>Admin dashboard</h3>
               <p>
-                Page structure, headings and metadata are prepared with search
-                visibility in mind from the start.
+                A protected dashboard summarizes today&apos;s and this
+                week&apos;s bookings, pending requests, confirmed appointments,
+                total clients and monthly revenue at a glance.
               </p>
             </article>
             <article>
-              <h3>Calm, clean UX</h3>
+              <h3>Reservations &amp; clients</h3>
               <p>
-                A simple and consistent layout supports a relaxing, trustworthy
-                feel that fits a wellness brand.
+                Dedicated reservations and clients views let the studio track
+                booking requests through pending, confirmed and cancelled
+                statuses and keep an overview of their guests.
               </p>
             </article>
           </div>
+        </section>
+
+        <section className="case-study-section">
+          <h2>Insights and management</h2>
+          <ul className="case-study-list">
+            <li>Command center with upcoming appointments and today&apos;s schedule</li>
+            <li>&quot;Most requested treatments&quot; chart across all statuses</li>
+            <li>Top treatment and recent booking-request activity</li>
+            <li>Status workflow for pending, confirmed and cancelled requests</li>
+            <li>Quick actions for creating a new booking and reviewing pending ones</li>
+          </ul>
+        </section>
+
+        <section className="case-study-section">
+          <h2>Built to be reused</h2>
+          <p>
+            The template is structured so the public content, branding and
+            treatment data can be swapped without touching the core booking and
+            dashboard logic. That makes it practical to spin up a tailored
+            version for a new studio while keeping a single, maintainable
+            codebase.
+          </p>
         </section>
 
         <section className="case-study-section">
@@ -129,29 +163,29 @@ export default function LumeraWellnessCaseStudyPage() {
             <span>App Router</span>
             <span>JavaScript</span>
             <span>CSS</span>
+            <span>Admin dashboard</span>
+            <span>Booking system</span>
             <span>Responsive design</span>
-            <span>SEO foundations</span>
-            <span>Performance optimization</span>
           </div>
         </section>
 
         <section className="case-study-section">
           <h2>Possible next steps</h2>
           <ul className="case-study-list">
-            <li>Expand treatment and service pages with real content</li>
-            <li>Add a booking or inquiry flow</li>
-            <li>Connect a CMS for easier content updates</li>
-            <li>Add a project gallery with real screenshots</li>
-            <li>Track search performance and refine SEO</li>
+            <li>Per-studio theming and configurable branding</li>
+            <li>Online payments and deposits for bookings</li>
+            <li>Automated email confirmations and reminders</li>
+            <li>Staff and room scheduling for larger studios</li>
+            <li>Reporting and export for revenue and attendance</li>
           </ul>
         </section>
 
         <section className="case-study-cta">
-          <h2>Need a fast, modern website?</h2>
+          <h2>Want a booking site like this?</h2>
           <p>
-            If you want a clean, performant website built with Next.js for your
-            wellness or service business, I can help you define and build the
-            next practical step.
+            If you run a wellness, spa or massage studio and want a modern site
+            with a built-in booking dashboard, I can adapt this platform to your
+            brand and the way you work.
           </p>
           <div className="case-study-cta-actions">
             <Link href="/en/contact">Contact me</Link>

@@ -4,11 +4,11 @@ import PageHero from "@/components/PageHero";
 export const metadata = {
   title: "Lumera Wellness Case Study",
   description:
-    "Moderan wellness sajt u Next.js-u, fokusiran na brz prikaz, jasnu strukturu usluga i SEO-friendly stranice.",
+    "Next.js template za zakazivanje za wellness salone — prilagodljiv javni sajt i admin dashboard za rezervacije, klijente i prihod.",
   openGraph: {
     title: "Lumera Wellness Case Study",
     description:
-      "Next.js i React wellness sajt izrađen za performanse, čistu strukturu i SEO-friendly sadržaj.",
+      "Reusable Next.js platforma za zakazivanje za wellness studije — javni sajt i zaštićen admin dashboard.",
   },
   alternates: {
     languages: {
@@ -23,7 +23,7 @@ export default function LumeraWellnessCaseStudyPage() {
     <main>
       <PageHero
         eyebrow="Case Study"
-        title="Lumera Wellness — moderan wellness sajt u Next.js-u"
+        title="Lumera Wellness — reusable Next.js template za zakazivanje za wellness salone"
         actions={
           <>
             <Link href="/sr/kontakt" className="hero-action-primary">
@@ -35,9 +35,10 @@ export default function LumeraWellnessCaseStudyPage() {
           </>
         }
       >
-        Moderan wellness sajt izrađen u Next.js-u i React-u, fokusiran na brz
-        prikaz, jasnu strukturu usluga i SEO-friendly stranice za spa i wellness
-        ponudu. Projekat je trenutno u razvoju.
+        Lumera Wellness je Next.js platforma za zakazivanje napravljena kao
+        proizvod — uglađen javni sajt spojen sa zaštićenim admin dashboard-om,
+        spreman da se brendira i ponudi wellness i masažnim salonima. Prikazani
+        sadržaj je generički demo.
       </PageHero>
 
       <div className="public-page">
@@ -48,76 +49,110 @@ export default function LumeraWellnessCaseStudyPage() {
         <section className="case-study-meta">
           <div>
             <span>Tip projekta</span>
-            <strong>Next.js / React / Wellness sajt</strong>
+            <strong>Next.js / React template za zakazivanje</strong>
           </div>
           <div>
-            <span>Industrija</span>
-            <strong>Wellness / Spa / Self-care</strong>
+            <span>Publika</span>
+            <strong>Wellness, spa i masažni saloni</strong>
           </div>
           <div>
             <span>Fokus</span>
-            <strong>Performanse, struktura, SEO i čist UX</strong>
+            <strong>Tok zakazivanja, admin dashboard, ponovljivost</strong>
           </div>
           <div>
             <span>Uloga</span>
-            <strong>Frontend razvoj, struktura stranica, SEO osnova</strong>
+            <strong>Koncept, frontend, dashboard, sistem za zakazivanje</strong>
           </div>
         </section>
 
         <section className="case-study-section">
           <h2>Pregled projekta</h2>
           <p>
-            Lumera Wellness je moderan wellness sajt izrađen u Next.js-u. Cilj je
-            da se spa i wellness usluge predstave kroz brz, čist i dobro
-            strukturisan prikaz, gde posetioci brzo pronalaze tretmane, razumeju
-            ponudu i dolaze do jasne kontakt putanje. Ovo je placeholder sadržaj
-            koji će se dopunjavati kako projekat napreduje.
+            Lumera Wellness nije sajt za jednog klijenta, već platforma kao
+            proizvod. Cilj je bio da se jednom napravi kompletno i lepo wellness
+            rešenje — javni sajt plus admin dashboard — i da se lako prebrendira
+            i ponudi različitim wellness i masažnim salonima. Sva imena,
+            tretmani i kontakt podaci u demou su generički placeholderi koje
+            svaki salon zamenjuje svojim.
           </p>
         </section>
 
         <section className="case-study-section">
-          <h2>Ciljevi projekta</h2>
+          <h2>Ideja</h2>
+          <p>
+            Manjim wellness salonima često treba i privlačno online prisustvo i
+            jednostavan način za obradu zahteva za termin, ali retko žele potpuno
+            custom rešenje. Lumera oba spaja u jedan ponovljiv proizvod koji se
+            brzo postavlja i prilagođava brendu svakog salona.
+          </p>
           <ul className="case-study-list">
-            <li>Napraviti brz Next.js sajt sa snažnim performansama</li>
-            <li>Predstaviti wellness usluge kroz jasnu, preglednu strukturu</li>
-            <li>Pripremiti SEO-friendly stranice za bolju vidljivost</li>
-            <li>Zadržati čist, smiren dizajn lak za navigaciju</li>
-            <li>Obezbediti gladak prikaz na desktop i mobile uređajima</li>
+            <li>Jedan uglađen template umesto izrade od nule svaki put</li>
+            <li>Javni sajt koji predstavlja usluge i podstiče zakazivanje</li>
+            <li>Admin deo za pregled i upravljanje pristiglim zahtevima</li>
+            <li>Generički demo sadržaj koji se lako menja po klijentu</li>
+            <li>Konzistentan, smiren vizuelni stil prilagođen wellness brendovima</li>
           </ul>
         </section>
 
         <section className="case-study-section">
-          <h2>Šta se gradi</h2>
+          <h2>Šta uključuje</h2>
           <div className="case-study-grid">
             <article>
-              <h3>Struktura usluga</h3>
+              <h3>Javni marketing sajt</h3>
               <p>
-                Wellness tretmani su organizovani u jasne kategorije kako bi
-                posetioci lako razumeli ponudu i uporedili opcije.
+                Moderna landing stranica sa hero sekcijom, &quot;zašto mi&quot;
+                izdvojenim prednostima, about i story sekcijama, uslugama,
+                cenama, kontaktom, prijavom na newsletter i jasnim pozivima na
+                zakazivanje.
               </p>
             </article>
             <article>
-              <h3>Performanse na prvom mestu</h3>
+              <h3>Online zahtevi za termin</h3>
               <p>
-                Next.js prikaz, optimizacija slika i čiste komponente drže sajt
-                brzim i responzivnim na svakom uređaju.
+                Posetioci mogu da pošalju zahtev za termin za tretman i vreme,
+                koji stiže u admin dashboard kao novi zahtev na čekanju za
+                pregled.
               </p>
             </article>
             <article>
-              <h3>SEO osnova</h3>
+              <h3>Admin dashboard</h3>
               <p>
-                Struktura stranica, heading elementi i metapodaci pripremljeni
-                su sa fokusom na vidljivost na pretraživačima od početka.
+                Zaštićeni dashboard na jednom mestu prikazuje današnje i nedeljne
+                rezervacije, zahteve na čekanju, potvrđene termine, ukupan broj
+                klijenata i mesečni prihod.
               </p>
             </article>
             <article>
-              <h3>Smiren, čist UX</h3>
+              <h3>Rezervacije i klijenti</h3>
               <p>
-                Jednostavan i konzistentan raspored podržava opuštajući i
-                pouzdan utisak koji odgovara wellness brendu.
+                Posebni prikazi za rezervacije i klijente omogućavaju salonu da
+                prati zahteve kroz statuse na čekanju, potvrđeno i otkazano i da
+                ima pregled svojih gostiju.
               </p>
             </article>
           </div>
+        </section>
+
+        <section className="case-study-section">
+          <h2>Uvidi i upravljanje</h2>
+          <ul className="case-study-list">
+            <li>Command center sa nadolazećim terminima i današnjim rasporedom</li>
+            <li>Grafikon &quot;najtraženiji tretmani&quot; kroz sve statuse</li>
+            <li>Top tretman i skorašnja aktivnost zahteva za zakazivanje</li>
+            <li>Workflow statusa za zahteve na čekanju, potvrđene i otkazane</li>
+            <li>Brze akcije za kreiranje nove rezervacije i pregled onih na čekanju</li>
+          </ul>
+        </section>
+
+        <section className="case-study-section">
+          <h2>Napravljeno za ponovnu upotrebu</h2>
+          <p>
+            Template je strukturisan tako da se javni sadržaj, brending i podaci
+            o tretmanima mogu zameniti bez diranja osnovne logike zakazivanja i
+            dashboard-a. To čini praktičnim da se pokrene prilagođena verzija za
+            novi salon, uz zadržavanje jedinstvenog koda koji je lak za
+            održavanje.
+          </p>
         </section>
 
         <section className="case-study-section">
@@ -128,29 +163,29 @@ export default function LumeraWellnessCaseStudyPage() {
             <span>App Router</span>
             <span>JavaScript</span>
             <span>CSS</span>
+            <span>Admin dashboard</span>
+            <span>Sistem za zakazivanje</span>
             <span>Responsive design</span>
-            <span>SEO osnova</span>
-            <span>Optimizacija performansi</span>
           </div>
         </section>
 
         <section className="case-study-section">
           <h2>Mogući sledeći koraci</h2>
           <ul className="case-study-list">
-            <li>Dopuna stranica tretmana i usluga pravim sadržajem</li>
-            <li>Dodavanje toka za zakazivanje ili upit</li>
-            <li>Povezivanje CMS-a za lakše ažuriranje sadržaja</li>
-            <li>Dodavanje galerije projekta sa pravim screenshot-ovima</li>
-            <li>Praćenje performansi pretrage i dorada SEO-a</li>
+            <li>Theming po salonu i podesiv brending</li>
+            <li>Online plaćanja i depoziti za rezervacije</li>
+            <li>Automatske email potvrde i podsetnici</li>
+            <li>Raspored osoblja i prostorija za veće salone</li>
+            <li>Izveštaji i export za prihod i posećenost</li>
           </ul>
         </section>
 
         <section className="case-study-cta">
-          <h2>Treba ti brz, moderan sajt?</h2>
+          <h2>Želiš ovakav sajt za zakazivanje?</h2>
           <p>
-            Ako želiš čist i brz sajt izrađen u Next.js-u za svoj wellness ili
-            uslužni biznis, mogu da ti pomognem da definišemo i izgradimo sledeći
-            praktičan korak.
+            Ako vodiš wellness, spa ili masažni salon i želiš moderan sajt sa
+            ugrađenim dashboard-om za zakazivanje, mogu da prilagodim ovu
+            platformu tvom brendu i načinu rada.
           </p>
           <div className="case-study-cta-actions">
             <Link href="/sr/kontakt">Kontakt</Link>
