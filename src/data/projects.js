@@ -1,10 +1,17 @@
+// Grouping keys used to categorize projects on the projects pages.
+export const PROJECT_CATEGORIES = {
+  wordpress: "WordPress",
+  nextjs: "Next.js",
+  landing: "Landing Pages",
+};
+
 export const projects = [
   {
     title: "Wellness Concept",
     slug: "wellness-concept",
     coverImage: "/Projects/Wellness_Concept_1.png",
     type: "WordPress / Elementor / SEO / Performance",
-    category: "WordPress / Elementor / SEO / Performance",
+    category: "wordpress",
     status: "Active project",
     url: "/en/projects/wellness-concept",
     featured: true,
@@ -19,7 +26,7 @@ export const projects = [
     slug: "olivera-popovic-edu",
     coverImage: "/Projects/Olvera_Popovic_1.png",
     type: "WordPress / Education / SEO structure",
-    category: "WordPress / Education Website",
+    category: "wordpress",
     status: "Portfolio project",
     url: "/en/projects",
     featured: true,
@@ -34,7 +41,7 @@ export const projects = [
     slug: "boommil",
     coverImage: "/Projects/boommil_1.png",
     type: "WooCommerce / WordPress / Product structure",
-    category: "WooCommerce / Product SEO",
+    category: "wordpress",
     status: "Completed project",
     url: "/en/projects",
     featured: true,
@@ -49,7 +56,7 @@ export const projects = [
     slug: "mirko-topalovic-tips",
     coverImage: "/Projects/mirko_topalovic_1.png",
     type: "WordPress / Content structure / Sports tips platform",
-    category: "WordPress / Content Structure",
+    category: "wordpress",
     status: "Portfolio project",
     url: "/en/projects",
     featured: true,
@@ -64,7 +71,7 @@ export const projects = [
     slug: "djordje-clienthub",
     coverImage: "/Projects/djordje_clienthub_1.png",
     type: "Next.js / React / Dashboard / Internal Tool",
-    category: "Next.js / React / Dashboard",
+    category: "nextjs",
     status: "In development",
     url: "/en/projects",
     featured: true,
@@ -79,7 +86,7 @@ export const projects = [
     slug: "ben-akiba-dashboard",
     coverImage: "/Projects/ben-akiba-dashboard_1.png",
     type: "Next.js / React / Supabase / Admin Dashboard",
-    category: "Web App / Event Management Dashboard",
+    category: "nextjs",
     status: "Portfolio project",
     url: "/en/projects/ben-akiba-dashboard",
     featured: true,
@@ -89,6 +96,29 @@ export const projects = [
     descriptionEn:
       "Admin dashboard application for Ben Akiba events, with a public front page for stand-up and party listings, performers, prices and reservation counts. The project combines a public event overview with an internal panel for managing reservations and creating new events.",
   },
+  {
+    title: "Lumera Wellness",
+    slug: "lumera-wellness",
+    coverImage: null,
+    type: "Next.js / React / Wellness Website",
+    category: "nextjs",
+    status: "In development",
+    url: "/en/projects/lumera-wellness",
+    featured: false,
+    tags: ["Next.js", "React", "App Router", "Wellness", "Performance", "SEO"],
+    description:
+      "Moderan wellness sajt izrađen u Next.js-u, fokusiran na brz prikaz, jasnu strukturu usluga i SEO-friendly stranice za spa i wellness ponudu. Trenutno u razvoju.",
+    descriptionEn:
+      "A modern wellness website built with Next.js, focused on fast rendering, a clear service structure and SEO-friendly pages for spa and wellness offerings. Currently in development.",
+  },
 ];
 
 export const featuredProjects = projects.filter((project) => project.featured);
+
+// Returns an object keyed by PROJECT_CATEGORIES with an array of projects for each.
+export function getProjectsByCategory() {
+  return Object.keys(PROJECT_CATEGORIES).reduce((grouped, key) => {
+    grouped[key] = projects.filter((project) => project.category === key);
+    return grouped;
+  }, {});
+}

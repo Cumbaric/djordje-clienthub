@@ -155,11 +155,37 @@
    PROJECTS PAGE
    ============================================ */
 
+.projects-category {
+  margin-bottom: 56px;
+}
+
+.projects-category-title {
+  margin: 0 0 24px;
+  color: #f1f5f9;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #1e1e2e;
+}
+
+.projects-category-empty {
+  margin: 0;
+  padding: 28px;
+  border: 1px dashed #1e1e2e;
+  border-radius: 20px;
+  background: #0d0d1a;
+  color: #64748b;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 22px;
-  margin-bottom: 56px;
+  margin-bottom: 0;
 }
 
 /* ── Base card shell (shared by link and non-link) ── */
@@ -417,6 +443,23 @@
 /* ============================================
    CASE STUDY PAGE
    ============================================ */
+
+.case-study-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 28px;
+  color: #60a5fa;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.case-study-back:hover {
+  color: #93c5fd;
+  gap: 10px;
+}
 
 .case-study-hero {
   margin-bottom: 40px;
