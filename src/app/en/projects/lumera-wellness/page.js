@@ -1,5 +1,15 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import ProjectCarousel from "@/components/ProjectCarousel";
+
+const IMAGES = [
+  "/Projects/LumeraWellness1.png",
+  "/Projects/LumeraWellness2.png",
+  "/Projects/LumeraWellness4.png",
+  "/Projects/LumeraWellness3.png",
+  "/Projects/LumeraWellness5.png",
+  "/Projects/LumeraWellness6.png",
+];
 
 export const metadata = {
   title: "Lumera Wellness Case Study",
@@ -63,6 +73,11 @@ export default function LumeraWellnessCaseStudyPage() {
             <span>Role</span>
             <strong>Concept, frontend, dashboard, booking system</strong>
           </div>
+        </section>
+
+        <section className="case-study-section">
+          <h2>Project gallery</h2>
+          <ProjectCarousel images={IMAGES} alt="Lumera Wellness" />
         </section>
 
         <section className="case-study-section">

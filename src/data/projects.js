@@ -99,7 +99,7 @@ export const projects = [
   {
     title: "Lumera Wellness",
     slug: "lumera-wellness",
-    coverImage: null,
+    coverImage: "/Projects/LumeraWellness1.png",
     type: "Next.js / React / Wellness Booking Template",
     category: "nextjs",
     status: "In development",
