@@ -6,7 +6,7 @@ import HeroCube from "@/components/HeroCube";
 import { recentProjects } from "@/data/projects";
 import { services } from "@/data/services";
 import { techStackContent } from "@/data/techStack";
-import TechSlider from "@/components/TechSlider";
+import TechStackCarousel from "@/components/TechStackCarousel";
 import { faqContent } from "@/data/faq";
 import StatsSection from "@/components/StatsSection";
 import RevealSection from "@/components/RevealSection";
@@ -309,7 +309,7 @@ export default function Home() {
           />
           <p className={styles.sectionDescription}>{tech.description}</p>
 
-          <TechSlider groups={tech.groups} />
+          <TechStackCarousel groups={tech.groups} />
         </div>
       </section>
       </RevealSection>
