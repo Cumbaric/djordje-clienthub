@@ -115,8 +115,17 @@ export const projects = [
 
 export const featuredProjects = projects.filter((project) => project.featured);
 
-// The most recently added projects, shown in the homepage "Recent Work" section.
-export const recentProjects = projects.slice(-4);
+// Projects shown in the homepage "Recent Work" section, in display order.
+const RECENT_PROJECT_SLUGS = [
+  "wellness-concept",
+  "djordje-clienthub",
+  "ben-akiba-dashboard",
+  "lumera-wellness",
+];
+
+export const recentProjects = RECENT_PROJECT_SLUGS.map((slug) =>
+  projects.find((project) => project.slug === slug)
+).filter(Boolean);
 
 // Returns an object keyed by PROJECT_CATEGORIES with an array of projects for each.
 export function getProjectsByCategory() {
