@@ -7,6 +7,7 @@ import {
 } from "@/db/schema";
 import { quickActions } from "@/data/dashboardOverview";
 import { statusLabel, priorityLabel } from "@/lib/dashboardLabels";
+import DashboardCharts from "@/components/DashboardCharts";
 
 export const dynamic = "force-dynamic";
 
@@ -81,6 +82,8 @@ export default async function DashboardPage() {
           </article>
         ))}
       </div>
+
+      <DashboardCharts projects={dashboardProjects} tasks={tasks} />
 
       <div className="dashboard-section">
         <div className="dashboard-section-header">

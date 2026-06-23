@@ -129,6 +129,51 @@
   border-color: #fca5a5;
 }
 
+/* Inline delete confirm */
+.dashboard-delete-confirm {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dashboard-delete-confirm span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #dc2626;
+}
+
+.dashboard-confirm-yes {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dashboard-confirm-yes:hover {
+  background: #b91c1c;
+}
+
+.dashboard-confirm-no {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #f9fafb;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dashboard-confirm-no:hover {
+  background: #f3f4f6;
+}
+
 /* Empty state */
 .dashboard-empty {
   padding: 32px 24px;
