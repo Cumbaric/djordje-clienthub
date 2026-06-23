@@ -1,8 +1,18 @@
 "use server";
 
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function createTransport() {
+  return nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: Number(process.env.SMTP_PORT ?? 465),
+    secure: Number(process.env.SMTP_PORT ?? 465) === 465,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  });
+}
 
 export async function sendContactEmail({ name, email, subject, message }) {
   if (!name?.trim() || !email?.trim() || !message?.trim()) {
@@ -18,9 +28,10 @@ export async function sendContactEmail({ name, email, subject, message }) {
   }
 
   try {
-    const { error } = await resend.emails.send({
-      from: "Portfolio Contact <contact@djordjepopovic.com>",
-      to: "djordjepopovicgm@gmail.com",
+    const transporter = createTransport();
+    await transporter.sendMail({
+      from: `"Portfolio Contact" <${process.env.SMTP_USER}>`,
+      to: process.env.SMTP_USER,
       replyTo: email,
       subject: subject
         ? `[Portfolio] ${subject} — ${name}`
@@ -35,7 +46,6 @@ export async function sendContactEmail({ name, email, subject, message }) {
       ].join("\n"),
     });
 
-    if (error) return { error: "Failed to send. Please contact me via email." };
     return { success: true };
   } catch {
     return { error: "Failed to send. Please contact me via email." };
