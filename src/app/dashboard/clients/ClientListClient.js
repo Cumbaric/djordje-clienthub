@@ -11,7 +11,7 @@ const STATUS_OPTIONS = [
   { value: "Paused", label: "Pauzirani" },
 ];
 
-export default function ClientListClient({ clients }) {
+export default function ClientListClient({ clients, projects = [], tasks = [] }) {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
 
@@ -63,9 +63,21 @@ export default function ClientListClient({ clients }) {
               : "Još nema klijenata — dodaj prvog pomoću forme iznad."
           } />
         )}
-        {filtered.map((client) => (
-          <ClientCard key={client.id} client={client} />
-        ))}
+        {filtered.map((client) => {
+          const relatedProjects = projects.filter((p) => p.client === client.name);
+          const relatedProjectNames = new Set(relatedProjects.map((p) => p.name));
+          const relatedTasks = tasks.filter(
+            (t) => !t.archived && relatedProjectNames.has(t.project)
+          );
+          return (
+            <ClientCard
+              key={client.id}
+              client={client}
+              relatedProjects={relatedProjects}
+              relatedTasks={relatedTasks}
+            />
+          );
+        })}
       </div>
     </>
   );

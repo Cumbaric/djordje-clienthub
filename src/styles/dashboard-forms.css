@@ -465,6 +465,43 @@
   color: #475569;
 }
 
+/* Load more */
+.dashboard-load-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.dashboard-load-more-btn {
+  padding: 10px 24px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: #f9fafb;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.dashboard-load-more-btn:hover {
+  background: #f3f4f6;
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+[data-theme="dark"] .dashboard-load-more-btn {
+  background: #1e293b;
+  border-color: #334155;
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .dashboard-load-more-btn:hover {
+  background: #293548;
+  border-color: #2563eb;
+  color: #93c5fd;
+}
+
 /* Empty state */
 .dashboard-empty {
   padding: 32px 24px;

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { updateProject, updateProjectStatus, updateProjectProgress, deleteProject } from "./actions";
+import { useState, useTransition } from "react";
+import { updateProject, updateProjectStatus, updateProjectProgressSilent, deleteProject } from "./actions";
 import { useToast } from "@/components/ToastProvider";
 import { statusLabel, toArray } from "@/lib/dashboardLabels";
 
@@ -21,6 +21,7 @@ export default function ProjectCard({ project }) {
   const [isEditing, setIsEditing] = useState(false);
   const [pendingDelete, setPendingDelete] = useState(false);
   const [progress, setProgress] = useState(parseProgress(project.progress));
+  const [, startTransition] = useTransition();
 
   const nextSteps = toArray(project.nextSteps);
 
@@ -41,12 +42,14 @@ export default function ProjectCard({ project }) {
     showToast("Status projekta je ažuriran.");
   }
 
-  async function handleProgressCommit(e) {
-    const fd = new FormData();
-    fd.append("id", project.id);
-    fd.append("progress", e.target.value);
-    await updateProjectProgress(fd);
-    showToast(`Napredak ažuriran na ${e.target.value}%.`);
+  function handleProgressCommit(e) {
+    const value = e.target.value;
+    startTransition(async () => {
+      const fd = new FormData();
+      fd.append("id", project.id);
+      fd.append("progress", value);
+      await updateProjectProgressSilent(fd);
+    });
   }
 
   async function handleDelete() {

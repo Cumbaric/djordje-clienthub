@@ -4,6 +4,8 @@ import { useState, useMemo } from "react";
 import TaskCard from "./TaskCard";
 import DashboardEmpty from "@/components/DashboardEmpty";
 
+const PAGE_SIZE = 10;
+
 const STATUS_OPTIONS = [
   { value: "all", label: "Svi statusi" },
   { value: "Open", label: "Otvoren" },
@@ -23,8 +25,10 @@ export default function TaskListClient({ tasks }) {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
   const [priorityFilter, setPriorityFilter] = useState("all");
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const filtered = useMemo(() => {
+    setVisibleCount(PAGE_SIZE);
     return tasks.filter((task) => {
       if (statusFilter !== "all" && task.status !== statusFilter) return false;
       if (priorityFilter !== "all" && task.priority !== priorityFilter) return false;
@@ -33,6 +37,8 @@ export default function TaskListClient({ tasks }) {
     });
   }, [tasks, search, statusFilter, priorityFilter]);
 
+  const visible = filtered.slice(0, visibleCount);
+  const hasMore = visibleCount < filtered.length;
   const hasFilters = search || statusFilter !== "all" || priorityFilter !== "all";
 
   return (
@@ -82,10 +88,21 @@ export default function TaskListClient({ tasks }) {
               : "Nema aktivnih zadataka — dodaj prvi pomoću forme iznad."
           } />
         )}
-        {filtered.map((task) => (
+        {visible.map((task) => (
           <TaskCard key={task.id} task={task} />
         ))}
       </div>
+
+      {hasMore && (
+        <div className="dashboard-load-more">
+          <button
+            onClick={() => setVisibleCount((c) => c + PAGE_SIZE)}
+            className="dashboard-load-more-btn"
+          >
+            Učitaj još ({filtered.length - visibleCount} preostalih)
+          </button>
+        </div>
+      )}
     </>
   );
 }

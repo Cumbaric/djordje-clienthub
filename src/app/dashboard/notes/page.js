@@ -1,8 +1,7 @@
 import { db } from "@/db";
 import { notes as notesTable } from "@/db/schema";
 import { createNote } from "./actions";
-import NoteCard from "./NoteCard";
-import DashboardEmpty from "@/components/DashboardEmpty";
+import NoteListClient from "./NoteListClient";
 import "@/styles/dashboard-forms.css";
 
 export const dynamic = "force-dynamic";
@@ -123,12 +122,7 @@ export default async function NotesPage() {
         </div>
 
         <div className="dashboard-notes-list">
-          {notes.length === 0 && (
-            <DashboardEmpty message="Još nema beleški — dodaj prvu pomoću forme iznad." />
-          )}
-          {notes.map((note) => (
-            <NoteCard key={note.id} note={note} />
-          ))}
+          <NoteListClient notes={notes} />
         </div>
       </div>
     </section>

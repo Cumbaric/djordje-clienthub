@@ -1,5 +1,5 @@
 import { db } from "@/db";
-import { clients as clientsTable } from "@/db/schema";
+import { clients as clientsTable, projects as projectsTable, tasks as tasksTable } from "@/db/schema";
 import { createClient } from "./actions";
 import ClientListClient from "./ClientListClient";
 import "@/styles/dashboard-forms.css";
@@ -7,7 +7,11 @@ import "@/styles/dashboard-forms.css";
 export const dynamic = "force-dynamic";
 
 export default async function ClientsPage() {
-  const clients = await db.select().from(clientsTable).orderBy(clientsTable.id);
+  const [clients, projects, tasks] = await Promise.all([
+    db.select().from(clientsTable).orderBy(clientsTable.id),
+    db.select().from(projectsTable).orderBy(projectsTable.id),
+    db.select().from(tasksTable).orderBy(tasksTable.id),
+  ]);
 
   const totalClients = clients.length;
 
@@ -136,7 +140,7 @@ export default async function ClientsPage() {
           </div>
         </div>
 
-        <ClientListClient clients={clients} />
+        <ClientListClient clients={clients} projects={projects} tasks={tasks} />
       </div>
     </section>
   );

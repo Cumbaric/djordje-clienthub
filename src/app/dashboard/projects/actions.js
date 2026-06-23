@@ -60,6 +60,14 @@ export async function updateProjectProgress(formData) {
   refresh();
 }
 
+export async function updateProjectProgressSilent(formData) {
+  const id = Number(formData.get("id"));
+  const progress = normalizeProgress(formData.get("progress"));
+  if (!id) return;
+
+  await db.update(projects).set({ progress }).where(eq(projects.id, id));
+}
+
 export async function deleteProject(formData) {
   const id = Number(formData.get("id"));
   if (!id) return;

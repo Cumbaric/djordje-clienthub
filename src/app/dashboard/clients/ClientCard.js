@@ -5,6 +5,8 @@ import { updateClient, updateClientStatus, deleteClient } from "./actions";
 import { useToast } from "@/components/ToastProvider";
 import { statusLabel, priorityLabel, toArray } from "@/lib/dashboardLabels";
 
+const PRIORITY_COLORS = { High: "#ef4444", Medium: "#f59e0b", Low: "#22c55e" };
+
 const STATUSES = [
   { value: "Active", label: "Aktivan" },
   { value: "Maintenance", label: "Održavanje" },
@@ -17,10 +19,11 @@ const PRIORITIES = [
   { value: "Low", label: "Nizak" },
 ];
 
-export default function ClientCard({ client }) {
+export default function ClientCard({ client, relatedProjects = [], relatedTasks = [] }) {
   const { showToast } = useToast();
   const [isEditing, setIsEditing] = useState(false);
   const [pendingDelete, setPendingDelete] = useState(false);
+  const [showRelated, setShowRelated] = useState(false);
 
   async function handleSave(e) {
     e.preventDefault();
@@ -138,6 +141,56 @@ export default function ClientCard({ client }) {
           ))}
         </div>
       </div>
+
+      {(relatedProjects.length > 0 || relatedTasks.length > 0) && (
+        <div className="dashboard-client-related">
+          <button
+            className="dashboard-related-toggle"
+            onClick={() => setShowRelated((v) => !v)}
+          >
+            Projekti ({relatedProjects.length}) · Zadaci ({relatedTasks.length})
+            <span>{showRelated ? "▲" : "▼"}</span>
+          </button>
+
+          {showRelated && (
+            <div className="dashboard-related-body">
+              {relatedProjects.length > 0 && (
+                <div className="dashboard-related-section">
+                  <p className="dashboard-label">Projekti</p>
+                  {relatedProjects.map((p) => (
+                    <div key={p.id} className="dashboard-related-row">
+                      <span className="dashboard-related-name">{p.name}</span>
+                      <span className={`dashboard-status dashboard-status-${p.status.toLowerCase().replaceAll(" ", "-")}`} style={{ fontSize: 11 }}>
+                        {statusLabel(p.status)}
+                      </span>
+                      {p.progress && <span className="dashboard-related-progress">{p.progress}</span>}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {relatedTasks.length > 0 && (
+                <div className="dashboard-related-section">
+                  <p className="dashboard-label">Zadaci</p>
+                  {relatedTasks.map((t) => (
+                    <div key={t.id} className="dashboard-related-row">
+                      <span className="dashboard-related-name">{t.title}</span>
+                      <span
+                        className="dashboard-related-dot"
+                        style={{ background: PRIORITY_COLORS[t.priority] ?? "#94a3b8" }}
+                        title={t.priority}
+                      />
+                      <span className={`dashboard-status dashboard-status-${t.status.toLowerCase().replaceAll(" ", "-")}`} style={{ fontSize: 11 }}>
+                        {statusLabel(t.status)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
 
       <div className="dashboard-task-controls">
         <label className="dashboard-control-label">
