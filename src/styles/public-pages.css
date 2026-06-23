@@ -1443,6 +1443,14 @@
   background: rgba(59, 130, 246, 0.06);
 }
 
+@media (max-width: 640px) {
+  .hero-action-primary,
+  .hero-action-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-action-primary::after {
     display: none;
