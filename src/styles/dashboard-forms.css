@@ -208,6 +208,30 @@
   background: #f3f4f6;
 }
 
+/* Progress slider */
+.dashboard-progress-control {
+  flex: 1;
+  min-width: 140px;
+}
+
+.dashboard-progress-control span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.dashboard-progress-control strong {
+  color: #2563eb;
+}
+
+.dashboard-progress-slider {
+  width: 100%;
+  height: 6px;
+  accent-color: #2563eb;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
 /* Empty state */
 .dashboard-empty {
   padding: 32px 24px;
