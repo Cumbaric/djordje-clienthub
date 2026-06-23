@@ -12,7 +12,12 @@ function formatAmount(amount) {
 }
 
 export default async function FinancesPage() {
-  const invoices = await db.select().from(invoicesTable).orderBy(invoicesTable.id);
+  let invoices = [];
+  try {
+    invoices = await db.select().from(invoicesTable).orderBy(invoicesTable.id);
+  } catch (_) {
+    // Table not yet created in DB — run the CREATE TABLE SQL in phpMyAdmin
+  }
 
   const paid = invoices.filter((i) => i.status === "Paid");
   const unpaid = invoices.filter((i) => i.status === "Unpaid");
