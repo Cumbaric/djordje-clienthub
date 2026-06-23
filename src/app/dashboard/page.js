@@ -37,8 +37,11 @@ export default async function DashboardPage() {
 
   const recentNotes = notes.slice(0, 4);
 
+  const PRIORITY_ORDER = { High: 0, Medium: 1, Low: 2 };
+
   const openTaskPreview = tasks
     .filter((task) => task.status !== "Done" && !task.archived)
+    .sort((a, b) => (PRIORITY_ORDER[a.priority] ?? 3) - (PRIORITY_ORDER[b.priority] ?? 3))
     .slice(0, 3);
 
   const dashboardStats = [
