@@ -409,6 +409,62 @@
   margin-top: 6px;
 }
 
+/* ── Dark mode ── */
+[data-theme="dark"] .dashboard-form,
+[data-theme="dark"] .dashboard-filter-bar {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+[data-theme="dark"] .dashboard-field input,
+[data-theme="dark"] .dashboard-field select,
+[data-theme="dark"] .dashboard-field textarea,
+[data-theme="dark"] .dashboard-filter-search,
+[data-theme="dark"] .dashboard-filter-select,
+[data-theme="dark"] .dashboard-select,
+[data-theme="dark"] .dashboard-edit-field input,
+[data-theme="dark"] .dashboard-edit-field select,
+[data-theme="dark"] .dashboard-edit-field textarea {
+  background: #0f172a;
+  border-color: #334155;
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .dashboard-field > span,
+[data-theme="dark"] .dashboard-control-label,
+[data-theme="dark"] .dashboard-edit-field {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .dashboard-filter-count {
+  color: #475569;
+}
+
+[data-theme="dark"] .dashboard-task-card-editing {
+  background: #172033;
+}
+
+[data-theme="dark"] .dashboard-cancel-btn,
+[data-theme="dark"] .dashboard-unarchive-btn {
+  background: #1e293b;
+  border-color: #334155;
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .dashboard-cancel-btn:hover,
+[data-theme="dark"] .dashboard-unarchive-btn:hover {
+  background: #293548;
+}
+
+[data-theme="dark"] .dashboard-empty {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+[data-theme="dark"] .dashboard-empty p {
+  color: #475569;
+}
+
 /* Empty state */
 .dashboard-empty {
   padding: 32px 24px;

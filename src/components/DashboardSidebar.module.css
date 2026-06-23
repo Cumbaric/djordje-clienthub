@@ -112,6 +112,26 @@
   cursor: not-allowed;
 }
 
+/* Dark mode toggle */
+.darkToggle {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #374151;
+  border-radius: 10px;
+  background: #1f2937;
+  color: #93c5fd;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.darkToggle:hover {
+  background: #374151;
+  color: #ffffff;
+}
+
 @media (max-width: 900px) {
   .sidebar {
     width: 100%;

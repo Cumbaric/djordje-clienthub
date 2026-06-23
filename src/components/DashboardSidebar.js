@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import styles from "./DashboardSidebar.module.css";
+import DarkModeToggle from "./DarkModeToggle";
 
 const navItems = [
   { label: "Pregled", href: "/dashboard" },
@@ -93,6 +94,8 @@ export default function DashboardSidebar() {
         </nav>
 
         <div className={styles.sidebarFooter}>
+          <DarkModeToggle />
+
           <Link href="/" onClick={closeMenu}>
             Nazad na portfolio
           </Link>

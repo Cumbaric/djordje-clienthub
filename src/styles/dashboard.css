@@ -673,3 +673,99 @@
   color: #991b1b;
   border: 1px solid #fecaca;
 }
+
+/* ── Dark mode ── */
+[data-theme="dark"] .dashboard-shell {
+  background: #0f172a;
+}
+
+[data-theme="dark"] .dashboard-stat-card,
+[data-theme="dark"] .dashboard-action-card,
+[data-theme="dark"] .dashboard-activity-item,
+[data-theme="dark"] .dashboard-client-card,
+[data-theme="dark"] .dashboard-project-card,
+[data-theme="dark"] .dashboard-task-card,
+[data-theme="dark"] .dashboard-note-card,
+[data-theme="dark"] .dashboard-chart-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+[data-theme="dark"] .dashboard-header h1,
+[data-theme="dark"] .dashboard-section-header h2,
+[data-theme="dark"] .dashboard-action-card h3,
+[data-theme="dark"] .dashboard-client-top h3,
+[data-theme="dark"] .dashboard-project-top h3,
+[data-theme="dark"] .dashboard-task-main h3,
+[data-theme="dark"] .dashboard-note-main h3,
+[data-theme="dark"] .dashboard-chart-title,
+[data-theme="dark"] .dashboard-next-steps h4,
+[data-theme="dark"] .dashboard-stat-card strong,
+[data-theme="dark"] .dashboard-progress-top strong {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .dashboard-header p,
+[data-theme="dark"] .dashboard-action-card p,
+[data-theme="dark"] .dashboard-client-description,
+[data-theme="dark"] .dashboard-task-main p,
+[data-theme="dark"] .dashboard-note-main p,
+[data-theme="dark"] .dashboard-activity-item p,
+[data-theme="dark"] .dashboard-next-steps li {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .dashboard-stat-card span,
+[data-theme="dark"] .dashboard-stat-card p,
+[data-theme="dark"] .dashboard-progress-top span,
+[data-theme="dark"] .dashboard-client-top p,
+[data-theme="dark"] .dashboard-project-top p {
+  color: #64748b;
+}
+
+[data-theme="dark"] .dashboard-client-meta span,
+[data-theme="dark"] .dashboard-task-meta span {
+  background: #293548;
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .dashboard-tag-list span {
+  background: #1e293b;
+  border-color: #334155;
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .dashboard-progress-bar {
+  background: #334155;
+}
+
+[data-theme="dark"] .dashboard-next-steps,
+[data-theme="dark"] .dashboard-task-controls {
+  border-color: #334155;
+}
+
+[data-theme="dark"] .dashboard-archive-count {
+  background: #1e293b;
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .dashboard-task-card-archived {
+  background: #141e2e;
+  border-color: #1e293b;
+}
+
+[data-theme="dark"] .dashboard-task-card-archived h3 {
+  color: #475569;
+}
+
+[data-theme="dark"] .toast-success {
+  background: #14532d;
+  color: #bbf7d0;
+  border-color: #166534;
+}
+
+[data-theme="dark"] .toast-error {
+  background: #450a0a;
+  color: #fca5a5;
+  border-color: #991b1b;
+}
