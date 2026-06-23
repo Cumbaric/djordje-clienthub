@@ -87,7 +87,7 @@ export default function CalendarClient({ tasks }) {
           const isToday = iso === todayISO;
           return (
             <div
-              key={i}
+              key={iso}
               className={[
                 "dashboard-calendar-day",
                 !cur && "dashboard-calendar-day-other",

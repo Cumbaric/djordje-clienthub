@@ -122,6 +122,11 @@
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
 }
 
+[data-theme="dark"] .dashboard-action-card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+}
+
 .dashboard-action-card h3 {
   margin: 0 0 12px;
   color: #111827;
@@ -564,6 +569,10 @@
 
 .dashboard-client-link:hover {
   text-decoration: underline;
+}
+
+[data-theme="dark"] .dashboard-client-link {
+  color: #60a5fa;
 }
 @media (max-width: 900px) {
   .dashboard-shell {

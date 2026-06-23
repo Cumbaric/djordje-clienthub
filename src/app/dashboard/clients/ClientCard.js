@@ -127,8 +127,8 @@ export default function ClientCard({ client, relatedProjects = [], relatedTasks 
       </div>
 
       <div className="dashboard-client-meta">
-        <span>Tip: {client.type}</span>
-        <span>Prioritet: {priorityLabel(client.priority)}</span>
+        {client.type && <span>Tip: {client.type}</span>}
+        {client.priority && <span>Prioritet: {priorityLabel(client.priority)}</span>}
       </div>
 
       <p className="dashboard-client-description">{client.description}</p>

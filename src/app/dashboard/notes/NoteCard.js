@@ -99,9 +99,9 @@ export default function NoteCard({ note }) {
       </div>
 
       <div className="dashboard-task-meta">
-        <span>Projekat: {note.project}</span>
-        <span>Tip: {note.type}</span>
-        <span>Datum: {note.date}</span>
+        {note.project && <span>Projekat: {note.project}</span>}
+        {note.type && <span>Tip: {note.type}</span>}
+        {note.date && <span>Datum: {note.date}</span>}
       </div>
 
       <div className="dashboard-task-controls">

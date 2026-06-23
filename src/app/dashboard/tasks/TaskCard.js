@@ -147,14 +147,16 @@ export default function TaskCard({ task }) {
       </div>
 
       <div className="dashboard-task-meta">
-        <span>Projekat: {task.project}</span>
-        <span>Prioritet: {priorityLabel(task.priority)}</span>
-        <span>Fokus: {task.focus}</span>
-        <span className={overdue ? "dashboard-overdue" : dueSoon ? "dashboard-due-soon" : ""}>
-          Rok: {formatDue(task.due)}
-          {overdue && <strong> — Istekao!</strong>}
-          {dueSoon && <strong> — Uskoro ističe!</strong>}
-        </span>
+        {task.project && <span>Projekat: {task.project}</span>}
+        {task.priority && <span>Prioritet: {priorityLabel(task.priority)}</span>}
+        {task.focus && <span>Fokus: {task.focus}</span>}
+        {task.due && (
+          <span className={overdue ? "dashboard-overdue" : dueSoon ? "dashboard-due-soon" : ""}>
+            Rok: {formatDue(task.due)}
+            {overdue && <strong> — Istekao!</strong>}
+            {dueSoon && <strong> — Uskoro ističe!</strong>}
+          </span>
+        )}
       </div>
 
       <div className="dashboard-task-controls">

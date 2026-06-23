@@ -30,6 +30,13 @@ export function priorityLabel(value) {
 
 // JSON array columns come back as strings on MariaDB (Hostinger) — normalize
 // to a real array so .map() works whether the driver parses it or not.
+export function formatDue(value) {
+  if (!value) return null;
+  const d = new Date(value);
+  if (isNaN(d)) return value;
+  return d.toLocaleDateString("sr-Latn-RS", { day: "2-digit", month: "2-digit", year: "numeric" });
+}
+
 export function toArray(value) {
   if (Array.isArray(value)) return value;
   if (typeof value === "string") {

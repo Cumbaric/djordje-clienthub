@@ -6,7 +6,7 @@ import {
   notes as notesTable,
 } from "@/db/schema";
 import { quickActions } from "@/data/dashboardOverview";
-import { statusLabel, priorityLabel } from "@/lib/dashboardLabels";
+import { statusLabel, priorityLabel, formatDue } from "@/lib/dashboardLabels";
 import DashboardCharts from "@/components/DashboardCharts";
 
 export const dynamic = "force-dynamic";
@@ -171,12 +171,17 @@ export default async function DashboardPage() {
         </div>
 
         <div className="dashboard-task-list">
+          {openTaskPreview.length === 0 && (
+            <p style={{ color: "#6b7280", fontSize: 15, margin: 0 }}>
+              Nema otvorenih zadataka.
+            </p>
+          )}
           {openTaskPreview.map((task) => (
             <article className="dashboard-task-card" key={task.id}>
               <div className="dashboard-task-main">
                 <div>
                   <h3>{task.title}</h3>
-                  <p>{task.description}</p>
+                  {task.description && <p>{task.description}</p>}
                 </div>
 
                 <span
@@ -189,10 +194,10 @@ export default async function DashboardPage() {
               </div>
 
               <div className="dashboard-task-meta">
-                <span>Projekat: {task.project}</span>
-                <span>Prioritet: {priorityLabel(task.priority)}</span>
-                <span>Fokus: {task.focus}</span>
-                <span>Rok: {task.due}</span>
+                {task.project && <span>Projekat: {task.project}</span>}
+                {task.priority && <span>Prioritet: {priorityLabel(task.priority)}</span>}
+                {task.focus && <span>Fokus: {task.focus}</span>}
+                {task.due && <span>Rok: {formatDue(task.due)}</span>}
               </div>
             </article>
           ))}

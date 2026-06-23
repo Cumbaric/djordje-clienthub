@@ -118,7 +118,7 @@ export default function ProjectCard({ project }) {
         <div>
           <p className="dashboard-label">Projekat</p>
           <h3>{project.name}</h3>
-          <p>{project.client}</p>
+          {project.client && <p>{project.client}</p>}
         </div>
         <span className={`dashboard-status dashboard-status-${project.status.toLowerCase().replaceAll(" ", "-")}`}>
           {statusLabel(project.status)}
@@ -126,11 +126,11 @@ export default function ProjectCard({ project }) {
       </div>
 
       <div className="dashboard-client-meta">
-        <span>Tip: {project.type}</span>
-        <span>Faza: {project.phase}</span>
+        {project.type && <span>Tip: {project.type}</span>}
+        {project.phase && <span>Faza: {project.phase}</span>}
       </div>
 
-      <p className="dashboard-client-description">{project.description}</p>
+      {project.description && <p className="dashboard-client-description">{project.description}</p>}
 
       <div className="dashboard-progress">
         <div className="dashboard-progress-top">
