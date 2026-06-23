@@ -10,11 +10,14 @@ const navItems = [
   { label: "Pregled", href: "/dashboard" },
   { label: "Klijenti", href: "/dashboard/clients" },
   { label: "Projekti", href: "/dashboard/projects" },
-  { label: "Zadaci", href: "/dashboard/tasks" },
+  { label: "Zadaci", href: "/dashboard/tasks", badgeKey: "tasks" },
   { label: "Beleške", href: "/dashboard/notes" },
+  { label: "Finansije", href: "/dashboard/finances", badgeKey: "invoices" },
+  { label: "Kalendar", href: "/dashboard/calendar" },
 ];
 
-export default function DashboardSidebar() {
+export default function DashboardSidebar({ taskAlertCount = 0, invoiceAlertCount = 0 }) {
+  const badges = { tasks: taskAlertCount, invoices: invoiceAlertCount };
   const pathname = usePathname();
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -80,6 +83,7 @@ export default function DashboardSidebar() {
                 ? pathname === item.href
                 : pathname.startsWith(item.href);
 
+            const badgeCount = item.badgeKey ? (badges[item.badgeKey] ?? 0) : 0;
             return (
               <Link
                 href={item.href}
@@ -88,6 +92,9 @@ export default function DashboardSidebar() {
                 onClick={closeMenu}
               >
                 {item.label}
+                {badgeCount > 0 && (
+                  <span className={styles.navBadge}>{badgeCount}</span>
+                )}
               </Link>
             );
           })}

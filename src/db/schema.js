@@ -55,3 +55,16 @@ export const notes = mysqlTable("notes", {
   description: text("description"),
   createdAt: timestamp("created_at").defaultNow(),
 });
+
+/* Invoices — client invoices and revenue tracking */
+export const invoices = mysqlTable("invoices", {
+  id: int("id").primaryKey().autoincrement(),
+  client: text("client"),
+  invoiceNumber: text("invoice_number"),
+  amount: int("amount").default(0),
+  status: text("status").default("Unpaid"),
+  issueDate: text("issue_date"),
+  dueDate: text("due_date"),
+  description: text("description"),
+  createdAt: timestamp("created_at").defaultNow(),
+});
