@@ -129,6 +129,40 @@
   border-color: #fca5a5;
 }
 
+/* Archive / unarchive buttons */
+.dashboard-archive-btn {
+  padding: 8px 14px;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.dashboard-archive-btn:hover {
+  background: #dbeafe;
+  border-color: #93c5fd;
+}
+
+.dashboard-unarchive-btn {
+  padding: 8px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #f9fafb;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dashboard-unarchive-btn:hover {
+  background: #f3f4f6;
+}
+
 /* Inline delete confirm */
 .dashboard-delete-confirm {
   display: flex;

@@ -27,7 +27,9 @@ export default async function DashboardPage() {
     ["Active", "In progress", "Planning"].includes(project.status),
   ).length;
 
-  const openTasks = tasks.filter((task) => task.status !== "Done").length;
+  const openTasks = tasks.filter(
+    (task) => task.status !== "Done" && !task.archived,
+  ).length;
 
   const workNotes = notes.length;
 
@@ -36,7 +38,7 @@ export default async function DashboardPage() {
   const recentNotes = notes.slice(0, 4);
 
   const openTaskPreview = tasks
-    .filter((task) => task.status !== "Done")
+    .filter((task) => task.status !== "Done" && !task.archived)
     .slice(0, 3);
 
   const dashboardStats = [

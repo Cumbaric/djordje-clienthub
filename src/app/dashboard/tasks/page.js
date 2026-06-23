@@ -2,6 +2,7 @@ import { db } from "@/db";
 import { tasks as tasksTable } from "@/db/schema";
 import { createTask } from "./actions";
 import TaskControls from "./TaskControls";
+import ArchiveControls from "./ArchiveControls";
 import { statusLabel, priorityLabel } from "@/lib/dashboardLabels";
 import DashboardEmpty from "@/components/DashboardEmpty";
 import "@/styles/dashboard-forms.css";
@@ -9,23 +10,22 @@ import "@/styles/dashboard-forms.css";
 export const dynamic = "force-dynamic";
 
 export default async function TasksPage() {
-  const tasks = await db.select().from(tasksTable).orderBy(tasksTable.id);
+  const allTasks = await db.select().from(tasksTable).orderBy(tasksTable.id);
 
-  const totalTasks = tasks.length;
+  const activeTasks = allTasks.filter((t) => !t.archived);
+  const archivedTasks = allTasks.filter((t) => t.archived);
 
-  const openTasks = tasks.filter((task) => task.status === "Open").length;
-
-  const inProgressTasks = tasks.filter(
-    (task) => task.status === "In progress",
+  const openTasks = activeTasks.filter((t) => t.status === "Open").length;
+  const inProgressTasks = activeTasks.filter(
+    (t) => t.status === "In progress",
   ).length;
-
-  const doneTasks = tasks.filter((task) => task.status === "Done").length;
+  const doneTasks = activeTasks.filter((t) => t.status === "Done").length;
 
   const taskStats = [
     {
-      label: "Ukupno zadataka",
-      value: totalTasks,
-      description: "Svi praćeni zadaci",
+      label: "Aktivni zadaci",
+      value: activeTasks.length,
+      description: "Zadaci koji nisu arhivirani",
     },
     {
       label: "Otvoreni",
@@ -40,7 +40,7 @@ export default async function TasksPage() {
     {
       label: "Završeni",
       value: doneTasks,
-      description: "Završeni zadaci",
+      description: "Završeni, još nisu arhivirani",
     },
   ];
 
@@ -135,10 +135,10 @@ export default async function TasksPage() {
         </div>
 
         <div className="dashboard-task-list">
-          {tasks.length === 0 && (
-            <DashboardEmpty message="Još nema zadataka — dodaj prvi pomoću forme iznad." />
+          {activeTasks.length === 0 && (
+            <DashboardEmpty message="Nema aktivnih zadataka — dodaj prvi pomoću forme iznad." />
           )}
-          {tasks.map((task) => (
+          {activeTasks.map((task) => (
             <article className="dashboard-task-card" key={task.id}>
               <div className="dashboard-task-main">
                 <div>
@@ -168,6 +168,55 @@ export default async function TasksPage() {
           ))}
         </div>
       </div>
+
+      {archivedTasks.length > 0 && (
+        <div className="dashboard-section">
+          <div className="dashboard-section-header">
+            <div>
+              <p className="dashboard-label">Arhiva</p>
+              <h2>Arhivirani zadaci</h2>
+            </div>
+            <span className="dashboard-archive-count">
+              {archivedTasks.length}{" "}
+              {archivedTasks.length === 1 ? "zadatak" : "zadataka"}
+            </span>
+          </div>
+
+          <div className="dashboard-task-list">
+            {archivedTasks.map((task) => (
+              <article
+                className="dashboard-task-card dashboard-task-card-archived"
+                key={task.id}
+              >
+                <div className="dashboard-task-main">
+                  <div>
+                    <p className="dashboard-label">Arhivirano</p>
+                    <h3>{task.title}</h3>
+                    <p>{task.description}</p>
+                  </div>
+
+                  <span
+                    className={`dashboard-status dashboard-status-${task.status
+                      .toLowerCase()
+                      .replaceAll(" ", "-")}`}
+                  >
+                    {statusLabel(task.status)}
+                  </span>
+                </div>
+
+                <div className="dashboard-task-meta">
+                  <span>Projekat: {task.project}</span>
+                  <span>Prioritet: {priorityLabel(task.priority)}</span>
+                  <span>Fokus: {task.focus}</span>
+                  <span>Rok: {task.due}</span>
+                </div>
+
+                <ArchiveControls task={task} />
+              </article>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 }

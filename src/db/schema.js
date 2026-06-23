@@ -1,4 +1,4 @@
-import { mysqlTable, int, text, json, timestamp } from "drizzle-orm/mysql-core";
+import { mysqlTable, int, text, json, timestamp, boolean } from "drizzle-orm/mysql-core";
 
 /* Clients — WordPress / web clients tracked in the dashboard */
 export const clients = mysqlTable("clients", {
@@ -39,6 +39,7 @@ export const tasks = mysqlTable("tasks", {
   focus: text("focus"),
   due: text("due"),
   description: text("description"),
+  archived: boolean("archived").default(false),
   createdAt: timestamp("created_at").defaultNow(),
 });
 

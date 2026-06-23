@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { updateTaskStatus, deleteTask } from "./actions";
+import { updateTaskStatus, deleteTask, archiveTask } from "./actions";
 import { useToast } from "@/components/ToastProvider";
 
 const STATUSES = [
@@ -21,6 +21,13 @@ export default function TaskControls({ task }) {
     fd.append("status", e.target.value);
     await updateTaskStatus(fd);
     showToast("Status zadatka je ažuriran.");
+  }
+
+  async function handleArchive() {
+    const fd = new FormData();
+    fd.append("id", task.id);
+    await archiveTask(fd);
+    showToast("Zadatak je arhiviran.");
   }
 
   async function handleDelete() {
@@ -46,6 +53,10 @@ export default function TaskControls({ task }) {
           ))}
         </select>
       </label>
+
+      <button onClick={handleArchive} className="dashboard-archive-btn">
+        Arhiviraj
+      </button>
 
       {pendingDelete ? (
         <div className="dashboard-delete-confirm">

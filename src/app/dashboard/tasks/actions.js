@@ -43,3 +43,19 @@ export async function deleteTask(formData) {
   await db.delete(tasks).where(eq(tasks.id, id));
   refresh();
 }
+
+export async function archiveTask(formData) {
+  const id = Number(formData.get("id"));
+  if (!id) return;
+
+  await db.update(tasks).set({ archived: true }).where(eq(tasks.id, id));
+  refresh();
+}
+
+export async function unarchiveTask(formData) {
+  const id = Number(formData.get("id"));
+  if (!id) return;
+
+  await db.update(tasks).set({ archived: false }).where(eq(tasks.id, id));
+  refresh();
+}
