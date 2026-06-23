@@ -3,8 +3,15 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import RevealSection from "@/components/RevealSection";
 import CTASection from "@/components/CTASection";
+import JsonLd from "@/components/JsonLd";
 import { services } from "@/data/services";
 import styles from "./service-detail.module.css";
+
+function parsePrice(str) {
+  const m = str?.match(/([€$£])(\d+)/);
+  if (!m) return null;
+  return { price: m[2], currency: { "€": "EUR", "$": "USD", "£": "GBP" }[m[1]] ?? "EUR" };
+}
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -31,8 +38,39 @@ export default async function ServiceDetailPage({ params }) {
   const service = services.find((s) => s.slug === slug);
   if (!service) notFound();
 
+  const parsedPrice = parsePrice(service.priceFrom);
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.titleEn,
+    "description": service.descriptionEn,
+    "provider": { "@id": "https://djordjepopovic.com/#organization" },
+    "areaServed": "Worldwide",
+    ...(parsedPrice && {
+      "offers": {
+        "@type": "Offer",
+        "price": parsedPrice.price,
+        "priceCurrency": parsedPrice.currency,
+        "availability": "https://schema.org/InStock",
+      },
+    }),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://djordjepopovic.com/en" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://djordjepopovic.com/en/services" },
+      { "@type": "ListItem", "position": 3, "name": service.titleEn, "item": `https://djordjepopovic.com/en/services/${service.slug}` },
+    ],
+  };
+
   return (
     <main>
+      <JsonLd data={serviceSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <PageHero eyebrow="Services" title={service.titleEn}>
         {service.descriptionEn}
       </PageHero>

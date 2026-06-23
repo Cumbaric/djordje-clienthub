@@ -1,6 +1,17 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
+import JsonLd from "@/components/JsonLd";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://djordjepopovic.com/en" },
+    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://djordjepopovic.com/en/projects" },
+    { "@type": "ListItem", "position": 3, "name": "Lumera Wellness", "item": "https://djordjepopovic.com/en/projects/lumera-wellness" },
+  ],
+};
 
 const IMAGES = [
   "/Projects/LumeraWellness1.png",
@@ -31,6 +42,7 @@ export const metadata = {
 export default function LumeraWellnessCaseStudyPage() {
   return (
     <main>
+      <JsonLd data={breadcrumbSchema} />
       <PageHero
         eyebrow="Case Study"
         title="Lumera Wellness — a reusable Next.js booking template for wellness studios"

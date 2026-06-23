@@ -1,6 +1,17 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
+import JsonLd from "@/components/JsonLd";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://djordjepopovic.com/en" },
+    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://djordjepopovic.com/en/projects" },
+    { "@type": "ListItem", "position": 3, "name": "Olivera Popović Edu", "item": "https://djordjepopovic.com/en/projects/olivera-popovic-edu" },
+  ],
+};
 
 const IMAGES = [
   "/Projects/Olvera_Popovic_1.png",
@@ -30,6 +41,7 @@ export const metadata = {
 export default function OliveraPopovicEduPage() {
   return (
     <main>
+      <JsonLd data={breadcrumbSchema} />
       <PageHero
         eyebrow="Case Study"
         title="Olivera Popović Edu — Educational Website, Content Structure and SEO Foundation"

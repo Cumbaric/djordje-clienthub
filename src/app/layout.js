@@ -13,7 +13,7 @@ export const metadata = {
     default: "Đorđe Popović | Web Developer",
     template: " %s | Đorđe Popović",
   },
-  description: "Web developer building clean, structured and SEO-ready websites with a focus on preformance and practical user expiriance",
+  description: "Web developer building clean, structured and SEO-ready websites with a focus on performance and practical user experience",
 };
 
 export default function RootLayout({ children }) {

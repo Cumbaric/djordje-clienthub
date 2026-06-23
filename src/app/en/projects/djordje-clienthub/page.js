@@ -1,6 +1,17 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
+import JsonLd from "@/components/JsonLd";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://djordjepopovic.com/en" },
+    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://djordjepopovic.com/en/projects" },
+    { "@type": "ListItem", "position": 3, "name": "Djordje ClientHub", "item": "https://djordjepopovic.com/en/projects/djordje-clienthub" },
+  ],
+};
 
 const IMAGES = [
   "/Projects/djordje_clienthub_1.png",
@@ -31,6 +42,7 @@ export const metadata = {
 export default function DjordjeClientHubPage() {
   return (
     <main>
+      <JsonLd data={breadcrumbSchema} />
       <PageHero
         eyebrow="Case Study"
         title="Djordje ClientHub — Bilingual Portfolio and Private Dashboard"
