@@ -3,6 +3,7 @@ import PageHero from "@/components/PageHero";
 import RevealSection from "@/components/RevealSection";
 import SectionOrb from "@/components/SectionOrb";
 import PageIcon from "@/components/PageIcon";
+import ContactForm from "@/components/ContactForm";
 import { contactEmail, socialLinks } from "@/data/contact";
 
 export const metadata = {
@@ -171,7 +172,14 @@ export default function ContactPage() {
           </section>
         </RevealSection>
 
-        {/* 3. Project inquiry / What to send */}
+        {/* 3. Contact form */}
+        <RevealSection delay={0.05}>
+          <section className="contact-form-section">
+            <ContactForm lang="en" contactEmail={contactEmail} />
+          </section>
+        </RevealSection>
+
+        {/* 4. Project inquiry / What to send */}
         <RevealSection delay={0.05}>
           <section className="contact-inquiry has-orb">
             <SectionOrb style={{ "--orb-top": "30px", "--orb-right": "44px" }} />
