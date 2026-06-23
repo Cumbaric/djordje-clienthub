@@ -21,6 +21,24 @@ const PRIORITY_OPTIONS = [
   { value: "Low", label: "Nizak" },
 ];
 
+function exportCSV(data) {
+  const headers = ["Naslov", "Projekat", "Prioritet", "Status", "Fokus", "Rok", "Opis"];
+  const rows = data.map((t) => [
+    t.title, t.project ?? "", t.priority ?? "", t.status ?? "",
+    t.focus ?? "", t.due ?? "", t.description ?? "",
+  ]);
+  const csv = [headers, ...rows]
+    .map((r) => r.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(","))
+    .join("\n");
+  const blob = new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "zadaci.csv";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
 export default function TaskListClient({ tasks }) {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
@@ -78,6 +96,9 @@ export default function TaskListClient({ tasks }) {
           </button>
         )}
         <span className="dashboard-filter-count">{filtered.length} zadataka</span>
+        <button onClick={() => exportCSV(filtered)} className="dashboard-csv-btn">
+          Izvezi CSV
+        </button>
       </div>
 
       <div className="dashboard-task-list">

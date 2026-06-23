@@ -32,6 +32,15 @@ function isOverdue(due, status) {
   return d < new Date(new Date().toDateString());
 }
 
+function isDueSoon(due, status) {
+  if (!due || status === "Done") return false;
+  const d = new Date(due);
+  if (isNaN(d)) return false;
+  const today = new Date(new Date().toDateString());
+  const diff = d - today;
+  return diff >= 0 && diff <= 3 * 24 * 60 * 60 * 1000;
+}
+
 export default function TaskCard({ task }) {
   const { showToast } = useToast();
   const [isEditing, setIsEditing] = useState(false);
@@ -69,6 +78,7 @@ export default function TaskCard({ task }) {
   }
 
   const overdue = isOverdue(task.due, task.status);
+  const dueSoon = !overdue && isDueSoon(task.due, task.status);
 
   if (isEditing) {
     return (
@@ -140,9 +150,10 @@ export default function TaskCard({ task }) {
         <span>Projekat: {task.project}</span>
         <span>Prioritet: {priorityLabel(task.priority)}</span>
         <span>Fokus: {task.focus}</span>
-        <span className={overdue ? "dashboard-overdue" : ""}>
+        <span className={overdue ? "dashboard-overdue" : dueSoon ? "dashboard-due-soon" : ""}>
           Rok: {formatDue(task.due)}
           {overdue && <strong> — Istekao!</strong>}
+          {dueSoon && <strong> — Uskoro ističe!</strong>}
         </span>
       </div>
 
