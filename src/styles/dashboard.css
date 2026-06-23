@@ -158,10 +158,19 @@
   flex-shrink: 0;
 }
 
+.dashboard-activity-item strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #111827;
+  font-size: 15px;
+  font-weight: 700;
+}
+
 .dashboard-activity-item p {
   margin: 0;
-  color: #374151;
-  font-size: 15px;
+  color: #4b5563;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 @media (max-width: 1024px) {
@@ -863,4 +872,66 @@
   background: #450a0a;
   color: #fca5a5;
   border-color: #991b1b;
+}
+
+/* Activity item (note titles) */
+[data-theme="dark"] .dashboard-activity-item strong {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .dashboard-activity-item p {
+  color: #64748b;
+}
+
+/* Status badges in dark mode */
+[data-theme="dark"] .dashboard-status-active {
+  color: #86efac;
+  background: #14532d;
+}
+
+[data-theme="dark"] .dashboard-status-maintenance {
+  color: #fde68a;
+  background: #451a03;
+}
+
+[data-theme="dark"] .dashboard-status-paused {
+  color: #fca5a5;
+  background: #450a0a;
+}
+
+[data-theme="dark"] .dashboard-status-in-progress {
+  color: #93c5fd;
+  background: #1e3a5f;
+}
+
+[data-theme="dark"] .dashboard-status-planning {
+  color: #c4b5fd;
+  background: #2e1065;
+}
+
+[data-theme="dark"] .dashboard-status-open {
+  color: #93c5fd;
+  background: #1e3a5f;
+}
+
+[data-theme="dark"] .dashboard-status-done {
+  color: #86efac;
+  background: #14532d;
+}
+
+[data-theme="dark"] .dashboard-status-backlog {
+  color: #94a3b8;
+  background: #1e293b;
+}
+
+/* Section header label */
+[data-theme="dark"] .dashboard-label {
+  color: #60a5fa;
+}
+
+/* Archive count */
+[data-theme="dark"] .dashboard-archive-count {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #64748b;
 }
