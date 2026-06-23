@@ -169,7 +169,7 @@ export default async function DashboardPage() {
 
         <div className="dashboard-task-list">
           {openTaskPreview.map((task) => (
-            <article className="dashboard-task-card" key={task.title}>
+            <article className="dashboard-task-card" key={task.id}>
               <div className="dashboard-task-main">
                 <div>
                   <h3>{task.title}</h3>
@@ -206,7 +206,7 @@ export default async function DashboardPage() {
 
         <div className="dashboard-activity-list">
           {recentNotes.map((note) => (
-            <div className="dashboard-activity-item" key={note.title}>
+            <div className="dashboard-activity-item" key={note.id}>
               <span></span>
               <div>
                 <strong>{note.title}</strong>

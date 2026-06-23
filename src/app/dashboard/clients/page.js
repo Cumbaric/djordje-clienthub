@@ -148,14 +148,20 @@ export default async function ClientsPage() {
                 <div>
                   <p className="dashboard-label">Klijent</p>
                   <h3>{client.name}</h3>
-                  <a
-                    href={`https://${client.website}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="dashboard-client-link"
-                  >
-                    {client.website}
-                  </a>
+                  {client.website && (
+                    <a
+                      href={
+                        client.website.startsWith("http")
+                          ? client.website
+                          : `https://${client.website}`
+                      }
+                      target="_blank"
+                      rel="noreferrer"
+                      className="dashboard-client-link"
+                    >
+                      {client.website}
+                    </a>
+                  )}
                 </div>
 
                 <span
