@@ -208,6 +208,183 @@
   background: #f3f4f6;
 }
 
+/* Inline edit mode */
+.dashboard-task-card-editing {
+  border-color: #2563eb;
+  background: #f8faff;
+}
+
+.dashboard-inline-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dashboard-edit-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.dashboard-edit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 140px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.dashboard-edit-field-wide {
+  flex-basis: 100%;
+}
+
+.dashboard-edit-field input,
+.dashboard-edit-field select,
+.dashboard-edit-field textarea {
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.dashboard-edit-field input:focus,
+.dashboard-edit-field select:focus,
+.dashboard-edit-field textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.dashboard-edit-field textarea {
+  resize: vertical;
+}
+
+.dashboard-edit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.dashboard-save-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dashboard-save-btn:hover {
+  background: #1d4ed8;
+}
+
+.dashboard-cancel-btn {
+  padding: 8px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #f9fafb;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dashboard-cancel-btn:hover {
+  background: #f3f4f6;
+}
+
+.dashboard-edit-btn {
+  padding: 8px 14px;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dashboard-edit-btn:hover {
+  background: #dbeafe;
+}
+
+/* Filter bar */
+.dashboard-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #f9fafb;
+}
+
+.dashboard-filter-search {
+  flex: 1 1 200px;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.dashboard-filter-search:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.dashboard-filter-select {
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.dashboard-filter-clear {
+  padding: 8px 12px;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  background: #fef2f2;
+  color: #dc2626;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dashboard-filter-clear:hover {
+  background: #fee2e2;
+}
+
+.dashboard-filter-count {
+  font-size: 12px;
+  color: #6b7280;
+  margin-left: auto;
+}
+
+/* Overdue indicator */
+.dashboard-overdue {
+  color: #dc2626;
+  font-weight: 600;
+}
+
 /* Progress slider */
 .dashboard-progress-control {
   flex: 1;

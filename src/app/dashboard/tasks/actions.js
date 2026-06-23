@@ -59,3 +59,20 @@ export async function unarchiveTask(formData) {
   await db.update(tasks).set({ archived: false }).where(eq(tasks.id, id));
   refresh();
 }
+
+export async function updateTask(formData) {
+  const id = Number(formData.get("id"));
+  if (!id) return;
+
+  await db.update(tasks).set({
+    title: formData.get("title")?.toString().trim() || undefined,
+    description: formData.get("description")?.toString().trim() || null,
+    project: formData.get("project")?.toString().trim() || null,
+    focus: formData.get("focus")?.toString().trim() || null,
+    due: formData.get("due")?.toString().trim() || null,
+    priority: formData.get("priority")?.toString() || "Medium",
+    status: formData.get("status")?.toString() || "Open",
+  }).where(eq(tasks.id, id));
+
+  refresh();
+}

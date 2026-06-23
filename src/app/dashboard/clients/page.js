@@ -1,9 +1,7 @@
 import { db } from "@/db";
 import { clients as clientsTable } from "@/db/schema";
-import { statusLabel, priorityLabel, toArray } from "@/lib/dashboardLabels";
 import { createClient } from "./actions";
-import ClientControls from "./ClientControls";
-import DashboardEmpty from "@/components/DashboardEmpty";
+import ClientListClient from "./ClientListClient";
 import "@/styles/dashboard-forms.css";
 
 export const dynamic = "force-dynamic";
@@ -138,62 +136,7 @@ export default async function ClientsPage() {
           </div>
         </div>
 
-        <div className="dashboard-client-grid">
-          {clients.length === 0 && (
-            <DashboardEmpty message="Još nema klijenata — dodaj prvog pomoću forme iznad." />
-          )}
-          {clients.map((client) => (
-            <article className="dashboard-client-card" key={client.id}>
-              <div className="dashboard-client-top">
-                <div>
-                  <p className="dashboard-label">Klijent</p>
-                  <h3>{client.name}</h3>
-                  {client.website && (
-                    <a
-                      href={
-                        client.website.startsWith("http")
-                          ? client.website
-                          : `https://${client.website}`
-                      }
-                      target="_blank"
-                      rel="noreferrer"
-                      className="dashboard-client-link"
-                    >
-                      {client.website}
-                    </a>
-                  )}
-                </div>
-
-                <span
-                  className={`dashboard-status dashboard-status-${client.status.toLowerCase()}`}
-                >
-                  {statusLabel(client.status)}
-                </span>
-              </div>
-
-              <div className="dashboard-client-meta">
-                <span>Tip: {client.type}</span>
-                <span>Prioritet: {priorityLabel(client.priority)}</span>
-              </div>
-
-              <p className="dashboard-client-description">
-                {client.description}
-              </p>
-
-              <div className="dashboard-next-steps">
-                <h4>Fokus rada</h4>
-
-                <div className="dashboard-tag-list">
-                  {toArray(client.notes).map((note) => (
-                    <span key={note}>{note}</span>
-                  ))}
-                </div>
-              </div>
-
-              <ClientControls client={client} />
-            </article>
-          ))}
-        </div>
+        <ClientListClient clients={clients} />
       </div>
     </section>
   );

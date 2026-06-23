@@ -67,3 +67,21 @@ export async function deleteProject(formData) {
   await db.delete(projects).where(eq(projects.id, id));
   refresh();
 }
+
+export async function updateProject(formData) {
+  const id = Number(formData.get("id"));
+  if (!id) return;
+
+  await db.update(projects).set({
+    name: formData.get("name")?.toString().trim() || undefined,
+    client: formData.get("client")?.toString().trim() || null,
+    type: formData.get("type")?.toString().trim() || null,
+    description: formData.get("description")?.toString().trim() || null,
+    phase: formData.get("phase")?.toString().trim() || null,
+    progress: normalizeProgress(formData.get("progress")),
+    status: formData.get("status")?.toString() || "Planning",
+    nextSteps: toList(formData.get("nextSteps")),
+  }).where(eq(projects.id, id));
+
+  refresh();
+}

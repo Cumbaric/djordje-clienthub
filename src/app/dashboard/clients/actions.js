@@ -51,3 +51,20 @@ export async function deleteClient(formData) {
   await db.delete(clients).where(eq(clients.id, id));
   refresh();
 }
+
+export async function updateClient(formData) {
+  const id = Number(formData.get("id"));
+  if (!id) return;
+
+  await db.update(clients).set({
+    name: formData.get("name")?.toString().trim() || undefined,
+    website: formData.get("website")?.toString().trim() || null,
+    type: formData.get("type")?.toString().trim() || null,
+    description: formData.get("description")?.toString().trim() || null,
+    notes: toList(formData.get("notes")),
+    priority: formData.get("priority")?.toString() || "Medium",
+    status: formData.get("status")?.toString() || "Active",
+  }).where(eq(clients.id, id));
+
+  refresh();
+}

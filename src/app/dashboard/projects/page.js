@@ -1,8 +1,7 @@
 import { db } from "@/db";
 import { projects as projectsTable } from "@/db/schema";
-import { statusLabel, toArray } from "@/lib/dashboardLabels";
 import { createProject } from "./actions";
-import ProjectControls from "./ProjectControls";
+import ProjectCard from "./ProjectCard";
 import DashboardEmpty from "@/components/DashboardEmpty";
 import "@/styles/dashboard-forms.css";
 
@@ -147,55 +146,7 @@ export default async function DashboardProjectsPage() {
             <DashboardEmpty message="Još nema projekata — dodaj prvi pomoću forme iznad." />
           )}
           {dashboardProjects.map((project) => (
-            <article className="dashboard-project-card" key={project.id}>
-              <div className="dashboard-project-top">
-                <div>
-                  <p className="dashboard-label">Projekat</p>
-                  <h3>{project.name}</h3>
-                  <p>{project.client}</p>
-                </div>
-
-                <span
-                  className={`dashboard-status dashboard-status-${project.status
-                    .toLowerCase()
-                    .replaceAll(" ", "-")}`}
-                >
-                  {statusLabel(project.status)}
-                </span>
-              </div>
-
-              <div className="dashboard-client-meta">
-                <span>Tip: {project.type}</span>
-                <span>Faza: {project.phase}</span>
-              </div>
-
-              <p className="dashboard-client-description">
-                {project.description}
-              </p>
-
-              <div className="dashboard-progress">
-                <div className="dashboard-progress-top">
-                  <span>Napredak</span>
-                  <strong>{project.progress}</strong>
-                </div>
-
-                <div className="dashboard-progress-bar">
-                  <span style={{ width: project.progress }}></span>
-                </div>
-              </div>
-
-              <div className="dashboard-next-steps">
-                <h4>Sledeći koraci</h4>
-
-                <ul>
-                  {toArray(project.nextSteps).map((step) => (
-                    <li key={step}>{step}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <ProjectControls project={project} />
-            </article>
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
       </div>

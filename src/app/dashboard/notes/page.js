@@ -1,8 +1,7 @@
 import { db } from "@/db";
 import { notes as notesTable } from "@/db/schema";
-import { statusLabel } from "@/lib/dashboardLabels";
 import { createNote } from "./actions";
-import NoteControls from "./NoteControls";
+import NoteCard from "./NoteCard";
 import DashboardEmpty from "@/components/DashboardEmpty";
 import "@/styles/dashboard-forms.css";
 
@@ -128,31 +127,7 @@ export default async function NotesPage() {
             <DashboardEmpty message="Još nema beleški — dodaj prvu pomoću forme iznad." />
           )}
           {notes.map((note) => (
-            <article className="dashboard-note-card" key={note.id}>
-              <div className="dashboard-note-main">
-                <div>
-                  <p className="dashboard-label">Beleška</p>
-                  <h3>{note.title}</h3>
-                  <p>{note.description}</p>
-                </div>
-
-                <span
-                  className={`dashboard-status dashboard-status-${note.status
-                    .toLowerCase()
-                    .replaceAll(" ", "-")}`}
-                >
-                  {statusLabel(note.status)}
-                </span>
-              </div>
-
-              <div className="dashboard-task-meta">
-                <span>Projekat: {note.project}</span>
-                <span>Tip: {note.type}</span>
-                <span>Datum: {note.date}</span>
-              </div>
-
-              <NoteControls note={note} />
-            </article>
+            <NoteCard key={note.id} note={note} />
           ))}
         </div>
       </div>

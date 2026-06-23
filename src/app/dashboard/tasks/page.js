@@ -1,10 +1,9 @@
 import { db } from "@/db";
 import { tasks as tasksTable } from "@/db/schema";
 import { createTask } from "./actions";
-import TaskControls from "./TaskControls";
+import TaskListClient from "./TaskListClient";
 import ArchiveControls from "./ArchiveControls";
 import { statusLabel, priorityLabel } from "@/lib/dashboardLabels";
-import DashboardEmpty from "@/components/DashboardEmpty";
 import "@/styles/dashboard-forms.css";
 
 export const dynamic = "force-dynamic";
@@ -109,7 +108,7 @@ export default async function TasksPage() {
             </label>
             <label className="dashboard-field">
               <span>Rok</span>
-              <input name="due" type="text" placeholder="npr. Ove nedelje" />
+              <input name="due" type="date" />
             </label>
           </div>
 
@@ -134,39 +133,7 @@ export default async function TasksPage() {
           </div>
         </div>
 
-        <div className="dashboard-task-list">
-          {activeTasks.length === 0 && (
-            <DashboardEmpty message="Nema aktivnih zadataka — dodaj prvi pomoću forme iznad." />
-          )}
-          {activeTasks.map((task) => (
-            <article className="dashboard-task-card" key={task.id}>
-              <div className="dashboard-task-main">
-                <div>
-                  <p className="dashboard-label">Zadatak</p>
-                  <h3>{task.title}</h3>
-                  <p>{task.description}</p>
-                </div>
-
-                <span
-                  className={`dashboard-status dashboard-status-${task.status
-                    .toLowerCase()
-                    .replaceAll(" ", "-")}`}
-                >
-                  {statusLabel(task.status)}
-                </span>
-              </div>
-
-              <div className="dashboard-task-meta">
-                <span>Projekat: {task.project}</span>
-                <span>Prioritet: {priorityLabel(task.priority)}</span>
-                <span>Fokus: {task.focus}</span>
-                <span>Rok: {task.due}</span>
-              </div>
-
-              <TaskControls task={task} />
-            </article>
-          ))}
-        </div>
+        <TaskListClient tasks={activeTasks} />
       </div>
 
       {archivedTasks.length > 0 && (

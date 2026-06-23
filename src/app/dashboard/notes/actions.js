@@ -42,3 +42,19 @@ export async function deleteNote(formData) {
   await db.delete(notes).where(eq(notes.id, id));
   refresh();
 }
+
+export async function updateNote(formData) {
+  const id = Number(formData.get("id"));
+  if (!id) return;
+
+  await db.update(notes).set({
+    title: formData.get("title")?.toString().trim() || undefined,
+    description: formData.get("description")?.toString().trim() || null,
+    project: formData.get("project")?.toString().trim() || null,
+    type: formData.get("type")?.toString().trim() || null,
+    date: formData.get("date")?.toString().trim() || null,
+    status: formData.get("status")?.toString() || "Open",
+  }).where(eq(notes.id, id));
+
+  refresh();
+}
