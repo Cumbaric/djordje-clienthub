@@ -213,3 +213,44 @@
     display: none;
   }
 }
+
+/* ── Light mode ── */
+
+:global([data-theme="light"]) .hero {
+  border-bottom-color: rgba(59, 130, 246, 0.12);
+}
+
+:global([data-theme="light"]) .hero::before {
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.06) 1px, transparent 1px);
+}
+
+:global([data-theme="light"]) .hero::after {
+  background: linear-gradient(to bottom, transparent, rgba(248, 250, 252, 0.6));
+}
+
+:global([data-theme="light"]) .heroOrbPrimary {
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(59, 130, 246, 0.03) 45%,
+    transparent 70%
+  );
+}
+
+:global([data-theme="light"]) .heroOrbSecondary {
+  background: radial-gradient(
+    circle,
+    rgba(99, 179, 237, 0.06) 0%,
+    transparent 65%
+  );
+}
+
+:global([data-theme="light"]) .title {
+  color: #0f172a;
+}
+
+:global([data-theme="light"]) .description {
+  color: #475569;
+}

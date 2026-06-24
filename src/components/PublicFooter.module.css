@@ -319,3 +319,59 @@
     display: none;
   }
 }
+
+/* ── Light mode ── */
+
+:global([data-theme="light"]) .footer {
+  background: #f1f5f9;
+  background-image:
+    linear-gradient(#f1f5f9, #f1f5f9),
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(59, 130, 246, 0.2) 40%,
+      rgba(34, 211, 238, 0.1) 70%,
+      transparent 100%
+    );
+}
+
+:global([data-theme="light"]) .brandName {
+  color: #0f172a;
+}
+
+:global([data-theme="light"]) .brandDesc {
+  color: #64748b;
+}
+
+:global([data-theme="light"]) .colTitle {
+  color: #64748b;
+}
+
+:global([data-theme="light"]) .colLink {
+  color: #475569;
+}
+
+:global([data-theme="light"]) .colLink:hover {
+  color: #0f172a;
+}
+
+:global([data-theme="light"]) .colItem {
+  color: #475569;
+}
+
+:global([data-theme="light"]) .ctaTitle {
+  color: #0f172a;
+}
+
+:global([data-theme="light"]) .ctaText {
+  color: #64748b;
+}
+
+:global([data-theme="light"]) .footerBottom {
+  border-top-color: #e2e8f0;
+}
+
+:global([data-theme="light"]) .copyright,
+:global([data-theme="light"]) .builtWith {
+  color: #94a3b8;
+}
