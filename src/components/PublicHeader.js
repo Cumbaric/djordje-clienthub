@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import styles from "./PublicHeader.module.css";
-import ThemeToggle from "./ThemeToggle";
 
 const NAV = {
   en: {
@@ -121,7 +120,6 @@ export default function PublicHeader({ lang }) {
               {switchLabel}
             </Link>
           )}
-          <ThemeToggle />
         </nav>
 
         {/* Hamburger button — mobile only */}
@@ -166,7 +164,6 @@ export default function PublicHeader({ lang }) {
                 {switchLabel}
               </Link>
             )}
-            <ThemeToggle />
           </nav>
         </div>
       )}
