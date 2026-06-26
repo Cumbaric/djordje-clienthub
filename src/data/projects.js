@@ -97,6 +97,21 @@ export const projects = [
       "Admin dashboard application for Ben Akiba events, with a public front page for stand-up and party listings, performers, prices and reservation counts. The project combines a public event overview with an internal panel for managing reservations and creating new events.",
   },
   {
+    title: "Iron Pulse",
+    slug: "iron-pulse",
+    coverImage: "/Projects/iron_pulse_1.png",
+    type: "HTML / CSS / JavaScript / Landing Page",
+    category: "landing",
+    status: "Completed project",
+    url: "/en/projects/iron-pulse",
+    featured: true,
+    tags: ["HTML", "CSS", "JavaScript", "Landing Page", "SEO", "Responsive", "Vercel"],
+    description:
+      "Landing page za personal trening i strength coaching servis, izrađena u čistom HTML, CSS i JavaScript-u bez frameworka. Mobile-first dizajn, SEO optimizacija, pristupačnost i validacija forme.",
+    descriptionEn:
+      "Landing page for a personal training and strength coaching service, built with pure HTML, CSS and JavaScript — no frameworks. Mobile-first design, SEO optimization, accessibility and form validation.",
+  },
+  {
     title: "Lumera Wellness",
     slug: "lumera-wellness",
     coverImage: "/Projects/LumeraWellness1.png",
