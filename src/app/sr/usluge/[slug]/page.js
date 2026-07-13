@@ -17,13 +17,31 @@ export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
 }
 
+const seoTitlesSr = {
+  "html-css-js": "Izrada HTML/CSS/JS sajta Beograd",
+  "react-nextjs": "React i Next.js web aplikacije Beograd",
+  "seo-optimization": "SEO optimizacija sajta Beograd",
+  "wordpress-website-development": "Izrada WordPress sajta Beograd",
+  "ecommerce-store": "Izrada WooCommerce prodavnice Beograd",
+  "website-maintenance": "Održavanje WordPress sajta Beograd",
+};
+
+const seoDescriptionsSr = {
+  "html-css-js": "Izrada sajtova i landing stranica u HTML, CSS i JavaScript kodu iz Beograda. Brzo, lagano, piksel-precizno — bez frameworka i CMS-a.",
+  "react-nextjs": "Razvoj custom React i Next.js web aplikacija u Beogradu — dashboard-i, interni alati i MVP-ovi za male biznise i startupe.",
+  "seo-optimization": "On-page i tehnička SEO optimizacija za sajtove u Beogradu i Srbiji. Indeksiranje, heading struktura i meta opisi za bolje rangiranje na Google-u.",
+  "wordpress-website-development": "Izrada WordPress sajtova za male biznise i lokalne kompanije u Beogradu. Elementor dizajn, SEO priprema, responsive i jednostavno upravljanje.",
+  "ecommerce-store": "Izrada WooCommerce online prodavnice u Beogradu — struktura kategorija i proizvoda, SEO-optimizovane stranice i checkout podešavanje.",
+  "website-maintenance": "Održavanje i tehnička podrška za WordPress sajtove u Beogradu — ažuriranje sadržaja, plugini, rešavanje problema i redovna briga.",
+};
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const service = services.find((s) => s.slug === slug);
   if (!service) return {};
   return {
-    title: `${service.title} — Usluge`,
-    description: service.description,
+    title: seoTitlesSr[slug] ?? `${service.title} — Usluge`,
+    description: seoDescriptionsSr[slug] ?? service.description,
     alternates: {
       canonical: `/sr/usluge/${service.slug}`,
       languages: {

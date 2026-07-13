@@ -5,13 +5,13 @@ import SectionOrb from "@/components/SectionOrb";
 import PageIcon from "@/components/PageIcon";
 
 export const metadata = {
-  title: "Process — From Website Idea to Launch",
+  title: "Development Process — From Brief to Launch",
   description:
-    "A clear website workflow covering discovery, structure, design direction, development, SEO, performance, testing and delivery.",
+    "A clear, structured website development workflow — discovery, content planning, design direction, development, SEO setup, performance checks and final delivery.",
   openGraph: {
-    title: "Process | Đorđe Popović",
+    title: "Website Development Process | Đorđe Popović",
     description:
-      "A practical workflow for clean custom-coded and WordPress websites, SEO foundations and structured web projects.",
+      "How I build WordPress websites and Next.js applications — from discovery and planning through development and SEO to launch.",
   },
   alternates: {
     canonical: "/en/process",

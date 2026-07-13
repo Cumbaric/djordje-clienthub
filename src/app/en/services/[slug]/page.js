@@ -17,13 +17,31 @@ export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
 }
 
+const seoTitles = {
+  "html-css-js": "HTML/CSS/JS Website Development Belgrade",
+  "react-nextjs": "React & Next.js Web App Development",
+  "seo-optimization": "SEO Optimization Services Belgrade",
+  "wordpress-website-development": "WordPress Website Development Belgrade",
+  "ecommerce-store": "WooCommerce Store Development Belgrade",
+  "website-maintenance": "WordPress Maintenance & Support Belgrade",
+};
+
+const seoDescriptions = {
+  "html-css-js": "Hand-coded HTML, CSS and JavaScript websites and landing pages built in Belgrade. Fast, lightweight, pixel-accurate — no frameworks or CMS dependencies.",
+  "react-nextjs": "Custom React and Next.js web applications built in Belgrade — dashboards, internal tools and MVPs for small businesses and startups.",
+  "seo-optimization": "On-page and technical SEO optimization — Belgrade web developer. Fix indexing issues, structure and meta descriptions for better Google rankings.",
+  "wordpress-website-development": "WordPress website development for small businesses and local companies in Belgrade. Elementor design, SEO-ready, responsive and easy to manage.",
+  "ecommerce-store": "WooCommerce online store development in Belgrade — product structure, SEO-ready product pages and checkout setup for small and mid-size shops.",
+  "website-maintenance": "WordPress maintenance and technical support for businesses in Belgrade — content updates, plugin management, performance fixes and ongoing care.",
+};
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const service = services.find((s) => s.slug === slug);
   if (!service) return {};
   return {
-    title: `${service.titleEn} — Services`,
-    description: service.descriptionEn,
+    title: seoTitles[slug] ?? `${service.titleEn} — Services`,
+    description: seoDescriptions[slug] ?? service.descriptionEn,
     alternates: {
       canonical: `/en/services/${service.slug}`,
       languages: {

@@ -18,14 +18,14 @@ import SectionOrb from "@/components/SectionOrb";
 export const metadata = {
   title: {
     absolute:
-      "Đorđe Popović | Web developer — Pregledni, strukturisani i SEO-friendly sajtovi",
+      "Đorđe Popović | Web developer Beograd — WordPress, Next.js i SEO",
   },
   description:
-    "Web developer koji pravi pregledne, dobro strukturisane i SEO-friendly sajtove sa fokusom na performanse, praktičan UX i održiv workflow.",
+    "Freelance web developer iz Beograda — izrada WordPress sajtova, Next.js aplikacija, WooCommerce prodavnica i SEO optimizacija za male biznise u Srbiji.",
   openGraph: {
-    title: "Đorđe Popović | Web developer",
+    title: "Đorđe Popović | Web developer Beograd",
     description:
-      "Pregledni, strukturisani sajtovi sa SEO osnovom, optimizacijom performansi i AI-assisted workflow-om za male biznise i uslužne delatnosti.",
+      "WordPress, Next.js, WooCommerce i SEO usluge za male biznise. Iz Beograda, Srbija — radim lokalno i globalno.",
   },
   alternates: {
     canonical: "/sr",

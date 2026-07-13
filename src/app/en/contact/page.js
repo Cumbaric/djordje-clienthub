@@ -7,15 +7,16 @@ import ContactForm from "@/components/ContactForm";
 import { contactEmail, socialLinks } from "@/data/contact";
 
 export const metadata = {
-  title: "Contact",
+  title: "Contact — Hire a Web Developer in Belgrade",
   description:
-    "Contact Đorđe Popović for custom-coded and WordPress websites, WooCommerce setup, SEO optimization, maintenance and web workflow projects.",
+    "Get in touch to discuss your website, WordPress project, WooCommerce store, SEO or Next.js app. Freelance web developer based in Belgrade, Serbia.",
   openGraph: {
-    title: "Contact | Đorđe Popović",
+    title: "Contact Đorđe Popović | Web Developer Belgrade",
     description:
-      "Send a short project overview and define the next practical step for your website or workflow.",
+      "Hire a freelance web developer in Belgrade for WordPress, Next.js, WooCommerce or SEO. Send a short project overview to get started.",
   },
   alternates: {
+    canonical: "/en/contact",
     languages: { en: "/en/contact", sr: "/sr/kontakt" },
   },
 };

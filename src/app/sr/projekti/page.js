@@ -4,13 +4,13 @@ import PageHero from "@/components/PageHero";
 import { PROJECT_CATEGORIES, getProjectsByCategory } from "@/data/projects";
 
 export const metadata = {
-  title: "Projekti",
+  title: "WordPress, Next.js i WooCommerce projekti",
   description:
-    "Odabrani WordPress, SEO, WooCommerce i web app projekti, uključujući Wellness Concept i Djordje ClientHub.",
+    "Odabrani web projekti — WordPress sajtovi, WooCommerce prodavnice, Next.js aplikacije i custom landing stranice. Freelance web developer iz Beograda, Srbija.",
   openGraph: {
-    title: "Projekti | Đorđe Popović",
+    title: "Portfolio projekata | Đorđe Popović",
     description:
-      "Pregled WordPress, SEO, WooCommerce i Next.js portfolio projekata.",
+      "WordPress, WooCommerce, Next.js i HTML/CSS projekti freelance web developera iz Beograda.",
   },
   alternates: {
     canonical: "/sr/projekti",

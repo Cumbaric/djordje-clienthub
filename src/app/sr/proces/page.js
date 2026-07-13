@@ -5,13 +5,13 @@ import SectionOrb from "@/components/SectionOrb";
 import PageIcon from "@/components/PageIcon";
 
 export const metadata = {
-  title: "Proces — Od ideje do gotovog sajta",
+  title: "Proces izrade — Od brifinga do lansiranja",
   description:
-    "Jasan workflow za sajtove: analiza, struktura, dizajn pravac, razvoj, SEO, performanse, testiranje i predaja.",
+    "Jasan, strukturisan web development proces — analiza, plan sadržaja, dizajn pravac, razvoj, SEO podešavanje, provere performansi i finalna predaja.",
   openGraph: {
-    title: "Proces | Đorđe Popović",
+    title: "Proces izrade sajta | Đorđe Popović",
     description:
-      "Praktičan proces za sajtove kodirane od nule i WordPress sajtove, SEO osnovu i strukturisane web projekte.",
+      "Kako izrađujem WordPress sajtove i Next.js aplikacije — od analize i planiranja kroz razvoj i SEO do lansiranja.",
   },
   alternates: {
     canonical: "/sr/proces",

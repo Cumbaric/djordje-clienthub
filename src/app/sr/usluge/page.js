@@ -4,13 +4,13 @@ import RevealSection from "@/components/RevealSection";
 import { services } from "@/data/services";
 
 export const metadata = {
-  title: "Usluge — WordPress, SEO i website workflow",
+  title: "Usluge — WordPress, SEO i Next.js",
   description:
-    "Izrada WordPress sajtova, Elementor redizajn, WooCommerce podešavanje, SEO optimizacija, održavanje i AI-assisted workflow usluge.",
+    "Usluge web razvoja u Beogradu — HTML/CSS/JS, WordPress sajtovi, React i Next.js aplikacije, WooCommerce prodavnice, SEO optimizacija i održavanje.",
   openGraph: {
-    title: "Usluge | Đorđe Popović",
+    title: "Usluge web razvoja | Đorđe Popović",
     description:
-      "WordPress, Elementor, WooCommerce, SEO i AI-assisted website workflow usluge.",
+      "WordPress, Next.js, WooCommerce, SEO i HTML/CSS razvoj. Freelance web developer iz Beograda, Srbija.",
   },
   alternates: {
     canonical: "/sr/usluge",

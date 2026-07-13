@@ -10,10 +10,10 @@ const geist = Geist({
 export const metadata = {
   metadataBase: new URL("https://djordjepopovic.com"),
   title: {
-    default: "Đorđe Popović | Web Developer",
-    template: " %s | Đorđe Popović",
+    default: "Đorđe Popović | Web Developer Belgrade",
+    template: "%s | Đorđe Popović",
   },
-  description: "Web developer building clean, structured and SEO-ready websites with a focus on performance and practical user experience",
+  description: "Freelance web developer based in Belgrade — WordPress websites, Next.js apps, WooCommerce stores and SEO optimization for small businesses.",
 };
 
 export default function RootLayout({ children }) {
