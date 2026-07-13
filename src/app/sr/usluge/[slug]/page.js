@@ -86,10 +86,21 @@ export default async function ServiceDetailPage({ params }) {
     ],
   };
 
+  const faqSchema = service.faq?.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": service.faq.map((item) => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": { "@type": "Answer", "text": item.a },
+    })),
+  } : null;
+
   return (
     <main>
       <JsonLd data={serviceSchema} />
       <JsonLd data={breadcrumbSchema} />
+      {faqSchema && <JsonLd data={faqSchema} />}
       <PageHero eyebrow="Usluge" title={service.title}>
         {service.description}
       </PageHero>

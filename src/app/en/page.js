@@ -14,6 +14,7 @@ import { positioning } from "@/data/positioning";
 import styles from "@/styles/home.module.css";
 import HeroGlow from "@/components/HeroGlow";
 import SectionOrb from "@/components/SectionOrb";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata = {
   title: {
@@ -37,9 +38,20 @@ const pos = positioning.en;
 const tech = techStackContent.en;
 const faq = faqContent.en;
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.items.map((item) => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": { "@type": "Answer", "text": item.a },
+  })),
+};
+
 export default function Home() {
   return (
     <main className={styles.homePage}>
+      <JsonLd data={faqSchema} />
       <section className={styles.hero} data-glow-container>
          <HeroGlow /> 
         <div className={styles.heroGrid}>
