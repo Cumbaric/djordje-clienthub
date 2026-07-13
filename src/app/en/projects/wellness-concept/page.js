@@ -31,6 +31,7 @@ export const metadata = {
       "A WordPress and SEO-focused project improving service structure, booking paths, UX and page organization.",
   },
   alternates: {
+    canonical: "/en/projects/wellness-concept",
     languages: {
       en: "/en/projects/wellness-concept",
       sr: "/sr/projekti/wellness-concept",

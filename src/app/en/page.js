@@ -28,6 +28,7 @@ export const metadata = {
       "Clean, structured websites with SEO foundations, performance and AI-assisted workflows for small businesses and service providers.",
   },
   alternates: {
+    canonical: "/en",
     languages: { en: "/en", sr: "/sr" },
   },
 };

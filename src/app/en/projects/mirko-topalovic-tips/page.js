@@ -30,6 +30,7 @@ export const metadata = {
       "WordPress project for a sports tips platform improving content structure, post organization and navigation for better user experience.",
   },
   alternates: {
+    canonical: "/en/projects/mirko-topalovic-tips",
     languages: {
       en: "/en/projects/mirko-topalovic-tips",
       sr: "/sr/projekti/mirko-topalovic-tips",

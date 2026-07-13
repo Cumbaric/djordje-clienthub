@@ -20,6 +20,7 @@ export const metadata = {
       "WordPress i SEO projekat za unapređenje strukture usluga, putanje za zakazivanje, UX-a i organizacije stranica.",
   },
   alternates: {
+    canonical: "/sr/projekti/wellness-concept",
     languages: {
       en: "/en/projects/wellness-concept",
       sr: "/sr/projekti/wellness-concept",

@@ -13,6 +13,7 @@ export const metadata = {
       "A focused overview of WordPress, SEO, WooCommerce and Next.js portfolio projects.",
   },
   alternates: {
+    canonical: "/en/projects",
     languages: { en: "/en/projects", sr: "/sr/projekti" },
   },
 };

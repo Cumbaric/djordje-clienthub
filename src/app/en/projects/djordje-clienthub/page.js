@@ -32,6 +32,7 @@ export const metadata = {
       "Full-stack Next.js project combining a public bilingual portfolio with a protected internal dashboard for clients, projects, tasks and work notes.",
   },
   alternates: {
+    canonical: "/en/projects/djordje-clienthub",
     languages: {
       en: "/en/projects/djordje-clienthub",
       sr: "/sr/projekti/djordje-clienthub",

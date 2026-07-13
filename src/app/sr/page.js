@@ -28,6 +28,7 @@ export const metadata = {
       "Pregledni, strukturisani sajtovi sa SEO osnovom, optimizacijom performansi i AI-assisted workflow-om za male biznise i uslužne delatnosti.",
   },
   alternates: {
+    canonical: "/sr",
     languages: { en: "/en", sr: "/sr" },
   },
 };

@@ -31,6 +31,7 @@ export const metadata = {
       "WordPress project improving content structure, page hierarchy and SEO foundations for an educational platform.",
   },
   alternates: {
+    canonical: "/en/projects/olivera-popovic-edu",
     languages: {
       en: "/en/projects/olivera-popovic-edu",
       sr: "/sr/projekti/olivera-popovic-edu",

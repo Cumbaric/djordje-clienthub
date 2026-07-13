@@ -20,6 +20,7 @@ export const metadata = {
       "WordPress projekat za poboljšanje strukture sadržaja, hijerarhije stranica i SEO osnove edukativne platforme.",
   },
   alternates: {
+    canonical: "/sr/projekti/olivera-popovic-edu",
     languages: {
       en: "/en/projects/olivera-popovic-edu",
       sr: "/sr/projekti/olivera-popovic-edu",

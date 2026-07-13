@@ -20,6 +20,7 @@ export const metadata = {
       "WooCommerce projekat za unos i organizaciju proizvoda, strukturu prodavnice i SEO osnovu za online katalog.",
   },
   alternates: {
+    canonical: "/sr/projekti/boommil",
     languages: {
       en: "/en/projects/boommil",
       sr: "/sr/projekti/boommil",

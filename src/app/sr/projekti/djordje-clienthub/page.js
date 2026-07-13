@@ -21,6 +21,7 @@ export const metadata = {
       "Full-stack Next.js projekat koji kombinuje javni bilingvalni portfolio sa zaštićenim internim dashboard-om za klijente, projekte, zadatke i beleške.",
   },
   alternates: {
+    canonical: "/sr/projekti/djordje-clienthub",
     languages: {
       en: "/en/projects/djordje-clienthub",
       sr: "/sr/projekti/djordje-clienthub",

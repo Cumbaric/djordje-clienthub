@@ -21,6 +21,7 @@ export const metadata = {
       "Reusable Next.js platforma za zakazivanje za wellness studije — javni sajt i zaštićen admin dashboard.",
   },
   alternates: {
+    canonical: "/sr/projekti/lumera-wellness",
     languages: {
       en: "/en/projects/lumera-wellness",
       sr: "/sr/projekti/lumera-wellness",

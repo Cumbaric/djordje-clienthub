@@ -14,6 +14,7 @@ export const metadata = {
       "Praktičan proces za sajtove kodirane od nule i WordPress sajtove, SEO osnovu i strukturisane web projekte.",
   },
   alternates: {
+    canonical: "/sr/proces",
     languages: { en: "/en/process", sr: "/sr/proces" },
   },
 };

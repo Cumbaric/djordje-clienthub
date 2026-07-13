@@ -13,6 +13,7 @@ export const metadata = {
       "Pregled WordPress, SEO, WooCommerce i Next.js portfolio projekata.",
   },
   alternates: {
+    canonical: "/sr/projekti",
     languages: { en: "/en/projects", sr: "/sr/projekti" },
   },
 };

@@ -20,6 +20,7 @@ export const metadata = {
       "Dashboard za upravljanje dogadjajima sa javnim pregledom repertoara i admin panelom za rezervacije i unos dogadjaja.",
   },
   alternates: {
+    canonical: "/sr/projekti/ben-akiba-dashboard",
     languages: {
       en: "/en/projects/ben-akiba-dashboard",
       sr: "/sr/projekti/ben-akiba-dashboard",

@@ -31,6 +31,7 @@ export const metadata = {
       "WooCommerce project covering product setup, store structure and basic SEO for an online product catalog.",
   },
   alternates: {
+    canonical: "/en/projects/boommil",
     languages: {
       en: "/en/projects/boommil",
       sr: "/sr/projekti/boommil",

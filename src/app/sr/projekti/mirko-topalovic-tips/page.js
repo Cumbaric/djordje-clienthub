@@ -19,6 +19,7 @@ export const metadata = {
       "WordPress projekat za platformu sportskih tipova za unapređenje strukture sadržaja, organizacije objava i navigacije.",
   },
   alternates: {
+    canonical: "/sr/projekti/mirko-topalovic-tips",
     languages: {
       en: "/en/projects/mirko-topalovic-tips",
       sr: "/sr/projekti/mirko-topalovic-tips",

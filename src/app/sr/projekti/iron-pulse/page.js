@@ -31,6 +31,7 @@ export const metadata = {
       "HTML/CSS/JS landing page za personal trening servis — mobile-first, SEO optimizovan, pristupačan i hostovan na Vercelu.",
   },
   alternates: {
+    canonical: "/sr/projekti/iron-pulse",
     languages: {
       en: "/en/projects/iron-pulse",
       sr: "/sr/projekti/iron-pulse",

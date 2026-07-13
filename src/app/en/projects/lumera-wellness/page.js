@@ -32,6 +32,7 @@ export const metadata = {
       "A reusable Next.js booking platform for wellness studios — public marketing site plus a protected admin dashboard.",
   },
   alternates: {
+    canonical: "/en/projects/lumera-wellness",
     languages: {
       en: "/en/projects/lumera-wellness",
       sr: "/sr/projekti/lumera-wellness",

@@ -31,6 +31,7 @@ export const metadata = {
       "Event management dashboard with a public event overview and an admin panel for reservations and event setup.",
   },
   alternates: {
+    canonical: "/en/projects/ben-akiba-dashboard",
     languages: {
       en: "/en/projects/ben-akiba-dashboard",
       sr: "/sr/projekti/ben-akiba-dashboard",

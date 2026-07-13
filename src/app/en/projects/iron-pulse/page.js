@@ -31,6 +31,7 @@ export const metadata = {
       "Pure HTML/CSS/JS landing page for a personal training service — mobile-first, SEO-optimized, accessible and deployed on Vercel.",
   },
   alternates: {
+    canonical: "/en/projects/iron-pulse",
     languages: {
       en: "/en/projects/iron-pulse",
       sr: "/sr/projekti/iron-pulse",

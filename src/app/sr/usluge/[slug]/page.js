@@ -25,6 +25,7 @@ export async function generateMetadata({ params }) {
     title: `${service.title} — Usluge`,
     description: service.description,
     alternates: {
+      canonical: `/sr/usluge/${service.slug}`,
       languages: {
         en: `/en/services/${service.slug}`,
         sr: `/sr/usluge/${service.slug}`,

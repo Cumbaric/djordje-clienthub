@@ -13,6 +13,7 @@ export const metadata = {
       "WordPress, Elementor, WooCommerce, SEO and AI-assisted website workflow services.",
   },
   alternates: {
+    canonical: "/en/services",
     languages: { en: "/en/services", sr: "/sr/usluge" },
   },
 };

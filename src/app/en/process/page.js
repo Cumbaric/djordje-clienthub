@@ -14,6 +14,7 @@ export const metadata = {
       "A practical workflow for clean custom-coded and WordPress websites, SEO foundations and structured web projects.",
   },
   alternates: {
+    canonical: "/en/process",
     languages: { en: "/en/process", sr: "/sr/proces" },
   },
 };
