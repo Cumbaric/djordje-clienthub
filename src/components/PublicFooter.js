@@ -5,8 +5,8 @@ import styles from "./PublicFooter.module.css";
 const CONTENT = {
   en: {
     description:
-      "WordPress, SEO and AI workflow support for modern small business websites.",
-    badge: "WordPress • SEO • AI Workflow",
+      "Freelance web developer based in Belgrade — WordPress, Next.js, WooCommerce and SEO for small businesses.",
+    badge: "WordPress • Next.js • WooCommerce • SEO",
     navTitle: "Navigation",
     links: [
       { href: "/en", label: "Home" },
@@ -17,15 +17,16 @@ const CONTENT = {
     ],
     servicesTitle: "Services",
     services: [
-      "WordPress websites",
-      "Elementor development",
-      "SEO structure",
-      "Speed optimization",
-      "AI workflow consulting",
+      { href: "/en/services/wordpress-website-development", label: "WordPress Development" },
+      { href: "/en/services/html-css-js", label: "HTML / CSS / JS Development" },
+      { href: "/en/services/react-nextjs", label: "React & Next.js Apps" },
+      { href: "/en/services/ecommerce-store", label: "WooCommerce Store" },
+      { href: "/en/services/seo-optimization", label: "SEO Optimization" },
+      { href: "/en/services/website-maintenance", label: "Website Maintenance" },
     ],
     ctaTitle: "Have a project in mind?",
     ctaText:
-      "Let's turn your website into a cleaner, faster and more useful business asset.",
+      "Let's build a clean, fast and well-structured website that works for your business.",
     ctaLabel: "Start a project",
     contactHref: "/en/contact",
     copyright: "© 2026 Đorđe Popović. All rights reserved.",
@@ -33,8 +34,8 @@ const CONTENT = {
   },
   sr: {
     description:
-      "WordPress, SEO i AI workflow podrška za moderne sajtove malih biznisa.",
-    badge: "WordPress • SEO • AI Workflow",
+      "Freelance web developer iz Beograda — WordPress, Next.js, WooCommerce i SEO za male biznise.",
+    badge: "WordPress • Next.js • WooCommerce • SEO",
     navTitle: "Navigacija",
     links: [
       { href: "/sr", label: "Početna" },
@@ -45,15 +46,16 @@ const CONTENT = {
     ],
     servicesTitle: "Usluge",
     services: [
-      "WordPress sajtovi",
-      "Elementor razvoj",
-      "SEO struktura",
-      "Optimizacija brzine",
-      "AI workflow konsalting",
+      { href: "/sr/usluge/wordpress-website-development", label: "WordPress sajtovi" },
+      { href: "/sr/usluge/html-css-js", label: "HTML / CSS / JS razvoj" },
+      { href: "/sr/usluge/react-nextjs", label: "React i Next.js aplikacije" },
+      { href: "/sr/usluge/ecommerce-store", label: "WooCommerce prodavnica" },
+      { href: "/sr/usluge/seo-optimization", label: "SEO optimizacija" },
+      { href: "/sr/usluge/website-maintenance", label: "Održavanje sajtova" },
     ],
     ctaTitle: "Imaš projekat u planu?",
     ctaText:
-      "Hajde da pretvorimo tvoj sajt u čistiji, brži i korisniji poslovni alat.",
+      "Napravimo zajedno čist, brz i dobro strukturisan sajt koji radi za tvoj biznis.",
     ctaLabel: "Pokreni projekat",
     contactHref: "/sr/kontakt",
     copyright: "© 2026 Đorđe Popović. Sva prava zadržana.",
@@ -102,8 +104,10 @@ export default function PublicFooter({ lang }) {
             <h3 className={styles.colTitle}>{c.servicesTitle}</h3>
             <ul className={styles.colList}>
               {c.services.map((service) => (
-                <li key={service} className={styles.colItem}>
-                  {service}
+                <li key={service.href}>
+                  <Link href={service.href} className={styles.colLink}>
+                    {service.label}
+                  </Link>
                 </li>
               ))}
             </ul>
