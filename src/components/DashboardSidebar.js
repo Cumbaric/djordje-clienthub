@@ -12,6 +12,7 @@ const navItems = [
   { label: "Projekti", href: "/dashboard/projects" },
   { label: "Zadaci", href: "/dashboard/tasks", badgeKey: "tasks" },
   { label: "Beleške", href: "/dashboard/notes" },
+  { label: "Blog", href: "/dashboard/blog" },
   { label: "Finansije", href: "/dashboard/finances", badgeKey: "invoices" },
   { label: "Kalendar", href: "/dashboard/calendar" },
 ];

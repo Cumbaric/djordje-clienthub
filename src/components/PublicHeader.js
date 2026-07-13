@@ -13,6 +13,7 @@ const NAV = {
       { href: "/en/projects", label: "Projects" },
       { href: "/en/services", label: "Services" },
       { href: "/en/process", label: "Process" },
+      { href: "/en/blog", label: "Blog" },
       { href: "/en/contact", label: "Contact" },
     ],
     switchLabel: "SR",
@@ -24,6 +25,7 @@ const NAV = {
       { href: "/sr/projekti", label: "Projekti" },
       { href: "/sr/usluge", label: "Usluge" },
       { href: "/sr/proces", label: "Proces" },
+      { href: "/sr/blog", label: "Blog" },
       { href: "/sr/kontakt", label: "Kontakt" },
     ],
     switchLabel: "EN",
@@ -33,8 +35,8 @@ const NAV = {
 // Section-segment translations (first path part after the language prefix).
 // Deeper segments (project/service slugs) are shared across languages.
 const SEGMENT_MAP = {
-  en: { projects: "projekti", services: "usluge", process: "proces", contact: "kontakt" },
-  sr: { projekti: "projects", usluge: "services", proces: "process", kontakt: "contact" },
+  en: { projects: "projekti", services: "usluge", process: "proces", contact: "kontakt", blog: "blog" },
+  sr: { projekti: "projects", usluge: "services", proces: "process", kontakt: "contact", blog: "blog" },
 };
 
 // Build the equivalent path in the other language for ANY public route,

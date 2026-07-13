@@ -1,5 +1,8 @@
 import { services } from "@/data/services";
 import { projects } from "@/data/projects";
+import { db } from "@/db";
+import { blogPosts } from "@/db/schema";
+import { eq } from "drizzle-orm";
 
 const BASE_URL = "https://djordjepopovic.com";
 
@@ -38,7 +41,7 @@ function bilingualEntries(
   ];
 }
 
-export default function sitemap() {
+export default async function sitemap() {
   const staticPages = [
     ...bilingualEntries("/en", "/sr", {
       priority: 1,
@@ -56,6 +59,10 @@ export default function sitemap() {
     ...bilingualEntries("/en/contact", "/sr/kontakt", {
       priority: 0.7,
     }),
+    ...bilingualEntries("/en/blog", "/sr/blog", {
+      priority: 0.8,
+      changeFrequency: "weekly",
+    }),
   ];
 
   const projectPages = projects.flatMap((project) =>
@@ -70,5 +77,17 @@ export default function sitemap() {
     }),
   );
 
-  return [...staticPages, ...projectPages, ...servicePages];
+  const publishedPosts = await db
+    .select({ slug: blogPosts.slug })
+    .from(blogPosts)
+    .where(eq(blogPosts.status, "published"));
+
+  const blogPostPages = publishedPosts.flatMap((post) =>
+    bilingualEntries(`/en/blog/${post.slug}`, `/sr/blog/${post.slug}`, {
+      priority: 0.7,
+      changeFrequency: "monthly",
+    }),
+  );
+
+  return [...staticPages, ...projectPages, ...servicePages, ...blogPostPages];
 }

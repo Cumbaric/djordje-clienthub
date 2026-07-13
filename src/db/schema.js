@@ -68,3 +68,20 @@ export const invoices = mysqlTable("invoices", {
   description: text("description"),
   createdAt: timestamp("created_at").defaultNow(),
 });
+
+/* Blog posts — bilingual (EN + SR) public blog */
+export const blogPosts = mysqlTable("blog_posts", {
+  id: int("id").primaryKey().autoincrement(),
+  slug: text("slug").notNull(),
+  titleEn: text("title_en"),
+  titleSr: text("title_sr"),
+  excerptEn: text("excerpt_en"),
+  excerptSr: text("excerpt_sr"),
+  contentEn: text("content_en"),
+  contentSr: text("content_sr"),
+  coverImage: text("cover_image"),
+  status: text("status").default("draft"),
+  publishedAt: text("published_at"),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
+});
