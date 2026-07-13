@@ -11,6 +11,7 @@ function bilingualEntries(
   const lastModified = new Date();
 
   const languages = {
+    "x-default": `${BASE_URL}${enPath}`,
     en: `${BASE_URL}${enPath}`,
     sr: `${BASE_URL}${srPath}`,
   };
