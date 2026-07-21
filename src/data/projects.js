@@ -127,6 +127,21 @@ export const projects = [
       "Landing page for a personal training and strength coaching service, built with pure HTML, CSS and JavaScript — no frameworks. Mobile-first design, SEO optimization, accessibility and form validation.",
   },
   {
+    title: "Luma Dental",
+    slug: "luma-dental",
+    coverImage: "/Projects/luma_dental_1.png",
+    type: "Next.js / React / Dental Clinic / Landing Page",
+    category: "nextjs",
+    status: "Portfolio project",
+    url: "/en/projects/luma-dental",
+    featured: true,
+    tags: ["Next.js", "React", "Landing Page", "Healthcare", "Booking Form", "Responsive"],
+    description:
+      "Next.js landing page za stomatološku ordinaciju sa jasnom prezentacijom usluga, timom doktora, galerijm ordinacije, FAQ sekcijom i formom za zakazivanje termina.",
+    descriptionEn:
+      "Next.js landing page for a dental clinic with clear service presentation, team section, practice gallery, FAQ accordion and an appointment booking form.",
+  },
+  {
     title: "Lumera Wellness",
     slug: "lumera-wellness",
     coverImage: "/Projects/LumeraWellness1.png",
