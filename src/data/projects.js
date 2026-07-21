@@ -7,6 +7,21 @@ export const PROJECT_CATEGORIES = {
 
 export const projects = [
   {
+    title: "Musical Duo Studio",
+    slug: "musical-duo-studio",
+    coverImage: "/Projects/musical_duo_studio_1.png",
+    type: "WordPress / Elementor / Music Studio / Contact Form",
+    category: "wordpress",
+    status: "Completed project",
+    url: "/en/projects/musical-duo-studio",
+    featured: true,
+    tags: ["WordPress", "Elementor", "Fluent Forms", "Fluent SMTP", "Yoast SEO", "W3 Total Cache", "Music"],
+    description:
+      "WordPress sajt za profesionalni studio gitare i basa, fokusiran na premium estetiku, prezentaciju rada kroz video, internacionalne klijente i kontakt formu za novo angažovanje.",
+    descriptionEn:
+      "WordPress website for a professional guitar and bass recording studio, focused on premium aesthetics, showcasing work through video, reaching international clients and a contact form for new project inquiries.",
+  },
+  {
     title: "Wellness Concept",
     slug: "wellness-concept",
     coverImage: "/Projects/Wellness_Concept_1.png",
