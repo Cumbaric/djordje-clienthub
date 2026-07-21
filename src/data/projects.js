@@ -131,7 +131,7 @@ export const projects = [
     slug: "luma-dental",
     coverImage: "/Projects/luma_dental_1.png",
     type: "Next.js / React / Dental Clinic / Landing Page",
-    category: "nextjs",
+    category: "landing",
     status: "Portfolio project",
     url: "/en/projects/luma-dental",
     featured: true,
