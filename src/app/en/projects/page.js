@@ -30,57 +30,51 @@ function ProjectCard({ project }) {
   const { label: statusLabel, status: statusKey } =
     statusMap[project.status] ?? { label: project.status, status: "done" };
 
-  const cardInner = (
+  const inner = (
     <>
-      {/* Cover image area */}
-      <div className="project-card-img">
+      <div className="proj-img">
         {project.coverImage ? (
           <Image
             src={project.coverImage}
             alt={project.title}
             fill
-            sizes="(max-width: 700px) 100vw, 50vw"
+            sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw"
             style={{ objectFit: "cover" }}
           />
         ) : (
-          <div className="project-card-img-placeholder">
-            <span>{project.title}</span>
-          </div>
+          <div className="proj-img-placeholder"><span>{project.title}</span></div>
         )}
-        <span className="project-card-status" data-status={statusKey}>
-          {statusLabel}
-        </span>
       </div>
 
-      {/* Text content */}
-      <div className="project-card-body">
-        <p className="project-card-type">{project.type}</p>
+      <span className="proj-status" data-status={statusKey}>{statusLabel}</span>
+
+      <div className="proj-title-bar">
+        <p className="proj-card-type-label">{project.type.split(" / ")[0]}</p>
         <h2>{project.title}</h2>
-        <p>{project.descriptionEn}</p>
-        <div className="project-tags">
-          {project.tags.map((tag) => (
-            <span key={tag} className="project-tag">
-              {tag}
-            </span>
+      </div>
+
+      <div className="proj-overlay" aria-hidden="true">
+        <p className="proj-overlay-type">{project.type}</p>
+        <h2 className="proj-overlay-title">{project.title}</h2>
+        <p className="proj-overlay-desc">{project.descriptionEn}</p>
+        <div className="proj-overlay-tags">
+          {project.tags.slice(0, 4).map((tag) => (
+            <span key={tag} className="proj-overlay-tag">{tag}</span>
           ))}
         </div>
         {project.slug ? (
-          <div className="project-card-cta">
-            View project <span>→</span>
-          </div>
+          <span className="proj-overlay-cta">View project →</span>
         ) : (
-          <p className="project-coming-soon">Case study coming soon</p>
+          <span className="proj-overlay-soon">Case study coming soon</span>
         )}
       </div>
     </>
   );
 
   return project.slug ? (
-    <Link href={href} className="project-card-link">
-      {cardInner}
-    </Link>
+    <Link href={href} className="proj-card">{inner}</Link>
   ) : (
-    <div className="project-card">{cardInner}</div>
+    <div className="proj-card">{inner}</div>
   );
 }
 
@@ -106,7 +100,7 @@ export default function ProjectsPage() {
             <section key={key} className="projects-category">
               <h2 className="projects-category-title">{label}</h2>
               {categoryProjects.length > 0 ? (
-                <div className="projects-grid">
+                <div className="proj-grid">
                   {categoryProjects.map((project) => (
                     <ProjectCard key={project.title} project={project} />
                   ))}
