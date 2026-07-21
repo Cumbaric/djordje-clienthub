@@ -5,13 +5,32 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import styles from "./PublicHeader.module.css";
 
+const SERVICE_SUBITEMS = {
+  en: [
+    { href: "/en/services/html-css-js", label: "HTML / CSS / JS" },
+    { href: "/en/services/react-nextjs", label: "React / Next.js" },
+    { href: "/en/services/seo-optimization", label: "SEO Optimization" },
+    { href: "/en/services/wordpress-website-development", label: "WordPress" },
+    { href: "/en/services/ecommerce-store", label: "E-commerce" },
+    { href: "/en/services/website-maintenance", label: "Maintenance" },
+  ],
+  sr: [
+    { href: "/sr/usluge/html-css-js", label: "HTML / CSS / JS" },
+    { href: "/sr/usluge/react-nextjs", label: "React / Next.js" },
+    { href: "/sr/usluge/seo-optimization", label: "SEO optimizacija" },
+    { href: "/sr/usluge/wordpress-website-development", label: "WordPress" },
+    { href: "/sr/usluge/ecommerce-store", label: "E-commerce" },
+    { href: "/sr/usluge/website-maintenance", label: "Održavanje" },
+  ],
+};
+
 const NAV = {
   en: {
     home: "/en",
     links: [
       { href: "/en", label: "Home" },
       { href: "/en/projects", label: "Projects" },
-      { href: "/en/services", label: "Services" },
+      { href: "/en/services", label: "Services", subitems: SERVICE_SUBITEMS.en },
       { href: "/en/process", label: "Process" },
       { href: "/en/blog", label: "Blog" },
       { href: "/en/contact", label: "Contact" },
@@ -23,7 +42,7 @@ const NAV = {
     links: [
       { href: "/sr", label: "Početna" },
       { href: "/sr/projekti", label: "Projekti" },
-      { href: "/sr/usluge", label: "Usluge" },
+      { href: "/sr/usluge", label: "Usluge", subitems: SERVICE_SUBITEMS.sr },
       { href: "/sr/proces", label: "Proces" },
       { href: "/sr/blog", label: "Blog" },
       { href: "/sr/kontakt", label: "Kontakt" },
@@ -112,11 +131,27 @@ export default function PublicHeader({ lang }) {
 
         {/* Desktop nav */}
         <nav className={styles.nav}>
-          {links.map((link) => (
-            <Link key={link.href} href={link.href} className={styles.navLink}>
-              {link.label}
-            </Link>
-          ))}
+          {links.map((link) =>
+            link.subitems ? (
+              <div key={link.href} className={styles.navDropdown}>
+                <Link href={link.href} className={styles.navLink}>
+                  {link.label}
+                  <span className={styles.dropdownCaret} aria-hidden="true">▾</span>
+                </Link>
+                <div className={styles.dropdownMenu}>
+                  {link.subitems.map((sub) => (
+                    <Link key={sub.href} href={sub.href} className={styles.dropdownItem}>
+                      {sub.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <Link key={link.href} href={link.href} className={styles.navLink}>
+                {link.label}
+              </Link>
+            )
+          )}
           {switchHref && switchLabel && (
             <Link href={switchHref} className={styles.langSwitch}>
               {switchLabel}
@@ -148,14 +183,29 @@ export default function PublicHeader({ lang }) {
         >
           <nav className={styles.mobileNav}>
             {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={styles.mobileNavLink}
-                onClick={() => setMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
+              <div key={link.href} className={styles.mobileNavGroup}>
+                <Link
+                  href={link.href}
+                  className={styles.mobileNavLink}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+                {link.subitems && (
+                  <div className={styles.mobileSubitems}>
+                    {link.subitems.map((sub) => (
+                      <Link
+                        key={sub.href}
+                        href={sub.href}
+                        className={styles.mobileSubLink}
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
             {switchHref && switchLabel && (
               <Link

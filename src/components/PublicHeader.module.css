@@ -102,6 +102,69 @@
   width: calc(100% - 28px);
 }
 
+/* ── Services dropdown ── */
+
+.navDropdown {
+  position: relative;
+}
+
+.dropdownCaret {
+  display: inline-block;
+  font-size: 10px;
+  margin-left: 3px;
+  opacity: 0.6;
+  transition: transform 0.2s ease;
+  vertical-align: middle;
+}
+
+.navDropdown:hover .dropdownCaret {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 210px;
+  background: rgba(10, 10, 20, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 12px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-4px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  z-index: 200;
+}
+
+.navDropdown:hover .dropdownMenu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdownItem {
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: #94a3b8;
+  font-size: 13.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.dropdownItem:hover {
+  color: #f1f5f9;
+  background: rgba(59, 130, 246, 0.1);
+}
+
 .langSwitch {
   margin-left: 8px;
   padding: 4px 11px !important;
@@ -244,6 +307,38 @@
 .mobileNavLink:hover {
   color: #f1f5f9;
   background: rgba(59, 130, 246, 0.08);
+}
+
+.mobileNavGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobileSubitems {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 6px;
+  padding: 0 8px 8px;
+  width: 100%;
+}
+
+.mobileSubLink {
+  padding: 6px 14px;
+  border-radius: 8px;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 500;
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.12);
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.mobileSubLink:hover {
+  color: #94a3b8;
+  background: rgba(59, 130, 246, 0.1);
 }
 
 .mobileLangSwitch {
