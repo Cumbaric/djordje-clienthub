@@ -77,17 +77,22 @@ export default async function sitemap() {
     }),
   );
 
-  const publishedPosts = await db
-    .select({ slug: blogPosts.slug })
-    .from(blogPosts)
-    .where(eq(blogPosts.status, "published"));
+  let blogPostPages = [];
+  try {
+    const publishedPosts = await db
+      .select({ slug: blogPosts.slug })
+      .from(blogPosts)
+      .where(eq(blogPosts.status, "published"));
 
-  const blogPostPages = publishedPosts.flatMap((post) =>
-    bilingualEntries(`/en/blog/${post.slug}`, `/sr/blog/${post.slug}`, {
-      priority: 0.7,
-      changeFrequency: "monthly",
-    }),
-  );
+    blogPostPages = publishedPosts.flatMap((post) =>
+      bilingualEntries(`/en/blog/${post.slug}`, `/sr/blog/${post.slug}`, {
+        priority: 0.7,
+        changeFrequency: "monthly",
+      }),
+    );
+  } catch {
+    // DB unavailable at build time — blog post URLs excluded from sitemap
+  }
 
   return [...staticPages, ...projectPages, ...servicePages, ...blogPostPages];
 }
