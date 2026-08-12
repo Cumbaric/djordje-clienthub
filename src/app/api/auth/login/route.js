@@ -1,13 +1,23 @@
 import { NextResponse } from "next/server";
 
+// Svaki dodatni admin nalog je poseban par env varijabli:
+// CLIENTHUB_LOGIN_USERNAME/PASSWORD, CLIENTHUB_LOGIN_USERNAME_2/PASSWORD_2, itd.
+const credentialPairs = [
+  ["CLIENTHUB_LOGIN_USERNAME", "CLIENTHUB_LOGIN_PASSWORD"],
+  ["CLIENTHUB_LOGIN_USERNAME_2", "CLIENTHUB_LOGIN_PASSWORD_2"],
+]
+  .map(([userKey, passKey]) => ({
+    username: process.env[userKey],
+    password: process.env[passKey],
+  }))
+  .filter((pair) => pair.username && pair.password);
+
 export async function POST(request) {
   try {
     // 1. Pročitaj env vrednosti
-    const envUsername = process.env.CLIENTHUB_LOGIN_USERNAME;
-    const envPassword = process.env.CLIENTHUB_LOGIN_PASSWORD;
     const cookieName = process.env.CLIENTHUB_AUTH_COOKIE;
 
-    if (!envUsername || !envPassword || !cookieName) {
+    if (credentialPairs.length === 0 || !cookieName) {
       return NextResponse.json(
         { error: "Server configuration error." },
         { status: 500 },
@@ -25,8 +35,12 @@ export async function POST(request) {
       );
     }
 
-    // 3. Proveri credentials
-    if (username !== envUsername || password !== envPassword) {
+    // 3. Proveri credentials protiv svih naloga
+    const isValid = credentialPairs.some(
+      (pair) => username === pair.username && password === pair.password,
+    );
+
+    if (!isValid) {
       return NextResponse.json(
         { error: "Invalid credentials." },
         { status: 401 },
