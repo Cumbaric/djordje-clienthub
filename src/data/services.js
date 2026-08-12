@@ -338,7 +338,7 @@ export const services = [
     faq: [
       {
         q: "Da li ću biti #1 na Google-u?",
-        a: "Niko ne može pošteno da garantuje pozicije. Ono što garantujem je tehnički ispravan, dobro strukturisan sajt koji tvom sadržaju daje najbolju moguću šansu da rangira.",
+        a: "Niko ne može pošteno da garantuje pozicije. Ono što garantujemo je tehnički ispravan, dobro strukturisan sajt koji tvom sadržaju daje najbolju moguću šansu da rangira.",
       },
       {
         q: "Kada ću videti rezultate?",
@@ -346,13 +346,13 @@ export const services = [
       },
       {
         q: "Da li je uključeno pisanje sadržaja?",
-        a: "Ova usluga je fokusirana na strukturu i on-page optimizaciju. Mogu da savetujem oko sadržaja, ali kompletan copywriting se dogovara posebno.",
+        a: "Ova usluga je fokusirana na strukturu i on-page optimizaciju. Možemo da savetujemo oko sadržaja, ali kompletan copywriting se dogovara posebno.",
       },
     ],
     faqEn: [
       {
         q: "Will I rank #1 on Google?",
-        a: "No one can honestly promise rankings. What I guarantee is a technically sound, well-structured site that gives your content the best possible chance to rank.",
+        a: "No one can honestly promise rankings. What we guarantee is a technically sound, well-structured site that gives your content the best possible chance to rank.",
       },
       {
         q: "How soon will I see results?",
@@ -360,7 +360,7 @@ export const services = [
       },
       {
         q: "Does this include content writing?",
-        a: "This service focuses on structure and on-page optimization. I can advise on content, but full copywriting can be scoped separately.",
+        a: "This service focuses on structure and on-page optimization. We can advise on content, but full copywriting can be scoped separately.",
       },
     ],
     technologies: ["Yoast SEO", "Google Search Console", "Site Kit", "Content structure"],
@@ -460,29 +460,29 @@ export const services = [
     faq: [
       {
         q: "Mogu li sam da ažuriram sajt?",
-        a: "Da — to je ključna prednost WordPress-a. Posle predaje menjaš tekst, slike i stranice kroz jednostavan panel, a pokazaću ti kako.",
+        a: "Da — to je ključna prednost WordPress-a. Posle predaje menjaš tekst, slike i stranice kroz jednostavan panel, a pokazaćemo ti kako.",
       },
       {
         q: "WordPress ili custom kod — šta je bolje za mene?",
-        a: "WordPress je idealan kada želiš lako samostalno upravljanje i brzu isporuku. Custom kod odgovara jedinstvenom dizajnu ili posebnim funkcionalnostima. Preporučiću iskreno prema projektu.",
+        a: "WordPress je idealan kada želiš lako samostalno upravljanje i brzu isporuku. Custom kod odgovara jedinstvenom dizajnu ili posebnim funkcionalnostima. Preporučićemo iskreno prema projektu.",
       },
       {
         q: "Da li podešavaš hosting i domen?",
-        a: "Mogu da vodim ili odradim podešavanje. Vlasništvo nad hosting i domen nalozima ostaje tvoje.",
+        a: "Možemo da vodimo ili odradimo podešavanje. Vlasništvo nad hosting i domen nalozima ostaje tvoje.",
       },
     ],
     faqEn: [
       {
         q: "Can I update the site myself?",
-        a: "Yes — that's a key benefit of WordPress. After handover you can edit text, images and pages through a simple dashboard, and I'll show you how.",
+        a: "Yes — that's a key benefit of WordPress. After handover you can edit text, images and pages through a simple dashboard, and we'll show you how.",
       },
       {
         q: "WordPress or custom code — which is better for me?",
-        a: "WordPress is ideal when you want easy self-management and fast delivery. Custom code suits unique designs or special functionality. I'll recommend honestly based on your project.",
+        a: "WordPress is ideal when you want easy self-management and fast delivery. Custom code suits unique designs or special functionality. We'll recommend honestly based on your project.",
       },
       {
         q: "Do you set up hosting and domain?",
-        a: "I can guide or handle the setup. You keep ownership of your hosting and domain accounts.",
+        a: "We can guide or handle the setup. You keep ownership of your hosting and domain accounts.",
       },
     ],
     technologies: ["WordPress", "Elementor", "HTML", "CSS", "Yoast SEO"],
@@ -708,11 +708,11 @@ export const services = [
       },
       {
         q: "Održavaš li sajtove koje nisi ti pravio?",
-        a: "Da — redovno preuzimam postojeće WordPress sajtove. Prvi korak je kratak pregled trenutnog stanja.",
+        a: "Da — redovno preuzimamo postojeće WordPress sajtove. Prvi korak je kratak pregled trenutnog stanja.",
       },
       {
         q: "Šta ako mi je sajt trenutno pao?",
-        a: "Pošalji mi poruku sa opisom problema. Hitne ispravke imaju prioritet i javiću ti šta je potrebno.",
+        a: "Pošalji nam poruku sa opisom problema. Hitne ispravke imaju prioritet i javićemo ti šta je potrebno.",
       },
     ],
     faqEn: [
@@ -722,11 +722,11 @@ export const services = [
       },
       {
         q: "Do you maintain sites you didn't build?",
-        a: "Yes — I regularly take over existing WordPress sites. The first step is a short review to understand the current setup.",
+        a: "Yes — we regularly take over existing WordPress sites. The first step is a short review to understand the current setup.",
       },
       {
         q: "What if my site is down right now?",
-        a: "Send me a message describing the issue. Urgent fixes are prioritized and I'll let you know what's involved.",
+        a: "Send us a message describing the issue. Urgent fixes are prioritized and we'll let you know what's involved.",
       },
     ],
     technologies: ["WordPress", "Plugins", "CSS", "Performance optimization"],

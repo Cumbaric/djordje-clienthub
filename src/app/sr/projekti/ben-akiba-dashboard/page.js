@@ -191,11 +191,11 @@ export default function BenAkibaDashboardPage() {
           <h2>Treba ti custom admin dashboard?</h2>
           <p>
             Ako tvom timu treba praktican dashboard za dogadjaje, rezervacije,
-            klijente ili interne workflow-e, mogu da napravim web aplikaciju
+            klijente ili interne workflow-e, možemo da napravimo web aplikaciju
             prilagodjenu nacinu na koji posao stvarno funkcionise.
           </p>
           <div className="case-study-cta-actions">
-            <Link href="/sr/kontakt">Kontaktiraj me</Link>
+            <Link href="/sr/kontakt">Kontaktiraj nas</Link>
             <Link href="/sr/usluge" className="case-study-cta-secondary">
               Pogledaj usluge
             </Link>

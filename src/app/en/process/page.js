@@ -9,9 +9,9 @@ export const metadata = {
   description:
     "A clear, structured website development workflow — discovery, content planning, design direction, development, SEO setup, performance checks and final delivery.",
   openGraph: {
-    title: "Website Development Process | Đorđe Popović",
+    title: "Website Development Process | DWeb Solutions",
     description:
-      "How I build WordPress websites and Next.js applications — from discovery and planning through development and SEO to launch.",
+      "How we build WordPress websites and Next.js applications — from discovery and planning through development and SEO to launch.",
   },
   alternates: {
     canonical: "/en/process",
@@ -53,7 +53,7 @@ const steps = [
     icon: "design",
     title: "Design direction and UX flow",
     description:
-      "The visual direction should support usability. I focus on clean layouts, readable sections, clear calls to action and mobile-friendly structure.",
+      "The visual direction should support usability. We focus on clean layouts, readable sections, clear calls to action and mobile-friendly structure.",
     focus: [
       "Layout direction",
       "Visual hierarchy",
@@ -179,7 +179,7 @@ export default function ProcessPage() {
           </>
         }
       >
-        My process is focused on structure, clarity and practical execution. The
+        Our process is focused on structure, clarity and practical execution. The
         goal is to understand the project, define the right website structure,
         build clean pages and prepare the site for SEO, performance and future
         improvements.
@@ -192,7 +192,7 @@ export default function ProcessPage() {
           <section className="process-overview has-orb">
             <SectionOrb style={{ "--orb-top": "26px", "--orb-right": "44px" }} />
             <div className="process-overview-header">
-              <h2>How I approach every project</h2>
+              <h2>How we approach every project</h2>
               <p>
                 A consistent process keeps projects on track and delivers
                 predictable results.
@@ -268,11 +268,11 @@ export default function ProcessPage() {
             <SectionOrb style={{ "--orb-top": "30px", "--orb-right": "44px" }} />
             <h2>Ready to improve your website?</h2>
             <p>
-              Send me a short description of your website or project and I can
+              Send us a short description of your website or project and we can
               help you define the next practical step.
             </p>
             <div className="process-cta-actions">
-              <Link href="/en/contact">Contact me</Link>
+              <Link href="/en/contact">Contact us</Link>
               <Link href="/en/services" className="process-cta-secondary">
                 View services
               </Link>

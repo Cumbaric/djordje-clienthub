@@ -4,7 +4,7 @@ import { db } from "@/db";
 import { blogPosts } from "@/db/schema";
 import { eq } from "drizzle-orm";
 
-const BASE_URL = "https://djordjepopovic.com";
+const BASE_URL = "https://dwebsolutions.rs";
 
 function bilingualEntries(
   enPath,

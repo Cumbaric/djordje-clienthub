@@ -19,12 +19,12 @@ import JsonLd from "@/components/JsonLd";
 export const metadata = {
   title: {
     absolute:
-      "Đorđe Popović | Web Developer Belgrade — WordPress, Next.js & SEO",
+      "DWeb Solutions | Web Developer Belgrade — WordPress, Next.js & SEO",
   },
   description:
-    "Freelance web developer based in Belgrade, Serbia. Building WordPress websites, Next.js apps, WooCommerce stores and providing SEO optimization for small businesses.",
+    "Web development agency based in Belgrade, Serbia. Building WordPress websites, Next.js apps, WooCommerce stores and providing SEO optimization for small businesses.",
   openGraph: {
-    title: "Đorđe Popović | Web Developer Belgrade",
+    title: "DWeb Solutions | Web Developer Belgrade",
     description:
       "WordPress, Next.js, WooCommerce and SEO services for small businesses. Based in Belgrade, Serbia — working locally and worldwide.",
   },
@@ -56,7 +56,7 @@ export default function Home() {
          <HeroGlow /> 
         <div className={styles.heroGrid}>
           <div className={styles.heroContent}>
-            <p className={styles.eyebrow}>Freelance Web Developer</p>
+            <p className={styles.eyebrow}>Web Development Agency</p>
 
             <h1>{pos.headline}</h1>
 
@@ -68,7 +68,7 @@ export default function Home() {
               </Link>
 
               <Link href="/en/contact" className={styles.secondaryButton}>
-                Contact me
+                Contact us
               </Link>
             </div>
           </div>
@@ -97,15 +97,15 @@ export default function Home() {
                 "--orb-travel": "-340px",
               }}
             />
-            <p className={styles.sectionLabel}>About Me</p>
+            <p className={styles.sectionLabel}>About Us</p>
             <h2 className={styles.aboutHeading}>
-              About Đorđe{" "}
-              <span className={styles.aboutHeadingAccent}>Popović</span>
+              About{" "}
+              <span className={styles.aboutHeadingAccent}>DWeb Solutions</span>
             </h2>
             <p className={styles.aboutDesc}>
-              Web developer focused on clean structure, SEO foundations and
-              practical user experience — helping small businesses build a
-              better online presence.
+              A web development agency focused on clean structure, SEO
+              foundations and practical user experience — helping small
+              businesses build a better online presence.
             </p>
             <blockquote className={styles.aboutQuote}>
               {pos.extendedDescription}
@@ -283,7 +283,7 @@ export default function Home() {
           />
           <SectionHeader
             label="Services"
-            title="Services I can offer clients"
+            title="Services we can offer clients"
             link={{ href: "/en/services", text: "View services" }}
           />
 
@@ -419,9 +419,9 @@ export default function Home() {
       <CTASection
         eyebrow="Contact"
         title="Start your project — a website built around your needs"
-        action={{ href: "/en/contact", text: "Contact me" }}
+        action={{ href: "/en/contact", text: "Contact us" }}
       >
-        Send me a message with a brief project description, your current
+        Send us a message with a brief project description, your current
         problem, or the goal you want to achieve.
       </CTASection>
       </RevealSection>

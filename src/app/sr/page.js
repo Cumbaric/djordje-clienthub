@@ -19,14 +19,14 @@ import JsonLd from "@/components/JsonLd";
 export const metadata = {
   title: {
     absolute:
-      "Đorđe Popović | Web developer Beograd — WordPress, Next.js i SEO",
+      "DWeb Solutions | Web developer Beograd — WordPress, Next.js i SEO",
   },
   description:
-    "Freelance web developer iz Beograda — izrada WordPress sajtova, Next.js aplikacija, WooCommerce prodavnica i SEO optimizacija za male biznise u Srbiji.",
+    "Web development agencija iz Beograda — izrada WordPress sajtova, Next.js aplikacija, WooCommerce prodavnica i SEO optimizacija za male biznise u Srbiji.",
   openGraph: {
-    title: "Đorđe Popović | Web developer Beograd",
+    title: "DWeb Solutions | Web developer Beograd",
     description:
-      "WordPress, Next.js, WooCommerce i SEO usluge za male biznise. Iz Beograda, Srbija — radim lokalno i globalno.",
+      "WordPress, Next.js, WooCommerce i SEO usluge za male biznise. Iz Beograda, Srbija — radimo lokalno i globalno.",
   },
   alternates: {
     canonical: "/sr",
@@ -56,7 +56,7 @@ export default function Home() {
         <HeroGlow />
         <div className={styles.heroGrid}>
           <div className={styles.heroContent}>
-            <p className={styles.eyebrow}>Freelance Web Developer</p>
+            <p className={styles.eyebrow}>Web Development Agency</p>
 
             <h1>{pos.headline}</h1>
 
@@ -97,15 +97,15 @@ export default function Home() {
                 "--orb-travel": "-340px",
               }}
             />
-            <p className={styles.sectionLabel}>O meni</p>
+            <p className={styles.sectionLabel}>O nama</p>
             <h2 className={styles.aboutHeading}>
-              O Đorđu{" "}
-              <span className={styles.aboutHeadingAccent}>Popoviću</span>
+              O{" "}
+              <span className={styles.aboutHeadingAccent}>DWeb Solutions</span>
             </h2>
             <p className={styles.aboutDesc}>
-              Web developer fokusiran na čistu strukturu, SEO osnovu i
-              praktično korisničko iskustvo — pomažem malim biznisima da
-              izgrade bolji digitalni nastup.
+              Agencija za web razvoj fokusirana na čistu strukturu, SEO
+              osnovu i praktično korisničko iskustvo — pomažemo malim
+              biznisima da izgrade bolji digitalni nastup.
             </p>
             <blockquote className={styles.aboutQuote}>
               {pos.extendedDescription}
@@ -283,7 +283,7 @@ export default function Home() {
           />
           <SectionHeader
             label="Usluge"
-            title="Usluge koje mogu da ponudim klijentima"
+            title="Usluge koje možemo da ponudimo klijentima"
             link={{ href: "/sr/usluge", text: "Pogledaj web usluge" }}
           />
 
@@ -416,9 +416,9 @@ export default function Home() {
       <CTASection
         eyebrow="Kontakt"
         title="Pokreni projekat — izrada sajta po tvojoj meri"
-        action={{ href: "/sr/kontakt", text: "Kontaktiraj me" }}
+        action={{ href: "/sr/kontakt", text: "Kontaktiraj nas" }}
       >
-        Pošalji mi poruku sa kratkim opisom projekta, trenutnim problemom ili
+        Pošalji nam poruku sa kratkim opisom projekta, trenutnim problemom ili
         ciljem koji želiš da postigneš.
       </CTASection>
       </RevealSection>

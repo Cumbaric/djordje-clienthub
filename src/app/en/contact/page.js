@@ -7,13 +7,13 @@ import ContactForm from "@/components/ContactForm";
 import { contactEmail, socialLinks } from "@/data/contact";
 
 export const metadata = {
-  title: "Contact — Hire a Web Developer in Belgrade",
+  title: "Contact — Hire a Web Development Agency in Belgrade",
   description:
-    "Get in touch to discuss your website, WordPress project, WooCommerce store, SEO or Next.js app. Freelance web developer based in Belgrade, Serbia.",
+    "Get in touch to discuss your website, WordPress project, WooCommerce store, SEO or Next.js app. Web development agency based in Belgrade, Serbia.",
   openGraph: {
-    title: "Contact Đorđe Popović | Web Developer Belgrade",
+    title: "Contact DWeb Solutions | Web Developer Belgrade",
     description:
-      "Hire a freelance web developer in Belgrade for WordPress, Next.js, WooCommerce or SEO. Send a short project overview to get started.",
+      "Hire a web development agency in Belgrade for WordPress, Next.js, WooCommerce or SEO. Send a short project overview to get started.",
   },
   alternates: {
     canonical: "/en/contact",
@@ -108,10 +108,10 @@ const fitItems = [
 ];
 
 const nextSteps = [
-  "I review your message and project context",
-  "I identify the most practical next step",
+  "We review your message and project context",
+  "We identify the most practical next step",
   "We clarify scope, priorities and timeline",
-  "I suggest a clear direction or implementation plan",
+  "We suggest a clear direction or implementation plan",
 ];
 
 export default function ContactPage() {
@@ -123,7 +123,7 @@ export default function ContactPage() {
         actions={
           <>
             <a href={`mailto:${contactEmail}`} className="hero-action-primary">
-              Email me
+              Email us
             </a>
             <Link href="/en/services" className="hero-action-secondary">
               View services
@@ -132,7 +132,7 @@ export default function ContactPage() {
         }
       >
         Whether you need a custom-coded website, a WordPress site, better
-        structure, SEO-focused improvements or a practical web workflow, send me
+        structure, SEO-focused improvements or a practical web workflow, send us
         a short overview of your project.
       </PageHero>
 
@@ -188,7 +188,7 @@ export default function ContactPage() {
               <div className="contact-inquiry-left">
                 <h2>What to include in your message</h2>
                 <p>
-                  A short, clear project overview helps me understand the
+                  A short, clear project overview helps us understand the
                   situation and suggest the most practical next step quickly.
                 </p>
               </div>
@@ -203,10 +203,10 @@ export default function ContactPage() {
           </section>
         </RevealSection>
 
-        {/* 4. What I can help with */}
+        {/* 4. What we can help with */}
         <RevealSection delay={0.05}>
           <section className="contact-fit-section">
-            <h2 className="section-title">What I can help with</h2>
+            <h2 className="section-title">What we can help with</h2>
             <div className="contact-fit-grid">
               {fitItems.map((item) => (
                 <div key={item.title} className="contact-fit-card">
@@ -244,11 +244,11 @@ export default function ContactPage() {
             <SectionOrb style={{ "--orb-top": "30px", "--orb-right": "44px" }} />
             <h2>Ready to define the next step?</h2>
             <p>
-              Send me a short message with your website goal and I will help you
+              Send us a short message with your website goal and we will help you
               turn it into a practical plan.
             </p>
             <div className="contact-cta-actions">
-              <a href={`mailto:${contactEmail}`}>Email me</a>
+              <a href={`mailto:${contactEmail}`}>Email us</a>
               <Link href="/en/services" className="contact-cta-secondary">
                 View services
               </Link>

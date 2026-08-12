@@ -196,7 +196,7 @@ export default function WellnessConceptCaseStudyPage() {
         <h2>Treba ti slično WordPress unapređenje?</h2>
         <p>
           Ako tvom sajtu treba jasnija struktura, bolja prezentacija usluga ili
-          SEO-focused unapređenje, mogu da ti pomognem da definišemo sledeći
+          SEO-focused unapređenje, možemo da ti pomognemo da definišemo sledeći
           praktičan korak.
         </p>
         <div className="case-study-cta-actions">

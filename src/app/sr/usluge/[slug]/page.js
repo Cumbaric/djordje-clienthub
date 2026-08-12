@@ -8,9 +8,9 @@ import { services } from "@/data/services";
 import styles from "./service-detail.module.css";
 
 function parsePrice(str) {
-  const m = str?.match(/([€$£])(\d+)/);
+  const m = str?.match(/([â‚¬$Â£])(\d+)/);
   if (!m) return null;
-  return { price: m[2], currency: { "€": "EUR", "$": "USD", "£": "GBP" }[m[1]] ?? "EUR" };
+  return { price: m[2], currency: { "â‚¬": "EUR", "$": "USD", "Â£": "GBP" }[m[1]] ?? "EUR" };
 }
 
 export function generateStaticParams() {
@@ -23,16 +23,16 @@ const seoTitlesSr = {
   "seo-optimization": "SEO optimizacija sajta Beograd",
   "wordpress-website-development": "Izrada WordPress sajta Beograd",
   "ecommerce-store": "Izrada WooCommerce prodavnice Beograd",
-  "website-maintenance": "Održavanje WordPress sajta Beograd",
+  "website-maintenance": "OdrÅ¾avanje WordPress sajta Beograd",
 };
 
 const seoDescriptionsSr = {
-  "html-css-js": "Izrada sajtova i landing stranica u HTML, CSS i JavaScript kodu iz Beograda. Brzo, lagano, piksel-precizno — bez frameworka i CMS-a.",
-  "react-nextjs": "Razvoj custom React i Next.js web aplikacija u Beogradu — dashboard-i, interni alati i MVP-ovi za male biznise i startupe.",
-  "seo-optimization": "On-page i tehnička SEO optimizacija za sajtove u Beogradu i Srbiji. Indeksiranje, heading struktura i meta opisi za bolje rangiranje na Google-u.",
+  "html-css-js": "Izrada sajtova i landing stranica u HTML, CSS i JavaScript kodu iz Beograda. Brzo, lagano, piksel-precizno â€” bez frameworka i CMS-a.",
+  "react-nextjs": "Razvoj custom React i Next.js web aplikacija u Beogradu â€” dashboard-i, interni alati i MVP-ovi za male biznise i startupe.",
+  "seo-optimization": "On-page i tehniÄka SEO optimizacija za sajtove u Beogradu i Srbiji. Indeksiranje, heading struktura i meta opisi za bolje rangiranje na Google-u.",
   "wordpress-website-development": "Izrada WordPress sajtova za male biznise i lokalne kompanije u Beogradu. Elementor dizajn, SEO priprema, responsive i jednostavno upravljanje.",
-  "ecommerce-store": "Izrada WooCommerce online prodavnice u Beogradu — struktura kategorija i proizvoda, SEO-optimizovane stranice i checkout podešavanje.",
-  "website-maintenance": "Održavanje i tehnička podrška za WordPress sajtove u Beogradu — ažuriranje sadržaja, plugini, rešavanje problema i redovna briga.",
+  "ecommerce-store": "Izrada WooCommerce online prodavnice u Beogradu â€” struktura kategorija i proizvoda, SEO-optimizovane stranice i checkout podeÅ¡avanje.",
+  "website-maintenance": "OdrÅ¾avanje i tehniÄka podrÅ¡ka za WordPress sajtove u Beogradu â€” aÅ¾uriranje sadrÅ¾aja, plugini, reÅ¡avanje problema i redovna briga.",
 };
 
 export async function generateMetadata({ params }) {
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }) {
   const service = services.find((s) => s.slug === slug);
   if (!service) return {};
   return {
-    title: seoTitlesSr[slug] ?? `${service.title} — Usluge`,
+    title: seoTitlesSr[slug] ?? `${service.title} â€” Usluge`,
     description: seoDescriptionsSr[slug] ?? service.description,
     alternates: {
       canonical: `/sr/usluge/${service.slug}`,
@@ -64,7 +64,7 @@ export default async function ServiceDetailPage({ params }) {
     "@type": "Service",
     "name": service.title,
     "description": service.description,
-    "provider": { "@id": "https://djordjepopovic.com/#organization" },
+    "provider": { "@id": "https://dwebsolutions.rs/#organization" },
     "areaServed": "Worldwide",
     ...(parsedPrice && {
       "offers": {
@@ -80,9 +80,9 @@ export default async function ServiceDetailPage({ params }) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Početna", "item": "https://djordjepopovic.com/sr" },
-      { "@type": "ListItem", "position": 2, "name": "Usluge", "item": "https://djordjepopovic.com/sr/usluge" },
-      { "@type": "ListItem", "position": 3, "name": service.title, "item": `https://djordjepopovic.com/sr/usluge/${service.slug}` },
+      { "@type": "ListItem", "position": 1, "name": "PoÄetna", "item": "https://dwebsolutions.rs/sr" },
+      { "@type": "ListItem", "position": 2, "name": "Usluge", "item": "https://dwebsolutions.rs/sr/usluge" },
+      { "@type": "ListItem", "position": 3, "name": service.title, "item": `https://dwebsolutions.rs/sr/usluge/${service.slug}` },
     ],
   };
 
@@ -108,10 +108,10 @@ export default async function ServiceDetailPage({ params }) {
       <div className={styles.wrapper}>
         <div className={styles.inner}>
 
-          {/* Meta bar — kategorija · rok · cena */}
+          {/* Meta bar â€” kategorija Â· rok Â· cena */}
           <div className={styles.metaBar}>
             <span className={styles.category}>{service.category}</span>
-            <span className={styles.metaItem}>⏱ {service.timeline}</span>
+            <span className={styles.metaItem}>â± {service.timeline}</span>
             <span className={styles.metaPrice}>Od {service.priceFrom}</span>
           </div>
 
@@ -134,7 +134,7 @@ export default async function ServiceDetailPage({ params }) {
               <ul className={styles.idealList}>
                 {service.idealFor.map((item) => (
                   <li key={item} className={styles.idealItem}>
-                    <span className={styles.idealMarker} aria-hidden="true">▸</span>
+                    <span className={styles.idealMarker} aria-hidden="true">â–¸</span>
                     {item}
                   </li>
                 ))}
@@ -142,14 +142,14 @@ export default async function ServiceDetailPage({ params }) {
             </section>
           </RevealSection>
 
-          {/* Šta je uključeno */}
+          {/* Å ta je ukljuÄeno */}
           <RevealSection delay={0.05}>
             <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Šta je uključeno</h2>
+              <h2 className={styles.sectionTitle}>Å ta je ukljuÄeno</h2>
               <ul className={styles.includesList}>
                 {service.includes.map((item) => (
                   <li key={item} className={styles.includesItem}>
-                    <span className={styles.checkIcon} aria-hidden="true">✓</span>
+                    <span className={styles.checkIcon} aria-hidden="true">âœ“</span>
                     {item}
                   </li>
                 ))}
@@ -206,7 +206,7 @@ export default async function ServiceDetailPage({ params }) {
 
           {/* Nazad */}
           <Link href="/sr/usluge" className={styles.backLink}>
-            ← Sve usluge
+            â† Sve usluge
           </Link>
 
         </div>
@@ -215,9 +215,9 @@ export default async function ServiceDetailPage({ params }) {
       <CTASection
         eyebrow="Kontakt"
         title="Zainteresovan za ovu uslugu?"
-        action={{ href: "/sr/kontakt", text: "Kontaktiraj me" }}
+        action={{ href: "/sr/kontakt", text: "Kontaktiraj nas" }}
       >
-        Pošalji mi poruku sa kratkim opisom projekta i javiću ti se.
+        PoÅ¡alji nam poruku sa kratkim opisom projekta i javiÄ‡emo ti se.
       </CTASection>
     </main>
   );

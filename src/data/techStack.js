@@ -22,7 +22,7 @@ export const techStackContent = {
     eyebrow: "Skills & Tools",
     title: "A practical stack for WordPress, SEO and modern web workflows",
     description:
-      "My work combines WordPress development, clean frontend implementation, SEO fundamentals and AI-assisted development workflows.",
+      "Our work combines WordPress development, clean frontend implementation, SEO fundamentals and AI-assisted development workflows.",
     groups: [
       {
         title: "WordPress Development",
@@ -84,7 +84,7 @@ export const techStackContent = {
     eyebrow: "Veštine i alati",
     title: "Praktičan stack za WordPress, SEO i moderne web workflow-e",
     description:
-      "Moj rad kombinuje WordPress razvoj, čist frontend, SEO osnovu i AI-assisted workflow za bržu i organizovaniju izradu.",
+      "Naš rad kombinuje WordPress razvoj, čist frontend, SEO osnovu i AI-assisted workflow za bržu i organizovaniju izradu.",
     groups: [
       {
         title: "WordPress razvoj",

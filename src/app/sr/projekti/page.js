@@ -6,11 +6,11 @@ import { PROJECT_CATEGORIES, getProjectsByCategory } from "@/data/projects";
 export const metadata = {
   title: "WordPress, Next.js i WooCommerce projekti",
   description:
-    "Odabrani web projekti — WordPress sajtovi, WooCommerce prodavnice, Next.js aplikacije i custom landing stranice. Freelance web developer iz Beograda, Srbija.",
+    "Odabrani web projekti — WordPress sajtovi, WooCommerce prodavnice, Next.js aplikacije i custom landing stranice. Web development agencija iz Beograda, Srbija.",
   openGraph: {
-    title: "Portfolio projekata | Đorđe Popović",
+    title: "Portfolio projekata | DWeb Solutions",
     description:
-      "WordPress, WooCommerce, Next.js i HTML/CSS projekti freelance web developera iz Beograda.",
+      "WordPress, WooCommerce, Next.js i HTML/CSS projekti web development agencije iz Beograda.",
   },
   alternates: {
     canonical: "/sr/projekti",
@@ -116,7 +116,7 @@ export default function ProjektiPage() {
           <h2>Želiš sličan projekat?</h2>
           <p>
             Ako ti treba pregledniji WordPress sajt, bolja struktura ili praktičan
-            interni workflow, pošalji mi kratak opis projekta.
+            interni workflow, pošalji nam kratak opis projekta.
           </p>
           <div className="projects-cta-actions">
             <Link href="/sr/kontakt">Kontakt</Link>

@@ -25,7 +25,7 @@ const SUBJECTS_SR = [
 
 const t = {
   en: {
-    heading: "Send me a message",
+    heading: "Send us a message",
     name: "Your name",
     email: "Your email",
     subject: "Subject (optional)",
@@ -37,12 +37,12 @@ const t = {
     sending: "Sending...",
     successHeading: "Message sent!",
     successText:
-      "Thank you for reaching out. I will review your message and get back to you within 1–2 business days.",
-    errorFallback: "Something went wrong. You can also reach me at",
+      "Thank you for reaching out. We will review your message and get back to you within 1–2 business days.",
+    errorFallback: "Something went wrong. You can also reach us at",
     subjects: SUBJECTS_EN,
   },
   sr: {
-    heading: "Pošalji mi poruku",
+    heading: "Pošalji nam poruku",
     name: "Tvoje ime",
     email: "Tvoj email",
     subject: "Tema (opciono)",
@@ -54,8 +54,8 @@ const t = {
     sending: "Šaljem...",
     successHeading: "Poruka poslata!",
     successText:
-      "Hvala ti na poruci. Pregledam je i javljam se u roku od 1–2 radna dana.",
-    errorFallback: "Nešto nije prošlo kako treba. Možeš me kontaktirati na",
+      "Hvala ti na poruci. Pregledamo je i javljamo se u roku od 1–2 radna dana.",
+    errorFallback: "Nešto nije prošlo kako treba. Možeš nas kontaktirati na",
     subjects: SUBJECTS_SR,
   },
 };

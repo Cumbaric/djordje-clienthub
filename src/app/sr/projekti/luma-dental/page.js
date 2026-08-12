@@ -7,9 +7,9 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Početna", "item": "https://djordjepopovic.com/sr" },
-    { "@type": "ListItem", "position": 2, "name": "Projekti", "item": "https://djordjepopovic.com/sr/projekti" },
-    { "@type": "ListItem", "position": 3, "name": "Luma Dental", "item": "https://djordjepopovic.com/sr/projekti/luma-dental" },
+    { "@type": "ListItem", "position": 1, "name": "Početna", "item": "https://dwebsolutions.rs/sr" },
+    { "@type": "ListItem", "position": 2, "name": "Projekti", "item": "https://dwebsolutions.rs/sr/projekti" },
+    { "@type": "ListItem", "position": 3, "name": "Luma Dental", "item": "https://dwebsolutions.rs/sr/projekti/luma-dental" },
   ],
 };
 
@@ -221,7 +221,7 @@ export default function LumaDentalCaseStudyPage() {
           <h2>Treba ti Next.js sajt za ordinaciju ili uslužni biznis?</h2>
           <p>
             Ako ti treba čist, pouzdan sajt koji jasno predstavlja usluge,
-            prikazuje tim i olakšava klijentima zakazivanje — mogu da ti pomognem
+            prikazuje tim i olakšava klijentima zakazivanje — možemo da ti pomognemo
             da ga dizajniramo i izgradimo.
           </p>
           <div className="case-study-cta-actions">

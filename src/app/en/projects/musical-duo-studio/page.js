@@ -7,9 +7,9 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://djordjepopovic.com/en" },
-    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://djordjepopovic.com/en/projects" },
-    { "@type": "ListItem", "position": 3, "name": "Musical Duo Studio", "item": "https://djordjepopovic.com/en/projects/musical-duo-studio" },
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dwebsolutions.rs/en" },
+    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://dwebsolutions.rs/en/projects" },
+    { "@type": "ListItem", "position": 3, "name": "Musical Duo Studio", "item": "https://dwebsolutions.rs/en/projects/musical-duo-studio" },
   ],
 };
 
@@ -219,11 +219,11 @@ export default function MusicalDuoStudioCaseStudyPage() {
           <h2>Need a WordPress website for your studio or creative business?</h2>
           <p>
             If you need a professional website that communicates quality, builds
-            trust and makes it easy for new clients to reach you, I can help
+            trust and makes it easy for new clients to reach you, we can help
             you define the right approach.
           </p>
           <div className="case-study-cta-actions">
-            <Link href="/en/contact">Contact me</Link>
+            <Link href="/en/contact">Contact us</Link>
             <Link href="/en/services" className="case-study-cta-secondary">
               View services
             </Link>

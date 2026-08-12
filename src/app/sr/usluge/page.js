@@ -8,9 +8,9 @@ export const metadata = {
   description:
     "Usluge web razvoja u Beogradu — HTML/CSS/JS, WordPress sajtovi, React i Next.js aplikacije, WooCommerce prodavnice, SEO optimizacija i održavanje.",
   openGraph: {
-    title: "Usluge web razvoja | Đorđe Popović",
+    title: "Usluge web razvoja | DWeb Solutions",
     description:
-      "WordPress, Next.js, WooCommerce, SEO i HTML/CSS razvoj. Freelance web developer iz Beograda, Srbija.",
+      "WordPress, Next.js, WooCommerce, SEO i HTML/CSS razvoj. Web development agencija iz Beograda, Srbija.",
   },
   alternates: {
     canonical: "/sr/usluge",
@@ -114,7 +114,7 @@ export default function UslugePage() {
         actions={
           <>
             <Link href="/sr/kontakt" className="hero-action-primary">
-              Kontaktiraj me
+              Kontaktiraj nas
             </Link>
             <Link href="/sr/projekti" className="hero-action-secondary">
               Pogledaj projekte
@@ -122,7 +122,7 @@ export default function UslugePage() {
           </>
         }
       >
-        Pomažem malim biznisima, uslužnim delatnostima i content projektima da
+        Pomažemo malim biznisima, uslužnim delatnostima i content projektima da
         naprave preglednije, brže i bolje strukturisane sajtove kroz WordPress,
         Elementor, WooCommerce, SEO osnovu i AI-assisted workflow.
       </PageHero>
@@ -132,10 +132,10 @@ export default function UslugePage() {
         {/* 2. Intro / pozicioniranje */}
         <RevealSection>
           <section className="services-intro">
-            <p className="services-intro-label">Šta radim</p>
+            <p className="services-intro-label">Šta radimo</p>
             <h2>Praktične web usluge za male biznise</h2>
             <p>
-              Radim sa malim biznisima, uslužnim delatnostima i content projektima
+              Radimo sa malim biznisima, uslužnim delatnostima i content projektima
               kojima treba pregledniji i bolje strukturisan web nastup. Svaka
               usluga je fokusirana na praktičnu realizaciju — jasne stranice,
               ispravna struktura i održiv rezultat.
@@ -205,7 +205,7 @@ export default function UslugePage() {
           <section className="services-cta">
             <h2>Treba ti pregledniji i bolje strukturisan sajt?</h2>
             <p>
-              Pošalji mi kratak opis projekta i mogu da ti pomognem da
+              Pošalji nam kratak opis projekta i možemo da ti pomognemo da
               definišemo sledeći praktičan korak.
             </p>
             <div className="services-cta-actions">

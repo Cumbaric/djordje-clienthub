@@ -8,9 +8,9 @@ export const metadata = {
   description:
     "Web development services in Belgrade — custom HTML/CSS/JS, WordPress websites, React & Next.js apps, WooCommerce stores, SEO optimization and website maintenance.",
   openGraph: {
-    title: "Web Development Services | Đorđe Popović",
+    title: "Web Development Services | DWeb Solutions",
     description:
-      "WordPress, Next.js, WooCommerce, SEO and HTML/CSS development services. Freelance web developer based in Belgrade, Serbia.",
+      "WordPress, Next.js, WooCommerce, SEO and HTML/CSS development services. Web development agency based in Belgrade, Serbia.",
   },
   alternates: {
     canonical: "/en/services",
@@ -114,7 +114,7 @@ export default function ServicesPage() {
         actions={
           <>
             <Link href="/en/contact" className="hero-action-primary">
-              Contact me
+              Contact us
             </Link>
             <Link href="/en/projects" className="hero-action-secondary">
               View projects
@@ -122,7 +122,7 @@ export default function ServicesPage() {
           </>
         }
       >
-        I help small businesses, service providers and content-driven projects
+        We help small businesses, service providers and content-driven projects
         build cleaner, faster and better structured websites using WordPress,
         Elementor, WooCommerce, SEO fundamentals and AI-assisted workflows.
       </PageHero>
@@ -132,10 +132,10 @@ export default function ServicesPage() {
         {/* 2. Intro / positioning */}
         <RevealSection>
           <section className="services-intro">
-            <p className="services-intro-label">What I do</p>
+            <p className="services-intro-label">What we do</p>
             <h2>Practical web services for small businesses</h2>
             <p>
-              I work with small businesses, service providers and content-driven
+              We work with small businesses, service providers and content-driven
               projects that need a cleaner, better structured web presence. Each
               service is focused on practical execution — clear pages, proper
               structure and a maintainable result.
@@ -206,11 +206,11 @@ export default function ServicesPage() {
           <section className="services-cta">
             <h2>Need a cleaner and better structured website?</h2>
             <p>
-              Send me a short description of your project and I can help you
+              Send us a short description of your project and we can help you
               define the next practical step.
             </p>
             <div className="services-cta-actions">
-              <Link href="/en/contact">Contact me</Link>
+              <Link href="/en/contact">Contact us</Link>
               <Link href="/en/projects" className="services-cta-secondary">
                 View projects
               </Link>

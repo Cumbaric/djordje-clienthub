@@ -7,9 +7,9 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Početna", "item": "https://djordjepopovic.com/sr" },
-    { "@type": "ListItem", "position": 2, "name": "Projekti", "item": "https://djordjepopovic.com/sr/projekti" },
-    { "@type": "ListItem", "position": 3, "name": "Iron Pulse", "item": "https://djordjepopovic.com/sr/projekti/iron-pulse" },
+    { "@type": "ListItem", "position": 1, "name": "Početna", "item": "https://dwebsolutions.rs/sr" },
+    { "@type": "ListItem", "position": 2, "name": "Projekti", "item": "https://dwebsolutions.rs/sr/projekti" },
+    { "@type": "ListItem", "position": 3, "name": "Iron Pulse", "item": "https://dwebsolutions.rs/sr/projekti/iron-pulse" },
   ],
 };
 
@@ -231,10 +231,10 @@ export default function IronPulseCaseStudyPageSr() {
           <h2>Trebaš sličan landing page?</h2>
           <p>
             Ako trebaš brz, čist i profesionalan landing page bez framework
-            overhead-a, mogu ti ga napraviti od nule.
+            overhead-a, možemo ti ga napraviti od nule.
           </p>
           <div className="case-study-cta-actions">
-            <Link href="/sr/kontakt">Kontaktiraj me</Link>
+            <Link href="/sr/kontakt">Kontaktiraj nas</Link>
             <Link href="/sr/usluge" className="case-study-cta-secondary">
               Pogledaj usluge
             </Link>

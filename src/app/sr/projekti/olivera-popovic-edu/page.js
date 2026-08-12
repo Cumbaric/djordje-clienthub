@@ -185,11 +185,11 @@ export default function OliveraPopovicEduPage() {
         <h2>Trebaš strukturiran WordPress sajt?</h2>
         <p>
           Ako tvom sajtu treba jasnija organizacija sadržaja, bolja struktura
-          stranica ili SEO-focused unapređenje, mogu da ti pomognem da
+          stranica ili SEO-focused unapređenje, možemo da ti pomognemo da
           definišemo praktičan sledeći korak.
         </p>
         <div className="case-study-cta-actions">
-          <Link href="/sr/kontakt">Kontaktiraj me</Link>
+          <Link href="/sr/kontakt">Kontaktiraj nas</Link>
           <Link href="/sr/usluge" className="case-study-cta-secondary">
             Pogledaj usluge
           </Link>

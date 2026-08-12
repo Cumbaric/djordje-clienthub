@@ -7,9 +7,9 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://djordjepopovic.com/en" },
-    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://djordjepopovic.com/en/projects" },
-    { "@type": "ListItem", "position": 3, "name": "Ben Akiba Dashboard", "item": "https://djordjepopovic.com/en/projects/ben-akiba-dashboard" },
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dwebsolutions.rs/en" },
+    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://dwebsolutions.rs/en/projects" },
+    { "@type": "ListItem", "position": 3, "name": "Ben Akiba Dashboard", "item": "https://dwebsolutions.rs/en/projects/ben-akiba-dashboard" },
   ],
 };
 
@@ -203,11 +203,11 @@ export default function BenAkibaDashboardPage() {
           <h2>Need a custom admin dashboard?</h2>
           <p>
             If your team needs a practical dashboard for events, reservations,
-            clients or internal workflows, I can build a focused web app around
+            clients or internal workflows, we can build a focused web app around
             the way your business actually works.
           </p>
           <div className="case-study-cta-actions">
-            <Link href="/en/contact">Contact me</Link>
+            <Link href="/en/contact">Contact us</Link>
             <Link href="/en/services" className="case-study-cta-secondary">
               View services
             </Link>

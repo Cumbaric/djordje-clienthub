@@ -126,7 +126,7 @@ export default function PublicHeader({ lang }) {
           .join(" ")}
       >
         <Link href={homeHref} className={styles.logo}>
-          Đorđe Popović
+          DWeb Solutions
         </Link>
 
         {/* Desktop nav */}

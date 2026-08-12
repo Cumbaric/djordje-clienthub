@@ -7,13 +7,13 @@ import ContactForm from "@/components/ContactForm";
 import { contactEmail, socialLinks } from "@/data/contact";
 
 export const metadata = {
-  title: "Kontakt — Angažuj web developera Beograd",
+  title: "Kontakt — Angažuj web agenciju u Beogradu",
   description:
-    "Kontaktiraj me za razgovor o sajtu, WordPress projektu, WooCommerce prodavnici, SEO ili Next.js aplikaciji. Freelance web developer iz Beograda, Srbija.",
+    "Kontaktiraj nas za razgovor o sajtu, WordPress projektu, WooCommerce prodavnici, SEO ili Next.js aplikaciji. Web development agencija iz Beograda, Srbija.",
   openGraph: {
-    title: "Kontakt | Đorđe Popović — Web developer Beograd",
+    title: "Kontakt | DWeb Solutions — Web developer Beograd",
     description:
-      "Angažuj freelance web developera iz Beograda za WordPress, Next.js, WooCommerce ili SEO. Pošalji kratak opis projekta.",
+      "Angažuj web agenciju iz Beograda za WordPress, Next.js, WooCommerce ili SEO. Pošalji kratak opis projekta.",
   },
   alternates: {
     canonical: "/sr/kontakt",
@@ -108,10 +108,10 @@ const fitItems = [
 ];
 
 const sledeciKoraci = [
-  "Pregledam tvoju poruku i kontekst projekta",
-  "Identifikujem najpraktičniji sledeći korak",
+  "Pregledamo tvoju poruku i kontekst projekta",
+  "Identifikujemo najpraktičniji sledeći korak",
   "Definišemo obim, prioritete i okvirni rok",
-  "Predlažem jasan pravac ili plan implementacije",
+  "Predlažemo jasan pravac ili plan implementacije",
 ];
 
 export default function KontaktPage() {
@@ -132,7 +132,7 @@ export default function KontaktPage() {
         }
       >
         Bilo da ti treba sajt kodiran od nule, WordPress sajt, bolja struktura,
-        SEO-focused unapređenje ili praktičan web workflow, pošalji mi kratak
+        SEO-focused unapređenje ili praktičan web workflow, pošalji nam kratak
         opis projekta.
       </PageHero>
 
@@ -188,8 +188,8 @@ export default function KontaktPage() {
               <div className="contact-inquiry-left">
                 <h2>Šta da pošalješ u poruci</h2>
                 <p>
-                  Kratak i jasan opis projekta mi pomaže da razumem situaciju i
-                  brzo predložim najpraktičniji sledeći korak.
+                  Kratak i jasan opis projekta nam pomaže da razumemo situaciju i
+                  brzo predložimo najpraktičniji sledeći korak.
                 </p>
               </div>
               <div className="contact-inquiry-right">
@@ -203,10 +203,10 @@ export default function KontaktPage() {
           </section>
         </RevealSection>
 
-        {/* 4. U čemu mogu da pomognem */}
+        {/* 4. U čemu možemo da pomognemo */}
         <RevealSection delay={0.05}>
           <section className="contact-fit-section">
-            <h2 className="section-title">U čemu mogu da pomognem</h2>
+            <h2 className="section-title">U čemu možemo da pomognemo</h2>
             <div className="contact-fit-grid">
               {fitItems.map((item) => (
                 <div key={item.title} className="contact-fit-card">
@@ -244,7 +244,7 @@ export default function KontaktPage() {
             <SectionOrb style={{ "--orb-top": "30px", "--orb-right": "44px" }} />
             <h2>Spreman/spremna si da definišemo sledeći korak?</h2>
             <p>
-              Pošalji mi kratku poruku sa ciljem sajta i pomoći ću ti da to
+              Pošalji nam kratku poruku sa ciljem sajta i pomoći ćemo ti da to
               pretvorimo u praktičan plan.
             </p>
             <div className="contact-cta-actions">

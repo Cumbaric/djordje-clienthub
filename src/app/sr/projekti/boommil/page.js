@@ -186,11 +186,11 @@ export default function BoomMilPage() {
         <h2>Trebaš WooCommerce prodavnicu?</h2>
         <p>
           Ako ti trebaju organizovani proizvodi, strukturisana prodavnica i
-          stranice pripremljene za pretraživače, mogu da pomognem u izgradnji
+          stranice pripremljene za pretraživače, možemo da pomognemo u izgradnji
           čiste i praktične WooCommerce osnove.
         </p>
         <div className="case-study-cta-actions">
-          <Link href="/sr/kontakt">Kontaktiraj me</Link>
+          <Link href="/sr/kontakt">Kontaktiraj nas</Link>
           <Link href="/sr/usluge" className="case-study-cta-secondary">
             Pogledaj usluge
           </Link>

@@ -5,7 +5,7 @@ import styles from "./PublicFooter.module.css";
 const CONTENT = {
   en: {
     description:
-      "Freelance web developer based in Belgrade — WordPress, Next.js, WooCommerce and SEO for small businesses.",
+      "Web development agency based in Belgrade — WordPress, Next.js, WooCommerce and SEO for small businesses.",
     badge: "WordPress • Next.js • WooCommerce • SEO",
     navTitle: "Navigation",
     links: [
@@ -30,12 +30,12 @@ const CONTENT = {
       "Let's build a clean, fast and well-structured website that works for your business.",
     ctaLabel: "Start a project",
     contactHref: "/en/contact",
-    copyright: "© 2026 Đorđe Popović. All rights reserved.",
+    copyright: "© 2026 DWeb Solutions. All rights reserved.",
     builtWith: "Built with Next.js.",
   },
   sr: {
     description:
-      "Freelance web developer iz Beograda — WordPress, Next.js, WooCommerce i SEO za male biznise.",
+      "Web development agencija iz Beograda — WordPress, Next.js, WooCommerce i SEO za male biznise.",
     badge: "WordPress • Next.js • WooCommerce • SEO",
     navTitle: "Navigacija",
     links: [
@@ -60,7 +60,7 @@ const CONTENT = {
       "Napravimo zajedno čist, brz i dobro strukturisan sajt koji radi za tvoj biznis.",
     ctaLabel: "Pokreni projekat",
     contactHref: "/sr/kontakt",
-    copyright: "© 2026 Đorđe Popović. Sva prava zadržana.",
+    copyright: "© 2026 DWeb Solutions. Sva prava zadržana.",
     builtWith: "Napravljeno uz Next.js.",
   },
 };
@@ -82,7 +82,7 @@ export default function PublicFooter({ lang }) {
 
           {/* Brand */}
           <div className={styles.brand}>
-            <span className={styles.brandName}>Đorđe Popović</span>
+            <span className={styles.brandName}>DWeb Solutions</span>
             <p className={styles.brandDesc}>{c.description}</p>
             <span className={styles.brandBadge}>{c.badge}</span>
           </div>

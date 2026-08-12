@@ -48,6 +48,6 @@ export async function sendContactEmail({ name, email, subject, message }) {
 
     return { success: true };
   } catch {
-    return { error: "Failed to send. Please contact me via email." };
+    return { error: "Failed to send. Please contact us via email." };
   }
 }

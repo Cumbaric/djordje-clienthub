@@ -7,9 +7,9 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://djordjepopovic.com/en" },
-    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://djordjepopovic.com/en/projects" },
-    { "@type": "ListItem", "position": 3, "name": "Djordje ClientHub", "item": "https://djordjepopovic.com/en/projects/djordje-clienthub" },
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dwebsolutions.rs/en" },
+    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://dwebsolutions.rs/en/projects" },
+    { "@type": "ListItem", "position": 3, "name": "Djordje ClientHub", "item": "https://dwebsolutions.rs/en/projects/djordje-clienthub" },
   ],
 };
 
@@ -207,10 +207,10 @@ export default function DjordjeClientHubPage() {
         <h2>Interested in a Next.js portfolio or dashboard?</h2>
         <p>
           If you need a modern portfolio, a custom internal tool or a full-stack
-          Next.js application, I can help you plan and build it.
+          Next.js application, we can help you plan and build it.
         </p>
         <div className="case-study-cta-actions">
-          <Link href="/en/contact">Contact me</Link>
+          <Link href="/en/contact">Contact us</Link>
           <Link href="/en/services" className="case-study-cta-secondary">
             View services
           </Link>

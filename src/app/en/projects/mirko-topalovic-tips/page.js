@@ -7,9 +7,9 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://djordjepopovic.com/en" },
-    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://djordjepopovic.com/en/projects" },
-    { "@type": "ListItem", "position": 3, "name": "MirkoTopalovićTips", "item": "https://djordjepopovic.com/en/projects/mirko-topalovic-tips" },
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dwebsolutions.rs/en" },
+    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://dwebsolutions.rs/en/projects" },
+    { "@type": "ListItem", "position": 3, "name": "MirkoTopalovićTips", "item": "https://dwebsolutions.rs/en/projects/mirko-topalovic-tips" },
   ],
 };
 
@@ -199,11 +199,11 @@ export default function MirkoTopalovicTipsPage() {
           <h2>Need a content platform or WordPress structure improvement?</h2>
           <p>
             If you run a content-heavy website and need better organization,
-            cleaner structure or a foundation ready for automation, I can help
+            cleaner structure or a foundation ready for automation, we can help
             you plan the right approach.
           </p>
           <div className="case-study-cta-actions">
-            <Link href="/en/contact">Contact me</Link>
+            <Link href="/en/contact">Contact us</Link>
             <Link href="/en/services" className="case-study-cta-secondary">
               View services
             </Link>

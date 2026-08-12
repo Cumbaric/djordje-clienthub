@@ -9,9 +9,9 @@ export const metadata = {
   description:
     "Jasan, strukturisan web development proces — analiza, plan sadržaja, dizajn pravac, razvoj, SEO podešavanje, provere performansi i finalna predaja.",
   openGraph: {
-    title: "Proces izrade sajta | Đorđe Popović",
+    title: "Proces izrade sajta | DWeb Solutions",
     description:
-      "Kako izrađujem WordPress sajtove i Next.js aplikacije — od analize i planiranja kroz razvoj i SEO do lansiranja.",
+      "Kako izrađujemo WordPress sajtove i Next.js aplikacije — od analize i planiranja kroz razvoj i SEO do lansiranja.",
   },
   alternates: {
     canonical: "/sr/proces",
@@ -179,7 +179,7 @@ export default function ProcesPage() {
           </>
         }
       >
-        Moj proces je fokusiran na strukturu, jasnoću i praktičnu realizaciju.
+        Naš proces je fokusiran na strukturu, jasnoću i praktičnu realizaciju.
         Cilj je da razumemo projekat, definišemo pravu strukturu sajta,
         izgradimo čiste stranice i pripremimo sajt za SEO, performanse i buduća
         unapređenja.
@@ -192,7 +192,7 @@ export default function ProcesPage() {
           <section className="process-overview has-orb">
             <SectionOrb style={{ "--orb-top": "26px", "--orb-right": "44px" }} />
             <div className="process-overview-header">
-              <h2>Kako pristupam svakom projektu</h2>
+              <h2>Kako pristupamo svakom projektu</h2>
               <p>
                 Konzistentan proces drži projekte na pravom putu i isporučuje
                 predvidive rezultate.
@@ -268,8 +268,8 @@ export default function ProcesPage() {
             <SectionOrb style={{ "--orb-top": "30px", "--orb-right": "44px" }} />
             <h2>Spreman/spremna si da unaprediš svoj sajt?</h2>
             <p>
-              Pošalji mi kratak opis sajta ili projekta i mogu da ti pomognem da
-              definišemo sledeći praktičan korak.
+              Pošalji nam kratak opis sajta ili projekta i možemo da ti pomognemo
+              da definišemo sledeći praktičan korak.
             </p>
             <div className="process-cta-actions">
               <Link href="/sr/kontakt">Kontakt</Link>

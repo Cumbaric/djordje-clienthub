@@ -193,10 +193,10 @@ export default function DjordjeClientHubPage() {
         <h2>Zainteresovan za Next.js portfolio ili dashboard?</h2>
         <p>
           Ako ti treba moderan portfolio, prilagođeni interni alat ili full-stack
-          Next.js aplikacija, mogu da ti pomognem u planiranju i izgradnji.
+          Next.js aplikacija, možemo da ti pomognemo u planiranju i izgradnji.
         </p>
         <div className="case-study-cta-actions">
-          <Link href="/sr/kontakt">Kontaktiraj me</Link>
+          <Link href="/sr/kontakt">Kontaktiraj nas</Link>
           <Link href="/sr/usluge" className="case-study-cta-secondary">
             Pogledaj usluge
           </Link>

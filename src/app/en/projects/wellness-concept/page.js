@@ -7,9 +7,9 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://djordjepopovic.com/en" },
-    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://djordjepopovic.com/en/projects" },
-    { "@type": "ListItem", "position": 3, "name": "Wellness Concept", "item": "https://djordjepopovic.com/en/projects/wellness-concept" },
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dwebsolutions.rs/en" },
+    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://dwebsolutions.rs/en/projects" },
+    { "@type": "ListItem", "position": 3, "name": "Wellness Concept", "item": "https://dwebsolutions.rs/en/projects/wellness-concept" },
   ],
 };
 
@@ -208,11 +208,11 @@ export default function WellnessConceptCaseStudyPage() {
         <h2>Need a similar WordPress improvement?</h2>
         <p>
           If your website needs a clearer structure, better service presentation
-          or SEO-focused improvements, I can help you define the next practical
+          or SEO-focused improvements, we can help you define the next practical
           step.
         </p>
         <div className="case-study-cta-actions">
-          <Link href="/en/contact">Contact me</Link>
+          <Link href="/en/contact">Contact us</Link>
           <Link href="/en/services" className="case-study-cta-secondary">
             View services
           </Link>

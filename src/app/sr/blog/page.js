@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Blog — Web development i SEO saveti",
   description:
-    "Članci o web developmentu, SEO vodičima i projektima freelance web developera iz Beograda. WordPress, Next.js i saveti za online marketing.",
+    "Članci o web developmentu, SEO vodičima i projektima web development agencije iz Beograda. WordPress, Next.js i saveti za online marketing.",
   alternates: {
     canonical: "/sr/blog",
     languages: {

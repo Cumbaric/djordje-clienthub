@@ -8,12 +8,12 @@ const geist = Geist({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://djordjepopovic.com"),
+  metadataBase: new URL("https://dwebsolutions.rs"),
   title: {
-    default: "Đorđe Popović | Web Developer Belgrade",
-    template: "%s | Đorđe Popović",
+    default: "DWeb Solutions | Web Developer Belgrade",
+    template: "%s | DWeb Solutions",
   },
-  description: "Freelance web developer based in Belgrade — WordPress websites, Next.js apps, WooCommerce stores and SEO optimization for small businesses.",
+  description: "Web development agency based in Belgrade — WordPress websites, Next.js apps, WooCommerce stores and SEO optimization for small businesses.",
 };
 
 export default function RootLayout({ children }) {

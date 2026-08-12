@@ -7,9 +7,9 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://djordjepopovic.com/en" },
-    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://djordjepopovic.com/en/projects" },
-    { "@type": "ListItem", "position": 3, "name": "Luma Dental", "item": "https://djordjepopovic.com/en/projects/luma-dental" },
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dwebsolutions.rs/en" },
+    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://dwebsolutions.rs/en/projects" },
+    { "@type": "ListItem", "position": 3, "name": "Luma Dental", "item": "https://dwebsolutions.rs/en/projects/luma-dental" },
   ],
 };
 
@@ -223,10 +223,10 @@ export default function LumaDentalCaseStudyPage() {
           <p>
             If you need a clean, trustworthy website that presents your services
             clearly, showcases your team and makes it easy for clients to book —
-            I can help you design and build it.
+            we can help you design and build it.
           </p>
           <div className="case-study-cta-actions">
-            <Link href="/en/contact">Contact me</Link>
+            <Link href="/en/contact">Contact us</Link>
             <Link href="/en/services" className="case-study-cta-secondary">
               View services
             </Link>

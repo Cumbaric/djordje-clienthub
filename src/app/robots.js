@@ -1,4 +1,4 @@
-const BASE_URL = "https://djordjepopovic.com";
+const BASE_URL = "https://dwebsolutions.rs";
 
 export default function robots() {
   return {

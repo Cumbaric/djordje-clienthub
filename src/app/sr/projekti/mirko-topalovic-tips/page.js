@@ -186,11 +186,11 @@ export default function MirkoTopalovicTipsPage() {
         <h2>Trebaš content platformu ili unapređenje WordPress strukture?</h2>
         <p>
           Ako imaš sajt sa puno sadržaja i trebaš bolju organizaciju, jasniju
-          strukturu ili osnovu za automatizaciju, mogu da pomognem u planiranju
+          strukturu ili osnovu za automatizaciju, možemo da pomognemo u planiranju
           pravog pristupa.
         </p>
         <div className="case-study-cta-actions">
-          <Link href="/sr/kontakt">Kontaktiraj me</Link>
+          <Link href="/sr/kontakt">Kontaktiraj nas</Link>
           <Link href="/sr/usluge" className="case-study-cta-secondary">
             Pogledaj usluge
           </Link>

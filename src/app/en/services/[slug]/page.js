@@ -8,9 +8,9 @@ import { services } from "@/data/services";
 import styles from "./service-detail.module.css";
 
 function parsePrice(str) {
-  const m = str?.match(/([€$£])(\d+)/);
+  const m = str?.match(/([â‚¬$Â£])(\d+)/);
   if (!m) return null;
-  return { price: m[2], currency: { "€": "EUR", "$": "USD", "£": "GBP" }[m[1]] ?? "EUR" };
+  return { price: m[2], currency: { "â‚¬": "EUR", "$": "USD", "Â£": "GBP" }[m[1]] ?? "EUR" };
 }
 
 export function generateStaticParams() {
@@ -27,12 +27,12 @@ const seoTitles = {
 };
 
 const seoDescriptions = {
-  "html-css-js": "Hand-coded HTML, CSS and JavaScript websites and landing pages built in Belgrade. Fast, lightweight, pixel-accurate — no frameworks or CMS dependencies.",
-  "react-nextjs": "Custom React and Next.js web applications built in Belgrade — dashboards, internal tools and MVPs for small businesses and startups.",
-  "seo-optimization": "On-page and technical SEO optimization — Belgrade web developer. Fix indexing issues, structure and meta descriptions for better Google rankings.",
+  "html-css-js": "Hand-coded HTML, CSS and JavaScript websites and landing pages built in Belgrade. Fast, lightweight, pixel-accurate â€” no frameworks or CMS dependencies.",
+  "react-nextjs": "Custom React and Next.js web applications built in Belgrade â€” dashboards, internal tools and MVPs for small businesses and startups.",
+  "seo-optimization": "On-page and technical SEO optimization â€” Belgrade web development agency. Fix indexing issues, structure and meta descriptions for better Google rankings.",
   "wordpress-website-development": "WordPress website development for small businesses and local companies in Belgrade. Elementor design, SEO-ready, responsive and easy to manage.",
-  "ecommerce-store": "WooCommerce online store development in Belgrade — product structure, SEO-ready product pages and checkout setup for small and mid-size shops.",
-  "website-maintenance": "WordPress maintenance and technical support for businesses in Belgrade — content updates, plugin management, performance fixes and ongoing care.",
+  "ecommerce-store": "WooCommerce online store development in Belgrade â€” product structure, SEO-ready product pages and checkout setup for small and mid-size shops.",
+  "website-maintenance": "WordPress maintenance and technical support for businesses in Belgrade â€” content updates, plugin management, performance fixes and ongoing care.",
 };
 
 export async function generateMetadata({ params }) {
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }) {
   const service = services.find((s) => s.slug === slug);
   if (!service) return {};
   return {
-    title: seoTitles[slug] ?? `${service.titleEn} — Services`,
+    title: seoTitles[slug] ?? `${service.titleEn} â€” Services`,
     description: seoDescriptions[slug] ?? service.descriptionEn,
     alternates: {
       canonical: `/en/services/${service.slug}`,
@@ -64,7 +64,7 @@ export default async function ServiceDetailPage({ params }) {
     "@type": "Service",
     "name": service.titleEn,
     "description": service.descriptionEn,
-    "provider": { "@id": "https://djordjepopovic.com/#organization" },
+    "provider": { "@id": "https://dwebsolutions.rs/#organization" },
     "areaServed": "Worldwide",
     ...(parsedPrice && {
       "offers": {
@@ -80,9 +80,9 @@ export default async function ServiceDetailPage({ params }) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://djordjepopovic.com/en" },
-      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://djordjepopovic.com/en/services" },
-      { "@type": "ListItem", "position": 3, "name": service.titleEn, "item": `https://djordjepopovic.com/en/services/${service.slug}` },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dwebsolutions.rs/en" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://dwebsolutions.rs/en/services" },
+      { "@type": "ListItem", "position": 3, "name": service.titleEn, "item": `https://dwebsolutions.rs/en/services/${service.slug}` },
     ],
   };
 
@@ -108,10 +108,10 @@ export default async function ServiceDetailPage({ params }) {
       <div className={styles.wrapper}>
         <div className={styles.inner}>
 
-          {/* Meta bar — category · timeline · price */}
+          {/* Meta bar â€” category Â· timeline Â· price */}
           <div className={styles.metaBar}>
             <span className={styles.category}>{service.category}</span>
-            <span className={styles.metaItem}>⏱ {service.timelineEn}</span>
+            <span className={styles.metaItem}>â± {service.timelineEn}</span>
             <span className={styles.metaPrice}>From {service.priceFrom}</span>
           </div>
 
@@ -134,7 +134,7 @@ export default async function ServiceDetailPage({ params }) {
               <ul className={styles.idealList}>
                 {service.idealForEn.map((item) => (
                   <li key={item} className={styles.idealItem}>
-                    <span className={styles.idealMarker} aria-hidden="true">▸</span>
+                    <span className={styles.idealMarker} aria-hidden="true">â–¸</span>
                     {item}
                   </li>
                 ))}
@@ -149,7 +149,7 @@ export default async function ServiceDetailPage({ params }) {
               <ul className={styles.includesList}>
                 {service.includesEn.map((item) => (
                   <li key={item} className={styles.includesItem}>
-                    <span className={styles.checkIcon} aria-hidden="true">✓</span>
+                    <span className={styles.checkIcon} aria-hidden="true">âœ“</span>
                     {item}
                   </li>
                 ))}
@@ -206,7 +206,7 @@ export default async function ServiceDetailPage({ params }) {
 
           {/* Back link */}
           <Link href="/en/services" className={styles.backLink}>
-            ← All services
+            â† All services
           </Link>
 
         </div>
@@ -215,9 +215,9 @@ export default async function ServiceDetailPage({ params }) {
       <CTASection
         eyebrow="Contact"
         title="Interested in this service?"
-        action={{ href: "/en/contact", text: "Contact me" }}
+        action={{ href: "/en/contact", text: "Contact us" }}
       >
-        Send me a message with a brief description of your project and I&apos;ll
+        Send us a message with a brief description of your project and we&apos;ll
         get back to you.
       </CTASection>
     </main>

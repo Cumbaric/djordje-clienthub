@@ -7,9 +7,9 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Početna", "item": "https://djordjepopovic.com/sr" },
-    { "@type": "ListItem", "position": 2, "name": "Projekti", "item": "https://djordjepopovic.com/sr/projekti" },
-    { "@type": "ListItem", "position": 3, "name": "Musical Duo Studio", "item": "https://djordjepopovic.com/sr/projekti/musical-duo-studio" },
+    { "@type": "ListItem", "position": 1, "name": "Početna", "item": "https://dwebsolutions.rs/sr" },
+    { "@type": "ListItem", "position": 2, "name": "Projekti", "item": "https://dwebsolutions.rs/sr/projekti" },
+    { "@type": "ListItem", "position": 3, "name": "Musical Duo Studio", "item": "https://dwebsolutions.rs/sr/projekti/musical-duo-studio" },
   ],
 };
 
@@ -218,8 +218,8 @@ export default function MusicalDuoStudioCaseStudyPage() {
           <h2>Treba ti WordPress sajt za studio ili kreativni biznis?</h2>
           <p>
             Ako ti treba profesionalni sajt koji komunicira kvalitet, gradi
-            poverenje i olakšava novim klijentima da te kontaktiraju, mogu da ti
-            pomognem da definišemo pravi pristup.
+            poverenje i olakšava novim klijentima da te kontaktiraju, možemo da
+            ti pomognemo da definišemo pravi pristup.
           </p>
           <div className="case-study-cta-actions">
             <Link href="/sr/kontakt">Kontakt</Link>

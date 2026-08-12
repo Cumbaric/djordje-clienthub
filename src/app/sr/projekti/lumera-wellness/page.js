@@ -200,7 +200,7 @@ export default function LumeraWellnessCaseStudyPage() {
           <h2>Želiš ovakav sajt za zakazivanje?</h2>
           <p>
             Ako vodiš wellness, spa ili masažni salon i želiš moderan sajt sa
-            ugrađenim dashboard-om za zakazivanje, mogu da prilagodim ovu
+            ugrađenim dashboard-om za zakazivanje, možemo da prilagodimo ovu
             platformu tvom brendu i načinu rada.
           </p>
           <div className="case-study-cta-actions">

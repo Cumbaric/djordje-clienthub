@@ -7,9 +7,9 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://djordjepopovic.com/en" },
-    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://djordjepopovic.com/en/projects" },
-    { "@type": "ListItem", "position": 3, "name": "Lumera Wellness", "item": "https://djordjepopovic.com/en/projects/lumera-wellness" },
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dwebsolutions.rs/en" },
+    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://dwebsolutions.rs/en/projects" },
+    { "@type": "ListItem", "position": 3, "name": "Lumera Wellness", "item": "https://dwebsolutions.rs/en/projects/lumera-wellness" },
   ],
 };
 
@@ -212,11 +212,11 @@ export default function LumeraWellnessCaseStudyPage() {
           <h2>Want a booking site like this?</h2>
           <p>
             If you run a wellness, spa or massage studio and want a modern site
-            with a built-in booking dashboard, I can adapt this platform to your
+            with a built-in booking dashboard, we can adapt this platform to your
             brand and the way you work.
           </p>
           <div className="case-study-cta-actions">
-            <Link href="/en/contact">Contact me</Link>
+            <Link href="/en/contact">Contact us</Link>
             <Link href="/en/services" className="case-study-cta-secondary">
               View services
             </Link>
