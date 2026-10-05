@@ -138,10 +138,13 @@
 }
 
 /* ── Error message ── */
+/* One line of reserved room; negative margin cancels part of the form gap so
+   the empty state is not a visible hole. */
 .errorSlot {
-  min-height: 46px;
+  min-height: 22px;
+  margin: -6px 0;
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
 }
 
 .errorSlot > * {
@@ -151,14 +154,15 @@
 .loginError {
   display: flex;
   align-items: flex-start;
-  gap: 9px;
-  background: var(--color-danger-bg);
-  border: 1px solid #fca5a5;
-  border-radius: var(--radius-sm);
-  padding: 11px 14px;
+  gap: 8px;
   font-size: 13px;
+  font-weight: 500;
   color: var(--color-danger-text);
   line-height: 1.5;
+}
+
+.fieldInput[aria-invalid="true"] {
+  border-color: #fca5a5;
 }
 
 .messageIcon {

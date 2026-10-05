@@ -68,6 +68,7 @@ export default function LoginPage() {
             </label>
             <input
               id="username"
+              aria-invalid={error ? "true" : undefined}
               className={styles.fieldInput}
               type="text"
               placeholder="Korisničko ime"
@@ -88,6 +89,7 @@ export default function LoginPage() {
             </label>
             <input
               id="password"
+              aria-invalid={error ? "true" : undefined}
               className={styles.fieldInput}
               type="password"
               placeholder="Lozinka"
