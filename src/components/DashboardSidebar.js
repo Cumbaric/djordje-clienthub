@@ -55,7 +55,7 @@ export default function DashboardSidebar({ taskAlertCount = 0, invoiceAlertCount
     <aside className={styles.sidebar}>
       <div className={styles.sidebarTop}>
         <div className={styles.brand}>
-          <span className={styles.brandLabel}>ClientHub</span>
+          <span className={styles.brandLabel}>DWeb Solutions</span>
           <strong>Kontrolna tabla</strong>
         </div>
 
