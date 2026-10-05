@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { eq } from "drizzle-orm";
+import { requireAuth } from "@/lib/auth";
 import { db } from "@/db";
 import { clients } from "@/db/schema";
 
@@ -19,6 +20,7 @@ function toList(value) {
 }
 
 export async function createClient(formData) {
+  await requireAuth();
   const name = formData.get("name")?.toString().trim();
   if (!name) return;
 
@@ -36,6 +38,7 @@ export async function createClient(formData) {
 }
 
 export async function updateClientStatus(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   const status = formData.get("status")?.toString();
   if (!id || !status) return;
@@ -45,6 +48,7 @@ export async function updateClientStatus(formData) {
 }
 
 export async function deleteClient(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   if (!id) return;
 
@@ -53,6 +57,7 @@ export async function deleteClient(formData) {
 }
 
 export async function updateClient(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   if (!id) return;
 

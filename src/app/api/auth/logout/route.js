@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
+import { getAuthCookieName } from "@/lib/auth";
 
 export async function POST() {
-  const cookieName = process.env.CLIENTHUB_AUTH_COOKIE;
+  const cookieName = getAuthCookieName();
 
   if (!cookieName) {
     return NextResponse.json(

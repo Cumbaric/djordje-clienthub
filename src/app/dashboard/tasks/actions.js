@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { eq } from "drizzle-orm";
+import { requireAuth } from "@/lib/auth";
 import { db } from "@/db";
 import { tasks } from "@/db/schema";
 
@@ -11,6 +12,7 @@ function refresh() {
 }
 
 export async function createTask(formData) {
+  await requireAuth();
   const title = formData.get("title")?.toString().trim();
   if (!title) return;
 
@@ -28,6 +30,7 @@ export async function createTask(formData) {
 }
 
 export async function updateTaskStatus(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   const status = formData.get("status")?.toString();
   if (!id || !status) return;
@@ -37,6 +40,7 @@ export async function updateTaskStatus(formData) {
 }
 
 export async function deleteTask(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   if (!id) return;
 
@@ -45,6 +49,7 @@ export async function deleteTask(formData) {
 }
 
 export async function archiveTask(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   if (!id) return;
 
@@ -53,6 +58,7 @@ export async function archiveTask(formData) {
 }
 
 export async function unarchiveTask(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   if (!id) return;
 
@@ -61,6 +67,7 @@ export async function unarchiveTask(formData) {
 }
 
 export async function updateTask(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   if (!id) return;
 

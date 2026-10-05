@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { eq } from "drizzle-orm";
+import { requireAuth } from "@/lib/auth";
 import { db } from "@/db";
 import { notes } from "@/db/schema";
 
@@ -11,6 +12,7 @@ function refresh() {
 }
 
 export async function createNote(formData) {
+  await requireAuth();
   const title = formData.get("title")?.toString().trim();
   if (!title) return;
 
@@ -27,6 +29,7 @@ export async function createNote(formData) {
 }
 
 export async function updateNoteStatus(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   const status = formData.get("status")?.toString();
   if (!id || !status) return;
@@ -36,6 +39,7 @@ export async function updateNoteStatus(formData) {
 }
 
 export async function deleteNote(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   if (!id) return;
 
@@ -44,6 +48,7 @@ export async function deleteNote(formData) {
 }
 
 export async function updateNote(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   if (!id) return;
 

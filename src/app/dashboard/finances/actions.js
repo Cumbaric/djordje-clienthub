@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { eq } from "drizzle-orm";
+import { requireAuth } from "@/lib/auth";
 import { db } from "@/db";
 import { invoices } from "@/db/schema";
 
@@ -11,6 +12,7 @@ function refresh() {
 }
 
 export async function createInvoice(formData) {
+  await requireAuth();
   const client = formData.get("client")?.toString().trim();
   if (!client) return;
   await db.insert(invoices).values({
@@ -26,6 +28,7 @@ export async function createInvoice(formData) {
 }
 
 export async function updateInvoice(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   if (!id) return;
   await db.update(invoices).set({
@@ -41,6 +44,7 @@ export async function updateInvoice(formData) {
 }
 
 export async function updateInvoiceStatus(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   const status = formData.get("status")?.toString();
   if (!id || !status) return;
@@ -49,6 +53,7 @@ export async function updateInvoiceStatus(formData) {
 }
 
 export async function deleteInvoice(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   if (!id) return;
   await db.delete(invoices).where(eq(invoices.id, id));

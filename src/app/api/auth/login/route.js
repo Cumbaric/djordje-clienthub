@@ -1,4 +1,9 @@
 import { NextResponse } from "next/server";
+import {
+  createSessionToken,
+  getAuthCookieName,
+  SESSION_MAX_AGE_SECONDS,
+} from "@/lib/auth";
 
 // Svaki dodatni admin nalog je poseban par env varijabli:
 // CLIENTHUB_LOGIN_USERNAME/PASSWORD, CLIENTHUB_LOGIN_USERNAME_2/PASSWORD_2, itd.
@@ -15,7 +20,7 @@ const credentialPairs = [
 export async function POST(request) {
   try {
     // 1. Pročitaj env vrednosti
-    const cookieName = process.env.CLIENTHUB_AUTH_COOKIE;
+    const cookieName = getAuthCookieName();
 
     if (credentialPairs.length === 0 || !cookieName) {
       return NextResponse.json(
@@ -36,11 +41,11 @@ export async function POST(request) {
     }
 
     // 3. Proveri credentials protiv svih naloga
-    const isValid = credentialPairs.some(
+    const matchedPair = credentialPairs.find(
       (pair) => username === pair.username && password === pair.password,
     );
 
-    if (!isValid) {
+    if (!matchedPair) {
       return NextResponse.json(
         { error: "Invalid credentials." },
         { status: 401 },
@@ -48,13 +53,14 @@ export async function POST(request) {
     }
 
     // 4. Postavi cookie i vrati uspeh
+    const token = await createSessionToken(matchedPair.username);
     const response = NextResponse.json({ success: true });
 
-    response.cookies.set(cookieName, "authenticated", {
+    response.cookies.set(cookieName, token, {
       httpOnly: true,
       sameSite: "lax",
       path: "/",
-      maxAge: 60 * 60 * 8,
+      maxAge: SESSION_MAX_AGE_SECONDS,
       secure: process.env.NODE_ENV === "production",
     });
 

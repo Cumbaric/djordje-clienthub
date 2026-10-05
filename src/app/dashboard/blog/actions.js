@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { eq } from "drizzle-orm";
+import { requireAuth } from "@/lib/auth";
 import { db } from "@/db";
 import { blogPosts } from "@/db/schema";
 
@@ -23,6 +24,7 @@ function refresh() {
 }
 
 export async function createBlogPost(formData) {
+  await requireAuth();
   const titleEn = formData.get("titleEn")?.toString().trim() || null;
   const titleSr = formData.get("titleSr")?.toString().trim() || null;
   if (!titleEn && !titleSr) return;
@@ -47,6 +49,7 @@ export async function createBlogPost(formData) {
 }
 
 export async function updateBlogPost(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   if (!id) return;
 
@@ -72,6 +75,7 @@ export async function updateBlogPost(formData) {
 }
 
 export async function deleteBlogPost(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   if (!id) return;
 
@@ -80,6 +84,7 @@ export async function deleteBlogPost(formData) {
 }
 
 export async function toggleBlogPostStatus(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   const currentStatus = formData.get("currentStatus")?.toString();
   if (!id) return;

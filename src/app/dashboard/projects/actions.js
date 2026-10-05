@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { eq } from "drizzle-orm";
+import { requireAuth } from "@/lib/auth";
 import { db } from "@/db";
 import { projects } from "@/db/schema";
 
@@ -25,6 +26,7 @@ function normalizeProgress(value) {
 }
 
 export async function createProject(formData) {
+  await requireAuth();
   const name = formData.get("name")?.toString().trim();
   if (!name) return;
 
@@ -43,6 +45,7 @@ export async function createProject(formData) {
 }
 
 export async function updateProjectStatus(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   const status = formData.get("status")?.toString();
   if (!id || !status) return;
@@ -52,6 +55,7 @@ export async function updateProjectStatus(formData) {
 }
 
 export async function updateProjectProgress(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   const progress = normalizeProgress(formData.get("progress"));
   if (!id) return;
@@ -61,6 +65,7 @@ export async function updateProjectProgress(formData) {
 }
 
 export async function updateProjectProgressSilent(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   const progress = normalizeProgress(formData.get("progress"));
   if (!id) return;
@@ -69,6 +74,7 @@ export async function updateProjectProgressSilent(formData) {
 }
 
 export async function deleteProject(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   if (!id) return;
 
@@ -77,6 +83,7 @@ export async function deleteProject(formData) {
 }
 
 export async function updateProject(formData) {
+  await requireAuth();
   const id = Number(formData.get("id"));
   if (!id) return;
 
