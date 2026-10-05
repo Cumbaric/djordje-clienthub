@@ -51,7 +51,7 @@ export default function LoginPage() {
         <div className={styles.loginHeader}>
           <span className={styles.appBadge}>
             <span className={styles.appBadgeDot} />
-            Djordje ClientHub
+            DWeb Solutions
           </span>
           <h1 className={styles.loginTitle}>Pristup kontrolnoj tabli</h1>
           <p className={styles.loginSubtitle}>
@@ -64,14 +64,18 @@ export default function LoginPage() {
 
           <div className={styles.fieldGroup}>
             <label className={styles.fieldLabel} htmlFor="username">
-              Email ili korisničko ime
+              Korisničko ime
             </label>
             <input
               id="username"
               className={styles.fieldInput}
               type="text"
-              placeholder="djordje@example.com"
+              placeholder="Korisničko ime"
               autoComplete="username"
+              autoCapitalize="none"
+              autoCorrect="off"
+              spellCheck={false}
+              required
               value={username}
               onChange={(e) => { setUsername(e.target.value); clearError(); }}
               disabled={isLoading}
@@ -86,27 +90,32 @@ export default function LoginPage() {
               id="password"
               className={styles.fieldInput}
               type="password"
-              placeholder="••••••••"
+              placeholder="Lozinka"
               autoComplete="current-password"
+              required
               value={password}
               onChange={(e) => { setPassword(e.target.value); clearError(); }}
               disabled={isLoading}
             />
           </div>
 
-          {/* Greška */}
-          {error && (
-            <div className={styles.loginError} role="alert">
-              <span className={styles.messageIcon}>⚠️</span>
-              <span>{error}</span>
-            </div>
-          )}
+          {/* Greška — rezervisan prostor da se forma ne pomera */}
+          <div className={styles.errorSlot} aria-live="polite">
+            {error && (
+              <div className={styles.loginError} role="alert">
+                <span className={styles.messageIcon} aria-hidden="true">⚠️</span>
+                <span>{error}</span>
+              </div>
+            )}
+          </div>
 
           <button
             className={styles.loginButton}
             type="submit"
             disabled={isLoading}
+            aria-busy={isLoading}
           >
+            {isLoading && <span className={styles.spinner} aria-hidden="true" />}
             {isLoading ? "Prijava u toku..." : "Prijavi se"}
           </button>
 
@@ -115,11 +124,8 @@ export default function LoginPage() {
         {/* ── Footer ── */}
         <div className={styles.loginFooter}>
           <Link href="/" className={styles.backLink}>
-            ← Nazad na portfolio
+            ← Nazad na sajt
           </Link>
-          <p className={styles.demoNote}>
-            Pristup je dozvoljen samo ovlašćenim korisnicima.
-          </p>
         </div>
 
       </div>

@@ -2,6 +2,7 @@
 
 .loginWrapper {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,7 +87,7 @@
   color: var(--color-text-soft);
   margin: 0;
   line-height: 1.55;
-  max-width: 300px;
+  max-width: 320px;
 }
 
 /* ── Form ── */
@@ -111,6 +112,7 @@
 
 .fieldInput {
   width: 100%;
+  min-height: 46px;
   padding: 11px 15px;
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-sm);
@@ -136,6 +138,16 @@
 }
 
 /* ── Error message ── */
+.errorSlot {
+  min-height: 46px;
+  display: flex;
+  align-items: stretch;
+}
+
+.errorSlot > * {
+  width: 100%;
+}
+
 .loginError {
   display: flex;
   align-items: flex-start;
@@ -159,7 +171,12 @@
 /* ── Button ── */
 .loginButton {
   width: 100%;
+  min-height: 48px;
   padding: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   background: var(--color-primary);
   color: #fff;
   border: none;
@@ -175,7 +192,7 @@
   margin-top: 4px;
 }
 
-.loginButton:hover {
+.loginButton:hover:not(:disabled) {
   background: var(--color-primary-dark);
   box-shadow: 0 4px 16px rgba(37, 99, 235, 0.28);
   transform: translateY(-1px);
@@ -186,8 +203,16 @@
   box-shadow: none;
 }
 
+.loginButton:focus-visible,
+.backLink:focus-visible {
+  outline: 3px solid var(--color-primary-pale);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--color-primary);
+}
+
 .loginButton:disabled {
-  background: var(--color-primary-light);
+  background: var(--color-primary);
+  opacity: 0.75;
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
@@ -226,12 +251,31 @@
   gap: 8px;
 }
 
-.demoNote {
-  font-size: 11.5px;
-  color: var(--color-text-soft);
-  text-align: center;
-  line-height: 1.5;
-  opacity: 0.75;
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: loginSpin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes loginSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation-duration: 2s;
+  }
+  .loginButton,
+  .fieldInput {
+    transition: none;
+  }
 }
 
 /* ── Responsive ── */
@@ -243,5 +287,10 @@
 
   .loginTitle {
     font-size: 22px;
+  }
+
+  /* 16px inputs prevent iOS Safari zoom-on-focus */
+  .fieldInput {
+    font-size: 16px;
   }
 }
