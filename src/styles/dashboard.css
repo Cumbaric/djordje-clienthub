@@ -6,6 +6,9 @@
 
 .dashboard-main {
   flex: 1;
+  /* min-width: 0 lets the flex item shrink below its content width, so long
+     unbroken strings wrap instead of widening the whole page. */
+  min-width: 0;
   padding: 40px;
 }
 
@@ -178,23 +181,29 @@
   line-height: 1.6;
 }
 
-@media (max-width: 1024px) {
+/* 4 columns only when the content column (viewport minus sidebar and
+   padding) is wide enough; below that 2 columns, then 1 on phones. */
+@media (max-width: 1360px) {
   .dashboard-stats-grid,
   .dashboard-action-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+}
 
+@media (max-width: 560px) {
+  .dashboard-stats-grid,
+  .dashboard-action-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1024px) {
   .dashboard-header h1 {
     font-size: 36px;
   }
 }
 
 @media (max-width: 640px) {
-  .dashboard-stats-grid,
-  .dashboard-action-grid {
-    grid-template-columns: 1fr;
-  }
-
   .dashboard-header h1 {
     font-size: 32px;
   }
@@ -370,6 +379,29 @@
   margin-top: 20px;
 }
 
+/* Long titles / names must wrap inside their card instead of escaping it. */
+.dashboard-project-top > div,
+.dashboard-task-main > div,
+.dashboard-activity-item > div {
+  min-width: 0;
+}
+
+.dashboard-project-top h3,
+.dashboard-project-top p,
+.dashboard-task-main h3,
+.dashboard-task-main p,
+.dashboard-activity-item strong,
+.dashboard-activity-item p,
+.dashboard-client-description,
+.dashboard-stat-card p,
+.dashboard-action-card p {
+  overflow-wrap: anywhere;
+}
+
+.dashboard-status {
+  flex-shrink: 0;
+}
+
 .dashboard-progress-top {
   display: flex;
   align-items: center;
@@ -427,12 +459,6 @@
   color: #4b5563;
   font-size: 14px;
   line-height: 1.6;
-}
-
-@media (max-width: 900px) {
-  .dashboard-project-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 520px) {
@@ -574,6 +600,20 @@
 [data-theme="dark"] .dashboard-client-link {
   color: #60a5fa;
 }
+@media (max-width: 1000px) {
+  .dashboard-project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet landscape / small laptop: slimmer sidebar and padding so the
+   content column is not crushed (sidebar width lives in DashboardSidebar.module.css). */
+@media (max-width: 1100px) {
+  .dashboard-main {
+    padding: 32px 28px;
+  }
+}
+
 @media (max-width: 900px) {
   .dashboard-shell {
     flex-direction: column;
@@ -586,7 +626,21 @@
 
 @media (max-width: 520px) {
   .dashboard-main {
-    padding: 24px 16px;
+    padding: 20px 16px 32px;
+  }
+
+  .dashboard-stat-card strong {
+    font-size: 30px;
+  }
+
+  .toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .toast {
+    max-width: none;
   }
 
   .dashboard-section {
