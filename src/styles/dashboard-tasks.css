@@ -1,0 +1,314 @@
+/*
+ * DASHBOARD RESPONSIVE 01D — Tasks.
+ *
+ * Everything here is scoped under `.dashboard-tasks-page` (the wrapper on
+ * /dashboard/tasks), so no other dashboard page is affected and the shared
+ * dashboard.css / dashboard-forms.css rules stay as they are. It follows the
+ * approach used for Clients and Projects, adapted to the Tasks markup (a
+ * single-column task list, per-card Edit / Archive / Delete, a load-more
+ * button and a separate archived section):
+ *
+ *  - the task list track is minmax(0, 1fr), so a long unbroken project/focus
+ *    value can no longer stretch the list (and the page) past the viewport;
+ *  - long titles, descriptions, meta pills and values wrap;
+ *  - filters, forms, edit actions, card actions and delete confirmations fit
+ *    the viewport;
+ *  - tablet/mobile controls get ~44px touch targets and 16px text inputs
+ *    (16px also stops iOS from zooming into a focused field);
+ *  - keyboard focus is clearly visible in both themes;
+ *  - a handful of contrast defects measured on this page are fixed at the end.
+ */
+
+.dashboard-tasks-page {
+  min-width: 0;
+}
+
+/* ── Task list ─────────────────────────────────────────────────────────── */
+/* The shared list is a grid with one implicit `auto` column, which grows to
+   fit the widest unbreakable content. An explicit minmax(0, 1fr) track keeps
+   it exactly the width of its container. */
+.dashboard-tasks-page .dashboard-task-list {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.dashboard-tasks-page .dashboard-task-card {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.dashboard-tasks-page .dashboard-task-main > div {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.dashboard-tasks-page .dashboard-task-meta span {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  /* a pill that wraps onto several lines would otherwise turn into a blob */
+  border-radius: 16px;
+}
+
+/* ── Filters ───────────────────────────────────────────────────────────── */
+.dashboard-tasks-page .dashboard-filter-bar {
+  min-width: 0;
+}
+
+.dashboard-tasks-page .dashboard-filter-search,
+.dashboard-tasks-page .dashboard-filter-select {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* ── Create + edit forms, card controls ────────────────────────────────── */
+.dashboard-tasks-page .dashboard-form,
+.dashboard-tasks-page .dashboard-inline-edit,
+.dashboard-tasks-page .dashboard-edit-field {
+  min-width: 0;
+}
+
+.dashboard-tasks-page .dashboard-edit-field input,
+.dashboard-tasks-page .dashboard-edit-field select,
+.dashboard-tasks-page .dashboard-edit-field textarea {
+  width: 100%;
+  min-width: 0;
+}
+
+.dashboard-tasks-page .dashboard-task-controls {
+  flex-wrap: wrap;
+}
+
+.dashboard-tasks-page .dashboard-delete-confirm {
+  flex-wrap: wrap;
+}
+
+.dashboard-tasks-page .dashboard-edit-actions {
+  flex-wrap: wrap;
+}
+
+/* ── Keyboard focus ────────────────────────────────────────────────────── */
+/* The shared form rules remove the native outline and leave a faint 12%
+   shadow; a real outline is added back for keyboard users only. */
+.dashboard-tasks-page :is(button, a, select, input, textarea):focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+[data-theme="dark"] .dashboard-tasks-page :is(button, a, select, input, textarea):focus-visible {
+  outline-color: #93c5fd;
+}
+
+/* ── Tablet and below: touch targets + 16px inputs ─────────────────────── */
+@media (max-width: 900px) {
+  .dashboard-tasks-page
+    :is(
+      .dashboard-edit-btn,
+      .dashboard-delete-btn,
+      .dashboard-archive-btn,
+      .dashboard-unarchive-btn,
+      .dashboard-confirm-yes,
+      .dashboard-confirm-no,
+      .dashboard-save-btn,
+      .dashboard-cancel-btn,
+      .dashboard-primary-btn,
+      .dashboard-filter-clear,
+      .dashboard-csv-btn,
+      .dashboard-load-more-btn
+    ) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 14px;
+  }
+
+  .dashboard-tasks-page
+    :is(
+      .dashboard-field input,
+      .dashboard-field select,
+      .dashboard-field textarea,
+      .dashboard-edit-field input,
+      .dashboard-edit-field select,
+      .dashboard-edit-field textarea,
+      .dashboard-filter-search,
+      .dashboard-filter-select,
+      .dashboard-select
+    ) {
+    min-height: 44px;
+    font-size: 16px;
+  }
+
+  .dashboard-tasks-page .dashboard-field textarea,
+  .dashboard-tasks-page .dashboard-edit-field textarea {
+    min-height: 88px;
+  }
+}
+
+/* ── Phones ────────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .dashboard-tasks-page .dashboard-form {
+    padding: 18px;
+  }
+
+  .dashboard-tasks-page .dashboard-form-row .dashboard-field,
+  .dashboard-tasks-page .dashboard-edit-row .dashboard-edit-field {
+    flex-basis: 100%;
+  }
+
+  /* Filters: search on its own line, the selects and buttons share the next lines. */
+  .dashboard-tasks-page .dashboard-filter-bar {
+    padding: 12px;
+  }
+
+  .dashboard-tasks-page .dashboard-filter-search {
+    flex: 1 1 100%;
+  }
+
+  .dashboard-tasks-page .dashboard-filter-select,
+  .dashboard-tasks-page .dashboard-filter-clear,
+  .dashboard-tasks-page .dashboard-csv-btn {
+    flex: 1 1 140px;
+  }
+
+  .dashboard-tasks-page .dashboard-filter-count {
+    flex: 1 1 100%;
+    margin-left: 0;
+  }
+
+  /* Status select takes a full row; the actions share the next one(s). */
+  .dashboard-tasks-page .dashboard-task-controls .dashboard-control-label {
+    flex: 1 1 100%;
+  }
+
+  .dashboard-tasks-page .dashboard-task-controls .dashboard-select {
+    width: 100%;
+  }
+
+  .dashboard-tasks-page .dashboard-task-controls > .dashboard-edit-btn,
+  .dashboard-tasks-page .dashboard-task-controls > .dashboard-archive-btn,
+  .dashboard-tasks-page .dashboard-task-controls > .dashboard-unarchive-btn,
+  .dashboard-tasks-page .dashboard-task-controls > .dashboard-delete-btn {
+    flex: 1 1 110px;
+  }
+
+  /* "Obrisati? Da / Ne" — the question on its own line, the two answers share the next. */
+  .dashboard-tasks-page .dashboard-delete-confirm {
+    flex: 1 1 100%;
+  }
+
+  .dashboard-tasks-page .dashboard-delete-confirm span {
+    flex: 1 1 100%;
+  }
+
+  .dashboard-tasks-page .dashboard-delete-confirm button {
+    flex: 1 1 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .dashboard-tasks-page .dashboard-task-card {
+    padding: 18px;
+  }
+
+  .dashboard-tasks-page .dashboard-form-actions {
+    justify-content: stretch;
+  }
+
+  .dashboard-tasks-page .dashboard-form-actions .dashboard-primary-btn {
+    width: 100%;
+  }
+
+  /* Edit actions stack as full-width buttons. */
+  .dashboard-tasks-page .dashboard-edit-actions {
+    flex-direction: column;
+  }
+
+  .dashboard-tasks-page .dashboard-edit-actions button {
+    width: 100%;
+  }
+
+  .dashboard-tasks-page .dashboard-load-more {
+    display: block;
+  }
+
+  .dashboard-tasks-page .dashboard-load-more-btn {
+    width: 100%;
+  }
+}
+
+/* ── Contrast fixes (measured on this page; ratios are text on its background) ─ */
+
+/* The overdue / due-soon colours never applied: the generic
+   `.dashboard-task-meta span` colour (and its dark-theme twin) outranks the
+   single-class `.dashboard-overdue` / `.dashboard-due-soon` rules, so only the
+   "— Istekao!" text hinted at the state. Restore the intended signal colours
+   with enough contrast on the meta pill (≈5.6:1 and ≈6.4:1 light, ≈6.4:1 and
+   ≈8:1 dark). */
+.dashboard-tasks-page .dashboard-task-meta .dashboard-overdue {
+  color: #b91c1c;
+}
+
+.dashboard-tasks-page .dashboard-task-meta .dashboard-due-soon {
+  color: #92400e;
+}
+
+[data-theme="dark"] .dashboard-tasks-page .dashboard-task-meta .dashboard-overdue {
+  color: #fca5a5;
+}
+
+[data-theme="dark"] .dashboard-tasks-page .dashboard-task-meta .dashboard-due-soon {
+  color: #fcd34d;
+}
+
+/* Archived cards were dimmed with `opacity: .65`, which also dims every
+   descendant (title 1.6–2.5:1, the unarchive button 3.7:1). They keep a muted
+   look through colour instead, at full opacity. */
+.dashboard-tasks-page .dashboard-task-card-archived {
+  opacity: 1;
+}
+
+.dashboard-tasks-page .dashboard-task-card-archived h3 {
+  color: #4b5563;
+}
+
+.dashboard-tasks-page .dashboard-task-card-archived .dashboard-label {
+  color: #6b7280;
+}
+
+[data-theme="dark"] .dashboard-tasks-page .dashboard-task-card-archived h3 {
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .dashboard-tasks-page .dashboard-task-card-archived .dashboard-label {
+  color: #94a3b8;
+}
+
+/* Just under 4.5:1 on their light pills / chips. */
+.dashboard-tasks-page .dashboard-archive-count {
+  color: #4b5563;
+}
+
+.dashboard-tasks-page .dashboard-status-backlog {
+  color: #4b5563;
+}
+
+.dashboard-tasks-page .dashboard-delete-btn {
+  color: #b91c1c;
+}
+
+/* Dark theme: the shared rules leave these at roughly 2–3:1 on the dark card. */
+[data-theme="dark"] .dashboard-tasks-page .dashboard-archive-count,
+[data-theme="dark"] .dashboard-tasks-page .dashboard-filter-count,
+[data-theme="dark"] .dashboard-tasks-page .dashboard-empty p {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .dashboard-tasks-page .dashboard-delete-confirm span {
+  color: #fca5a5;
+}
+
+/* The light Backlog colour above would otherwise outrank the shared dark rule. */
+[data-theme="dark"] .dashboard-tasks-page .dashboard-status-backlog {
+  color: #94a3b8;
+}

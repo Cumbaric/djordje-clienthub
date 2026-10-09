@@ -5,6 +5,7 @@ import TaskListClient from "./TaskListClient";
 import ArchiveControls from "./ArchiveControls";
 import { statusLabel, priorityLabel } from "@/lib/dashboardLabels";
 import "@/styles/dashboard-forms.css";
+import "@/styles/dashboard-tasks.css";
 
 export const dynamic = "force-dynamic";
 
@@ -44,7 +45,7 @@ export default async function TasksPage() {
   ];
 
   return (
-    <section className="dashboard-page">
+    <section className="dashboard-page dashboard-tasks-page">
       <div className="dashboard-header">
         <p className="dashboard-label">Upravljanje zadacima</p>
         <h1>Zadaci</h1>
