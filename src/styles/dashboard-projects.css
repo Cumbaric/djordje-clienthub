@@ -1,0 +1,288 @@
+/*
+ * DASHBOARD RESPONSIVE 01C — Projects.
+ *
+ * Everything here is scoped under `.dashboard-projects-page` (the wrapper on
+ * /dashboard/projects), so no other dashboard page is affected and the shared
+ * dashboard.css / dashboard-forms.css rules stay as they are. It follows the
+ * approach used for Clients (dashboard-clients.css), adapted to the Projects
+ * markup (progress bar, progress slider, next-steps list, no related rows):
+ *
+ *  - grid tracks use minmax(0, 1fr), so a long unbroken name/client/step can
+ *    no longer stretch a track (and the whole page) past the viewport;
+ *  - long names, clients, descriptions, meta pills and steps wrap;
+ *  - cards go to one column at 1000px and below;
+ *  - filters, forms, edit actions, the progress slider and the delete
+ *    confirmation fit the viewport;
+ *  - tablet/mobile controls get ~44px touch targets and 16px text inputs
+ *    (16px also stops iOS from zooming into a focused field);
+ *  - keyboard focus is clearly visible in both themes.
+ *
+ * Colours are intentionally not redefined except for the focus ring and two
+ * small contrast fixes at the end.
+ */
+
+.dashboard-projects-page {
+  min-width: 0;
+}
+
+/* ── Card grid ─────────────────────────────────────────────────────────── */
+.dashboard-projects-page .dashboard-project-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 1000px) {
+  .dashboard-projects-page .dashboard-project-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* A grid item is `min-width: auto` by default, which lets its content widen
+   the track; `min-width: 0` + anywhere-wrapping keeps the card in its track. */
+.dashboard-projects-page .dashboard-project-card {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.dashboard-projects-page .dashboard-project-top > div {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.dashboard-projects-page .dashboard-client-meta span {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  /* a pill that wraps onto several lines would otherwise turn into a blob */
+  border-radius: 16px;
+}
+
+.dashboard-projects-page .dashboard-progress {
+  min-width: 0;
+}
+
+.dashboard-projects-page .dashboard-next-steps {
+  min-width: 0;
+}
+
+.dashboard-projects-page .dashboard-next-steps li {
+  overflow-wrap: anywhere;
+}
+
+/* ── Filters ───────────────────────────────────────────────────────────── */
+.dashboard-projects-page .dashboard-filter-bar {
+  min-width: 0;
+}
+
+.dashboard-projects-page .dashboard-filter-search,
+.dashboard-projects-page .dashboard-filter-select {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* ── Create + edit forms, card controls ────────────────────────────────── */
+.dashboard-projects-page .dashboard-form,
+.dashboard-projects-page .dashboard-inline-edit,
+.dashboard-projects-page .dashboard-edit-field {
+  min-width: 0;
+}
+
+.dashboard-projects-page .dashboard-edit-field input,
+.dashboard-projects-page .dashboard-edit-field select,
+.dashboard-projects-page .dashboard-edit-field textarea {
+  width: 100%;
+  min-width: 0;
+}
+
+.dashboard-projects-page .dashboard-task-controls {
+  flex-wrap: wrap;
+}
+
+/* The slider keeps its own flexible lane but may drop to a new line instead
+   of squeezing the Status select and the buttons out of the card. */
+.dashboard-projects-page .dashboard-progress-control {
+  flex: 1 1 180px;
+  min-width: 0;
+}
+
+.dashboard-projects-page .dashboard-delete-confirm {
+  flex-wrap: wrap;
+}
+
+.dashboard-projects-page .dashboard-edit-actions {
+  flex-wrap: wrap;
+}
+
+/* ── Keyboard focus ────────────────────────────────────────────────────── */
+/* The shared form rules remove the native outline and leave a faint 12%
+   shadow; a real outline is added back for keyboard users only. */
+.dashboard-projects-page :is(button, a, select, input, textarea):focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+[data-theme="dark"]
+  .dashboard-projects-page
+  :is(button, a, select, input, textarea):focus-visible {
+  outline-color: #93c5fd;
+}
+
+/* ── Tablet and below: touch targets + 16px inputs ─────────────────────── */
+@media (max-width: 900px) {
+  .dashboard-projects-page
+    :is(
+      .dashboard-edit-btn,
+      .dashboard-delete-btn,
+      .dashboard-confirm-yes,
+      .dashboard-confirm-no,
+      .dashboard-save-btn,
+      .dashboard-cancel-btn,
+      .dashboard-primary-btn,
+      .dashboard-filter-clear
+    ) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 14px;
+  }
+
+  .dashboard-projects-page
+    :is(
+      .dashboard-field input,
+      .dashboard-field select,
+      .dashboard-field textarea,
+      .dashboard-edit-field input,
+      .dashboard-edit-field select,
+      .dashboard-edit-field textarea,
+      .dashboard-filter-search,
+      .dashboard-filter-select,
+      .dashboard-select
+    ) {
+    min-height: 44px;
+    font-size: 16px;
+  }
+
+  .dashboard-projects-page .dashboard-field textarea,
+  .dashboard-projects-page .dashboard-edit-field textarea {
+    min-height: 88px;
+  }
+
+  /* The slider is a 6px bar by default; a 44px-tall hit area keeps it usable
+     by thumb. Its thumb and track look are unchanged. */
+  .dashboard-projects-page .dashboard-progress-slider {
+    height: 44px;
+    margin-top: 0;
+  }
+}
+
+/* ── Phones ────────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .dashboard-projects-page .dashboard-form {
+    padding: 18px;
+  }
+
+  .dashboard-projects-page .dashboard-form-row .dashboard-field,
+  .dashboard-projects-page .dashboard-edit-row .dashboard-edit-field {
+    flex-basis: 100%;
+  }
+
+  /* Filters: search on its own line, the rest share the next lines. */
+  .dashboard-projects-page .dashboard-filter-bar {
+    padding: 12px;
+  }
+
+  .dashboard-projects-page .dashboard-filter-search {
+    flex: 1 1 100%;
+  }
+
+  .dashboard-projects-page .dashboard-filter-select,
+  .dashboard-projects-page .dashboard-filter-clear {
+    flex: 1 1 140px;
+  }
+
+  .dashboard-projects-page .dashboard-filter-count {
+    flex: 1 1 100%;
+    margin-left: 0;
+  }
+
+  /* Status select and progress slider each take a full row; the actions
+     share the next one. */
+  .dashboard-projects-page .dashboard-task-controls .dashboard-control-label {
+    flex: 1 1 100%;
+  }
+
+  .dashboard-projects-page .dashboard-task-controls .dashboard-select {
+    width: 100%;
+  }
+
+  .dashboard-projects-page .dashboard-task-controls > .dashboard-edit-btn,
+  .dashboard-projects-page .dashboard-task-controls > .dashboard-delete-btn {
+    flex: 1 1 120px;
+  }
+
+  /* "Obrisati? Da / Ne" — the question on its own line, the two answers share the next. */
+  .dashboard-projects-page .dashboard-delete-confirm {
+    flex: 1 1 100%;
+  }
+
+  .dashboard-projects-page .dashboard-delete-confirm span {
+    flex: 1 1 100%;
+  }
+
+  .dashboard-projects-page .dashboard-delete-confirm button {
+    flex: 1 1 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .dashboard-projects-page .dashboard-project-card {
+    padding: 18px;
+  }
+
+  .dashboard-projects-page .dashboard-form-actions {
+    justify-content: stretch;
+  }
+
+  .dashboard-projects-page .dashboard-form-actions .dashboard-primary-btn {
+    width: 100%;
+  }
+
+  /* Edit actions stack as full-width buttons. */
+  .dashboard-projects-page .dashboard-edit-actions {
+    flex-direction: column;
+  }
+
+  .dashboard-projects-page .dashboard-edit-actions button {
+    width: 100%;
+  }
+}
+
+/* ── Contrast fixes ────────────────────────────────────────────────────── */
+/* A project stored with status "Completed" gets class
+   `dashboard-status-completed`, which no shared rule styles, so its badge was
+   unreadable (especially in the dark theme). It reuses the existing "done"
+   green pair. */
+.dashboard-projects-page .dashboard-status-completed {
+  color: #166534;
+  background: #dcfce7;
+}
+
+[data-theme="dark"] .dashboard-projects-page .dashboard-status-completed {
+  color: #86efac;
+  background: #14532d;
+}
+
+/* #dc2626 on the dark card is only ~3.4:1; a lighter red keeps the question legible. */
+[data-theme="dark"] .dashboard-projects-page .dashboard-delete-confirm span {
+  color: #fca5a5;
+}
+
+/* The shared rules hard-code these two label colours without a dark override
+   (#4b5563 on the progress label, #475569 on the filter count), leaving them
+   at roughly 2:1 on the dark card. They take the same #94a3b8 the other dark
+   labels already use. */
+[data-theme="dark"] .dashboard-projects-page .dashboard-progress-control span,
+[data-theme="dark"] .dashboard-projects-page .dashboard-filter-count {
+  color: #94a3b8;
+}

@@ -3,6 +3,7 @@ import { projects as projectsTable } from "@/db/schema";
 import { createProject } from "./actions";
 import ProjectListClient from "./ProjectListClient";
 import "@/styles/dashboard-forms.css";
+import "@/styles/dashboard-projects.css";
 
 export const dynamic = "force-dynamic";
 
@@ -50,7 +51,7 @@ export default async function DashboardProjectsPage() {
   ];
 
   return (
-    <section className="dashboard-page">
+    <section className="dashboard-page dashboard-projects-page">
       <div className="dashboard-header">
         <p className="dashboard-label">Upravljanje projektima</p>
         <h1>Projekti</h1>
