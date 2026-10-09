@@ -3,6 +3,7 @@ import { clients as clientsTable, projects as projectsTable, tasks as tasksTable
 import { createClient } from "./actions";
 import ClientListClient from "./ClientListClient";
 import "@/styles/dashboard-forms.css";
+import "@/styles/dashboard-clients.css";
 
 export const dynamic = "force-dynamic";
 
@@ -51,7 +52,7 @@ export default async function ClientsPage() {
   ];
 
   return (
-    <section className="dashboard-page">
+    <section className="dashboard-page dashboard-clients-page">
       <div className="dashboard-header">
         <p className="dashboard-label">Upravljanje klijentima</p>
         <h1>Klijenti</h1>

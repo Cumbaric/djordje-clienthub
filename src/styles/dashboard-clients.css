@@ -1,0 +1,288 @@
+/*
+ * DASHBOARD RESPONSIVE 01B — Clients.
+ *
+ * Everything here is scoped under `.dashboard-clients-page` (the wrapper on
+ * /dashboard/clients), so no other dashboard page is affected. The shared
+ * dashboard.css / dashboard-forms.css rules stay as they are; this file only
+ * adds the responsive behaviour the Clients page was missing:
+ *
+ *  - grid tracks use minmax(0, 1fr), so a long unbroken name/URL can no
+ *    longer stretch a track (and the whole page) past the viewport;
+ *  - long names, URLs, descriptions, meta pills, tags and related rows wrap;
+ *  - cards go to one column at 1000px and below;
+ *  - filters, forms, edit actions and the delete confirmation fit the viewport;
+ *  - tablet/mobile controls get ~44px touch targets and 16px text inputs
+ *    (16px also stops iOS from zooming into a focused field);
+ *  - keyboard focus is clearly visible in both themes.
+ *
+ * Colours are intentionally not redefined except for the focus ring.
+ */
+
+.dashboard-clients-page {
+  min-width: 0;
+}
+
+/* ── Card grid ─────────────────────────────────────────────────────────── */
+.dashboard-clients-page .dashboard-client-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 1000px) {
+  .dashboard-clients-page .dashboard-client-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* A grid item is `min-width: auto` by default, which lets its content widen
+   the track; `min-width: 0` + anywhere-wrapping keeps the card in its track. */
+.dashboard-clients-page .dashboard-client-card {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.dashboard-clients-page .dashboard-client-top > div {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.dashboard-clients-page .dashboard-client-top h3 {
+  overflow-wrap: anywhere;
+}
+
+.dashboard-clients-page .dashboard-client-link {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.dashboard-clients-page .dashboard-client-meta span,
+.dashboard-clients-page .dashboard-tag-list span {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  /* a pill that wraps onto several lines would otherwise turn into a blob */
+  border-radius: 16px;
+}
+
+/* ── Related projects / tasks ──────────────────────────────────────────── */
+.dashboard-clients-page .dashboard-related-toggle {
+  gap: 12px;
+  text-align: left;
+}
+
+.dashboard-clients-page .dashboard-related-row {
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+/* Wrap instead of truncating with an ellipsis: nothing is hidden. */
+.dashboard-clients-page .dashboard-related-name {
+  flex: 1 1 140px;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* ── Filters ───────────────────────────────────────────────────────────── */
+.dashboard-clients-page .dashboard-filter-bar {
+  min-width: 0;
+}
+
+.dashboard-clients-page .dashboard-filter-search,
+.dashboard-clients-page .dashboard-filter-select {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* ── Create + edit forms, card controls ────────────────────────────────── */
+.dashboard-clients-page .dashboard-form,
+.dashboard-clients-page .dashboard-inline-edit {
+  min-width: 0;
+}
+
+.dashboard-clients-page .dashboard-edit-field {
+  min-width: 0;
+}
+
+.dashboard-clients-page .dashboard-edit-field input,
+.dashboard-clients-page .dashboard-edit-field select,
+.dashboard-clients-page .dashboard-edit-field textarea {
+  width: 100%;
+  min-width: 0;
+}
+
+.dashboard-clients-page .dashboard-task-controls {
+  flex-wrap: wrap;
+}
+
+.dashboard-clients-page .dashboard-delete-confirm {
+  flex-wrap: wrap;
+}
+
+.dashboard-clients-page .dashboard-edit-actions {
+  flex-wrap: wrap;
+}
+
+/* ── Keyboard focus ────────────────────────────────────────────────────── */
+/* The shared form rules remove the native outline and leave a faint 12%
+   shadow; a real outline is added back for keyboard users only. */
+.dashboard-clients-page :is(button, a, select, input, textarea):focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+[data-theme="dark"] .dashboard-clients-page :is(button, a, select, input, textarea):focus-visible {
+  outline-color: #93c5fd;
+}
+
+/* ── Tablet and below: touch targets + 16px inputs ─────────────────────── */
+@media (max-width: 900px) {
+  .dashboard-clients-page
+    :is(
+      .dashboard-edit-btn,
+      .dashboard-delete-btn,
+      .dashboard-confirm-yes,
+      .dashboard-confirm-no,
+      .dashboard-save-btn,
+      .dashboard-cancel-btn,
+      .dashboard-primary-btn,
+      .dashboard-filter-clear,
+      .dashboard-csv-btn,
+      .dashboard-related-toggle
+    ) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 14px;
+  }
+
+  .dashboard-clients-page .dashboard-related-toggle {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dashboard-clients-page
+    :is(
+      .dashboard-field input,
+      .dashboard-field select,
+      .dashboard-field textarea,
+      .dashboard-edit-field input,
+      .dashboard-edit-field select,
+      .dashboard-edit-field textarea,
+      .dashboard-filter-search,
+      .dashboard-filter-select,
+      .dashboard-select
+    ) {
+    min-height: 44px;
+    font-size: 16px;
+  }
+
+  .dashboard-clients-page .dashboard-field textarea,
+  .dashboard-clients-page .dashboard-edit-field textarea {
+    min-height: 88px;
+  }
+}
+
+/* ── Phones ────────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .dashboard-clients-page .dashboard-form {
+    padding: 18px;
+  }
+
+  .dashboard-clients-page .dashboard-form-row .dashboard-field,
+  .dashboard-clients-page .dashboard-edit-row .dashboard-edit-field {
+    flex-basis: 100%;
+  }
+
+  /* Filters: search on its own line, the rest share the next lines. */
+  .dashboard-clients-page .dashboard-filter-bar {
+    padding: 12px;
+  }
+
+  .dashboard-clients-page .dashboard-filter-search {
+    flex: 1 1 100%;
+  }
+
+  .dashboard-clients-page .dashboard-filter-select,
+  .dashboard-clients-page .dashboard-filter-clear,
+  .dashboard-clients-page .dashboard-csv-btn {
+    flex: 1 1 140px;
+  }
+
+  .dashboard-clients-page .dashboard-filter-count {
+    flex: 1 1 100%;
+    margin-left: 0;
+  }
+
+  /* Status select takes a full row; the actions share the next one. */
+  .dashboard-clients-page .dashboard-task-controls .dashboard-control-label {
+    flex: 1 1 100%;
+  }
+
+  .dashboard-clients-page .dashboard-task-controls .dashboard-select {
+    width: 100%;
+  }
+
+  .dashboard-clients-page .dashboard-task-controls > .dashboard-edit-btn,
+  .dashboard-clients-page .dashboard-task-controls > .dashboard-delete-btn {
+    flex: 1 1 120px;
+  }
+
+  /* "Obrisati? Da / Ne" — the question on its own line, the two answers share the next. */
+  .dashboard-clients-page .dashboard-delete-confirm {
+    flex: 1 1 100%;
+  }
+
+  .dashboard-clients-page .dashboard-delete-confirm span {
+    flex: 1 1 100%;
+  }
+
+  .dashboard-clients-page .dashboard-delete-confirm button {
+    flex: 1 1 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .dashboard-clients-page .dashboard-client-card {
+    padding: 18px;
+  }
+
+  .dashboard-clients-page .dashboard-form-actions {
+    justify-content: stretch;
+  }
+
+  .dashboard-clients-page .dashboard-form-actions .dashboard-primary-btn {
+    width: 100%;
+  }
+
+  /* Edit actions stack as full-width buttons. */
+  .dashboard-clients-page .dashboard-edit-actions {
+    flex-direction: column;
+  }
+
+  .dashboard-clients-page .dashboard-edit-actions button {
+    width: 100%;
+  }
+}
+
+/* ── Contrast fixes found in the related-project rows and delete confirm ─ */
+/* A project with status "Completed" gets class `dashboard-status-completed`,
+   which no shared rule styles, so its badge was unreadable (especially in the
+   dark theme). It reuses the existing "done" green pair. */
+.dashboard-clients-page .dashboard-status-completed {
+  color: #166534;
+  background: #dcfce7;
+}
+
+[data-theme="dark"] .dashboard-clients-page .dashboard-status-completed {
+  color: #86efac;
+  background: #14532d;
+}
+
+/* #dc2626 on the dark card is only ~3.4:1; a lighter red keeps the question legible. */
+[data-theme="dark"] .dashboard-clients-page .dashboard-delete-confirm span {
+  color: #fca5a5;
+}
