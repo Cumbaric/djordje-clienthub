@@ -19,15 +19,12 @@ const IMAGES = [
   "/Projects/pnrscout6.png",
   "/Projects/pnrscout5-clean.png",
   "/Projects/pnrscout7.png",
-  "/Projects/pnrscout3.png",
-  "/Projects/pnrscout4.png",
 ];
 
 // ProjectCarousel numbers a single alt per slide, so this describes the set in order:
-// početna, pregled timova, poređenje igrača, tier lista, profil igrača,
-// primer projekcije, baza igrača.
+// početna, pregled timova, poređenje igrača, tier lista, profil igrača.
 const IMAGES_ALT =
-  "Sajt PNR Scout za analitiku Evrolige u tamnom dizajnu: početna strana, pregled timova, tabela za poređenje igrača, tier lista klubova, profil igrača, primer projekcije i odeljak o bazi igrača, snimak ekrana";
+  "Sajt PNR Scout za analitiku Evrolige u tamnom dizajnu: početna strana, pregled timova, tabela za poređenje igrača, tier lista klubova i profil igrača, snimak ekrana";
 
 export const metadata = {
   title: "PNR Scout — Platforma za analitiku igrača Evrolige",
@@ -235,6 +232,8 @@ export default function PnrScoutCaseStudyPage() {
           <p>
             Pozadinske servise, obradu podataka, AI/ML projekcije i ostale
             funkcije razvija širi PNR Scout tim, pa nisu deo ovog case study-ja.
+            Kasnije dodate funkcije tier liste, poput izmenjivih nivoa i
+            deljenja na X, takođe su izvan gore potvrđenog obima.
           </p>
         </section>
 

@@ -2,6 +2,7 @@
 export const PROJECT_CATEGORIES = {
   wordpress: "WordPress",
   nextjs: "Next.js",
+  "html-css-js": "HTML / CSS / JS",
   landing: "Landing Pages",
 };
 
@@ -178,7 +179,7 @@ export const projects = [
     slug: "pnr-scout",
     coverImage: "/Projects/pnrscout2.png",
     type: "HTML / CSS / JavaScript / EuroLeague Analytics Platform",
-    category: "landing",
+    category: "html-css-js",
     status: "Active project",
     url: "/en/projects/pnr-scout",
     featured: true,

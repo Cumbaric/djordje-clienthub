@@ -19,15 +19,12 @@ const IMAGES = [
   "/Projects/pnrscout6.png",
   "/Projects/pnrscout5-clean.png",
   "/Projects/pnrscout7.png",
-  "/Projects/pnrscout3.png",
-  "/Projects/pnrscout4.png",
 ];
 
 // ProjectCarousel numbers a single alt per slide, so this describes the set in order:
-// homepage, teams directory, player comparison, tier list, player profile,
-// example projection section, player database section.
+// homepage, teams directory, player comparison, tier list, player profile.
 const IMAGES_ALT =
-  "PNR Scout EuroLeague analytics website in a dark interface: homepage, teams directory, player comparison table, club tier list, player profile, example projection section and player database section, screenshot";
+  "PNR Scout EuroLeague analytics website in a dark interface: homepage, teams directory, player comparison table, club tier list and player profile, screenshot";
 
 export const metadata = {
   title: "PNR Scout — EuroLeague Analytics Platform Case Study",
@@ -235,7 +232,9 @@ export default function PnrScoutCaseStudyPage() {
           <p>
             Backend services, the data pipeline, the AI/ML projection work and
             other features are handled by the wider PNR Scout team and are not
-            part of this case study.
+            part of this case study. Later additions to the tier list, such as
+            editable tiers and sharing to X, are likewise outside the verified
+            scope above.
           </p>
         </section>
 
