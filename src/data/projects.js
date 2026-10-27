@@ -173,6 +173,21 @@ export const projects = [
     descriptionEn:
       "A Next.js booking template for wellness and massage studios. It pairs a polished, customizable public site with a protected admin dashboard for handling appointment requests, managing reservations and clients, and tracking bookings and revenue. Built as a reusable product that can be branded and sold to different salons — the content shown is a generic demo.",
   },
+  {
+    title: "PNR Scout",
+    slug: "pnr-scout",
+    coverImage: "/Projects/pnrscout2.png",
+    type: "HTML / CSS / JavaScript / EuroLeague Analytics Platform",
+    category: "landing",
+    status: "Active project",
+    url: "/en/projects/pnr-scout",
+    featured: true,
+    tags: ["HTML", "CSS", "JavaScript", "Node.js", "Canvas API", "Cloudflare Workers"],
+    description:
+      "Front-end razvoj javnog sajta PNR Scout, platforme za analitiku igrača Evrolige: poređenje igrača, interaktivna tier lista klubova, navigacija kroz timove i igrače i responzivan interfejs. Rad je izveden u okviru šireg tima, a AI/ML projekcije su i dalje u beta fazi.",
+    descriptionEn:
+      "Front-end development for the public PNR Scout website, a EuroLeague player analytics platform: player comparison, an interactive club tier list, team and player navigation and a responsive interface. The work was done as part of a wider team, and the AI/ML projections remain in beta.",
+  },
 ];
 
 export const featuredProjects = projects.filter((project) => project.featured);
