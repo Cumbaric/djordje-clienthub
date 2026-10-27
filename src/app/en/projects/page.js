@@ -39,7 +39,7 @@ function ProjectCard({ project }) {
             alt={project.title}
             fill
             sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw"
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: "cover", objectPosition: project.coverPosition }}
           />
         ) : (
           <div className="proj-img-placeholder"><span>{project.title}</span></div>

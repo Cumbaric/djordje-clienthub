@@ -16,10 +16,15 @@ const breadcrumbSchema = {
 const IMAGES = [
   "/Projects/lekturaiprevod.png",
   "/Projects/lekturaiprevod1.png",
-  "/Projects/lekturaiprevod2.png",
+  "/Projects/lekturaiprevod2-clean.png",
   "/Projects/lekturaiprevod3.png",
-  "/Projects/lekturaiprevod4.png",
+  "/Projects/lekturaiprevod4-clean.png",
 ];
+
+// ProjectCarousel numbers a single alt per slide, so this describes the set:
+// naslov, kartice lekture, pristup radu, prevod i česta pitanja, zahtev za ponudu i podnožje.
+const IMAGES_ALT =
+  "Sajt Lektura i prevod u uredničkom dizajnu u tamnoplavoj i krem boji: naslovni deo, kartice usluge lekture, pristup radu, prevod i česta pitanja, zahtev za ponudu i podnožje, snimak ekrana";
 
 export const metadata = {
   title: "Lektura i prevod — WordPress sajt i namenski plugin",
@@ -79,7 +84,7 @@ export default function LekturaIPrevodCaseStudyPage() {
           </div>
           <div>
             <span>Status</span>
-            <strong>U izradi</strong>
+            <strong>U razvoju</strong>
           </div>
           <div>
             <span>Uloga</span>
@@ -89,7 +94,7 @@ export default function LekturaIPrevodCaseStudyPage() {
 
         <section className="case-study-section">
           <h2>Galerija projekta</h2>
-          <ProjectCarousel images={IMAGES} alt="Lektura i prevod snimak ekrana sajta" />
+          <ProjectCarousel images={IMAGES} alt={IMAGES_ALT} />
         </section>
 
         <section className="case-study-section">

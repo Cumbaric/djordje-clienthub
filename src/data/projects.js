@@ -40,6 +40,8 @@ export const projects = [
     title: "Lektura i prevod",
     slug: "lektura-i-prevod",
     coverImage: "/Projects/lekturaiprevod.png",
+    // wide desktop capture: keep the logo and headline inside the 4:3 card crop
+    coverPosition: "30% 50%",
     type: "WordPress / Elementor / Custom Plugin / Proofreading & Translation Services",
     category: "wordpress",
     status: "In development",
