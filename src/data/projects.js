@@ -37,6 +37,21 @@ export const projects = [
       "Website and SEO-focused improvement project for a massage and wellness business, with attention to service structure, user flow, booking path and performance optimization.",
   },
   {
+    title: "Lektura i prevod",
+    slug: "lektura-i-prevod",
+    coverImage: "/Projects/lekturaiprevod.png",
+    type: "WordPress / Elementor / Custom Plugin / Proofreading & Translation Services",
+    category: "wordpress",
+    status: "In development",
+    url: "/en/projects/lektura-i-prevod",
+    featured: true,
+    tags: ["WordPress", "Elementor", "Custom Plugin", "PHP", "Yoast SEO", "WP Mail SMTP"],
+    description:
+      "WordPress sajt za usluge lekture, korekture i prevoda, sa namenskim pluginom za zahteve za ponudu i bezbedno slanje dokumenata. Projekat je u izradi.",
+    descriptionEn:
+      "WordPress website for proofreading, editing and translation services, with a custom plugin for quote requests and secure document submission. The project is currently in development.",
+  },
+  {
     title: "Olivera Popović Edu",
     slug: "olivera-popovic-edu",
     coverImage: "/Projects/Olvera_Popovic_1.png",
