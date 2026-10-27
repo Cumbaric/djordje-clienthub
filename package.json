@@ -10,6 +10,8 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
+    "check:encoding": "node scripts/check-encoding.mjs",
+    "test:encoding": "node --test scripts/check-encoding.test.mjs",
     "db:push": "drizzle-kit push",
     "db:seed": "node --env-file=.env.local --import tsx src/db/seed.js",
     "db:studio": "drizzle-kit studio"
