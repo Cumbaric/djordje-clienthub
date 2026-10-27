@@ -7,7 +7,7 @@ const STATS = {
   sr: [
     {
       id: "done",
-      countTo: 6,
+      countTo: 12,
       suffix: "",
       label: "završenih projekata",
       icon: "check",
@@ -49,7 +49,7 @@ const STATS = {
   en: [
     {
       id: "done",
-      countTo: 6,
+      countTo: 12,
       suffix: "",
       label: "completed projects",
       icon: "check",

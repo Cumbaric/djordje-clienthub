@@ -195,10 +195,10 @@ export const featuredProjects = projects.filter((project) => project.featured);
 
 // Projects shown in the homepage "Recent Work" section, in display order.
 const RECENT_PROJECT_SLUGS = [
-  "wellness-concept",
-  "djordje-clienthub",
+  "lektura-i-prevod",
+  "musical-duo-studio",
+  "pnr-scout",
   "ben-akiba-dashboard",
-  "lumera-wellness",
 ];
 
 export const recentProjects = RECENT_PROJECT_SLUGS.map((slug) =>
