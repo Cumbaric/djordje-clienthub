@@ -242,7 +242,7 @@ export default function KontaktPage() {
         <RevealSection delay={0.08}>
           <section className="contact-cta has-orb">
             <SectionOrb style={{ "--orb-top": "30px", "--orb-right": "44px" }} />
-            <h2>Spreman/spremna si da definišemo sledeći korak?</h2>
+            <h2>Spreman/<wbr />spremna si da definišemo sledeći korak?</h2>
             <p>
               Pošalji nam kratku poruku sa ciljem sajta i pomoći ćemo ti da to
               pretvorimo u praktičan plan.

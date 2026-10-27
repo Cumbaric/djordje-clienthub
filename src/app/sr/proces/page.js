@@ -266,7 +266,7 @@ export default function ProcesPage() {
           {/* 6. Final CTA */}
           <section className="process-cta has-orb">
             <SectionOrb style={{ "--orb-top": "30px", "--orb-right": "44px" }} />
-            <h2>Spreman/spremna si da unaprediš svoj sajt?</h2>
+            <h2>Spreman/<wbr />spremna si da unaprediš svoj sajt?</h2>
             <p>
               Pošalji nam kratak opis sajta ili projekta i možemo da ti pomognemo
               da definišemo sledeći praktičan korak.
