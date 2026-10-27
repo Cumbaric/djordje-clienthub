@@ -221,6 +221,13 @@
   width: 100%;
 }
 
+/* Section orbs sit at a fixed 340px offset inside .sectionInner. Clip anything
+   past the viewport edge so a screen under ~360px does not scroll sideways.
+   `clip` (not `hidden`) leaves vertical glows and hover shadows untouched. */
+.section {
+  overflow-x: clip;
+}
+
 /* Alternating background */
 .sectionAlt {
   background: #070b18;
