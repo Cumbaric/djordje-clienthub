@@ -2,13 +2,12 @@ import { db } from "@/db";
 import { blogPosts } from "@/db/schema";
 import { eq } from "drizzle-orm";
 
-/** Slugs of all published blog posts. Throws if the query fails. */
-export async function getPublishedBlogSlugs() {
-  const rows = await db
-    .select({ slug: blogPosts.slug })
+/** All published blog posts as { slug, updatedAt }. Throws if the query fails. */
+export async function getPublishedBlogPosts() {
+  return db
+    .select({ slug: blogPosts.slug, updatedAt: blogPosts.updatedAt })
     .from(blogPosts)
     .where(eq(blogPosts.status, "published"));
-  return rows.map((r) => r.slug);
 }
 
 /**
@@ -18,8 +17,8 @@ export async function getPublishedBlogSlugs() {
  */
 export async function blogIndexRobots() {
   try {
-    const slugs = await getPublishedBlogSlugs();
-    return slugs.length === 0 ? { index: false, follow: true } : undefined;
+    const posts = await getPublishedBlogPosts();
+    return posts.length === 0 ? { index: false, follow: true } : undefined;
   } catch (err) {
     console.error("[blog] Could not check published posts for robots meta:", err);
     return undefined;

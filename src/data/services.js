@@ -3,6 +3,7 @@ import { SERVICE_SLUGS_SR } from "./serviceSlugs.mjs";
 const baseServices = [
   {
     slug: "html-css-js",
+    updatedAt: "2026-08-12", // sitemap lastmod — bump when the service content changes
     title: "HTML / CSS / JS razvoj",
     titleEn: "HTML / CSS / JS Development",
     shortLabel: "HTML / CSS / JS razvoj",
@@ -125,6 +126,7 @@ const baseServices = [
   },
   {
     slug: "react-nextjs",
+    updatedAt: "2026-08-12", // sitemap lastmod — bump when the service content changes
     title: "React / Next.js web aplikacije",
     titleEn: "React / Next.js Web Applications",
     shortLabel: "React / Next.js web aplikacije",
@@ -247,6 +249,7 @@ const baseServices = [
   },
   {
     slug: "seo-optimization",
+    updatedAt: "2026-08-12", // sitemap lastmod — bump when the service content changes
     title: "SEO optimizacija i struktura",
     titleEn: "SEO Structure & On-page Optimization",
     shortLabel: "SEO optimizacija i struktura",
@@ -369,6 +372,7 @@ const baseServices = [
   },
   {
     slug: "wordpress-website-development",
+    updatedAt: "2026-08-12", // sitemap lastmod — bump when the service content changes
     title: "WordPress izrada sajtova",
     titleEn: "WordPress Website Development",
     shortLabel: "WordPress website development",
@@ -491,6 +495,7 @@ const baseServices = [
   },
   {
     slug: "ecommerce-store",
+    updatedAt: "2026-08-12", // sitemap lastmod — bump when the service content changes
     title: "Izrada online prodavnice",
     titleEn: "E-commerce Store Development",
     shortLabel: "Izrada online prodavnice",
@@ -613,6 +618,7 @@ const baseServices = [
   },
   {
     slug: "website-maintenance",
+    updatedAt: "2026-08-12", // sitemap lastmod — bump when the service content changes
     title: "Održavanje i tehnička podrška",
     titleEn: "Website Maintenance & Technical Support",
     shortLabel: "Održavanje i tehnička podrška",

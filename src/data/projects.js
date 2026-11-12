@@ -10,6 +10,7 @@ export const projects = [
   {
     title: "Musical Duo Studio",
     slug: "musical-duo-studio",
+    updatedAt: "2026-08-12", // sitemap lastmod — bump when the case study content changes
     coverImage: "/Projects/musical_duo_studio_1.png",
     type: "WordPress / Elementor / Music Studio / Contact Form",
     category: "wordpress",
@@ -25,6 +26,7 @@ export const projects = [
   {
     title: "Wellness Concept",
     slug: "wellness-concept",
+    updatedAt: "2026-08-12", // sitemap lastmod — bump when the case study content changes
     coverImage: "/Projects/Wellness_Concept_1.png",
     type: "WordPress / Elementor / SEO / Performance",
     category: "wordpress",
@@ -40,6 +42,7 @@ export const projects = [
   {
     title: "Lektura i prevod",
     slug: "lektura-i-prevod",
+    updatedAt: "2026-10-27", // sitemap lastmod — bump when the case study content changes
     coverImage: "/Projects/lekturaiprevod.png",
     // wide desktop capture: keep the logo and headline inside the 4:3 card crop
     coverPosition: "30% 50%",
@@ -57,6 +60,7 @@ export const projects = [
   {
     title: "Olivera Popović Edu",
     slug: "olivera-popovic-edu",
+    updatedAt: "2026-08-12", // sitemap lastmod — bump when the case study content changes
     coverImage: "/Projects/Olvera_Popovic_1.png",
     type: "WordPress / Education / SEO structure",
     category: "wordpress",
@@ -72,6 +76,7 @@ export const projects = [
   {
     title: "BoomMil",
     slug: "boommil",
+    updatedAt: "2026-08-12", // sitemap lastmod — bump when the case study content changes
     coverImage: "/Projects/boommil_1.png",
     type: "WooCommerce / WordPress / Product structure",
     category: "wordpress",
@@ -87,6 +92,7 @@ export const projects = [
   {
     title: "MirkoTopalovićTips",
     slug: "mirko-topalovic-tips",
+    updatedAt: "2026-08-12", // sitemap lastmod — bump when the case study content changes
     coverImage: "/Projects/mirko_topalovic_1.png",
     type: "WordPress / Content structure / Sports tips platform",
     category: "wordpress",
@@ -102,6 +108,7 @@ export const projects = [
   {
     title: "Djordje ClientHub",
     slug: "djordje-clienthub",
+    updatedAt: "2026-08-12", // sitemap lastmod — bump when the case study content changes
     coverImage: "/Projects/djordje_clienthub_1.png",
     type: "Next.js / React / Dashboard / Internal Tool",
     category: "nextjs",
@@ -117,6 +124,7 @@ export const projects = [
   {
     title: "Ben Akiba Dashboard",
     slug: "ben-akiba-dashboard",
+    updatedAt: "2026-08-12", // sitemap lastmod — bump when the case study content changes
     coverImage: "/Projects/ben-akiba-dashboard_1.png",
     type: "Next.js / React / Supabase / Admin Dashboard",
     category: "nextjs",
@@ -132,6 +140,7 @@ export const projects = [
   {
     title: "Iron Pulse",
     slug: "iron-pulse",
+    updatedAt: "2026-08-12", // sitemap lastmod — bump when the case study content changes
     coverImage: "/Projects/iron_pulse_1.png",
     type: "HTML / CSS / JavaScript / Landing Page",
     category: "landing",
@@ -147,6 +156,7 @@ export const projects = [
   {
     title: "Luma Dental",
     slug: "luma-dental",
+    updatedAt: "2026-08-12", // sitemap lastmod — bump when the case study content changes
     coverImage: "/Projects/luma_dental_1.png",
     type: "Next.js / React / Dental Clinic / Landing Page",
     category: "landing",
@@ -162,6 +172,7 @@ export const projects = [
   {
     title: "Lumera Wellness",
     slug: "lumera-wellness",
+    updatedAt: "2026-08-12", // sitemap lastmod — bump when the case study content changes
     coverImage: "/Projects/LumeraWellness1.png",
     type: "Next.js / React / Wellness Booking Template",
     category: "nextjs",
@@ -177,6 +188,7 @@ export const projects = [
   {
     title: "PNR Scout",
     slug: "pnr-scout",
+    updatedAt: "2026-10-27", // sitemap lastmod — bump when the case study content changes
     coverImage: "/Projects/pnrscout2.png",
     type: "HTML / CSS / JavaScript / EuroLeague Analytics Platform",
     category: "html-css-js",

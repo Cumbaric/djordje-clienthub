@@ -1,16 +1,17 @@
 import { services } from "@/data/services";
 import { projects } from "@/data/projects";
-import { getPublishedBlogSlugs } from "@/lib/blog";
+import { PAGE_LASTMOD } from "@/data/pageDates";
+import { getPublishedBlogPosts } from "@/lib/blog";
 
 const BASE_URL = "https://dwebsolutions.rs";
 
 // Regenerate hourly so newly published blog posts appear without a rebuild. If a
-// regeneration throws (see getBlogSlugs), Next keeps serving the last good sitemap.
+// regeneration throws (see getBlogPosts), Next keeps serving the last good sitemap.
 export const revalidate = 3600;
 
-async function getBlogSlugs() {
+async function getBlogPosts() {
   try {
-    return await getPublishedBlogSlugs();
+    return await getPublishedBlogPosts();
   } catch (error) {
     console.error("[sitemap] Could not load published blog posts:", error);
     // Build time: do not fail the build when the database is unreachable; the sitemap
@@ -24,88 +25,54 @@ async function getBlogSlugs() {
   }
 }
 
-function bilingualEntries(
-  enPath,
-  srPath,
-  { priority = 0.7, changeFrequency = "monthly" } = {},
-) {
-  const lastModified = new Date();
+/** Latest of several YYYY-MM-DD strings / Dates; undefined if none is valid. */
+function latest(...dates) {
+  const valid = dates.map((d) => (d ? new Date(d) : null)).filter((d) => d && !Number.isNaN(d.getTime()));
+  return valid.length ? new Date(Math.max(...valid)) : undefined;
+}
 
+// Google ignores <changefreq>/<priority>, so only <lastmod> (a real modification date)
+// and the hreflang alternates are emitted.
+function bilingualEntries(enPath, srPath, lastModified) {
   const languages = {
     "x-default": `${BASE_URL}${enPath}`,
     en: `${BASE_URL}${enPath}`,
     sr: `${BASE_URL}${srPath}`,
   };
 
-  return [
-    {
-      url: `${BASE_URL}${enPath}`,
-      lastModified,
-      changeFrequency,
-      priority,
-      alternates: {
-        languages,
-      },
-    },
-    {
-      url: `${BASE_URL}${srPath}`,
-      lastModified,
-      changeFrequency,
-      priority,
-      alternates: {
-        languages,
-      },
-    },
-  ];
+  return [enPath, srPath].map((path) => ({
+    url: `${BASE_URL}${path}`,
+    ...(lastModified && { lastModified }),
+    alternates: { languages },
+  }));
 }
 
 export default async function sitemap() {
-  const blogSlugs = await getBlogSlugs();
+  const blogPosts = await getBlogPosts();
 
   const staticPages = [
-    ...bilingualEntries("/en", "/sr", {
-      priority: 1,
-      changeFrequency: "weekly",
-    }),
-    ...bilingualEntries("/en/projects", "/sr/projekti", {
-      priority: 0.9,
-    }),
-    ...bilingualEntries("/en/services", "/sr/usluge", {
-      priority: 0.9,
-    }),
-    ...bilingualEntries("/en/process", "/sr/proces", {
-      priority: 0.7,
-    }),
-    ...bilingualEntries("/en/contact", "/sr/kontakt", {
-      priority: 0.7,
-    }),
+    ...bilingualEntries("/en", "/sr", latest(PAGE_LASTMOD.home)),
+    ...bilingualEntries("/en/projects", "/sr/projekti", latest(PAGE_LASTMOD.projects, ...projects.map((p) => p.updatedAt))),
+    ...bilingualEntries("/en/services", "/sr/usluge", latest(PAGE_LASTMOD.services, ...services.map((s) => s.updatedAt))),
+    ...bilingualEntries("/en/process", "/sr/proces", latest(PAGE_LASTMOD.process)),
+    ...bilingualEntries("/en/contact", "/sr/kontakt", latest(PAGE_LASTMOD.contact)),
     // Blog index is noindex while there are no published posts (see blogIndexRobots),
     // so it only belongs in the sitemap once at least one post exists.
-    ...(blogSlugs.length > 0
-      ? bilingualEntries("/en/blog", "/sr/blog", {
-          priority: 0.8,
-          changeFrequency: "weekly",
-        })
+    ...(blogPosts.length > 0
+      ? bilingualEntries("/en/blog", "/sr/blog", latest(...blogPosts.map((p) => p.updatedAt)))
       : []),
   ];
 
   const projectPages = projects.flatMap((project) =>
-    bilingualEntries(`/en/projects/${project.slug}`, `/sr/projekti/${project.slug}`, {
-      priority: 0.8,
-    }),
+    bilingualEntries(`/en/projects/${project.slug}`, `/sr/projekti/${project.slug}`, latest(project.updatedAt)),
   );
 
   const servicePages = services.flatMap((service) =>
-    bilingualEntries(`/en/services/${service.slug}`, `/sr/usluge/${service.slugSr}`, {
-      priority: 0.6,
-    }),
+    bilingualEntries(`/en/services/${service.slug}`, `/sr/usluge/${service.slugSr}`, latest(service.updatedAt)),
   );
 
-  const blogPostPages = blogSlugs.flatMap((slug) =>
-    bilingualEntries(`/en/blog/${slug}`, `/sr/blog/${slug}`, {
-      priority: 0.7,
-      changeFrequency: "monthly",
-    }),
+  const blogPostPages = blogPosts.flatMap((post) =>
+    bilingualEntries(`/en/blog/${post.slug}`, `/sr/blog/${post.slug}`, latest(post.updatedAt)),
   );
 
   return [...staticPages, ...projectPages, ...servicePages, ...blogPostPages];
