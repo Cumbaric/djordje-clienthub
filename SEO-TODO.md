@@ -96,3 +96,14 @@ Sigurnosna zaglavlja su uključena u `next.config.mjs` (`X-Content-Type-Options`
 - [ ] Kad Apache pravila iz tačke 1 rade u produkciji, dodaj u `securityHeaders`:
       `{ key: "Strict-Transport-Security", value: "max-age=86400" }` (1 dan, bez `includeSubDomains` i bez `preload`).
 - [ ] Posle nedelju dana bez problema podigni na `max-age=2592000`, pa po potrebi na godinu dana.
+
+## 9. Lokalno razvijanje: koristi zasebnu dev bazu
+Pri lokalnom `npm run build` / `npm start` u logu se vidi `Access denied for user 'u325204828_clienthub'@'<tvoja IP>'`,
+što znači da `DATABASE_URL` u lokalnom `.env.local` pokazuje na **produkcionu** bazu (hosting je samo odbio tvoju IP).
+Ako bi ti IP jednom bila dozvoljena u hosting panelu (Remote MySQL), lokalni build, sitemap, blog i dashboard bi
+čitali i **pisali** u produkcione podatke.
+- [ ] Napravi zasebnu bazu za razvoj (lokalni MySQL/MariaDB ili druga baza na hostingu) i u `.env.local` postavi njen `DATABASE_URL`.
+- [ ] Šemu napravi sa `npm run db:push`, a probne podatke sa `npm run db:seed` (samo nad dev bazom!).
+- [ ] Ne dodaji svoju IP u Remote MySQL produkcione baze samo zbog lokalnog rada.
+- [ ] Proveri: `.env.local` je u `.gitignore` i nikad nije commit-ovan (provereno 12.11.2026 kroz `git log --all`).
+      Ako su kredencijali ikad bili poslati negde van repoa, rotiraj lozinku baze.
