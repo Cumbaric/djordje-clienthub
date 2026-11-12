@@ -27,7 +27,7 @@ const seo = seoMeta({ lang: "sr", en: "/en/projects/musical-duo-studio", sr: "/s
 export const metadata = {
   title: "Musical Duo Studio — studija slučaja",
   description:
-    "WordPress sajt za profesionalni studio gitare i basa — Elementor, Fluent Forms, Yoast SEO i W3 Total Cache.",
+    "Studija slučaja WordPress sajta za profesionalni studio gitare i basa: Elementor, Fluent Forms, Yoast SEO, W3 Total Cache i video prezentacija.",
   openGraph: {
     ...seo.openGraph,
     title: "Musical Duo Studio — studija slučaja",

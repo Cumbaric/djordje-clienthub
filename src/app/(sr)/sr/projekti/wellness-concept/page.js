@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import { seoMeta } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 
 const IMAGES = [
   "/Projects/Wellness_Concept_1.webp",
@@ -10,6 +11,16 @@ const IMAGES = [
   "/Projects/Wellness_Concept_4.webp",
   "/Projects/Wellness_Concept_5.webp",
 ];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Početna", "item": "https://dwebsolutions.rs/sr" },
+    { "@type": "ListItem", "position": 2, "name": "Projekti", "item": "https://dwebsolutions.rs/sr/projekti" },
+    { "@type": "ListItem", "position": 3, "name": "Wellness Concept", "item": "https://dwebsolutions.rs/sr/projekti/wellness-concept" },
+  ],
+};
 
 const seo = seoMeta({ lang: "sr", en: "/en/projects/wellness-concept", sr: "/sr/projekti/wellness-concept", type: "article", image: null });
 
@@ -30,6 +41,7 @@ export const metadata = {
 export default function WellnessConceptCaseStudyPage() {
   return (
     <main>
+      <JsonLd data={breadcrumbSchema} />
       <PageHero
         eyebrow="Studija slučaja"
         title="Wellness Concept — WordPress, UX i SEO unapređenje strukture"

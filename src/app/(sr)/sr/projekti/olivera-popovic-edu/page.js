@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import { seoMeta } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 
 const IMAGES = [
   "/Projects/Olvera_Popovic_1.webp",
@@ -10,6 +11,16 @@ const IMAGES = [
   "/Projects/Olvera_Popovic_4.webp",
   "/Projects/Olvera_Popovic_5.webp",
 ];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Početna", "item": "https://dwebsolutions.rs/sr" },
+    { "@type": "ListItem", "position": 2, "name": "Projekti", "item": "https://dwebsolutions.rs/sr/projekti" },
+    { "@type": "ListItem", "position": 3, "name": "Olivera Popović Edu", "item": "https://dwebsolutions.rs/sr/projekti/olivera-popovic-edu" },
+  ],
+};
 
 const seo = seoMeta({ lang: "sr", en: "/en/projects/olivera-popovic-edu", sr: "/sr/projekti/olivera-popovic-edu", type: "article", image: null });
 
@@ -30,6 +41,7 @@ export const metadata = {
 export default function OliveraPopovicEduPage() {
   return (
     <main>
+      <JsonLd data={breadcrumbSchema} />
       <PageHero
         eyebrow="Studija slučaja"
         title="Olivera Popović Edu — Edukativni sajt, struktura sadržaja i SEO osnova"

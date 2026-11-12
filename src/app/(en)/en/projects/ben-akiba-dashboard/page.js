@@ -27,7 +27,7 @@ const seo = seoMeta({ lang: "en", en: "/en/projects/ben-akiba-dashboard", sr: "/
 export const metadata = {
   title: "Ben Akiba Dashboard Case Study",
   description:
-    "Next.js and Supabase admin dashboard for Ben Akiba events, reservations, stand-up shows and parties.",
+    "Case study of a Next.js and Supabase admin dashboard for Ben Akiba: public event overview, reservations, stand-up shows and parties, capacity tracking.",
   openGraph: {
     ...seo.openGraph,
     title: "Ben Akiba Dashboard Case Study",

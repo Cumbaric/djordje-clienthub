@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import { seoMeta } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 
 const IMAGES = [
   "/Projects/mirko_topalovic_1.webp",
@@ -9,6 +10,16 @@ const IMAGES = [
   "/Projects/mirko_topalovic_3.webp",
   "/Projects/mirko_topalovic_4.webp",
 ];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Početna", "item": "https://dwebsolutions.rs/sr" },
+    { "@type": "ListItem", "position": 2, "name": "Projekti", "item": "https://dwebsolutions.rs/sr/projekti" },
+    { "@type": "ListItem", "position": 3, "name": "MirkoTopalovićTips", "item": "https://dwebsolutions.rs/sr/projekti/mirko-topalovic-tips" },
+  ],
+};
 
 const seo = seoMeta({ lang: "sr", en: "/en/projects/mirko-topalovic-tips", sr: "/sr/projekti/mirko-topalovic-tips", type: "article", image: null });
 
@@ -29,6 +40,7 @@ export const metadata = {
 export default function MirkoTopalovicTipsPage() {
   return (
     <main>
+      <JsonLd data={breadcrumbSchema} />
       <PageHero
         eyebrow="Studija slučaja"
         title="MirkoTopalovićTips — Platforma za sportske tipove i struktura sadržaja"

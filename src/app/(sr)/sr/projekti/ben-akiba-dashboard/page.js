@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import { seoMeta } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 
 const IMAGES = [
   "/Projects/ben-akiba-dashboard_1.webp",
@@ -11,12 +12,22 @@ const IMAGES = [
   "/Projects/ben-akiba-dashboard_5.webp",
 ];
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Početna", "item": "https://dwebsolutions.rs/sr" },
+    { "@type": "ListItem", "position": 2, "name": "Projekti", "item": "https://dwebsolutions.rs/sr/projekti" },
+    { "@type": "ListItem", "position": 3, "name": "Ben Akiba Dashboard", "item": "https://dwebsolutions.rs/sr/projekti/ben-akiba-dashboard" },
+  ],
+};
+
 const seo = seoMeta({ lang: "sr", en: "/en/projects/ben-akiba-dashboard", sr: "/sr/projekti/ben-akiba-dashboard", type: "article", image: null });
 
 export const metadata = {
   title: "Ben Akiba Dashboard — studija slučaja",
   description:
-    "Next.js i Supabase admin dashboard za Ben Akiba događaje, rezervacije, stand up nastupe i žurke.",
+    "Studija slučaja Next.js i Supabase admin dashboarda za Ben Akiba: javni pregled događaja, rezervacije, stand up nastupi i žurke, praćenje kapaciteta.",
   openGraph: {
     ...seo.openGraph,
     title: "Ben Akiba Dashboard — studija slučaja",
@@ -30,6 +41,7 @@ export const metadata = {
 export default function BenAkibaDashboardPage() {
   return (
     <main>
+      <JsonLd data={breadcrumbSchema} />
       <PageHero
         eyebrow="Studija slučaja"
         title="Ben Akiba Dashboard - Admin panel za upravljanje događajima"

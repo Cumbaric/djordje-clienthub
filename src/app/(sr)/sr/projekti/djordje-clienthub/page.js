@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import { seoMeta } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 
 const IMAGES = [
   "/Projects/djordje_clienthub_1.webp",
@@ -11,6 +12,16 @@ const IMAGES = [
   "/Projects/djordje_clienthub_5.webp",
   "/Projects/djordje_clienthub_6.webp",
 ];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Početna", "item": "https://dwebsolutions.rs/sr" },
+    { "@type": "ListItem", "position": 2, "name": "Projekti", "item": "https://dwebsolutions.rs/sr/projekti" },
+    { "@type": "ListItem", "position": 3, "name": "Djordje ClientHub", "item": "https://dwebsolutions.rs/sr/projekti/djordje-clienthub" },
+  ],
+};
 
 const seo = seoMeta({ lang: "sr", en: "/en/projects/djordje-clienthub", sr: "/sr/projekti/djordje-clienthub", type: "article", image: null });
 
@@ -31,6 +42,7 @@ export const metadata = {
 export default function DjordjeClientHubPage() {
   return (
     <main>
+      <JsonLd data={breadcrumbSchema} />
       <PageHero
         eyebrow="Studija slučaja"
         title="Djordje ClientHub — Bilingvalni portfolio i privatni dashboard"
