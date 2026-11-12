@@ -11,7 +11,7 @@ import { seoMeta } from "@/lib/seo";
 const seo = seoMeta({ lang: "en", en: "/en/contact", sr: "/sr/kontakt" });
 
 export const metadata = {
-  title: "Contact — Hire a Web Development Agency in Belgrade",
+  title: "Contact a Web Developer in Belgrade",
   description:
     "Get in touch to discuss your website, WordPress project, WooCommerce store, SEO or Next.js app. Web development agency based in Belgrade, Serbia.",
   openGraph: {

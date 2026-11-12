@@ -10,7 +10,7 @@ const seo = seoMeta({ lang: "en", en: "/en/process", sr: "/sr/proces" });
 export const metadata = {
   title: "Development Process — From Brief to Launch",
   description:
-    "A clear, structured website development workflow — discovery, content planning, design direction, development, SEO setup, performance checks and final delivery.",
+    "A clear website development workflow: discovery, content planning, design direction, development, SEO setup, performance checks and final delivery.",
   openGraph: {
     ...seo.openGraph,
     title: "Website Development Process | DWeb Solutions",

@@ -9,7 +9,7 @@ const seo = seoMeta({ lang: "en", en: "/en/services", sr: "/sr/usluge" });
 export const metadata = {
   title: "Website Services — WordPress, SEO & Next.js",
   description:
-    "Web development services in Belgrade — custom HTML/CSS/JS, WordPress websites, React & Next.js apps, WooCommerce stores, SEO optimization and website maintenance.",
+    "Web development services in Belgrade: HTML/CSS/JS, WordPress websites, React & Next.js apps, WooCommerce stores, SEO optimization and maintenance.",
   openGraph: {
     ...seo.openGraph,
     title: "Web Development Services | DWeb Solutions",

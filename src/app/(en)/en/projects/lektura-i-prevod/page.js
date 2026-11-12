@@ -30,9 +30,9 @@ const IMAGES_ALT =
 const seo = seoMeta({ lang: "en", en: "/en/projects/lektura-i-prevod", sr: "/sr/projekti/lektura-i-prevod", type: "article", image: null });
 
 export const metadata = {
-  title: "Lektura i prevod — WordPress Website & Custom Plugin",
+  title: "Lektura i prevod — WordPress Site & Plugin",
   description:
-    "Case study of a WordPress website for proofreading, editing and translation services, with a custom plugin for quote requests and secure document submission. Currently in development.",
+    "Case study of a WordPress website for proofreading and translation services, with a custom plugin for quote requests and secure document submission.",
   openGraph: {
     ...seo.openGraph,
     title: "Lektura i prevod — WordPress Website & Custom Plugin",

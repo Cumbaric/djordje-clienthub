@@ -1,7 +1,7 @@
 export const positioning = {
   en: {
     headline:
-      "DWeb Solutions for custom websites and WordPress — clean, fast, optimized",
+      "Web development in Belgrade: custom websites and WordPress — clean, fast, optimized",
     shortDescription:
       "We build well-structured websites with a focus on SEO foundations, performance and practical user experience — using the right technology for each project.",
     extendedDescription:
@@ -9,7 +9,7 @@ export const positioning = {
   },
   sr: {
     headline:
-      "DWeb Solutions za custom sajtove i WordPress — čisto, brzo, optimizovano",
+      "Izrada sajtova u Beogradu: sajtovi po meri i WordPress — čisto, brzo, optimizovano",
     shortDescription:
       "Pravimo dobro strukturisane sajtove sa fokusom na SEO osnovu, performanse i praktično korisničko iskustvo — birajući pravu tehnologiju za svaki projekat.",
     extendedDescription:

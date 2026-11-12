@@ -30,9 +30,9 @@ const IMAGES_ALT =
 const seo = seoMeta({ lang: "sr", en: "/en/projects/pnr-scout", sr: "/sr/projekti/pnr-scout", type: "article", image: null });
 
 export const metadata = {
-  title: "PNR Scout — Platforma za analitiku igrača Evrolige",
+  title: "PNR Scout — studija slučaja",
   description:
-    "Case study front-end razvoja sajta PNR Scout za analitiku igrača Evrolige: poređenje igrača, interaktivna tier lista klubova, navigacija kroz timove i igrače i responzivan interfejs.",
+    "Studija slučaja front-end razvoja sajta PNR Scout za analitiku igrača Evrolige: poređenje igrača, tier lista klubova, navigacija kroz timove i igrače.",
   openGraph: {
     ...seo.openGraph,
     title: "PNR Scout — Platforma za analitiku igrača Evrolige",

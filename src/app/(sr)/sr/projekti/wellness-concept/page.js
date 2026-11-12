@@ -16,7 +16,7 @@ const seo = seoMeta({ lang: "sr", en: "/en/projects/wellness-concept", sr: "/sr/
 export const metadata = {
   title: "Wellness Concept Case Study",
   description:
-    "WordPress, Elementor, UX i SEO case study za salon masaže i wellness usluga.",
+    "WordPress, Elementor, UX i SEO studija slučaja za salon masaže i wellness usluga: struktura usluga, putanja za zakazivanje i brzina sajta.",
   openGraph: {
     ...seo.openGraph,
     title: "Wellness Concept Case Study",

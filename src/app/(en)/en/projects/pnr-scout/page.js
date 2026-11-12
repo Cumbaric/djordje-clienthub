@@ -30,9 +30,9 @@ const IMAGES_ALT =
 const seo = seoMeta({ lang: "en", en: "/en/projects/pnr-scout", sr: "/sr/projekti/pnr-scout", type: "article", image: null });
 
 export const metadata = {
-  title: "PNR Scout — EuroLeague Analytics Platform Case Study",
+  title: "PNR Scout — EuroLeague Analytics Case Study",
   description:
-    "Front-end case study of PNR Scout, a EuroLeague player analytics website: player comparison, an interactive club tier list, team and player navigation and a responsive interface.",
+    "Front-end case study of PNR Scout, a EuroLeague player analytics site: player comparison, interactive club tier list, team and player pages, responsive UI.",
   openGraph: {
     ...seo.openGraph,
     title: "PNR Scout — EuroLeague Analytics Platform Case Study",

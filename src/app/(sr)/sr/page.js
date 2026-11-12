@@ -22,7 +22,7 @@ const seo = seoMeta({ lang: "sr", en: "/en", sr: "/sr" });
 export const metadata = {
   title: {
     absolute:
-      "DWeb Solutions | Web developer Beograd — WordPress, Next.js i SEO",
+      "DWeb Solutions | Web developer Beograd, WordPress i SEO",
   },
   description:
     "Web development agencija iz Beograda — izrada WordPress sajtova, Next.js aplikacija, WooCommerce prodavnica i SEO optimizacija za male biznise u Srbiji.",

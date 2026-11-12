@@ -27,7 +27,7 @@ const seo = seoMeta({ lang: "sr", en: "/en/projects/iron-pulse", sr: "/sr/projek
 export const metadata = {
   title: "Iron Pulse Case Study",
   description:
-    "Landing page za personal trening i strength coaching servis — izrađen u čistom HTML, CSS i JavaScript-u. Mobile-first, SEO optimizovan, hostovan na Vercelu.",
+    "Landing page za personal trening i strength coaching — čist HTML, CSS i JavaScript. Mobile-first, SEO optimizovan, hostovan na Vercelu.",
   openGraph: {
     ...seo.openGraph,
     title: "Iron Pulse Case Study",

@@ -22,10 +22,10 @@ const seo = seoMeta({ lang: "en", en: "/en", sr: "/sr" });
 export const metadata = {
   title: {
     absolute:
-      "DWeb Solutions | Web Developer Belgrade — WordPress, Next.js & SEO",
+      "DWeb Solutions | Web Developer Belgrade, WordPress & SEO",
   },
   description:
-    "Web development agency based in Belgrade, Serbia. Building WordPress websites, Next.js apps, WooCommerce stores and providing SEO optimization for small businesses.",
+    "Web development agency in Belgrade, Serbia. WordPress websites, Next.js apps, WooCommerce stores and SEO optimization for small businesses.",
   openGraph: {
     ...seo.openGraph,
     title: "DWeb Solutions | Web Developer Belgrade",

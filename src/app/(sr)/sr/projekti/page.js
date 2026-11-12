@@ -9,7 +9,7 @@ const seo = seoMeta({ lang: "sr", en: "/en/projects", sr: "/sr/projekti" });
 export const metadata = {
   title: "WordPress, Next.js i WooCommerce projekti",
   description:
-    "Odabrani web projekti — WordPress sajtovi, WooCommerce prodavnice, Next.js aplikacije i custom landing stranice. Web development agencija iz Beograda, Srbija.",
+    "Odabrani web projekti: WordPress sajtovi, WooCommerce prodavnice, Next.js aplikacije i landing stranice. Web development agencija iz Beograda.",
   openGraph: {
     ...seo.openGraph,
     title: "Portfolio projekata | DWeb Solutions",
