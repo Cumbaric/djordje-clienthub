@@ -25,12 +25,12 @@ const IMAGES = [
 const seo = seoMeta({ lang: "sr", en: "/en/projects/musical-duo-studio", sr: "/sr/projekti/musical-duo-studio", type: "article", image: null });
 
 export const metadata = {
-  title: "Musical Duo Studio Case Study",
+  title: "Musical Duo Studio — studija slučaja",
   description:
     "WordPress sajt za profesionalni studio gitare i basa — Elementor, Fluent Forms, Yoast SEO i W3 Total Cache.",
   openGraph: {
     ...seo.openGraph,
-    title: "Musical Duo Studio Case Study",
+    title: "Musical Duo Studio — studija slučaja",
     description:
       "WordPress projekat za internacionalni muzički studio sa video prikazom, testimonijali klijenata i formom za upite.",
   },
@@ -43,7 +43,7 @@ export default function MusicalDuoStudioCaseStudyPage() {
     <main>
       <JsonLd data={breadcrumbSchema} />
       <PageHero
-        eyebrow="Case Study"
+        eyebrow="Studija slučaja"
         title="Musical Duo Studio — WordPress za profesionalni studio gitare i basa"
         actions={
           <>

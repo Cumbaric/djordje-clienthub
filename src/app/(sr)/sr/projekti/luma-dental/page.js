@@ -27,12 +27,12 @@ const IMAGES = [
 const seo = seoMeta({ lang: "sr", en: "/en/projects/luma-dental", sr: "/sr/projekti/luma-dental", type: "article", image: null });
 
 export const metadata = {
-  title: "Luma Dental Case Study",
+  title: "Luma Dental — studija slučaja",
   description:
     "Next.js landing page za stomatološku ordinaciju — mreža usluga, tim doktora, galerija ordinacije, FAQ i forma za zakazivanje termina.",
   openGraph: {
     ...seo.openGraph,
-    title: "Luma Dental Case Study",
+    title: "Luma Dental — studija slučaja",
     description:
       "Next.js sajt za stomatološku ordinaciju sa čistom medicinskom estetikom, strukturisanim uslugama i formom za zakazivanje.",
   },
@@ -45,7 +45,7 @@ export default function LumaDentalCaseStudyPage() {
     <main>
       <JsonLd data={breadcrumbSchema} />
       <PageHero
-        eyebrow="Case Study"
+        eyebrow="Studija slučaja"
         title="Luma Dental — Next.js landing page za stomatološku ordinaciju"
         actions={
           <>

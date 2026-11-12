@@ -48,7 +48,7 @@ export default function LekturaIPrevodCaseStudyPage() {
     <main>
       <JsonLd data={breadcrumbSchema} />
       <PageHero
-        eyebrow="Case Study"
+        eyebrow="Studija slučaja"
         title="Lektura i prevod — WordPress sajt i namenski plugin"
         actions={
           <>
@@ -189,7 +189,7 @@ export default function LekturaIPrevodCaseStudyPage() {
           <p>
             Projekat je trenutno u izradi. Plugin je prošao opsežno automatsko
             testiranje i testiranje na staging okruženju, ali sajt i njegove
-            procese ne treba smatrati završenim. Ovaj case study biće ažuriran
+            procese ne treba smatrati završenim. Ova studija slučaja biće ažurirana
             kako projekat napreduje.
           </p>
         </section>

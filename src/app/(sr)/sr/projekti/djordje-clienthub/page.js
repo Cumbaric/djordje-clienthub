@@ -15,12 +15,12 @@ const IMAGES = [
 const seo = seoMeta({ lang: "sr", en: "/en/projects/djordje-clienthub", sr: "/sr/projekti/djordje-clienthub", type: "article", image: null });
 
 export const metadata = {
-  title: "Djordje ClientHub Case Study",
+  title: "Djordje ClientHub — studija slučaja",
   description:
-    "Next.js bilingvalna portfolio i privatna dashboard aplikacija izrađena sa React, App Router, zaštitom ruta i AI-assisted razvojnim workflow-om.",
+    "Next.js bilingvalna portfolio i privatna dashboard aplikacija izrađena sa React, App Router, zaštitom ruta i razvojnim procesom uz podršku AI alata.",
   openGraph: {
     ...seo.openGraph,
-    title: "Djordje ClientHub Case Study",
+    title: "Djordje ClientHub — studija slučaja",
     description:
       "Full-stack Next.js projekat koji kombinuje javni bilingvalni portfolio sa zaštićenim internim dashboard-om za klijente, projekte, zadatke i beleške.",
   },
@@ -32,7 +32,7 @@ export default function DjordjeClientHubPage() {
   return (
     <main>
       <PageHero
-        eyebrow="Case Study"
+        eyebrow="Studija slučaja"
         title="Djordje ClientHub — Bilingvalni portfolio i privatni dashboard"
         actions={
           <>
@@ -47,8 +47,8 @@ export default function DjordjeClientHubPage() {
       >
         Full-stack Next.js aplikacija koja kombinuje javni bilingvalni portfolio
         (EN/SR) sa zaštićenim internim dashboard-om za upravljanje klijentima,
-        projektima, zadacima i radnim beleškama — izgrađena kroz AI-assisted
-        razvojni workflow.
+        projektima, zadacima i radnim beleškama — izgrađena kroz razvojni
+        proces uz podršku AI alata.
       </PageHero>
 
       <div className="public-page">
@@ -93,7 +93,7 @@ export default function DjordjeClientHubPage() {
           <li>Bilingvalni sadržaj (EN/SR) zahtevao je čistu routing arhitekturu</li>
           <li>Zaštita ruta morala je raditi pouzdano bez posebnog backend servisa</li>
           <li>Dashboard je trebao upravljati klijentima, projektima, zadacima i beleškama</li>
-          <li>AI-assisted workflow morao je biti prirodno integrisan u razvojni proces</li>
+          <li>Rad uz podršku AI alata morao je biti prirodno integrisan u razvojni proces</li>
         </ul>
       </section>
 
@@ -133,9 +133,9 @@ export default function DjordjeClientHubPage() {
             </p>
           </article>
           <article>
-            <h3>AI-assisted workflow</h3>
+            <h3>Razvoj uz podršku AI alata</h3>
             <p>
-              Kompletan projekat izgrađen kroz AI-assisted razvojni workflow,
+              Kompletan projekat izgrađen kroz razvojni proces uz podršku AI alata,
               kombinujući Claude sa manuelnim pregledom koda za brži i čistiji
               output.
             </p>
@@ -154,7 +154,7 @@ export default function DjordjeClientHubPage() {
           <span>HTTP-only kolačići</span>
           <span>Middleware zaštita ruta</span>
           <span>Vercel deployment</span>
-          <span>AI-assisted workflow</span>
+          <span>Razvoj uz podršku AI alata</span>
           <span>Bilingvalni routing</span>
           <span>Server i client komponente</span>
         </div>
@@ -173,7 +173,7 @@ export default function DjordjeClientHubPage() {
           <li>Zaštićeni dashboard sa upravljanjem klijentima i projektima</li>
           <li>Pouzdana JWT-based zaštita ruta</li>
           <li>Čista App Router arhitektura</li>
-          <li>Izgrađen sa AI-assisted razvojnim workflow-om</li>
+          <li>Izgrađen kroz razvojni proces uz podršku AI alata</li>
         </ul>
       </section>
 
@@ -181,7 +181,7 @@ export default function DjordjeClientHubPage() {
         <h2>Mogući sledeći koraci</h2>
         <ul className="case-study-list">
           <li>Dodati više dashboard funkcionalnosti (fakturisanje, praćenje vremena)</li>
-          <li>Proširiti case study stranice sa više detalja</li>
+          <li>Proširiti stranice studija slučaja sa više detalja</li>
           <li>Unaprediti dashboard analitiku i izveštavanje</li>
           <li>Dodati email notifikacije za ažuriranja klijenata</li>
           <li>Nastaviti unapređivanje javnog portfolio sadržaja i vizuala</li>

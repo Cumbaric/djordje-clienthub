@@ -58,7 +58,7 @@ export default function Home() {
         <HeroGlow />
         <div className={styles.heroGrid}>
           <div className={styles.heroContent}>
-            <p className={styles.eyebrow}>Web Development Agency</p>
+            <p className={styles.eyebrow}>Agencija za web razvoj</p>
 
             <h1>{pos.headline}</h1>
 
@@ -139,7 +139,7 @@ export default function Home() {
                 </div>
                 <div className={styles.featurePillText}>
                   <p className={styles.featurePillTitle}>AI pristup</p>
-                  <p className={styles.featurePillDesc}>AI-assisted planiranje, QA i workflow za bolje rezultate.</p>
+                  <p className={styles.featurePillDesc}>Planiranje uz podršku AI alata, QA i jasan proces za bolje rezultate.</p>
                 </div>
               </div>
             </div>
@@ -148,7 +148,7 @@ export default function Home() {
             <div className={styles.aboutCard}>
               <div className={styles.aboutCardHeader}>
                 <span className={styles.aboutCardNum}>02</span>
-                <span className={styles.aboutCardTitle}>Workflow</span>
+                <span className={styles.aboutCardTitle}>Tok rada</span>
               </div>
               <div className={styles.workflowSteps}>
                 {[

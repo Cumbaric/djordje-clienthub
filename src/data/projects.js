@@ -133,7 +133,7 @@ export const projects = [
     featured: true,
     tags: ["Next.js", "React", "JavaScript", "CSS", "Supabase", "Vercel", "Admin Dashboard"],
     description:
-      "Admin dashboard aplikacija za Ben Akiba dogadjaje, sa javnim front page prikazom stand up i zurka repertoara, izvodjaca, cena i broja rezervisanih gostiju. Projekat kombinuje javni pregled dogadjaja sa internim panelom za upravljanje rezervacijama i unos novih dogadjaja.",
+      "Admin dashboard aplikacija za Ben Akiba događaje, sa javnom početnom stranom stand up i žurka repertoara, izvođača, cena i broja rezervisanih gostiju. Projekat kombinuje javni pregled događaja sa internim panelom za upravljanje rezervacijama i unos novih događaja.",
     descriptionEn:
       "Admin dashboard application for Ben Akiba events, with a public front page for stand-up and party listings, performers, prices and reservation counts. The project combines a public event overview with an internal panel for managing reservations and creating new events.",
   },

@@ -25,12 +25,12 @@ const IMAGES = [
 const seo = seoMeta({ lang: "sr", en: "/en/projects/iron-pulse", sr: "/sr/projekti/iron-pulse", type: "article", image: null });
 
 export const metadata = {
-  title: "Iron Pulse Case Study",
+  title: "Iron Pulse — studija slučaja",
   description:
     "Landing page za personal trening i strength coaching — čist HTML, CSS i JavaScript. Mobile-first, SEO optimizovan, hostovan na Vercelu.",
   openGraph: {
     ...seo.openGraph,
-    title: "Iron Pulse Case Study",
+    title: "Iron Pulse — studija slučaja",
     description:
       "HTML/CSS/JS landing page za personal trening servis — mobile-first, SEO optimizovan, pristupačan i hostovan na Vercelu.",
   },
@@ -43,7 +43,7 @@ export default function IronPulseCaseStudyPageSr() {
     <main>
       <JsonLd data={breadcrumbSchema} />
       <PageHero
-        eyebrow="Case Study"
+        eyebrow="Studija slučaja"
         title="Iron Pulse — Landing Page za Personal Trening"
         actions={
           <>

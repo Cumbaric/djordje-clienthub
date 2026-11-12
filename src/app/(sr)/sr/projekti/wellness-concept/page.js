@@ -14,12 +14,12 @@ const IMAGES = [
 const seo = seoMeta({ lang: "sr", en: "/en/projects/wellness-concept", sr: "/sr/projekti/wellness-concept", type: "article", image: null });
 
 export const metadata = {
-  title: "Wellness Concept Case Study",
+  title: "Wellness Concept — studija slučaja",
   description:
     "WordPress, Elementor, UX i SEO studija slučaja za salon masaže i wellness usluga: struktura usluga, putanja za zakazivanje i brzina sajta.",
   openGraph: {
     ...seo.openGraph,
-    title: "Wellness Concept Case Study",
+    title: "Wellness Concept — studija slučaja",
     description:
       "WordPress i SEO projekat za unapređenje strukture usluga, putanje za zakazivanje, UX-a i organizacije stranica.",
   },
@@ -31,7 +31,7 @@ export default function WellnessConceptCaseStudyPage() {
   return (
     <main>
       <PageHero
-        eyebrow="Case Study"
+        eyebrow="Studija slučaja"
         title="Wellness Concept — WordPress, UX i SEO unapređenje strukture"
         actions={
           <>

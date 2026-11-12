@@ -104,7 +104,7 @@ const fitItems = [
   },
   {
     icon: "ai",
-    title: "AI-assisted website workflow",
+    title: "Web proces uz podršku AI alata",
     description:
       "Planiranje, QA, struktura sadržaja i razvojna podrška uz AI alate i ljudsku kontrolu finalnog rezultata.",
   },
@@ -122,7 +122,7 @@ export default function KontaktPage() {
     <main>
       <PageHero
         eyebrow="Kontakt"
-        title="Hajde da pričamo o tvom sajtu ili workflow-u"
+        title="Hajde da pričamo o tvom sajtu ili radnom procesu"
         actions={
           <>
             <a href={`mailto:${contactEmail}`} className="hero-action-primary">
@@ -135,7 +135,7 @@ export default function KontaktPage() {
         }
       >
         Bilo da ti treba sajt kodiran od nule, WordPress sajt, bolja struktura,
-        SEO-focused unapređenje ili praktičan web workflow, pošalji nam kratak
+        unapređenje usmereno na SEO ili praktičan web proces, pošalji nam kratak
         opis projekta.
       </PageHero>
 

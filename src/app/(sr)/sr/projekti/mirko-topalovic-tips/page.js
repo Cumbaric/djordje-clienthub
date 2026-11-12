@@ -13,12 +13,12 @@ const IMAGES = [
 const seo = seoMeta({ lang: "sr", en: "/en/projects/mirko-topalovic-tips", sr: "/sr/projekti/mirko-topalovic-tips", type: "article", image: null });
 
 export const metadata = {
-  title: "MirkoTopalovićTips Case Study",
+  title: "MirkoTopalovićTips — studija slučaja",
   description:
-    "WordPress platforma za sportske tipove fokusirana na organizaciju sadržaja, strukturu objava i pripremu za buduće automatizovane workflow-e.",
+    "WordPress platforma za sportske tipove fokusirana na organizaciju sadržaja, strukturu objava i pripremu za buduće automatizovane tokove rada.",
   openGraph: {
     ...seo.openGraph,
-    title: "MirkoTopalovićTips Case Study",
+    title: "MirkoTopalovićTips — studija slučaja",
     description:
       "WordPress projekat za platformu sportskih tipova za unapređenje strukture sadržaja, organizacije objava i navigacije.",
   },
@@ -30,7 +30,7 @@ export default function MirkoTopalovicTipsPage() {
   return (
     <main>
       <PageHero
-        eyebrow="Case Study"
+        eyebrow="Studija slučaja"
         title="MirkoTopalovićTips — Platforma za sportske tipove i struktura sadržaja"
         actions={
           <>
@@ -46,7 +46,7 @@ export default function MirkoTopalovicTipsPage() {
         Content-driven WordPress projekat za platformu sportskih tipova,
         fokusiran na organizaciju objava, unapređenje strukture sadržaja,
         kreiranje jasne navigacije i pripremu sajta za lakše upravljanje i
-        buduće automatizovane workflow-e.
+        buduće automatizovane tokove rada.
       </PageHero>
 
       <div className="public-page">
@@ -65,7 +65,7 @@ export default function MirkoTopalovicTipsPage() {
         </div>
         <div>
           <span>Uloga</span>
-          <strong>WordPress razvoj, struktura sadržaja, organizacija objava, planiranje workflow-a</strong>
+          <strong>WordPress razvoj, struktura sadržaja, organizacija objava, planiranje toka rada</strong>
         </div>
       </section>
 
@@ -134,7 +134,7 @@ export default function MirkoTopalovicTipsPage() {
             <h3>Priprema za automatizaciju</h3>
             <p>
               Struktura sajta pripremljena je sa fokusom na buduće automatizovane
-              workflow-e, što olakšava skaliranje objavljenog sadržaja.
+              tokove rada, što olakšava skaliranje objavljenog sadržaja.
             </p>
           </article>
         </div>
@@ -148,7 +148,7 @@ export default function MirkoTopalovicTipsPage() {
           <span>Organizacija kategorija</span>
           <span>Standardizacija formata objava</span>
           <span>Unapređenje navigacije</span>
-          <span>Planiranje automatizovanih workflow-a</span>
+          <span>Planiranje automatizovanih tokova rada</span>
           <span>SEO osnova</span>
           <span>Responsive design</span>
         </div>
@@ -166,7 +166,7 @@ export default function MirkoTopalovicTipsPage() {
           <li>Konzistentna struktura objava</li>
           <li>Unapređena navigacija čitalaca</li>
           <li>Bolja osnova za redovno objavljivanje</li>
-          <li>Priprema za buduće automatizovane workflow-e</li>
+          <li>Priprema za buduće automatizovane tokove rada</li>
         </ul>
       </section>
 

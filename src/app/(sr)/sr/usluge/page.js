@@ -101,7 +101,7 @@ const valueItems = [
       "Sajt koji je lako ažurirati i održavati nakon isporuke.",
   },
   {
-    title: "Održiv workflow",
+    title: "Održiv tok rada",
     description:
       "Čista implementacija koja olakšava buduće izmene.",
   },
@@ -112,7 +112,7 @@ export default function UslugePage() {
     <main>
       <PageHero
         eyebrow="Usluge"
-        title="WordPress, SEO i website workflow usluge"
+        title="WordPress, SEO i usluge za unapređenje sajta"
         actions={
           <>
             <Link href="/sr/kontakt" className="hero-action-primary">
@@ -126,7 +126,7 @@ export default function UslugePage() {
       >
         Pomažemo malim biznisima, uslužnim delatnostima i content projektima da
         naprave preglednije, brže i bolje strukturisane sajtove kroz WordPress,
-        Elementor, WooCommerce, SEO osnovu i AI-assisted workflow.
+        Elementor, WooCommerce, SEO osnovu i radni tok uz podršku AI alata.
       </PageHero>
 
       <div className="public-page">

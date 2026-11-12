@@ -14,12 +14,12 @@ const IMAGES = [
 const seo = seoMeta({ lang: "sr", en: "/en/projects/olivera-popovic-edu", sr: "/sr/projekti/olivera-popovic-edu", type: "article", image: null });
 
 export const metadata = {
-  title: "Olivera Popović Edu Case Study",
+  title: "Olivera Popović Edu — studija slučaja",
   description:
     "WordPress projekat za edukativnu platformu fokusiran na strukturu sadržaja, organizaciju stranica i SEO osnovu za bolju vidljivost i lakšu navigaciju.",
   openGraph: {
     ...seo.openGraph,
-    title: "Olivera Popović Edu Case Study",
+    title: "Olivera Popović Edu — studija slučaja",
     description:
       "WordPress projekat za poboljšanje strukture sadržaja, hijerarhije stranica i SEO osnove edukativne platforme.",
   },
@@ -31,7 +31,7 @@ export default function OliveraPopovicEduPage() {
   return (
     <main>
       <PageHero
-        eyebrow="Case Study"
+        eyebrow="Studija slučaja"
         title="Olivera Popović Edu — Edukativni sajt, struktura sadržaja i SEO osnova"
         actions={
           <>

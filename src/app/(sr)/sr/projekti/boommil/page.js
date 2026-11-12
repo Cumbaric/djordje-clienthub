@@ -14,12 +14,12 @@ const IMAGES = [
 const seo = seoMeta({ lang: "sr", en: "/en/projects/boommil", sr: "/sr/projekti/boommil", type: "article", image: null });
 
 export const metadata = {
-  title: "BoomMil Case Study",
+  title: "BoomMil — studija slučaja",
   description:
     "WooCommerce projekat fokusiran na unos proizvoda, strukturu prodavnice, SEO pripremu i organizaciju sadržaja za online katalog.",
   openGraph: {
     ...seo.openGraph,
-    title: "BoomMil Case Study",
+    title: "BoomMil — studija slučaja",
     description:
       "WooCommerce projekat za unos i organizaciju proizvoda, strukturu prodavnice i SEO osnovu za online katalog.",
   },
@@ -31,7 +31,7 @@ export default function BoomMilPage() {
   return (
     <main>
       <PageHero
-        eyebrow="Case Study"
+        eyebrow="Studija slučaja"
         title="BoomMil — WooCommerce unos proizvoda i struktura prodavnice"
         actions={
           <>

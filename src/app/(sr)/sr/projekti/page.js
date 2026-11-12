@@ -67,7 +67,7 @@ function ProjectCard({ project }) {
         {project.slug ? (
           <span className="proj-overlay-cta">Pogledaj →</span>
         ) : (
-          <span className="proj-overlay-soon">Case study uskoro</span>
+          <span className="proj-overlay-soon">Studija slučaja uskoro</span>
         )}
       </div>
     </>
@@ -118,7 +118,7 @@ export default function ProjektiPage() {
           <h2>Želiš sličan projekat?</h2>
           <p>
             Ako ti treba pregledniji WordPress sajt, bolja struktura ili praktičan
-            interni workflow, pošalji nam kratak opis projekta.
+            interni proces rada, pošalji nam kratak opis projekta.
           </p>
           <div className="projects-cta-actions">
             <Link href="/sr/kontakt">Kontakt</Link>

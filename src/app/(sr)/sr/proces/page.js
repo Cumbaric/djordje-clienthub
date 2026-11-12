@@ -88,7 +88,7 @@ const koraci = [
       "Struktura headinga",
       "Osnovni meta title i description",
       "Optimizacija slika",
-      "WebP workflow",
+      "WebP priprema slika",
       "Predlozi za interno linkovanje",
       "Osnovna provera brzine",
     ],
@@ -148,7 +148,7 @@ const principi = [
       "Obim, rok i prioriteti se definišu pre nego što implementacija počne.",
   },
   {
-    title: "Strukturisan workflow",
+    title: "Strukturisan tok rada",
     description:
       "Svaki projekat prati isti jasan proces od analize do predaje.",
   },
@@ -169,7 +169,7 @@ export default function ProcesPage() {
     <main>
       <PageHero
         eyebrow="Proces"
-        title="Jasan workflow od ideje do gotovog sajta"
+        title="Jasan tok rada od ideje do gotovog sajta"
         actions={
           <>
             <Link href="/sr/kontakt" className="hero-action-primary">
@@ -214,7 +214,7 @@ export default function ProcesPage() {
         {/* 3. Koraci procesa */}
         <RevealSection delay={0.05}>
           <section className="process-steps-section">
-            <h2 className="section-title">Workflow korak po korak</h2>
+            <h2 className="section-title">Tok rada korak po korak</h2>
             <div className="process-list process-timeline">
               {koraci.map((korak) => (
                 <article key={korak.number} className="process-card">

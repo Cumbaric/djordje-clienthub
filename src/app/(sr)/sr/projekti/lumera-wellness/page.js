@@ -15,14 +15,14 @@ const IMAGES = [
 const seo = seoMeta({ lang: "sr", en: "/en/projects/lumera-wellness", sr: "/sr/projekti/lumera-wellness", type: "article", image: null });
 
 export const metadata = {
-  title: "Lumera Wellness Case Study",
+  title: "Lumera Wellness — studija slučaja",
   description:
     "Next.js template za zakazivanje za wellness salone — prilagodljiv javni sajt i admin dashboard za rezervacije, klijente i prihod.",
   openGraph: {
     ...seo.openGraph,
-    title: "Lumera Wellness Case Study",
+    title: "Lumera Wellness — studija slučaja",
     description:
-      "Reusable Next.js platforma za zakazivanje za wellness studije — javni sajt i zaštićen admin dashboard.",
+      "Next.js platforma za zakazivanje za wellness studije, spremna za ponovnu upotrebu — javni sajt i zaštićen admin dashboard.",
   },
   alternates: seo.alternates,
   twitter: seo.twitter,
@@ -32,8 +32,8 @@ export default function LumeraWellnessCaseStudyPage() {
   return (
     <main>
       <PageHero
-        eyebrow="Case Study"
-        title="Lumera Wellness — reusable Next.js template za zakazivanje za wellness salone"
+        eyebrow="Studija slučaja"
+        title="Lumera Wellness — Next.js šablon za zakazivanje u wellness salonima"
         actions={
           <>
             <Link href="/sr/kontakt" className="hero-action-primary">
@@ -154,7 +154,7 @@ export default function LumeraWellnessCaseStudyPage() {
             <li>Command center sa nadolazećim terminima i današnjim rasporedom</li>
             <li>Grafikon &quot;najtraženiji tretmani&quot; kroz sve statuse</li>
             <li>Top tretman i skorašnja aktivnost zahteva za zakazivanje</li>
-            <li>Workflow statusa za zahteve na čekanju, potvrđene i otkazane</li>
+            <li>Tok statusa za zahteve na čekanju, potvrđene i otkazane</li>
             <li>Brze akcije za kreiranje nove rezervacije i pregled onih na čekanju</li>
           </ul>
         </section>

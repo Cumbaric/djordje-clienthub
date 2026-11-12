@@ -48,7 +48,7 @@ export default function PnrScoutCaseStudyPage() {
     <main>
       <JsonLd data={breadcrumbSchema} />
       <PageHero
-        eyebrow="Case Study"
+        eyebrow="Studija slučaja"
         title="PNR Scout — Platforma za analitiku igrača Evrolige"
         actions={
           <>
@@ -61,8 +61,8 @@ export default function PnrScoutCaseStudyPage() {
           </>
         }
       >
-        PNR Scout je nezavisan sajt za praćenje i analizu igrača Evrolige. Ovaj
-        case study opisuje front-end rad na njegovom javnom delu: alat za
+        PNR Scout je nezavisan sajt za praćenje i analizu igrača Evrolige. Ova
+        studija slučaja opisuje front-end rad na njegovom javnom delu: alat za
         poređenje igrača, interaktivnu tier listu klubova, navigaciju kroz
         timove i igrače i responzivan interfejs.
       </PageHero>
@@ -105,7 +105,7 @@ export default function PnrScoutCaseStudyPage() {
             analitike i skautinga i nije povezan ni sa jednom ligom ni klubom.
           </p>
           <p>
-            Proizvod gradi tim. Ovaj case study opisuje front-end rad na javnom
+            Proizvod gradi tim. Ova studija slučaja opisuje front-end rad na javnom
             sajtu i jasno navodi gde taj obim rada prestaje.
           </p>
         </section>
@@ -230,7 +230,7 @@ export default function PnrScoutCaseStudyPage() {
           </ul>
           <p>
             Pozadinske servise, obradu podataka, AI/ML projekcije i ostale
-            funkcije razvija širi PNR Scout tim, pa nisu deo ovog case study-ja.
+            funkcije razvija širi PNR Scout tim, pa nisu deo ove studije slučaja.
             Kasnije dodate funkcije tier liste, poput izmenjivih nivoa i
             deljenja na X, takođe su izvan gore potvrđenog obima.
           </p>
@@ -252,7 +252,7 @@ export default function PnrScoutCaseStudyPage() {
           <h2>Pogledajte sajt</h2>
           <p>
             PNR Scout je javno dostupan. Sadržaj i funkcije su se možda promenili
-            od trenutka kada su snimljeni ekrani iz ovog case study-ja.
+            od trenutka kada su snimljeni ekrani iz ove studije slučaja.
           </p>
           <div className="case-study-cta-actions" style={{ marginTop: "16px" }}>
             <a

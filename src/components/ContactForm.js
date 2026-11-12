@@ -19,7 +19,7 @@ const SUBJECTS_SR = [
   "WooCommerce / Online prodavnica",
   "SEO optimizacija",
   "Održavanje sajta",
-  "AI-assisted workflow",
+  "Radni tok uz podršku AI alata",
   "Drugo",
 ];
 

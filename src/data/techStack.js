@@ -82,9 +82,9 @@ export const techStackContent = {
   },
   sr: {
     eyebrow: "Veštine i alati",
-    title: "Praktičan stack za WordPress, SEO i moderne web workflow-e",
+    title: "Praktičan stack za WordPress, SEO i moderne web procese",
     description:
-      "Naš rad kombinuje WordPress razvoj, čist frontend, SEO osnovu i AI-assisted workflow za bržu i organizovaniju izradu.",
+      "Naš rad kombinuje WordPress razvoj, čist frontend, SEO osnovu i radni tok uz podršku AI alata za bržu i organizovaniju izradu.",
     groups: [
       {
         title: "WordPress razvoj",
