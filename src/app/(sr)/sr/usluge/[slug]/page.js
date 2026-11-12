@@ -5,6 +5,7 @@ import RevealSection from "@/components/RevealSection";
 import CTASection from "@/components/CTASection";
 import JsonLd from "@/components/JsonLd";
 import { services } from "@/data/services";
+import { business } from "@/data/contact";
 import styles from "./service-detail.module.css";
 import { seoMeta } from "@/lib/seo";
 
@@ -67,7 +68,7 @@ export default async function ServiceDetailPage({ params }) {
     "name": service.title,
     "description": service.description,
     "provider": { "@id": "https://dwebsolutions.rs/#organization" },
-    "areaServed": "Worldwide",
+    "areaServed": business.areaServed,
     ...(parsedPrice && {
       "offers": {
         "@type": "Offer",

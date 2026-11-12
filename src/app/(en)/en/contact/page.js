@@ -5,6 +5,7 @@ import SectionOrb from "@/components/SectionOrb";
 import PageIcon from "@/components/PageIcon";
 import ContactForm from "@/components/ContactForm";
 import { contactEmail, socialLinks } from "@/data/contact";
+import BusinessInfo from "@/components/BusinessInfo";
 import { seoMeta } from "@/lib/seo";
 
 const seo = seoMeta({ lang: "en", en: "/en/contact", sr: "/sr/kontakt" });
@@ -149,6 +150,7 @@ export default function ContactPage() {
             </span>
             <h2 className="section-title">Contact options</h2>
             <p>Choose the channel that works best for you.</p>
+            <BusinessInfo lang="en" />
             <div className="contact-options-grid">
               {contactOptions.map((option) => (
                 <div key={option.title} className="contact-option-card">

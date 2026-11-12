@@ -27,4 +27,24 @@ export const socialLinks = {
   upwork: "https://www.upwork.com/freelancers/~013a3b5a0980f240a7",
   fiverr: "https://pro.fiverr.com/users/djordje1991",
   linkedin: "https://www.linkedin.com/in/djordje-popovic-018859312/",
+  github: "", // TODO: add GitHub profile URL — empty values are omitted from schema.org sameAs
+};
+
+// Single source of truth for NAP (name / address / phone) data. It feeds the
+// Organization schema (src/lib/schema.js), the footer and the contact page, so the
+// same values appear everywhere. Empty values are simply not rendered / not emitted.
+export const business = {
+  name: "DWeb Solutions",
+  founderName: "Djordje Popović",
+  city: { en: "Belgrade", sr: "Beograd" },
+  country: { code: "RS", en: "Serbia", sr: "Srbija" },
+  streetAddress: "", // optional, e.g. "Knez Mihailova 1"
+  postalCode: "", // optional
+  telephone: "", // E.164 for the tel: link and schema, e.g. "+381601234567"
+  telephoneDisplay: "", // optional human-readable form, e.g. "+381 60 123 4567"
+  hours: { en: "", sr: "" }, // display text, e.g. "Mon–Fri, 09:00–17:00" / "Pon–Pet, 09:00–17:00"
+  openingHours: [], // schema.org format, e.g. ["Mo-Fr 09:00-17:00"]
+  logo: "", // absolute URL or path under /public, e.g. "/logo.png" — omitted from schema while empty
+  // Serbia (local) and remote clients worldwide, as stated on the site.
+  areaServed: ["Serbia", "Worldwide"],
 };

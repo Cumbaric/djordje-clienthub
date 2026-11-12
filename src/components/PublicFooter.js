@@ -1,5 +1,6 @@
 import Link from "next/link";
 import HeroGlow from "./HeroGlow";
+import { business } from "@/data/contact";
 import styles from "./PublicFooter.module.css";
 
 const CONTENT = {
@@ -67,6 +68,8 @@ const CONTENT = {
 
 export default function PublicFooter({ lang }) {
   const c = CONTENT[lang] ?? CONTENT.en;
+  const place = `${business.city[lang] ?? business.city.en}, ${business.country[lang] ?? business.country.en}`;
+  const hours = business.hours[lang] || business.hours.en;
 
   return (
     <footer className={styles.footer} data-glow-container>
@@ -84,6 +87,23 @@ export default function PublicFooter({ lang }) {
           <div className={styles.brand}>
             <span className={styles.brandName}>DWeb Solutions</span>
             <p className={styles.brandDesc}>{c.description}</p>
+            <p className={styles.brandDesc}>
+              {place}
+              {business.telephone && (
+                <>
+                  <br />
+                  <a href={`tel:${business.telephone}`} className={styles.colLink}>
+                    {business.telephoneDisplay || business.telephone}
+                  </a>
+                </>
+              )}
+              {hours && (
+                <>
+                  <br />
+                  {hours}
+                </>
+              )}
+            </p>
             <span className={styles.brandBadge}>{c.badge}</span>
           </div>
 

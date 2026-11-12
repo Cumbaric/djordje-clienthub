@@ -75,3 +75,17 @@ automatski postaju indeksirani i ulaze u sitemap.
 3. WordPress ili custom sajt — šta je bolje za mali biznis
 4. Lokalni SEO za biznise u Beogradu (Google Business Profile + sajt)
 5. Održavanje sajta — zašto je potrebno i šta košta
+
+## 7. Podaci koji fale (NAP / schema) — popuni u `src/data/contact.js`
+Sva polja su trenutno prazna i zato se NE prikazuju i NE ulaze u schema.org. Čim ih popuniš,
+automatski se pojave u Organization/ProfessionalService schemi, footer-u i na kontakt stranici.
+- [ ] `business.telephone` — E.164 format (npr. `+381601234567`); `telephoneDisplay` je opcioni lepši prikaz.
+- [ ] `business.hours.en` / `business.hours.sr` — tekst za prikaz (npr. "Mon–Fri, 09:00–17:00" / "Pon–Pet, 09:00–17:00")
+      i `business.openingHours` u schema formatu (npr. `["Mo-Fr 09:00-17:00"]`).
+- [ ] `business.streetAddress` i `business.postalCode` — samo ako želiš javnu adresu (za lokalni SEO/GBP je
+      bitno da se poklapa sa Google Business Profile). Sada je u schemi samo Beograd, RS.
+- [ ] `socialLinks.github` — URL GitHub profila.
+- [ ] **Logo** — ne postoji u repou (favicon se namerno ne koristi). Dodaj fajl u `public/` (npr. `public/logo.png`,
+      min. 112×112, idealno kvadratni ili 16:9 PNG/SVG) i upiši putanju u `business.logo`. Google koristi
+      `logo` iz Organization schema za Knowledge Panel/rezultate.
+- [ ] Posle popunjavanja proveri: https://validator.schema.org/ i Google Rich Results Test za `/en` i `/sr`.

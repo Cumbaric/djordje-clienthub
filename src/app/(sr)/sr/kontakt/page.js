@@ -5,6 +5,7 @@ import SectionOrb from "@/components/SectionOrb";
 import PageIcon from "@/components/PageIcon";
 import ContactForm from "@/components/ContactForm";
 import { contactEmail, socialLinks } from "@/data/contact";
+import BusinessInfo from "@/components/BusinessInfo";
 import { seoMeta } from "@/lib/seo";
 
 const seo = seoMeta({ lang: "sr", en: "/en/contact", sr: "/sr/kontakt" });
@@ -149,6 +150,7 @@ export default function KontaktPage() {
             </span>
             <h2 className="section-title">Opcije za kontakt</h2>
             <p>Izaberi kanal koji ti najviše odgovara.</p>
+            <BusinessInfo lang="sr" />
             <div className="contact-options-grid">
               {opcijePoruke.map((opcija) => (
                 <div key={opcija.title} className="contact-option-card">
