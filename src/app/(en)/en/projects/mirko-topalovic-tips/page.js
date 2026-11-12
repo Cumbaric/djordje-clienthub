@@ -15,10 +15,10 @@ const breadcrumbSchema = {
 };
 
 const IMAGES = [
-  "/Projects/mirko_topalovic_1.png",
-  "/Projects/mirko_topalovic_2.png",
-  "/Projects/mirko_topalovic_3.png",
-  "/Projects/mirko_topalovic_4.png",
+  "/Projects/mirko_topalovic_1.webp",
+  "/Projects/mirko_topalovic_2.webp",
+  "/Projects/mirko_topalovic_3.webp",
+  "/Projects/mirko_topalovic_4.webp",
 ];
 
 const seo = seoMeta({ lang: "en", en: "/en/projects/mirko-topalovic-tips", sr: "/sr/projekti/mirko-topalovic-tips", type: "article", image: null });

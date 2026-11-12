@@ -15,13 +15,13 @@ const breadcrumbSchema = {
 };
 
 const IMAGES = [
-  "/Projects/luma_dental_1.png",
-  "/Projects/luma_dental_2.png",
-  "/Projects/luma_dental_3.png",
-  "/Projects/luma_dental_4.png",
-  "/Projects/luma_dental_5.png",
-  "/Projects/luma_dental_6.png",
-  "/Projects/luma_dental_7.png",
+  "/Projects/luma_dental_1.webp",
+  "/Projects/luma_dental_2.webp",
+  "/Projects/luma_dental_3.webp",
+  "/Projects/luma_dental_4.webp",
+  "/Projects/luma_dental_5.webp",
+  "/Projects/luma_dental_6.webp",
+  "/Projects/luma_dental_7.webp",
 ];
 
 const seo = seoMeta({ lang: "en", en: "/en/projects/luma-dental", sr: "/sr/projekti/luma-dental", type: "article", image: null });

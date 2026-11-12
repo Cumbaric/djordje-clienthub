@@ -15,12 +15,12 @@ const breadcrumbSchema = {
 };
 
 const IMAGES = [
-  "/Projects/LumeraWellness1.png",
-  "/Projects/LumeraWellness2.png",
-  "/Projects/LumeraWellness4.png",
-  "/Projects/LumeraWellness3.png",
-  "/Projects/LumeraWellness5.png",
-  "/Projects/LumeraWellness6.png",
+  "/Projects/LumeraWellness1.webp",
+  "/Projects/LumeraWellness2.webp",
+  "/Projects/LumeraWellness4.webp",
+  "/Projects/LumeraWellness3.webp",
+  "/Projects/LumeraWellness5.webp",
+  "/Projects/LumeraWellness6.webp",
 ];
 
 const seo = seoMeta({ lang: "en", en: "/en/projects/lumera-wellness", sr: "/sr/projekti/lumera-wellness", type: "article", image: null });

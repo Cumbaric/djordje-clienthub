@@ -15,11 +15,11 @@ const breadcrumbSchema = {
 };
 
 const IMAGES = [
-  "/Projects/pnrscout2.png",
-  "/Projects/pnrscout1-clean.png",
-  "/Projects/pnrscout6.png",
-  "/Projects/pnrscout5-clean.png",
-  "/Projects/pnrscout7.png",
+  "/Projects/pnrscout2.webp",
+  "/Projects/pnrscout1-clean.webp",
+  "/Projects/pnrscout6.webp",
+  "/Projects/pnrscout5-clean.webp",
+  "/Projects/pnrscout7.webp",
 ];
 
 // ProjectCarousel numbers a single alt per slide, so this describes the set in order:

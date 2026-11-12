@@ -15,11 +15,11 @@ const breadcrumbSchema = {
 };
 
 const IMAGES = [
-  "/Projects/iron_pulse_1.png",
-  "/Projects/iron_pulse_2.png",
-  "/Projects/iron_pulse_3.png",
-  "/Projects/iron_pulse_4.png",
-  "/Projects/iron_pulse_5.png",
+  "/Projects/iron_pulse_1.webp",
+  "/Projects/iron_pulse_2.webp",
+  "/Projects/iron_pulse_3.webp",
+  "/Projects/iron_pulse_4.webp",
+  "/Projects/iron_pulse_5.webp",
 ];
 
 const seo = seoMeta({ lang: "en", en: "/en/projects/iron-pulse", sr: "/sr/projekti/iron-pulse", type: "article", image: null });

@@ -15,11 +15,11 @@ const breadcrumbSchema = {
 };
 
 const IMAGES = [
-  "/Projects/boommil_1.png",
-  "/Projects/boommil_2.png",
-  "/Projects/boommil_3.png",
-  "/Projects/boommil_4.png",
-  "/Projects/boommil_5.png",
+  "/Projects/boommil_1.webp",
+  "/Projects/boommil_2.webp",
+  "/Projects/boommil_3.webp",
+  "/Projects/boommil_4.webp",
+  "/Projects/boommil_5.webp",
 ];
 
 const seo = seoMeta({ lang: "en", en: "/en/projects/boommil", sr: "/sr/projekti/boommil", type: "article", image: null });

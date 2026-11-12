@@ -15,11 +15,11 @@ const breadcrumbSchema = {
 };
 
 const IMAGES = [
-  "/Projects/musical_duo_studio_1.png",
-  "/Projects/musical_duo_studio_2.png",
-  "/Projects/musical_duo_studio_3.png",
-  "/Projects/musical_duo_studio_4.png",
-  "/Projects/musical_duo_studio_5.png",
+  "/Projects/musical_duo_studio_1.webp",
+  "/Projects/musical_duo_studio_2.webp",
+  "/Projects/musical_duo_studio_3.webp",
+  "/Projects/musical_duo_studio_4.webp",
+  "/Projects/musical_duo_studio_5.webp",
 ];
 
 const seo = seoMeta({ lang: "en", en: "/en/projects/musical-duo-studio", sr: "/sr/projekti/musical-duo-studio", type: "article", image: null });

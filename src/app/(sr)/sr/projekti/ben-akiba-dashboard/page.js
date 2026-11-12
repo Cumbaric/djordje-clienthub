@@ -4,11 +4,11 @@ import ProjectCarousel from "@/components/ProjectCarousel";
 import { seoMeta } from "@/lib/seo";
 
 const IMAGES = [
-  "/Projects/ben-akiba-dashboard_1.png",
-  "/Projects/ben-akiba-dashboard_2.png",
-  "/Projects/ben-akiba-dashboard_3.png",
-  "/Projects/ben-akiba-dashboard_4.png",
-  "/Projects/ben-akiba-dashboard_5.png",
+  "/Projects/ben-akiba-dashboard_1.webp",
+  "/Projects/ben-akiba-dashboard_2.webp",
+  "/Projects/ben-akiba-dashboard_3.webp",
+  "/Projects/ben-akiba-dashboard_4.webp",
+  "/Projects/ben-akiba-dashboard_5.webp",
 ];
 
 const seo = seoMeta({ lang: "sr", en: "/en/projects/ben-akiba-dashboard", sr: "/sr/projekti/ben-akiba-dashboard", type: "article", image: null });

@@ -15,11 +15,11 @@ const breadcrumbSchema = {
 };
 
 const IMAGES = [
-  "/Projects/lekturaiprevod.png",
-  "/Projects/lekturaiprevod1.png",
-  "/Projects/lekturaiprevod2-clean.png",
-  "/Projects/lekturaiprevod3.png",
-  "/Projects/lekturaiprevod4-clean.png",
+  "/Projects/lekturaiprevod.webp",
+  "/Projects/lekturaiprevod1.webp",
+  "/Projects/lekturaiprevod2-clean.webp",
+  "/Projects/lekturaiprevod3.webp",
+  "/Projects/lekturaiprevod4-clean.webp",
 ];
 
 // ProjectCarousel numbers a single alt per slide, so this describes the set:

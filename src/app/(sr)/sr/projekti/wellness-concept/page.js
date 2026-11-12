@@ -4,11 +4,11 @@ import ProjectCarousel from "@/components/ProjectCarousel";
 import { seoMeta } from "@/lib/seo";
 
 const IMAGES = [
-  "/Projects/Wellness_Concept_1.png",
-  "/Projects/Wellness_Concept_2.png",
-  "/Projects/Wellness_Concept_3.png",
-  "/Projects/Wellness_Concept_4.png",
-  "/Projects/Wellness_Concept_5.png",
+  "/Projects/Wellness_Concept_1.webp",
+  "/Projects/Wellness_Concept_2.webp",
+  "/Projects/Wellness_Concept_3.webp",
+  "/Projects/Wellness_Concept_4.webp",
+  "/Projects/Wellness_Concept_5.webp",
 ];
 
 const seo = seoMeta({ lang: "sr", en: "/en/projects/wellness-concept", sr: "/sr/projekti/wellness-concept", type: "article", image: null });

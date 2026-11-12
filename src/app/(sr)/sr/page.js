@@ -194,7 +194,7 @@ export default function Home() {
               </div>
               <div className={styles.aboutCardImg}>
                 <Image
-                  src="/Projects/about_workspace.png"
+                  src="/Projects/about_workspace.webp"
                   alt="Developer workspace"
                   fill
                   sizes="(max-width: 900px) 100vw, 500px"

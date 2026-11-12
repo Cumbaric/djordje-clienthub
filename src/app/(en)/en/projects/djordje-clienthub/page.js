@@ -15,12 +15,12 @@ const breadcrumbSchema = {
 };
 
 const IMAGES = [
-  "/Projects/djordje_clienthub_1.png",
-  "/Projects/djordje_clienthub_2.png",
-  "/Projects/djordje_clienthub_3.png",
-  "/Projects/djordje_clienthub_4.png",
-  "/Projects/djordje_clienthub_5.png",
-  "/Projects/djordje_clienthub_6.png",
+  "/Projects/djordje_clienthub_1.webp",
+  "/Projects/djordje_clienthub_2.webp",
+  "/Projects/djordje_clienthub_3.webp",
+  "/Projects/djordje_clienthub_4.webp",
+  "/Projects/djordje_clienthub_5.webp",
+  "/Projects/djordje_clienthub_6.webp",
 ];
 
 const seo = seoMeta({ lang: "en", en: "/en/projects/djordje-clienthub", sr: "/sr/projekti/djordje-clienthub", type: "article", image: null });

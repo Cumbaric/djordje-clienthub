@@ -4,11 +4,11 @@ import ProjectCarousel from "@/components/ProjectCarousel";
 import { seoMeta } from "@/lib/seo";
 
 const IMAGES = [
-  "/Projects/Olvera_Popovic_1.png",
-  "/Projects/Olvera_Popovic_2.png",
-  "/Projects/Olvera_Popovic_3.png",
-  "/Projects/Olvera_Popovic_4.png",
-  "/Projects/Olvera_Popovic_5.png",
+  "/Projects/Olvera_Popovic_1.webp",
+  "/Projects/Olvera_Popovic_2.webp",
+  "/Projects/Olvera_Popovic_3.webp",
+  "/Projects/Olvera_Popovic_4.webp",
+  "/Projects/Olvera_Popovic_5.webp",
 ];
 
 const seo = seoMeta({ lang: "sr", en: "/en/projects/olivera-popovic-edu", sr: "/sr/projekti/olivera-popovic-edu", type: "article", image: null });
