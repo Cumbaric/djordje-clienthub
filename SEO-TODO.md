@@ -89,3 +89,10 @@ automatski se pojave u Organization/ProfessionalService schemi, footer-u i na ko
       min. 112×112, idealno kvadratni ili 16:9 PNG/SVG) i upiši putanju u `business.logo`. Google koristi
       `logo` iz Organization schema za Knowledge Panel/rezultate.
 - [ ] Posle popunjavanja proveri: https://validator.schema.org/ i Google Rich Results Test za `/en` i `/sr`.
+
+## 8. HSTS (posle http → https redirekta)
+Sigurnosna zaglavlja su uključena u `next.config.mjs` (`X-Content-Type-Options`, `Referrer-Policy`,
+`X-Frame-Options`, `frame-ancestors`, `Permissions-Policy`). **HSTS namerno nije uključen.**
+- [ ] Kad Apache pravila iz tačke 1 rade u produkciji, dodaj u `securityHeaders`:
+      `{ key: "Strict-Transport-Security", value: "max-age=86400" }` (1 dan, bez `includeSubDomains` i bez `preload`).
+- [ ] Posle nedelju dana bez problema podigni na `max-age=2592000`, pa po potrebi na godinu dana.
