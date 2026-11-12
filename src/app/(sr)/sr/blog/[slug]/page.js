@@ -4,7 +4,7 @@ import { db } from "@/db";
 import { blogPosts } from "@/db/schema";
 import { eq, and } from "drizzle-orm";
 import PageHero from "@/components/PageHero";
-import styles from "@/app/en/blog/[slug]/post.module.css";
+import styles from "@/app/(en)/en/blog/[slug]/post.module.css";
 
 export const dynamic = "force-dynamic";
 

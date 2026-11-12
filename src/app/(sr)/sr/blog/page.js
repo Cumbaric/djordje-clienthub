@@ -3,7 +3,7 @@ import { db } from "@/db";
 import { blogPosts } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
 import PageHero from "@/components/PageHero";
-import styles from "@/app/en/blog/blog.module.css";
+import styles from "@/app/(en)/en/blog/blog.module.css";
 
 export const dynamic = "force-dynamic";
 

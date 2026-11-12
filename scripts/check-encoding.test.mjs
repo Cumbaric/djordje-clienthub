@@ -96,8 +96,8 @@ test("the command exits 1 on a damaged file and 0 on a clean one", () => {
 
 test("service detail pages and data are free of broken characters", () => {
   const files = [
-    "src/app/en/services/[slug]/page.js",
-    "src/app/sr/usluge/[slug]/page.js",
+    "src/app/(en)/en/services/[slug]/page.js",
+    "src/app/(sr)/sr/usluge/[slug]/page.js",
     "src/data/services.js",
   ];
   for (const file of files) {
