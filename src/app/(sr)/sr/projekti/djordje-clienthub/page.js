@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
+import { seoMeta } from "@/lib/seo";
 
 const IMAGES = [
   "/Projects/djordje_clienthub_1.png",
@@ -11,22 +12,20 @@ const IMAGES = [
   "/Projects/djordje_clienthub_6.png",
 ];
 
+const seo = seoMeta({ lang: "sr", en: "/en/projects/djordje-clienthub", sr: "/sr/projekti/djordje-clienthub", type: "article", image: null });
+
 export const metadata = {
   title: "Djordje ClientHub Case Study",
   description:
     "Next.js bilingvalna portfolio i privatna dashboard aplikacija izrađena sa React, App Router, zaštitom ruta i AI-assisted razvojnim workflow-om.",
   openGraph: {
+    ...seo.openGraph,
     title: "Djordje ClientHub Case Study",
     description:
       "Full-stack Next.js projekat koji kombinuje javni bilingvalni portfolio sa zaštićenim internim dashboard-om za klijente, projekte, zadatke i beleške.",
   },
-  alternates: {
-    canonical: "/sr/projekti/djordje-clienthub",
-    languages: {
-      en: "/en/projects/djordje-clienthub",
-      sr: "/sr/projekti/djordje-clienthub",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function DjordjeClientHubPage() {

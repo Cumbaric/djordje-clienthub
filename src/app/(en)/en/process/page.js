@@ -3,20 +3,22 @@ import PageHero from "@/components/PageHero";
 import RevealSection from "@/components/RevealSection";
 import SectionOrb from "@/components/SectionOrb";
 import PageIcon from "@/components/PageIcon";
+import { seoMeta } from "@/lib/seo";
+
+const seo = seoMeta({ lang: "en", en: "/en/process", sr: "/sr/proces" });
 
 export const metadata = {
   title: "Development Process — From Brief to Launch",
   description:
     "A clear, structured website development workflow — discovery, content planning, design direction, development, SEO setup, performance checks and final delivery.",
   openGraph: {
+    ...seo.openGraph,
     title: "Website Development Process | DWeb Solutions",
     description:
       "How we build WordPress websites and Next.js applications — from discovery and planning through development and SEO to launch.",
   },
-  alternates: {
-    canonical: "/en/process",
-    languages: { en: "/en/process", sr: "/sr/proces" },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 const steps = [

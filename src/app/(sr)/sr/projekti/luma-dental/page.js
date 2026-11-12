@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import JsonLd from "@/components/JsonLd";
+import { seoMeta } from "@/lib/seo";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -23,22 +24,20 @@ const IMAGES = [
   "/Projects/luma_dental_7.png",
 ];
 
+const seo = seoMeta({ lang: "sr", en: "/en/projects/luma-dental", sr: "/sr/projekti/luma-dental", type: "article", image: null });
+
 export const metadata = {
   title: "Luma Dental Case Study",
   description:
     "Next.js landing page za stomatološku ordinaciju — mreža usluga, tim doktora, galerija ordinacije, FAQ i forma za zakazivanje termina.",
   openGraph: {
+    ...seo.openGraph,
     title: "Luma Dental Case Study",
     description:
       "Next.js sajt za stomatološku ordinaciju sa čistom medicinskom estetikom, strukturisanim uslugama i formom za zakazivanje.",
   },
-  alternates: {
-    canonical: "/sr/projekti/luma-dental",
-    languages: {
-      en: "/en/projects/luma-dental",
-      sr: "/sr/projekti/luma-dental",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function LumaDentalCaseStudyPage() {

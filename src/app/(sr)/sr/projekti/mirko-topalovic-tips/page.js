@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
+import { seoMeta } from "@/lib/seo";
 
 const IMAGES = [
   "/Projects/mirko_topalovic_1.png",
@@ -9,22 +10,20 @@ const IMAGES = [
   "/Projects/mirko_topalovic_4.png",
 ];
 
+const seo = seoMeta({ lang: "sr", en: "/en/projects/mirko-topalovic-tips", sr: "/sr/projekti/mirko-topalovic-tips", type: "article", image: null });
+
 export const metadata = {
   title: "MirkoTopalovićTips Case Study",
   description:
     "WordPress platforma za sportske tipove fokusirana na organizaciju sadržaja, strukturu objava i pripremu za buduće automatizovane workflow-e.",
   openGraph: {
+    ...seo.openGraph,
     title: "MirkoTopalovićTips Case Study",
     description:
       "WordPress projekat za platformu sportskih tipova za unapređenje strukture sadržaja, organizacije objava i navigacije.",
   },
-  alternates: {
-    canonical: "/sr/projekti/mirko-topalovic-tips",
-    languages: {
-      en: "/en/projects/mirko-topalovic-tips",
-      sr: "/sr/projekti/mirko-topalovic-tips",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function MirkoTopalovicTipsPage() {

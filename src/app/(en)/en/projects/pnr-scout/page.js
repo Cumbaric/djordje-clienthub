@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import JsonLd from "@/components/JsonLd";
+import { seoMeta } from "@/lib/seo";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -26,22 +27,20 @@ const IMAGES = [
 const IMAGES_ALT =
   "PNR Scout EuroLeague analytics website in a dark interface: homepage, teams directory, player comparison table, club tier list and player profile, screenshot";
 
+const seo = seoMeta({ lang: "en", en: "/en/projects/pnr-scout", sr: "/sr/projekti/pnr-scout", type: "article", image: null });
+
 export const metadata = {
   title: "PNR Scout — EuroLeague Analytics Platform Case Study",
   description:
     "Front-end case study of PNR Scout, a EuroLeague player analytics website: player comparison, an interactive club tier list, team and player navigation and a responsive interface.",
   openGraph: {
+    ...seo.openGraph,
     title: "PNR Scout — EuroLeague Analytics Platform Case Study",
     description:
       "Front-end development for a EuroLeague player analytics website: player comparison, an interactive club tier list and a responsive interface.",
   },
-  alternates: {
-    canonical: "/en/projects/pnr-scout",
-    languages: {
-      en: "/en/projects/pnr-scout",
-      sr: "/sr/projekti/pnr-scout",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function PnrScoutCaseStudyPage() {

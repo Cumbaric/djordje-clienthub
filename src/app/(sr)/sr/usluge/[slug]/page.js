@@ -6,6 +6,7 @@ import CTASection from "@/components/CTASection";
 import JsonLd from "@/components/JsonLd";
 import { services } from "@/data/services";
 import styles from "./service-detail.module.css";
+import { seoMeta } from "@/lib/seo";
 
 function parsePrice(str) {
   const m = str?.match(/([€$£])(\d+)/);
@@ -39,16 +40,17 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const service = services.find((s) => s.slug === slug);
   if (!service) return {};
+  const seo = seoMeta({
+    lang: "sr",
+    en: `/en/services/${service.slug}`,
+    sr: `/sr/usluge/${service.slug}`,
+  });
   return {
     title: seoTitlesSr[slug] ?? `${service.title} — Usluge`,
     description: seoDescriptionsSr[slug] ?? service.description,
-    alternates: {
-      canonical: `/sr/usluge/${service.slug}`,
-      languages: {
-        en: `/en/services/${service.slug}`,
-        sr: `/sr/usluge/${service.slug}`,
-      },
-    },
+    openGraph: { ...seo.openGraph },
+    twitter: seo.twitter,
+    alternates: seo.alternates,
   };
 }
 

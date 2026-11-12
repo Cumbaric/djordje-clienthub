@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
+import { seoMeta } from "@/lib/seo";
 
 const IMAGES = [
   "/Projects/boommil_1.png",
@@ -10,22 +11,20 @@ const IMAGES = [
   "/Projects/boommil_5.png",
 ];
 
+const seo = seoMeta({ lang: "sr", en: "/en/projects/boommil", sr: "/sr/projekti/boommil", type: "article", image: null });
+
 export const metadata = {
   title: "BoomMil Case Study",
   description:
     "WooCommerce projekat fokusiran na unos proizvoda, strukturu prodavnice, SEO pripremu i organizaciju sadržaja za online katalog.",
   openGraph: {
+    ...seo.openGraph,
     title: "BoomMil Case Study",
     description:
       "WooCommerce projekat za unos i organizaciju proizvoda, strukturu prodavnice i SEO osnovu za online katalog.",
   },
-  alternates: {
-    canonical: "/sr/projekti/boommil",
-    languages: {
-      en: "/en/projects/boommil",
-      sr: "/sr/projekti/boommil",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function BoomMilPage() {

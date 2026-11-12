@@ -2,20 +2,22 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import RevealSection from "@/components/RevealSection";
 import { services } from "@/data/services";
+import { seoMeta } from "@/lib/seo";
+
+const seo = seoMeta({ lang: "sr", en: "/en/services", sr: "/sr/usluge" });
 
 export const metadata = {
   title: "Usluge — WordPress, SEO i Next.js",
   description:
     "Usluge web razvoja u Beogradu — HTML/CSS/JS, WordPress sajtovi, React i Next.js aplikacije, WooCommerce prodavnice, SEO optimizacija i održavanje.",
   openGraph: {
+    ...seo.openGraph,
     title: "Usluge web razvoja | DWeb Solutions",
     description:
       "WordPress, Next.js, WooCommerce, SEO i HTML/CSS razvoj. Web development agencija iz Beograda, Srbija.",
   },
-  alternates: {
-    canonical: "/sr/usluge",
-    languages: { en: "/en/services", sr: "/sr/usluge" },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 /* ── Ikone po slug-u (Feather-style SVG) ── */

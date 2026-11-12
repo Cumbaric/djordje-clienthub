@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import JsonLd from "@/components/JsonLd";
+import { seoMeta } from "@/lib/seo";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -21,22 +22,20 @@ const IMAGES = [
   "/Projects/Wellness_Concept_5.png",
 ];
 
+const seo = seoMeta({ lang: "en", en: "/en/projects/wellness-concept", sr: "/sr/projekti/wellness-concept", type: "article", image: null });
+
 export const metadata = {
   title: "Wellness Concept Case Study",
   description:
     "WordPress, Elementor, UX and SEO structure improvement case study for a massage and wellness business.",
   openGraph: {
+    ...seo.openGraph,
     title: "Wellness Concept Case Study",
     description:
       "A WordPress and SEO-focused project improving service structure, booking paths, UX and page organization.",
   },
-  alternates: {
-    canonical: "/en/projects/wellness-concept",
-    languages: {
-      en: "/en/projects/wellness-concept",
-      sr: "/sr/projekti/wellness-concept",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function WellnessConceptCaseStudyPage() {

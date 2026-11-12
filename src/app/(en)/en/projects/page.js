@@ -2,20 +2,22 @@ import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import { PROJECT_CATEGORIES, getProjectsByCategory } from "@/data/projects";
+import { seoMeta } from "@/lib/seo";
+
+const seo = seoMeta({ lang: "en", en: "/en/projects", sr: "/sr/projekti" });
 
 export const metadata = {
   title: "WordPress, Next.js & WooCommerce Projects",
   description:
     "Selected web development projects — WordPress websites, WooCommerce stores, Next.js applications and custom landing pages. Web development agency based in Belgrade, Serbia.",
   openGraph: {
+    ...seo.openGraph,
     title: "Web Development Portfolio | DWeb Solutions",
     description:
       "WordPress, WooCommerce, Next.js and HTML/CSS projects by a web development agency in Belgrade.",
   },
-  alternates: {
-    canonical: "/en/projects",
-    languages: { en: "/en/projects", sr: "/sr/projekti" },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 const statusMap = {

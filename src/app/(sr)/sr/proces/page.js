@@ -3,20 +3,22 @@ import PageHero from "@/components/PageHero";
 import RevealSection from "@/components/RevealSection";
 import SectionOrb from "@/components/SectionOrb";
 import PageIcon from "@/components/PageIcon";
+import { seoMeta } from "@/lib/seo";
+
+const seo = seoMeta({ lang: "sr", en: "/en/process", sr: "/sr/proces" });
 
 export const metadata = {
   title: "Proces izrade — Od brifinga do lansiranja",
   description:
     "Jasan, strukturisan web development proces — analiza, plan sadržaja, dizajn pravac, razvoj, SEO podešavanje, provere performansi i finalna predaja.",
   openGraph: {
+    ...seo.openGraph,
     title: "Proces izrade sajta | DWeb Solutions",
     description:
       "Kako izrađujemo WordPress sajtove i Next.js aplikacije — od analize i planiranja kroz razvoj i SEO do lansiranja.",
   },
-  alternates: {
-    canonical: "/sr/proces",
-    languages: { en: "/en/process", sr: "/sr/proces" },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 const koraci = [

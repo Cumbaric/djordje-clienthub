@@ -5,6 +5,7 @@ import { blogPosts } from "@/db/schema";
 import { eq, and } from "drizzle-orm";
 import PageHero from "@/components/PageHero";
 import styles from "./post.module.css";
+import { seoMeta } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -19,19 +20,20 @@ export async function generateMetadata({ params }) {
 
   if (!post) return {};
 
+  const seo = seoMeta({
+    lang: "en",
+    en: `/en/blog/${slug}`,
+    sr: `/sr/blog/${slug}`,
+    type: "article",
+    image: post.coverImage || undefined,
+  });
+
   return {
     title: post.titleEn || post.titleSr,
     description: post.excerptEn || post.excerptSr || undefined,
-    alternates: {
-      canonical: `/en/blog/${slug}`,
-      languages: {
-        en: `/en/blog/${slug}`,
-        sr: `/sr/blog/${slug}`,
-      },
-    },
-    ...(post.coverImage && {
-      openGraph: { images: [{ url: post.coverImage }] },
-    }),
+    alternates: seo.alternates,
+    twitter: seo.twitter,
+    openGraph: seo.openGraph,
   };
 }
 

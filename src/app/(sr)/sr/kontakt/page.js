@@ -5,20 +5,22 @@ import SectionOrb from "@/components/SectionOrb";
 import PageIcon from "@/components/PageIcon";
 import ContactForm from "@/components/ContactForm";
 import { contactEmail, socialLinks } from "@/data/contact";
+import { seoMeta } from "@/lib/seo";
+
+const seo = seoMeta({ lang: "sr", en: "/en/contact", sr: "/sr/kontakt" });
 
 export const metadata = {
   title: "Kontakt — Angažuj web agenciju u Beogradu",
   description:
     "Kontaktiraj nas za razgovor o sajtu, WordPress projektu, WooCommerce prodavnici, SEO ili Next.js aplikaciji. Web development agencija iz Beograda, Srbija.",
   openGraph: {
+    ...seo.openGraph,
     title: "Kontakt | DWeb Solutions — Web developer Beograd",
     description:
       "Angažuj web agenciju iz Beograda za WordPress, Next.js, WooCommerce ili SEO. Pošalji kratak opis projekta.",
   },
-  alternates: {
-    canonical: "/sr/kontakt",
-    languages: { en: "/en/contact", sr: "/sr/kontakt" },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 const opcijePoruke = [

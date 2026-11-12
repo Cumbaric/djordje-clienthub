@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import JsonLd from "@/components/JsonLd";
+import { seoMeta } from "@/lib/seo";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -21,22 +22,20 @@ const IMAGES = [
   "/Projects/iron_pulse_5.png",
 ];
 
+const seo = seoMeta({ lang: "sr", en: "/en/projects/iron-pulse", sr: "/sr/projekti/iron-pulse", type: "article", image: null });
+
 export const metadata = {
   title: "Iron Pulse Case Study",
   description:
     "Landing page za personal trening i strength coaching servis — izrađen u čistom HTML, CSS i JavaScript-u. Mobile-first, SEO optimizovan, hostovan na Vercelu.",
   openGraph: {
+    ...seo.openGraph,
     title: "Iron Pulse Case Study",
     description:
       "HTML/CSS/JS landing page za personal trening servis — mobile-first, SEO optimizovan, pristupačan i hostovan na Vercelu.",
   },
-  alternates: {
-    canonical: "/sr/projekti/iron-pulse",
-    languages: {
-      en: "/en/projects/iron-pulse",
-      sr: "/sr/projekti/iron-pulse",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function IronPulseCaseStudyPageSr() {

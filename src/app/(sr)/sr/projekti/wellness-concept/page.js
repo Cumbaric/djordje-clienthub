@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
+import { seoMeta } from "@/lib/seo";
 
 const IMAGES = [
   "/Projects/Wellness_Concept_1.png",
@@ -10,22 +11,20 @@ const IMAGES = [
   "/Projects/Wellness_Concept_5.png",
 ];
 
+const seo = seoMeta({ lang: "sr", en: "/en/projects/wellness-concept", sr: "/sr/projekti/wellness-concept", type: "article", image: null });
+
 export const metadata = {
   title: "Wellness Concept Case Study",
   description:
     "WordPress, Elementor, UX i SEO case study za salon masaže i wellness usluga.",
   openGraph: {
+    ...seo.openGraph,
     title: "Wellness Concept Case Study",
     description:
       "WordPress i SEO projekat za unapređenje strukture usluga, putanje za zakazivanje, UX-a i organizacije stranica.",
   },
-  alternates: {
-    canonical: "/sr/projekti/wellness-concept",
-    languages: {
-      en: "/en/projects/wellness-concept",
-      sr: "/sr/projekti/wellness-concept",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function WellnessConceptCaseStudyPage() {

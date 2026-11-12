@@ -15,6 +15,9 @@ import styles from "@/styles/home.module.css";
 import HeroGlow from "@/components/HeroGlow";
 import SectionOrb from "@/components/SectionOrb";
 import JsonLd from "@/components/JsonLd";
+import { seoMeta } from "@/lib/seo";
+
+const seo = seoMeta({ lang: "sr", en: "/en", sr: "/sr" });
 
 export const metadata = {
   title: {
@@ -24,14 +27,13 @@ export const metadata = {
   description:
     "Web development agencija iz Beograda — izrada WordPress sajtova, Next.js aplikacija, WooCommerce prodavnica i SEO optimizacija za male biznise u Srbiji.",
   openGraph: {
+    ...seo.openGraph,
     title: "DWeb Solutions | Web developer Beograd",
     description:
       "WordPress, Next.js, WooCommerce i SEO usluge za male biznise. Iz Beograda, Srbija — radimo lokalno i globalno.",
   },
-  alternates: {
-    canonical: "/sr",
-    languages: { en: "/en", sr: "/sr" },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 const pos = positioning.sr;

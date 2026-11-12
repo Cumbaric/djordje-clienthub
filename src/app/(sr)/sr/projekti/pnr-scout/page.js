@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import JsonLd from "@/components/JsonLd";
+import { seoMeta } from "@/lib/seo";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -26,22 +27,20 @@ const IMAGES = [
 const IMAGES_ALT =
   "Sajt PNR Scout za analitiku Evrolige u tamnom dizajnu: početna strana, pregled timova, tabela za poređenje igrača, tier lista klubova i profil igrača, snimak ekrana";
 
+const seo = seoMeta({ lang: "sr", en: "/en/projects/pnr-scout", sr: "/sr/projekti/pnr-scout", type: "article", image: null });
+
 export const metadata = {
   title: "PNR Scout — Platforma za analitiku igrača Evrolige",
   description:
     "Case study front-end razvoja sajta PNR Scout za analitiku igrača Evrolige: poređenje igrača, interaktivna tier lista klubova, navigacija kroz timove i igrače i responzivan interfejs.",
   openGraph: {
+    ...seo.openGraph,
     title: "PNR Scout — Platforma za analitiku igrača Evrolige",
     description:
       "Front-end razvoj sajta za analitiku igrača Evrolige: poređenje igrača, interaktivna tier lista klubova i responzivan interfejs.",
   },
-  alternates: {
-    canonical: "/sr/projekti/pnr-scout",
-    languages: {
-      en: "/en/projects/pnr-scout",
-      sr: "/sr/projekti/pnr-scout",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function PnrScoutCaseStudyPage() {

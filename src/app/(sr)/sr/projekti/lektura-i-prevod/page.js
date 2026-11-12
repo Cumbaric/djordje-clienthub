@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import JsonLd from "@/components/JsonLd";
+import { seoMeta } from "@/lib/seo";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -26,22 +27,20 @@ const IMAGES = [
 const IMAGES_ALT =
   "Sajt Lektura i prevod u uredničkom dizajnu u tamnoplavoj i krem boji: naslovni deo, kartice usluge lekture, pristup radu, prevod i česta pitanja, zahtev za ponudu i podnožje, snimak ekrana";
 
+const seo = seoMeta({ lang: "sr", en: "/en/projects/lektura-i-prevod", sr: "/sr/projekti/lektura-i-prevod", type: "article", image: null });
+
 export const metadata = {
   title: "Lektura i prevod — WordPress sajt i namenski plugin",
   description:
     "Case study WordPress sajta za usluge lekture, korekture i prevoda, sa namenskim pluginom za zahteve za ponudu i bezbedno slanje dokumenata. Projekat je u izradi.",
   openGraph: {
+    ...seo.openGraph,
     title: "Lektura i prevod — WordPress sajt i namenski plugin",
     description:
       "WordPress i Elementor sajt za uslugu lekture i prevoda, uz namenski plugin za zahteve za ponudu. Projekat je u izradi.",
   },
-  alternates: {
-    canonical: "/sr/projekti/lektura-i-prevod",
-    languages: {
-      en: "/en/projects/lektura-i-prevod",
-      sr: "/sr/projekti/lektura-i-prevod",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function LekturaIPrevodCaseStudyPage() {

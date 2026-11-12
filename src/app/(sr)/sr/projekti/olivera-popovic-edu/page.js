@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
+import { seoMeta } from "@/lib/seo";
 
 const IMAGES = [
   "/Projects/Olvera_Popovic_1.png",
@@ -10,22 +11,20 @@ const IMAGES = [
   "/Projects/Olvera_Popovic_5.png",
 ];
 
+const seo = seoMeta({ lang: "sr", en: "/en/projects/olivera-popovic-edu", sr: "/sr/projekti/olivera-popovic-edu", type: "article", image: null });
+
 export const metadata = {
   title: "Olivera Popović Edu Case Study",
   description:
     "WordPress projekat za edukativnu platformu fokusiran na strukturu sadržaja, organizaciju stranica i SEO osnovu za bolju vidljivost i lakšu navigaciju.",
   openGraph: {
+    ...seo.openGraph,
     title: "Olivera Popović Edu Case Study",
     description:
       "WordPress projekat za poboljšanje strukture sadržaja, hijerarhije stranica i SEO osnove edukativne platforme.",
   },
-  alternates: {
-    canonical: "/sr/projekti/olivera-popovic-edu",
-    languages: {
-      en: "/en/projects/olivera-popovic-edu",
-      sr: "/sr/projekti/olivera-popovic-edu",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function OliveraPopovicEduPage() {

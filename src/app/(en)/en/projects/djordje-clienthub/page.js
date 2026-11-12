@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import JsonLd from "@/components/JsonLd";
+import { seoMeta } from "@/lib/seo";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -22,22 +23,20 @@ const IMAGES = [
   "/Projects/djordje_clienthub_6.png",
 ];
 
+const seo = seoMeta({ lang: "en", en: "/en/projects/djordje-clienthub", sr: "/sr/projekti/djordje-clienthub", type: "article", image: null });
+
 export const metadata = {
   title: "Djordje ClientHub Case Study",
   description:
     "Next.js bilingual portfolio and private dashboard application built with React, App Router, route protection and AI-assisted development workflow.",
   openGraph: {
+    ...seo.openGraph,
     title: "Djordje ClientHub Case Study",
     description:
       "Full-stack Next.js project combining a public bilingual portfolio with a protected internal dashboard for clients, projects, tasks and work notes.",
   },
-  alternates: {
-    canonical: "/en/projects/djordje-clienthub",
-    languages: {
-      en: "/en/projects/djordje-clienthub",
-      sr: "/sr/projekti/djordje-clienthub",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function DjordjeClientHubPage() {

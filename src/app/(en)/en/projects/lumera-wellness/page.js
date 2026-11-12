@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import JsonLd from "@/components/JsonLd";
+import { seoMeta } from "@/lib/seo";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -22,22 +23,20 @@ const IMAGES = [
   "/Projects/LumeraWellness6.png",
 ];
 
+const seo = seoMeta({ lang: "en", en: "/en/projects/lumera-wellness", sr: "/sr/projekti/lumera-wellness", type: "article", image: null });
+
 export const metadata = {
   title: "Lumera Wellness Case Study",
   description:
     "A Next.js wellness booking template combining a customizable public site with an admin dashboard for reservations, clients and revenue.",
   openGraph: {
+    ...seo.openGraph,
     title: "Lumera Wellness Case Study",
     description:
       "A reusable Next.js booking platform for wellness studios — public marketing site plus a protected admin dashboard.",
   },
-  alternates: {
-    canonical: "/en/projects/lumera-wellness",
-    languages: {
-      en: "/en/projects/lumera-wellness",
-      sr: "/sr/projekti/lumera-wellness",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function LumeraWellnessCaseStudyPage() {

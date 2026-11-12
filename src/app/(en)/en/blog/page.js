@@ -4,20 +4,19 @@ import { blogPosts } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
 import PageHero from "@/components/PageHero";
 import styles from "./blog.module.css";
+import { seoMeta } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
+
+const seo = seoMeta({ lang: "en", en: "/en/blog", sr: "/sr/blog" });
 
 export const metadata = {
   title: "Blog — Web Development & SEO Tips",
   description:
     "Web development articles, SEO guides and project updates from a web development agency in Belgrade. WordPress, Next.js and online marketing tips.",
-  alternates: {
-    canonical: "/en/blog",
-    languages: {
-      en: "/en/blog",
-      sr: "/sr/blog",
-    },
-  },
+  openGraph: { ...seo.openGraph },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default async function BlogEnPage() {

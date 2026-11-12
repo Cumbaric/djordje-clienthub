@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import JsonLd from "@/components/JsonLd";
+import { seoMeta } from "@/lib/seo";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -21,22 +22,20 @@ const IMAGES = [
   "/Projects/musical_duo_studio_5.png",
 ];
 
+const seo = seoMeta({ lang: "en", en: "/en/projects/musical-duo-studio", sr: "/sr/projekti/musical-duo-studio", type: "article", image: null });
+
 export const metadata = {
   title: "Musical Duo Studio Case Study",
   description:
     "WordPress website for a professional guitar and bass recording studio — Elementor, Fluent Forms, Yoast SEO and W3 Total Cache.",
   openGraph: {
+    ...seo.openGraph,
     title: "Musical Duo Studio Case Study",
     description:
       "WordPress project for an international music studio with video showcase, client testimonials and a project inquiry form.",
   },
-  alternates: {
-    canonical: "/en/projects/musical-duo-studio",
-    languages: {
-      en: "/en/projects/musical-duo-studio",
-      sr: "/sr/projekti/musical-duo-studio",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function MusicalDuoStudioCaseStudyPage() {

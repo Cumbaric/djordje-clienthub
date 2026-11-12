@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import JsonLd from "@/components/JsonLd";
+import { seoMeta } from "@/lib/seo";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -26,22 +27,20 @@ const IMAGES = [
 const IMAGES_ALT =
   "Lektura i prevod website in a navy and cream editorial design: hero, proofreading service cards, working approach, translation and FAQ sections, quote request and footer, screenshot";
 
+const seo = seoMeta({ lang: "en", en: "/en/projects/lektura-i-prevod", sr: "/sr/projekti/lektura-i-prevod", type: "article", image: null });
+
 export const metadata = {
   title: "Lektura i prevod — WordPress Website & Custom Plugin",
   description:
     "Case study of a WordPress website for proofreading, editing and translation services, with a custom plugin for quote requests and secure document submission. Currently in development.",
   openGraph: {
+    ...seo.openGraph,
     title: "Lektura i prevod — WordPress Website & Custom Plugin",
     description:
       "A WordPress and Elementor website for a proofreading and translation service, paired with a custom quote-request plugin. Currently in development.",
   },
-  alternates: {
-    canonical: "/en/projects/lektura-i-prevod",
-    languages: {
-      en: "/en/projects/lektura-i-prevod",
-      sr: "/sr/projekti/lektura-i-prevod",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function LekturaIPrevodCaseStudyPage() {

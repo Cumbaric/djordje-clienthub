@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import JsonLd from "@/components/JsonLd";
+import { seoMeta } from "@/lib/seo";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -21,22 +22,20 @@ const IMAGES = [
   "/Projects/ben-akiba-dashboard_5.png",
 ];
 
+const seo = seoMeta({ lang: "en", en: "/en/projects/ben-akiba-dashboard", sr: "/sr/projekti/ben-akiba-dashboard", type: "article", image: null });
+
 export const metadata = {
   title: "Ben Akiba Dashboard Case Study",
   description:
     "Next.js and Supabase admin dashboard for Ben Akiba events, reservations, stand-up shows and parties.",
   openGraph: {
+    ...seo.openGraph,
     title: "Ben Akiba Dashboard Case Study",
     description:
       "Event management dashboard with a public event overview and an admin panel for reservations and event setup.",
   },
-  alternates: {
-    canonical: "/en/projects/ben-akiba-dashboard",
-    languages: {
-      en: "/en/projects/ben-akiba-dashboard",
-      sr: "/sr/projekti/ben-akiba-dashboard",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function BenAkibaDashboardPage() {

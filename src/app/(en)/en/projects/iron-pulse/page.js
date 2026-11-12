@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import JsonLd from "@/components/JsonLd";
+import { seoMeta } from "@/lib/seo";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -21,22 +22,20 @@ const IMAGES = [
   "/Projects/iron_pulse_5.png",
 ];
 
+const seo = seoMeta({ lang: "en", en: "/en/projects/iron-pulse", sr: "/sr/projekti/iron-pulse", type: "article", image: null });
+
 export const metadata = {
   title: "Iron Pulse Case Study",
   description:
     "Landing page for a personal training and strength coaching service — built with pure HTML, CSS and JavaScript. Mobile-first, SEO-ready, deployed on Vercel.",
   openGraph: {
+    ...seo.openGraph,
     title: "Iron Pulse Case Study",
     description:
       "Pure HTML/CSS/JS landing page for a personal training service — mobile-first, SEO-optimized, accessible and deployed on Vercel.",
   },
-  alternates: {
-    canonical: "/en/projects/iron-pulse",
-    languages: {
-      en: "/en/projects/iron-pulse",
-      sr: "/sr/projekti/iron-pulse",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function IronPulseCaseStudyPage() {

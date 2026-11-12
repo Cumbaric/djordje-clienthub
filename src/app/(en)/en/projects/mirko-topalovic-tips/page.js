@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import JsonLd from "@/components/JsonLd";
+import { seoMeta } from "@/lib/seo";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -20,22 +21,20 @@ const IMAGES = [
   "/Projects/mirko_topalovic_4.png",
 ];
 
+const seo = seoMeta({ lang: "en", en: "/en/projects/mirko-topalovic-tips", sr: "/sr/projekti/mirko-topalovic-tips", type: "article", image: null });
+
 export const metadata = {
   title: "MirkoTopalovićTips Case Study",
   description:
     "WordPress content platform for sports tips, focused on content organization, improved structure and preparation for future automation workflows.",
   openGraph: {
+    ...seo.openGraph,
     title: "MirkoTopalovićTips Case Study",
     description:
       "WordPress project for a sports tips platform improving content structure, post organization and navigation for better user experience.",
   },
-  alternates: {
-    canonical: "/en/projects/mirko-topalovic-tips",
-    languages: {
-      en: "/en/projects/mirko-topalovic-tips",
-      sr: "/sr/projekti/mirko-topalovic-tips",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function MirkoTopalovicTipsPage() {

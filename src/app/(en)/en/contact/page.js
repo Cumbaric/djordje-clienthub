@@ -5,20 +5,22 @@ import SectionOrb from "@/components/SectionOrb";
 import PageIcon from "@/components/PageIcon";
 import ContactForm from "@/components/ContactForm";
 import { contactEmail, socialLinks } from "@/data/contact";
+import { seoMeta } from "@/lib/seo";
+
+const seo = seoMeta({ lang: "en", en: "/en/contact", sr: "/sr/kontakt" });
 
 export const metadata = {
   title: "Contact — Hire a Web Development Agency in Belgrade",
   description:
     "Get in touch to discuss your website, WordPress project, WooCommerce store, SEO or Next.js app. Web development agency based in Belgrade, Serbia.",
   openGraph: {
+    ...seo.openGraph,
     title: "Contact DWeb Solutions | Web Developer Belgrade",
     description:
       "Hire a web development agency in Belgrade for WordPress, Next.js, WooCommerce or SEO. Send a short project overview to get started.",
   },
-  alternates: {
-    canonical: "/en/contact",
-    languages: { en: "/en/contact", sr: "/sr/kontakt" },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 const contactOptions = [

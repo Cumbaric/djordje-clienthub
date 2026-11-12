@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import JsonLd from "@/components/JsonLd";
+import { seoMeta } from "@/lib/seo";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -21,22 +22,20 @@ const IMAGES = [
   "/Projects/boommil_5.png",
 ];
 
+const seo = seoMeta({ lang: "en", en: "/en/projects/boommil", sr: "/sr/projekti/boommil", type: "article", image: null });
+
 export const metadata = {
   title: "BoomMil Case Study",
   description:
     "WooCommerce product catalog project focused on product setup, store structure, SEO preparation and content organization for an online store.",
   openGraph: {
+    ...seo.openGraph,
     title: "BoomMil Case Study",
     description:
       "WooCommerce project covering product setup, store structure and basic SEO for an online product catalog.",
   },
-  alternates: {
-    canonical: "/en/projects/boommil",
-    languages: {
-      en: "/en/projects/boommil",
-      sr: "/sr/projekti/boommil",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function BoomMilPage() {

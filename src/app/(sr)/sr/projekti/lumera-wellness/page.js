@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
+import { seoMeta } from "@/lib/seo";
 
 const IMAGES = [
   "/Projects/LumeraWellness1.png",
@@ -11,22 +12,20 @@ const IMAGES = [
   "/Projects/LumeraWellness6.png",
 ];
 
+const seo = seoMeta({ lang: "sr", en: "/en/projects/lumera-wellness", sr: "/sr/projekti/lumera-wellness", type: "article", image: null });
+
 export const metadata = {
   title: "Lumera Wellness Case Study",
   description:
     "Next.js template za zakazivanje za wellness salone — prilagodljiv javni sajt i admin dashboard za rezervacije, klijente i prihod.",
   openGraph: {
+    ...seo.openGraph,
     title: "Lumera Wellness Case Study",
     description:
       "Reusable Next.js platforma za zakazivanje za wellness studije — javni sajt i zaštićen admin dashboard.",
   },
-  alternates: {
-    canonical: "/sr/projekti/lumera-wellness",
-    languages: {
-      en: "/en/projects/lumera-wellness",
-      sr: "/sr/projekti/lumera-wellness",
-    },
-  },
+  alternates: seo.alternates,
+  twitter: seo.twitter,
 };
 
 export default function LumeraWellnessCaseStudyPage() {
