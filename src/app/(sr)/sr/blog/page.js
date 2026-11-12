@@ -5,19 +5,23 @@ import { eq, desc } from "drizzle-orm";
 import PageHero from "@/components/PageHero";
 import styles from "@/app/(en)/en/blog/blog.module.css";
 import { seoMeta } from "@/lib/seo";
+import { blogIndexRobots } from "@/lib/blog";
 
 export const dynamic = "force-dynamic";
 
 const seo = seoMeta({ lang: "sr", en: "/en/blog", sr: "/sr/blog" });
 
-export const metadata = {
-  title: "Blog — Web development i SEO saveti",
-  description:
-    "Članci o web developmentu, SEO vodičima i projektima web development agencije iz Beograda. WordPress, Next.js i saveti za online marketing.",
-  openGraph: { ...seo.openGraph },
-  alternates: seo.alternates,
-  twitter: seo.twitter,
-};
+export async function generateMetadata() {
+  return {
+    title: "Blog — Web development i SEO saveti",
+    description:
+      "Članci o web developmentu, SEO vodičima i projektima web development agencije iz Beograda. WordPress, Next.js i saveti za online marketing.",
+    openGraph: { ...seo.openGraph },
+    alternates: seo.alternates,
+    twitter: seo.twitter,
+    robots: await blogIndexRobots(),
+  };
+}
 
 export default async function BlogSrPage() {
   const posts = await db

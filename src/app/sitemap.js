@@ -1,10 +1,28 @@
 import { services } from "@/data/services";
 import { projects } from "@/data/projects";
-import { db } from "@/db";
-import { blogPosts } from "@/db/schema";
-import { eq } from "drizzle-orm";
+import { getPublishedBlogSlugs } from "@/lib/blog";
 
 const BASE_URL = "https://dwebsolutions.rs";
+
+// Regenerate hourly so newly published blog posts appear without a rebuild. If a
+// regeneration throws (see getBlogSlugs), Next keeps serving the last good sitemap.
+export const revalidate = 3600;
+
+async function getBlogSlugs() {
+  try {
+    return await getPublishedBlogSlugs();
+  } catch (error) {
+    console.error("[sitemap] Could not load published blog posts:", error);
+    // Build time: do not fail the build when the database is unreachable; the sitemap
+    // is rebuilt on the first revalidation (<= 1h) once the database answers.
+    if (process.env.NEXT_PHASE === "phase-production-build") {
+      console.error("[sitemap] Blog URLs are OMITTED from the build-time sitemap; they are added on the next revalidation.");
+      return [];
+    }
+    // Runtime: never silently publish a sitemap without blog URLs.
+    throw error;
+  }
+}
 
 function bilingualEntries(
   enPath,
@@ -42,6 +60,8 @@ function bilingualEntries(
 }
 
 export default async function sitemap() {
+  const blogSlugs = await getBlogSlugs();
+
   const staticPages = [
     ...bilingualEntries("/en", "/sr", {
       priority: 1,
@@ -59,10 +79,14 @@ export default async function sitemap() {
     ...bilingualEntries("/en/contact", "/sr/kontakt", {
       priority: 0.7,
     }),
-    ...bilingualEntries("/en/blog", "/sr/blog", {
-      priority: 0.8,
-      changeFrequency: "weekly",
-    }),
+    // Blog index is noindex while there are no published posts (see blogIndexRobots),
+    // so it only belongs in the sitemap once at least one post exists.
+    ...(blogSlugs.length > 0
+      ? bilingualEntries("/en/blog", "/sr/blog", {
+          priority: 0.8,
+          changeFrequency: "weekly",
+        })
+      : []),
   ];
 
   const projectPages = projects.flatMap((project) =>
@@ -77,22 +101,12 @@ export default async function sitemap() {
     }),
   );
 
-  let blogPostPages = [];
-  try {
-    const publishedPosts = await db
-      .select({ slug: blogPosts.slug })
-      .from(blogPosts)
-      .where(eq(blogPosts.status, "published"));
-
-    blogPostPages = publishedPosts.flatMap((post) =>
-      bilingualEntries(`/en/blog/${post.slug}`, `/sr/blog/${post.slug}`, {
-        priority: 0.7,
-        changeFrequency: "monthly",
-      }),
-    );
-  } catch {
-    // DB unavailable at build time — blog post URLs excluded from sitemap
-  }
+  const blogPostPages = blogSlugs.flatMap((slug) =>
+    bilingualEntries(`/en/blog/${slug}`, `/sr/blog/${slug}`, {
+      priority: 0.7,
+      changeFrequency: "monthly",
+    }),
+  );
 
   return [...staticPages, ...projectPages, ...servicePages, ...blogPostPages];
 }
