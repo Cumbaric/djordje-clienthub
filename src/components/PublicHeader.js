@@ -82,14 +82,6 @@ function getSwitchHref(pathname) {
   return "/" + [targetLang, ...rest].join("/");
 }
 
-const DEFAULT_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/projects", label: "Projects" },
-  { href: "/services", label: "Services" },
-  { href: "/process", label: "Process" },
-  { href: "/contact", label: "Contact" },
-];
-
 export default function PublicHeader({ lang }) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
@@ -120,11 +112,11 @@ export default function PublicHeader({ lang }) {
     };
   }, [menuOpen]);
 
-  const nav = lang ? NAV[lang] : null;
-  const homeHref = nav ? nav.home : "/";
-  const links = nav ? nav.links : DEFAULT_LINKS;
+  const nav = NAV[lang] ?? NAV.en;
+  const homeHref = nav.home;
+  const links = nav.links;
   const switchHref = getSwitchHref(pathname);
-  const switchLabel = nav?.switchLabel ?? null;
+  const switchLabel = nav.switchLabel;
 
   return (
     <>
