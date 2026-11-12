@@ -17,10 +17,10 @@ const SERVICE_SUBITEMS = {
   sr: [
     { href: "/sr/usluge/html-css-js", label: "HTML / CSS / JS" },
     { href: "/sr/usluge/react-nextjs", label: "React / Next.js" },
-    { href: "/sr/usluge/seo-optimization", label: "SEO optimizacija" },
-    { href: "/sr/usluge/wordpress-website-development", label: "WordPress" },
-    { href: "/sr/usluge/ecommerce-store", label: "E-commerce" },
-    { href: "/sr/usluge/website-maintenance", label: "Održavanje" },
+    { href: "/sr/usluge/seo-optimizacija", label: "SEO optimizacija" },
+    { href: "/sr/usluge/izrada-wordpress-sajta", label: "WordPress" },
+    { href: "/sr/usluge/izrada-online-prodavnice", label: "E-commerce" },
+    { href: "/sr/usluge/odrzavanje-sajta", label: "Održavanje" },
   ],
 };
 
@@ -51,6 +51,8 @@ const NAV = {
   },
 };
 
+import { SERVICE_SLUGS_SR, SERVICE_SLUGS_EN } from "@/data/serviceSlugs.mjs";
+
 // Section-segment translations (first path part after the language prefix).
 // Deeper segments (project/service slugs) are shared across languages.
 const SEGMENT_MAP = {
@@ -67,9 +69,15 @@ function getSwitchHref(pathname) {
 
   const targetLang = lang === "en" ? "sr" : "en";
   const segMap = SEGMENT_MAP[lang];
-  const rest = parts
-    .slice(1)
-    .map((seg, i) => (i === 0 ? segMap[seg] ?? seg : seg));
+  const rest = parts.slice(1).map((seg, i) => {
+    if (i === 0) return segMap[seg] ?? seg;
+    // Service detail slugs differ per language (see src/data/serviceSlugs.mjs).
+    if (i === 1 && (parts[1] === "services" || parts[1] === "usluge")) {
+      const map = lang === "en" ? SERVICE_SLUGS_SR : SERVICE_SLUGS_EN;
+      return map[seg] ?? seg;
+    }
+    return seg;
+  });
 
   return "/" + [targetLang, ...rest].join("/");
 }

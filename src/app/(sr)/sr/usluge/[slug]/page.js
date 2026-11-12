@@ -16,7 +16,7 @@ function parsePrice(str) {
 }
 
 export function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
+  return services.map((s) => ({ slug: s.slugSr }));
 }
 
 const seoTitlesSr = {
@@ -39,16 +39,16 @@ const seoDescriptionsSr = {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const service = services.find((s) => s.slug === slug);
+  const service = services.find((s) => s.slugSr === slug);
   if (!service) return {};
   const seo = seoMeta({
     lang: "sr",
     en: `/en/services/${service.slug}`,
-    sr: `/sr/usluge/${service.slug}`,
+    sr: `/sr/usluge/${service.slugSr}`,
   });
   return {
-    title: seoTitlesSr[slug] ?? `${service.title} — Usluge`,
-    description: seoDescriptionsSr[slug] ?? service.description,
+    title: seoTitlesSr[service.slug] ?? `${service.title} — Usluge`,
+    description: seoDescriptionsSr[service.slug] ?? service.description,
     openGraph: { ...seo.openGraph },
     twitter: seo.twitter,
     alternates: seo.alternates,
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }) {
 
 export default async function ServiceDetailPage({ params }) {
   const { slug } = await params;
-  const service = services.find((s) => s.slug === slug);
+  const service = services.find((s) => s.slugSr === slug);
   if (!service) notFound();
 
   const parsedPrice = parsePrice(service.priceFrom);
@@ -85,7 +85,7 @@ export default async function ServiceDetailPage({ params }) {
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Početna", "item": "https://dwebsolutions.rs/sr" },
       { "@type": "ListItem", "position": 2, "name": "Usluge", "item": "https://dwebsolutions.rs/sr/usluge" },
-      { "@type": "ListItem", "position": 3, "name": service.title, "item": `https://dwebsolutions.rs/sr/usluge/${service.slug}` },
+      { "@type": "ListItem", "position": 3, "name": service.title, "item": `https://dwebsolutions.rs/sr/usluge/${service.slugSr}` },
     ],
   };
 

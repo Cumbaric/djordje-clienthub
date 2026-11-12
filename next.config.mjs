@@ -1,4 +1,5 @@
-/** @type {import('next').NextConfig} */
+import { CHANGED_SR_SERVICE_SLUGS } from "./src/data/serviceSlugs.mjs";
+
 // Legacy un-prefixed public routes -> their /en equivalents (permanent, 308).
 // "/" is intentionally NOT listed: it stays a temporary 307 (src/app/(app)/page.js)
 // until the final default-language decision is made.
@@ -8,8 +9,11 @@ const legacyRedirects = [
   ["/projects/wellness-concept", "/en/projects/wellness-concept"],
   ["/services", "/en/services"],
   ["/process", "/en/process"],
+  // SR service slugs that were localized: old /sr/usluge/<EN slug> -> new SR slug.
+  ...CHANGED_SR_SERVICE_SLUGS.map(([en, sr]) => [`/sr/usluge/${en}`, `/sr/usluge/${sr}`]),
 ].map(([source, destination]) => ({ source, destination, permanent: true }));
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   async redirects() {
     return [

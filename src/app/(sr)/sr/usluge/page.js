@@ -160,7 +160,7 @@ export default function UslugePage() {
               {services.map((service) => (
                 <Link
                   key={service.slug}
-                  href={`/sr/usluge/${service.slug}`}
+                  href={`/sr/usluge/${service.slugSr}`}
                   className="service-card"
                 >
                   <div className="service-card-header">

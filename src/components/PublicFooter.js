@@ -49,12 +49,12 @@ const CONTENT = {
     ],
     servicesTitle: "Usluge",
     services: [
-      { href: "/sr/usluge/wordpress-website-development", label: "WordPress sajtovi" },
+      { href: "/sr/usluge/izrada-wordpress-sajta", label: "WordPress sajtovi" },
       { href: "/sr/usluge/html-css-js", label: "HTML / CSS / JS razvoj" },
       { href: "/sr/usluge/react-nextjs", label: "React i Next.js aplikacije" },
-      { href: "/sr/usluge/ecommerce-store", label: "WooCommerce prodavnica" },
-      { href: "/sr/usluge/seo-optimization", label: "SEO optimizacija" },
-      { href: "/sr/usluge/website-maintenance", label: "Održavanje sajtova" },
+      { href: "/sr/usluge/izrada-online-prodavnice", label: "WooCommerce prodavnica" },
+      { href: "/sr/usluge/seo-optimizacija", label: "SEO optimizacija" },
+      { href: "/sr/usluge/odrzavanje-sajta", label: "Održavanje sajtova" },
     ],
     ctaTitle: "Imaš projekat u planu?",
     ctaText:

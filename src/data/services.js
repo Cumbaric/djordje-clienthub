@@ -1,4 +1,6 @@
-export const services = [
+import { SERVICE_SLUGS_SR } from "./serviceSlugs.mjs";
+
+const baseServices = [
   {
     slug: "html-css-js",
     title: "HTML / CSS / JS razvoj",
@@ -732,5 +734,10 @@ export const services = [
     technologies: ["WordPress", "Plugins", "CSS", "Performance optimization"],
   },
 ];
+
+export const services = baseServices.map((service) => ({
+  ...service,
+  slugSr: SERVICE_SLUGS_SR[service.slug] ?? service.slug,
+}));
 
 export const serviceLabels = services.map((s) => s.shortLabel);

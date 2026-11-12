@@ -96,7 +96,7 @@ export default async function sitemap() {
   );
 
   const servicePages = services.flatMap((service) =>
-    bilingualEntries(`/en/services/${service.slug}`, `/sr/usluge/${service.slug}`, {
+    bilingualEntries(`/en/services/${service.slug}`, `/sr/usluge/${service.slugSr}`, {
       priority: 0.6,
     }),
   );

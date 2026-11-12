@@ -44,7 +44,7 @@ export async function generateMetadata({ params }) {
   const seo = seoMeta({
     lang: "en",
     en: `/en/services/${service.slug}`,
-    sr: `/sr/usluge/${service.slug}`,
+    sr: `/sr/usluge/${service.slugSr}`,
   });
   return {
     title: seoTitles[slug] ?? `${service.titleEn} — Services`,
