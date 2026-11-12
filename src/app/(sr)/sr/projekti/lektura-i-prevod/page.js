@@ -234,8 +234,8 @@ export default function LekturaIPrevodCaseStudyPage() {
           </p>
           <div className="case-study-cta-actions">
             <Link href="/sr/kontakt">Kontaktirajte nas</Link>
-            <Link href="/sr/usluge" className="case-study-cta-secondary">
-              Pogledaj usluge
+            <Link href="/sr/usluge/izrada-wordpress-sajta" className="case-study-cta-secondary">
+              Povezana usluga: WordPress izrada sajtova
             </Link>
           </div>
         </section>

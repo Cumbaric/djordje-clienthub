@@ -289,8 +289,8 @@ export default function PnrScoutCaseStudyPage() {
           </p>
           <div className="case-study-cta-actions">
             <Link href="/en/contact">Contact us</Link>
-            <Link href="/en/services" className="case-study-cta-secondary">
-              View services
+            <Link href="/en/services/html-css-js" className="case-study-cta-secondary">
+              Related service: HTML / CSS / JS Development
             </Link>
           </div>
         </section>

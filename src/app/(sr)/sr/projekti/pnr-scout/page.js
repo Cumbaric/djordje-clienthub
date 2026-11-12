@@ -287,8 +287,8 @@ export default function PnrScoutCaseStudyPage() {
           </p>
           <div className="case-study-cta-actions">
             <Link href="/sr/kontakt">Kontaktirajte nas</Link>
-            <Link href="/sr/usluge" className="case-study-cta-secondary">
-              Pogledaj usluge
+            <Link href="/sr/usluge/html-css-js" className="case-study-cta-secondary">
+              Povezana usluga: HTML / CSS / JS razvoj
             </Link>
           </div>
         </section>

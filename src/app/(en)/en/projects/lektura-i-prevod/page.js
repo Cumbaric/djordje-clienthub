@@ -236,8 +236,8 @@ export default function LekturaIPrevodCaseStudyPage() {
           </p>
           <div className="case-study-cta-actions">
             <Link href="/en/contact">Contact us</Link>
-            <Link href="/en/services" className="case-study-cta-secondary">
-              View services
+            <Link href="/en/services/wordpress-website-development" className="case-study-cta-secondary">
+              Related service: WordPress Website Development
             </Link>
           </div>
         </section>

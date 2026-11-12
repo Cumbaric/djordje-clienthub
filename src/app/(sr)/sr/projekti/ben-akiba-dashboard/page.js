@@ -195,8 +195,8 @@ export default function BenAkibaDashboardPage() {
           </p>
           <div className="case-study-cta-actions">
             <Link href="/sr/kontakt">Kontaktiraj nas</Link>
-            <Link href="/sr/usluge" className="case-study-cta-secondary">
-              Pogledaj usluge
+            <Link href="/sr/usluge/react-nextjs" className="case-study-cta-secondary">
+              Povezana usluga: React / Next.js web aplikacije
             </Link>
           </div>
         </section>

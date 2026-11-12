@@ -226,8 +226,8 @@ export default function LumaDentalCaseStudyPage() {
           </p>
           <div className="case-study-cta-actions">
             <Link href="/en/contact">Contact us</Link>
-            <Link href="/en/services" className="case-study-cta-secondary">
-              View services
+            <Link href="/en/services/react-nextjs" className="case-study-cta-secondary">
+              Related service: React / Next.js Web Applications
             </Link>
           </div>
         </section>

@@ -190,9 +190,9 @@ export default function BoomMilPage() {
         </p>
         <div className="case-study-cta-actions">
           <Link href="/sr/kontakt">Kontaktiraj nas</Link>
-          <Link href="/sr/usluge" className="case-study-cta-secondary">
-            Pogledaj usluge
-          </Link>
+          <Link href="/sr/usluge/izrada-online-prodavnice" className="case-study-cta-secondary">
+              Povezana usluga: Izrada online prodavnice
+            </Link>
         </div>
       </section>
       </div>

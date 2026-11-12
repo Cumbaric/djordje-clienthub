@@ -200,9 +200,9 @@ export default function WellnessConceptCaseStudyPage() {
         </p>
         <div className="case-study-cta-actions">
           <Link href="/sr/kontakt">Kontakt</Link>
-          <Link href="/sr/usluge" className="case-study-cta-secondary">
-            Pogledaj usluge
-          </Link>
+          <Link href="/sr/usluge/seo-optimizacija" className="case-study-cta-secondary">
+              Povezana usluga: SEO optimizacija i struktura
+            </Link>
         </div>
       </section>
       </div>

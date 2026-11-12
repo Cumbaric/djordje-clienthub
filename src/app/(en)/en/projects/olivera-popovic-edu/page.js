@@ -202,8 +202,8 @@ export default function OliveraPopovicEduPage() {
           </p>
           <div className="case-study-cta-actions">
             <Link href="/en/contact">Contact us</Link>
-            <Link href="/en/services" className="case-study-cta-secondary">
-              View services
+            <Link href="/en/services/seo-optimization" className="case-study-cta-secondary">
+              Related service: SEO Structure & On-page Optimization
             </Link>
           </div>
         </section>

@@ -5,6 +5,8 @@ import RevealSection from "@/components/RevealSection";
 import CTASection from "@/components/CTASection";
 import JsonLd from "@/components/JsonLd";
 import { services } from "@/data/services";
+import { projects } from "@/data/projects";
+import { SERVICE_PROJECTS } from "@/data/serviceLinks";
 import { business } from "@/data/contact";
 import styles from "./service-detail.module.css";
 import { seoMeta } from "@/lib/seo";
@@ -61,6 +63,9 @@ export default async function ServiceDetailPage({ params }) {
   if (!service) notFound();
 
   const parsedPrice = parsePrice(service.priceFrom);
+  const relatedProjects = (SERVICE_PROJECTS[service.slug] ?? [])
+    .map((projectSlug) => projects.find((p) => p.slug === projectSlug))
+    .filter(Boolean);
 
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -159,6 +164,28 @@ export default async function ServiceDetailPage({ params }) {
               </ul>
             </section>
           </RevealSection>
+
+          {/* Related projects (internal linking) */}
+          {relatedProjects.length > 0 && (
+            <RevealSection delay={0.05}>
+              <section className={styles.section}>
+                <h2 className={styles.sectionTitle}>Povezani projekti</h2>
+                <ul className={styles.includesList}>
+                  {relatedProjects.map((project) => (
+                    <li key={project.slug} className={styles.includesItem}>
+                      <span className={styles.checkIcon} aria-hidden="true">→</span>
+                      <span>
+                        <Link href={`/sr/projekti/${project.slug}`} className={styles.relatedLink}>
+                          {project.title}
+                        </Link>
+                        <span className={styles.relatedType}>{project.type}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </RevealSection>
+          )}
 
           {/* Kako izgleda proces */}
           <RevealSection delay={0.05}>

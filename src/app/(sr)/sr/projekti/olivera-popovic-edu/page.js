@@ -189,9 +189,9 @@ export default function OliveraPopovicEduPage() {
         </p>
         <div className="case-study-cta-actions">
           <Link href="/sr/kontakt">Kontaktiraj nas</Link>
-          <Link href="/sr/usluge" className="case-study-cta-secondary">
-            Pogledaj usluge
-          </Link>
+          <Link href="/sr/usluge/seo-optimizacija" className="case-study-cta-secondary">
+              Povezana usluga: SEO optimizacija i struktura
+            </Link>
         </div>
       </section>
       </div>
