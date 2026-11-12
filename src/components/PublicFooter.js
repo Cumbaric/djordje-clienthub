@@ -109,7 +109,7 @@ export default function PublicFooter({ lang }) {
 
           {/* Navigation */}
           <div className={styles.col}>
-            <h3 className={styles.colTitle}>{c.navTitle}</h3>
+            <p className={styles.colTitle}>{c.navTitle}</p>
             <ul className={styles.colList}>
               {c.links.map((link) => (
                 <li key={link.href}>
@@ -123,7 +123,7 @@ export default function PublicFooter({ lang }) {
 
           {/* Services */}
           <div className={styles.col}>
-            <h3 className={styles.colTitle}>{c.servicesTitle}</h3>
+            <p className={styles.colTitle}>{c.servicesTitle}</p>
             <ul className={styles.colList}>
               {c.services.map((service) => (
                 <li key={service.href}>
@@ -137,7 +137,7 @@ export default function PublicFooter({ lang }) {
 
           {/* CTA */}
           <div className={styles.ctaCol}>
-            <h3 className={styles.ctaTitle}>{c.ctaTitle}</h3>
+            <p className={styles.ctaTitle}>{c.ctaTitle}</p>
             <p className={styles.ctaText}>{c.ctaText}</p>
             <Link href={c.contactHref} className={styles.ctaButton}>
               {c.ctaLabel}
