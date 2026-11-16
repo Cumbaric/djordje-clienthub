@@ -18,7 +18,7 @@ const defaultGate = createSemaphore(2);
 const OPERATION_TIMEOUT_MS = 60_000;
 
 export function createImapClient(config) {
-  return new ImapFlow({
+  const client = new ImapFlow({
     host: config.imap.host,
     port: config.imap.port,
     secure: true,
@@ -31,6 +31,14 @@ export function createImapClient(config) {
     // Certificate validation stays ON (no rejectUnauthorized override anywhere).
     tls: { minVersion: "TLSv1.2" },
   });
+
+  // imapflow emits 'error' for socket resets and timeouts AFTER the connection is up. An
+  // EventEmitter without an 'error' listener turns that into an uncaught exception that
+  // would take down the whole Node process (and with it the public site). The listener is
+  // registered before connect(); the failing operation itself is rejected by imapflow and
+  // mapped in run(), so here we only log non-sensitive metadata (see safeErrorLog).
+  client.on("error", (error) => safeErrorLog("imap connection error", error));
+  return client;
 }
 
 const TLS_CODES = new Set([
