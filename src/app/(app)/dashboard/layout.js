@@ -2,6 +2,7 @@ import { db } from "@/db";
 import { tasks as tasksTable, invoices as invoicesTable } from "@/db/schema";
 import DashboardSidebar from "@/components/DashboardSidebar";
 import ToastProvider from "@/components/ToastProvider";
+import { isEmailAdmin } from "@/lib/email/authz";
 import "@/styles/dashboard.css";
 
 export default async function DashboardLayout({ children }) {
@@ -27,6 +28,9 @@ export default async function DashboardLayout({ children }) {
     // invoices table may not exist yet in production
   }
 
+  // The Email item is shown only to the designated email admin (see src/lib/email/authz.js).
+  const showEmail = await isEmailAdmin();
+
   return (
     <>
       <script
@@ -39,6 +43,7 @@ export default async function DashboardLayout({ children }) {
           <DashboardSidebar
             taskAlertCount={taskAlertCount}
             invoiceAlertCount={invoiceAlertCount}
+            showEmail={showEmail}
           />
           <main className="dashboard-main">{children}</main>
         </div>

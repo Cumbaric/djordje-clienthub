@@ -15,9 +15,10 @@ const navItems = [
   { label: "Blog", href: "/dashboard/blog" },
   { label: "Finansije", href: "/dashboard/finances", badgeKey: "invoices" },
   { label: "Kalendar", href: "/dashboard/calendar" },
+  { label: "Email", href: "/dashboard/email", emailOnly: true },
 ];
 
-export default function DashboardSidebar({ taskAlertCount = 0, invoiceAlertCount = 0 }) {
+export default function DashboardSidebar({ taskAlertCount = 0, invoiceAlertCount = 0, showEmail = false }) {
   const badges = { tasks: taskAlertCount, invoices: invoiceAlertCount };
   const pathname = usePathname();
   const router = useRouter();
@@ -78,7 +79,7 @@ export default function DashboardSidebar({ taskAlertCount = 0, invoiceAlertCount
         }`}
       >
         <nav className={styles.nav}>
-          {navItems.map((item) => {
+          {navItems.filter((item) => !item.emailOnly || showEmail).map((item) => {
             const isActive =
               item.href === "/dashboard"
                 ? pathname === item.href

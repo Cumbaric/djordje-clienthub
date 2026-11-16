@@ -27,6 +27,9 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
+  // Email libraries use raw sockets / worker-style loggers and must be loaded by Node
+  // directly instead of being bundled by webpack.
+  serverExternalPackages: ["imapflow", "mailparser", "nodemailer"],
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
