@@ -11,7 +11,7 @@ Primer je u [`.env.example`](../.env.example). Prave vrednosti idu samo u `.env.
 | Promenljiva | Obavezna | Opis |
 |---|---|---|
 | `EMAIL_IMAP_HOST`, `EMAIL_IMAP_PORT` | da | IMAP preko SSL/TLS (`mail.dwebsolutions.rs`, `993`) |
-| `EMAIL_SMTP_HOST`, `EMAIL_SMTP_PORT` | da | SMTP preko SSL/TLS (`mail.dwebsolutions.rs`, `465`) |
+| `EMAIL_SMTP_HOST`, `EMAIL_SMTP_PORT` | da | SMTP, uvek šifrovan: port `465` = direktan SSL/TLS, port `587` = obavezan STARTTLS pre prijave (`mail.dwebsolutions.rs`) |
 | `EMAIL_USERNAME` | da | korisničko ime naloga; ujedno fiksna `From` adresa (`info@dwebsolutions.rs`) |
 | `EMAIL_PASSWORD` | da | lozinka naloga |
 | `CLIENTHUB_EMAIL_ADMIN_USERNAME` | da | korisničko ime dashboard naloga koji sme da koristi modul |
@@ -21,7 +21,7 @@ Primer je u [`.env.example`](../.env.example). Prave vrednosti idu samo u `.env.
 Ako nešto od obaveznog fali, modul prijavljuje „Email servis nije podešen” (503) bez ikakvih detalja klijentu;
 u server logu se vide samo **nazivi** problematičnih promenljivih.
 
-TLS je uvek uključen (`secure: true`) i sertifikat se uvek validira. Ne postoji opcija za isključivanje.
+TLS je uvek uključen i sertifikat se uvek validira. Ne postoji opcija za isključivanje. IMAP koristi direktan TLS (`993`). SMTP režim zavisi od `EMAIL_SMTP_PORT`: `465` → `secure: true`; `587` → `secure: false` + `requireTLS: true` (STARTTLS je obavezan i izvršava se pre autentifikacije, bez povratka na nešifrovanu vezu); svaki drugi port koristi direktan TLS. TLS ≥ 1.2.
 Ako `mail.dwebsolutions.rs` ima sertifikat izdat na drugo ime, ispravka je u hostname-u (`EMAIL_*_HOST`), ne u gašenju provere.
 
 ## Autorizacija
@@ -93,7 +93,7 @@ API: `GET /api/email/messages`, `GET /api/email/messages/[uid]`, `POST /api/emai
 ## Testovi
 
 ```
-npm run test:email     # 99 testova: authz, config, validacija, IMAP/SMTP (lažni server), handleri,
+npm run test:email     # 110 testova: authz, config, validacija, IMAP/SMTP (lažni server), handleri,
                        # sanitizacija (DOMPurify+jsdom), UI u headless Chrome-u (puppeteer-core), pravi `next start`
 ```
 
@@ -105,7 +105,7 @@ npm run test:email     # 99 testova: authz, config, validacija, IMAP/SMTP (lažn
 
 Sledeće **nije** moguće potvrditi bez stvarnih kredencijala i odobrenja za test; označeno je kao nepotvrđeno u produkciji:
 
-- [ ] prijava na `mail.dwebsolutions.rs:993` i `:465` sa validnim sertifikatom za taj hostname
+- [ ] prijava na `mail.dwebsolutions.rs:993` i SMTP (`:587` STARTTLS ili `:465`) sa validnim sertifikatom za taj hostname
 - [ ] Inbox lista, otvaranje poruke, paginacija na stvarnom sandučetu
 - [ ] server-side pretraga (`SEARCH OR … BODY`) sa srpskim dijakriticima
 - [ ] naziv Sent foldera (`INBOX.Sent` / `\Sent`) i `APPEND` u njega

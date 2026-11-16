@@ -31,14 +31,17 @@ test("TLS certificate validation is never disabled", () => {
   }
 });
 
-test("IMAP and SMTP always use implicit TLS; nodemailer cannot read files or URLs", () => {
+test("IMAP always uses implicit TLS; SMTP is always encrypted (465 implicit, 587 mandatory STARTTLS); nodemailer cannot read files or URLs", () => {
   const imap = readFileSync(join(ROOT, "src/lib/email/imap.js"), "utf8");
   const smtp = readFileSync(join(ROOT, "src/lib/email/smtp.js"), "utf8");
   assert.match(imap, /secure:\s*true/);
-  assert.match(smtp, /secure:\s*true/);
+  assert.equal(/secure:\s*false|requireTLS|ignoreTLS/.test(imap), false);
+  // SMTP: secure is derived from the port, never a literal `false`; STARTTLS is required, never optional.
+  assert.match(smtp, /secure:\s*!starttls/);
+  assert.match(smtp, /requireTLS:\s*true/);
+  assert.equal(/secure:\s*false|ignoreTLS|opportunisticTLS/.test(smtp), false);
   assert.match(smtp, /disableFileAccess:\s*true/);
   assert.match(smtp, /disableUrlAccess:\s*true/);
-  assert.equal(/secure:\s*false|requireTLS|ignoreTLS/.test(imap + smtp), false);
 });
 
 test("email UI never injects HTML into the dashboard page itself", () => {

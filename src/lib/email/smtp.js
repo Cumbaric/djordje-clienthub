@@ -2,25 +2,47 @@ import nodemailer from "nodemailer";
 import { EmailError, safeErrorLog } from "./errors.js";
 
 /*
-  SMTP sending (nodemailer). Implicit TLS (secure: true) with certificate validation.
+  SMTP sending (nodemailer). Always encrypted, with certificate validation: implicit TLS on
+  465, mandatory STARTTLS (before authentication) on 587.
   File and URL access are disabled in nodemailer, so attachment objects can only carry
   in-memory buffers: user input can never make the server read a file or fetch a URL.
 */
 
 const SAFE_TRANSPORT_OPTIONS = { disableFileAccess: true, disableUrlAccess: true };
 
-export function createSmtpTransport(config) {
-  return nodemailer.createTransport({
+export const SMTP_STARTTLS_PORT = 587;
+
+/**
+ * Encryption mode for an SMTP port. Port 587 is the submission port that upgrades a plain
+ * connection with a REQUIRED STARTTLS before authenticating; every other port (465 and
+ * anything unexpected) uses implicit TLS from the first byte. Plain-text authentication
+ * is not possible in either mode.
+ */
+export function smtpTlsMode(port) {
+  return Number(port) === SMTP_STARTTLS_PORT ? "starttls" : "implicit";
+}
+
+/** nodemailer transport options for the configured SMTP port (pure, no I/O). */
+export function buildSmtpTransportOptions(config) {
+  const starttls = smtpTlsMode(config.smtp.port) === "starttls";
+  return {
     host: config.smtp.host,
     port: config.smtp.port,
-    secure: true,
+    // 465: direct TLS. 587: start plain, then STARTTLS is mandatory (requireTLS) and runs
+    // before AUTH; the connection fails instead of falling back to unencrypted.
+    secure: !starttls,
+    ...(starttls ? { requireTLS: true } : {}),
     auth: { user: config.username, pass: config.password },
     connectionTimeout: 15_000,
     greetingTimeout: 10_000,
     socketTimeout: 60_000,
     tls: { minVersion: "TLSv1.2" }, // certificate validation stays ON
     ...SAFE_TRANSPORT_OPTIONS,
-  });
+  };
+}
+
+export function createSmtpTransport(config) {
+  return nodemailer.createTransport(buildSmtpTransportOptions(config));
 }
 
 /** Builds the RFC 822 bytes of a message without sending it (Bcc kept, for the Sent copy). */
