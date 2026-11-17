@@ -60,7 +60,8 @@ const t = {
   },
 };
 
-export default function ContactForm({ lang = "en", contactEmail }) {
+// `compact`: short variant for the home page (name, email, message; no heading / topic picker).
+export default function ContactForm({ lang = "en", contactEmail, compact = false }) {
   const labels = t[lang] ?? t.en;
   const [isPending, startTransition] = useTransition();
   const [status, setStatus] = useState("idle"); // idle | success | error
@@ -70,6 +71,7 @@ export default function ContactForm({ lang = "en", contactEmail }) {
     email: "",
     subject: "",
     message: "",
+    website: "", // honeypot: hidden from people, bots tend to fill it
   });
   const [fieldErrors, setFieldErrors] = useState({});
 
@@ -122,7 +124,7 @@ export default function ContactForm({ lang = "en", contactEmail }) {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit} noValidate>
-      <h2 className="contact-form-heading">{labels.heading}</h2>
+      {!compact && <h2 className="contact-form-heading">{labels.heading}</h2>}
 
       <div className="contact-form-row">
         <div className={`contact-form-field${fieldErrors.name ? " is-error" : ""}`}>
@@ -151,20 +153,36 @@ export default function ContactForm({ lang = "en", contactEmail }) {
         </div>
       </div>
 
-      <div className="contact-form-field">
-        <label htmlFor="cf-subject">{labels.subject}</label>
-        <select
-          id="cf-subject"
-          name="subject"
-          value={fields.subject}
+      {!compact && (
+        <div className="contact-form-field">
+          <label htmlFor="cf-subject">{labels.subject}</label>
+          <select
+            id="cf-subject"
+            name="subject"
+            value={fields.subject}
+            onChange={handleChange}
+            disabled={isPending}
+          >
+            <option value="">{labels.subjectPlaceholder}</option>
+            {labels.subjects.map((s) => (
+              <option key={s} value={s}>{s}</option>
+            ))}
+          </select>
+        </div>
+      )}
+
+      {/* Honeypot: invisible to people and assistive tech, skipped by keyboard. */}
+      <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+        <label htmlFor="cf-website">Website</label>
+        <input
+          id="cf-website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={fields.website}
           onChange={handleChange}
-          disabled={isPending}
-        >
-          <option value="">{labels.subjectPlaceholder}</option>
-          {labels.subjects.map((s) => (
-            <option key={s} value={s}>{s}</option>
-          ))}
-        </select>
+        />
       </div>
 
       <div className={`contact-form-field${fieldErrors.message ? " is-error" : ""}`}>
@@ -172,7 +190,7 @@ export default function ContactForm({ lang = "en", contactEmail }) {
         <textarea
           id="cf-message"
           name="message"
-          rows={5}
+          rows={compact ? 4 : 5}
           placeholder={labels.messagePlaceholder}
           value={fields.message}
           onChange={handleChange}

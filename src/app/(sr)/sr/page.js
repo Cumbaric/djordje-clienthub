@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import SectionHeader from "@/components/SectionHeader";
-import CTASection from "@/components/CTASection";
+import HomeInquiry from "@/components/HomeInquiry";
 import HeroCube from "@/components/HeroCube";
 import { recentProjects } from "@/data/projects";
 import { services } from "@/data/services";
@@ -65,12 +65,12 @@ export default function Home() {
             <p className={styles.description}>{pos.shortDescription}</p>
 
             <div className={styles.heroActions}>
-              <Link href="/sr/projekti" className={styles.primaryButton}>
-                Pogledaj projekte
-              </Link>
+              <a href="#upit" className={styles.primaryButton}>
+                Zatraži ponudu
+              </a>
 
-              <Link href="/sr/kontakt" className={styles.secondaryButton}>
-                Kontakt
+              <Link href="/sr/projekti" className={styles.secondaryButton}>
+                Pogledaj projekte
               </Link>
             </div>
           </div>
@@ -415,14 +415,7 @@ export default function Home() {
       </RevealSection>
 
       <RevealSection>
-      <CTASection
-        eyebrow="Kontakt"
-        title="Pokreni projekat — izrada sajta po tvojoj meri"
-        action={{ href: "/sr/kontakt", text: "Kontaktiraj nas" }}
-      >
-        Pošalji nam poruku sa kratkim opisom projekta, trenutnim problemom ili
-        ciljem koji želiš da postigneš.
-      </CTASection>
+      <HomeInquiry lang="sr" />
       </RevealSection>
     </main>
   );

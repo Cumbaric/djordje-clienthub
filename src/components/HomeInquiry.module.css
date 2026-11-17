@@ -1,0 +1,198 @@
+/* ============================================
+   HOME INQUIRY — "Request a quote" (public dark theme)
+   ============================================ */
+
+.section {
+  position: relative;
+  max-width: 1180px;
+  margin: 64px auto 72px;
+  padding: 48px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 48px;
+  align-items: start;
+  border-radius: 28px;
+  background: #0d0d1a;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  box-shadow: inset 0 1px 0 rgba(59, 130, 246, 0.08);
+  /* the sticky header must not cover the heading after the "Request a quote" button */
+  scroll-margin-top: 96px;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: #60a5fa;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0 0 16px;
+  color: #f1f5f9;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.text {
+  margin: 0 0 28px;
+  color: #94a3b8;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.directTitle {
+  margin: 0 0 12px;
+  color: #cbd5e1;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.channels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.channel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #e2e8f0;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+}
+
+.channel:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.channel_whatsapp {
+  border-color: rgba(37, 211, 102, 0.45);
+}
+
+.channel_whatsapp:hover {
+  border-color: #25d366;
+  background: rgba(37, 211, 102, 0.1);
+}
+
+.channel_viber {
+  border-color: rgba(137, 109, 217, 0.55);
+}
+
+.channel_viber:hover {
+  border-color: #8f7ae0;
+  background: rgba(115, 96, 242, 0.14);
+}
+
+.channel:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+.contactLine {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.contactLine a {
+  color: #93c5fd;
+  text-decoration: none;
+}
+
+.contactLine a:hover {
+  text-decoration: underline;
+}
+
+/* ── optional ballpark prices (rendered only when src/data/pricing.js has numbers) ── */
+
+.prices {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pricesTitle {
+  margin: 0 0 12px;
+  color: #cbd5e1;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.priceList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.priceItem {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #cbd5e1;
+  font-size: 15px;
+}
+
+.priceItem strong {
+  color: #f1f5f9;
+  white-space: nowrap;
+}
+
+.priceNote {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.formWrap {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    margin: 48px 16px 56px;
+    padding: 32px 22px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 420px) {
+  .channels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .priceItem {
+    flex-direction: column;
+    gap: 2px;
+  }
+}

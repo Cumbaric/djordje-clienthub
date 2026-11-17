@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import SectionHeader from "@/components/SectionHeader";
-import CTASection from "@/components/CTASection";
+import HomeInquiry from "@/components/HomeInquiry";
 import HeroCube from "@/components/HeroCube";
 import { recentProjects } from "@/data/projects";
 import { services } from "@/data/services";
@@ -65,12 +65,12 @@ export default function Home() {
             <p className={styles.description}>{pos.shortDescription}</p>
 
             <div className={styles.heroActions}>
-              <Link href="/en/projects" className={styles.primaryButton}>
-                View projects
-              </Link>
+              <a href="#upit" className={styles.primaryButton}>
+                Request a quote
+              </a>
 
-              <Link href="/en/contact" className={styles.secondaryButton}>
-                Contact us
+              <Link href="/en/projects" className={styles.secondaryButton}>
+                View projects
               </Link>
             </div>
           </div>
@@ -418,14 +418,7 @@ export default function Home() {
       </RevealSection>
 
       <RevealSection>
-      <CTASection
-        eyebrow="Contact"
-        title="Start your project — a website built around your needs"
-        action={{ href: "/en/contact", text: "Contact us" }}
-      >
-        Send us a message with a brief project description, your current
-        problem, or the goal you want to achieve.
-      </CTASection>
+      <HomeInquiry lang="en" />
       </RevealSection>
     </main>
   );
