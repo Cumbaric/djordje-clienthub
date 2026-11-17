@@ -2,6 +2,7 @@ import { services } from "@/data/services";
 import { projects } from "@/data/projects";
 import { PAGE_LASTMOD } from "@/data/pageDates";
 import { getPublishedBlogPosts } from "@/lib/blog";
+import { BLOG_ENABLED } from "@/data/features";
 
 const BASE_URL = "https://dwebsolutions.rs";
 
@@ -48,7 +49,8 @@ function bilingualEntries(enPath, srPath, lastModified) {
 }
 
 export default async function sitemap() {
-  const blogPosts = await getBlogPosts();
+  // While the blog is switched off (src/data/features.js) no blog URL is listed.
+  const blogPosts = BLOG_ENABLED ? await getBlogPosts() : [];
 
   const staticPages = [
     ...bilingualEntries("/en", "/sr", latest(PAGE_LASTMOD.home)),

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import logoDark from "@/assets/brand/logo-dark-bg.png";
+import { isNavLinkVisible } from "@/data/features";
 import { useState, useEffect } from "react";
 import styles from "./PublicHeader.module.css";
 
@@ -116,7 +117,7 @@ export default function PublicHeader({ lang }) {
 
   const nav = NAV[lang] ?? NAV.en;
   const homeHref = nav.home;
-  const links = nav.links;
+  const links = nav.links.filter(isNavLinkVisible);
   const switchHref = getSwitchHref(pathname);
   const switchLabel = nav.switchLabel;
 

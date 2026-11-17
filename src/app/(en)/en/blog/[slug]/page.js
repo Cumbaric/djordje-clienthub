@@ -6,10 +6,12 @@ import { eq, and } from "drizzle-orm";
 import PageHero from "@/components/PageHero";
 import styles from "./post.module.css";
 import { seoMeta } from "@/lib/seo";
+import { BLOG_ENABLED } from "@/data/features";
 
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }) {
+  if (!BLOG_ENABLED) return { robots: { index: false, follow: false } }; // blog switched off (src/data/features.js)
   const { slug } = await params;
   const post = await db
     .select()

@@ -1,6 +1,7 @@
 import { db } from "@/db";
 import { blogPosts } from "@/db/schema";
 import { eq } from "drizzle-orm";
+import { BLOG_ENABLED } from "@/data/features";
 
 /** All published blog posts as { slug, updatedAt }. Throws if the query fails. */
 export async function getPublishedBlogPosts() {
@@ -16,6 +17,7 @@ export async function getPublishedBlogPosts() {
  * database is unavailable the page stays indexable and the error is logged.
  */
 export async function blogIndexRobots() {
+  if (!BLOG_ENABLED) return { index: false, follow: true }; // blog switched off in src/data/features.js
   try {
     const posts = await getPublishedBlogPosts();
     return posts.length === 0 ? { index: false, follow: true } : undefined;

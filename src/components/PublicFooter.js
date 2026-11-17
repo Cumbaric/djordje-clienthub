@@ -3,6 +3,7 @@ import Link from "next/link";
 import logoDark from "@/assets/brand/logo-dark-bg.png";
 import HeroGlow from "./HeroGlow";
 import { business } from "@/data/contact";
+import { isNavLinkVisible } from "@/data/features";
 import styles from "./PublicFooter.module.css";
 
 const CONTENT = {
@@ -113,7 +114,7 @@ export default function PublicFooter({ lang }) {
           <div className={styles.col}>
             <p className={styles.colTitle}>{c.navTitle}</p>
             <ul className={styles.colList}>
-              {c.links.map((link) => (
+              {c.links.filter(isNavLinkVisible).map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className={styles.colLink}>
                     {link.label}
