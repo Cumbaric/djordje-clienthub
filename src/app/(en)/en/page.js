@@ -195,7 +195,7 @@ export default function Home() {
               <div className={styles.aboutCardImg}>
                 <Image
                   src="/Projects/about_workspace.webp"
-                  alt="Developer workspace"
+                  alt="Web developer workspace: monitors with a dashboard and a laptop showing code"
                   fill
                   sizes="(max-width: 900px) 100vw, 500px"
                   style={{ objectFit: "cover" }}

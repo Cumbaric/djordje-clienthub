@@ -57,10 +57,17 @@ export default async function BlogPostEnPage({ params }) {
 
       <div className={styles.wrapper}>
         {post.coverImage && (
+          // Arbitrary external URL (cannot use next/image). Declared 16:9 size + CSS aspect-ratio avoid layout shift;
+          // it is the LCP image of the article, so it loads eagerly with high priority.
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={post.coverImage}
             alt={title}
             className={styles.coverImage}
+            width={1200}
+            height={675}
+            fetchPriority="high"
+            decoding="async"
           />
         )}
 

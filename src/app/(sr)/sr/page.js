@@ -190,12 +190,12 @@ export default function Home() {
             <div className={styles.aboutCard}>
               <div className={styles.aboutCardHeader}>
                 <span className={styles.aboutCardNum}>01</span>
-                <span className={styles.aboutCardTitle}>My Workspace</span>
+                <span className={styles.aboutCardTitle}>Moj radni prostor</span>
               </div>
               <div className={styles.aboutCardImg}>
                 <Image
                   src="/Projects/about_workspace.webp"
-                  alt="Developer workspace"
+                  alt="Radni prostor web developera: monitori sa dashboard-om i laptop sa kodom"
                   fill
                   sizes="(max-width: 900px) 100vw, 500px"
                   style={{ objectFit: "cover" }}

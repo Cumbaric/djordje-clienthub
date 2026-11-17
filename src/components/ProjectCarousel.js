@@ -2,9 +2,27 @@
 
 import { useState, useCallback } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import styles from "./ProjectCarousel.module.css";
 
+// Labels follow the language of the page the carousel is on (/sr/... or /en/...).
+const LABELS = {
+  en: {
+    shot: (i, n) => `screenshot ${i} of ${n}`,
+    prev: "Previous image",
+    next: "Next image",
+    goTo: (i) => `Go to image ${i}`,
+  },
+  sr: {
+    shot: (i, n) => `snimak ekrana ${i} od ${n}`,
+    prev: "Prethodna slika",
+    next: "Sledeća slika",
+    goTo: (i) => `Idi na sliku ${i}`,
+  },
+};
+
 export default function ProjectCarousel({ images = [], alt = "Project screenshot" }) {
+  const t = LABELS[usePathname()?.startsWith("/sr") ? "sr" : "en"];
   const [current, setCurrent] = useState(0);
 
   const prev = useCallback(() => {
@@ -31,7 +49,7 @@ export default function ProjectCarousel({ images = [], alt = "Project screenshot
           >
             <Image
               src={src}
-              alt={`${alt} ${i + 1}`}
+              alt={`${alt} – ${t.shot(i + 1, images.length)}`}
               fill
               sizes="(max-width: 768px) 100vw, 900px"
               style={{ objectFit: "cover" }}
@@ -45,7 +63,7 @@ export default function ProjectCarousel({ images = [], alt = "Project screenshot
       <button
         className={`${styles.btn} ${styles.btnPrev}`}
         onClick={prev}
-        aria-label="Previous image"
+        aria-label={t.prev}
       >
         <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
           <path d="M13 4L7 10l6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -55,7 +73,7 @@ export default function ProjectCarousel({ images = [], alt = "Project screenshot
       <button
         className={`${styles.btn} ${styles.btnNext}`}
         onClick={next}
-        aria-label="Next image"
+        aria-label={t.next}
       >
         <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
           <path d="M7 4l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -71,7 +89,7 @@ export default function ProjectCarousel({ images = [], alt = "Project screenshot
               key={i}
               className={`${styles.dot} ${i === current ? styles.dotActive : ""}`}
               onClick={() => goTo(i)}
-              aria-label={`Go to image ${i + 1}`}
+              aria-label={t.goTo(i + 1)}
             />
           ))}
         </div>

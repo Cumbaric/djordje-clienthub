@@ -105,3 +105,8 @@ Ako bi ti IP jednom bila dozvoljena u hosting panelu (Remote MySQL), lokalni bui
 - [ ] Ne dodaji svoju IP u Remote MySQL produkcione baze samo zbog lokalnog rada.
 - [ ] Proveri: `.env.local` je u `.gitignore` i nikad nije commit-ovan (provereno 12.11.2026 kroz `git log --all`).
       Ako su kredencijali ikad bili poslati negde van repoa, rotiraj lozinku baze.
+
+## 9. Blog naslovne slike
+- [ ] Naslovnu sliku članka (polje „coverImage" u dashboard-u) unosi kao link do **WebP/AVIF** fajla (idealno 1200×675, ≤ 150 KB).
+      Slike iz baze su proizvoljni spoljni URL-ovi, pa ih Next ne optimizuje; kod samo drži raspored stabilnim
+      (deklarisane dimenzije, 16:9, lazy za liste, visok prioritet za naslovnu sliku članka).

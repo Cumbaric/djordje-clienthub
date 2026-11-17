@@ -44,10 +44,17 @@ export default async function BlogEnPage() {
             {posts.map((post) => (
               <article key={post.id} className={styles.card}>
                 {post.coverImage && (
+                  // Cover URLs are arbitrary external addresses, so next/image (fixed remotePatterns) cannot be used.
+                  // Size, lazy loading and CSS (fixed height) keep the layout stable; use WebP/AVIF URLs.
+                  // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={post.coverImage}
                     alt={post.titleEn || post.titleSr || ""}
                     className={styles.cardImage}
+                    width={640}
+                    height={200}
+                    loading="lazy"
+                    decoding="async"
                   />
                 )}
                 <div className={styles.cardBody}>
