@@ -190,7 +190,7 @@ export default function Home() {
             <div className={styles.aboutCard}>
               <div className={styles.aboutCardHeader}>
                 <span className={styles.aboutCardNum}>01</span>
-                <span className={styles.aboutCardTitle}>Moj radni prostor</span>
+                <span className={styles.aboutCardTitle}>Naš radni prostor</span>
               </div>
               <div className={styles.aboutCardImg}>
                 <Image

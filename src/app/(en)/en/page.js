@@ -148,7 +148,7 @@ export default function Home() {
             <div className={styles.aboutCard}>
               <div className={styles.aboutCardHeader}>
                 <span className={styles.aboutCardNum}>02</span>
-                <span className={styles.aboutCardTitle}>My Workflow</span>
+                <span className={styles.aboutCardTitle}>Our Workflow</span>
               </div>
               <div className={styles.workflowSteps}>
                 {[
@@ -190,7 +190,7 @@ export default function Home() {
             <div className={styles.aboutCard}>
               <div className={styles.aboutCardHeader}>
                 <span className={styles.aboutCardNum}>01</span>
-                <span className={styles.aboutCardTitle}>My Workspace</span>
+                <span className={styles.aboutCardTitle}>Our Workspace</span>
               </div>
               <div className={styles.aboutCardImg}>
                 <Image

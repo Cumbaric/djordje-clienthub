@@ -111,7 +111,7 @@ const baseServices = [
     faqEn: [
       {
         q: "Can I edit the content myself later?",
-        a: "Hand-coded sites don't include a CMS dashboard, so content edits are done in code. For frequently changing content, WordPress is usually a better fit — I'll advise honestly based on your needs.",
+        a: "Hand-coded sites don't include a CMS dashboard, so content edits are done in code. For frequently changing content, WordPress is usually a better fit — we'll advise honestly based on your needs.",
       },
       {
         q: "Is it really faster than WordPress?",
@@ -264,11 +264,11 @@ const baseServices = [
       "Technical and on-page SEO optimization — titles, meta descriptions, heading structure, internal links, load speed and Google indexing preparation. Works for existing sites too.",
     overview: [
       "Tehnička i on-page SEO optimizacija koja sajtu daje čvrstu osnovu za Google — ispravnu heading strukturu, naslove i meta opise, interno linkovanje, čiste URL-ove i poboljšanje brzine.",
-      "Radi i na novim i na postojećim sajtovima. Ako tvoje stranice ne rangiraju ili nisu pravilno indeksirane, dijagnostikujem strukturne probleme i rešavam one koji stvarno prave razliku.",
+      "Radi i na novim i na postojećim sajtovima. Ako tvoje stranice ne rangiraju ili nisu pravilno indeksirane, dijagnostikujemo strukturne probleme i rešavamo one koji stvarno prave razliku.",
     ],
     overviewEn: [
       "Technical and on-page SEO that gives your site a solid foundation for Google — correct heading structure, titles and meta descriptions, internal linking, clean URLs and load-speed improvements.",
-      "This works on new builds and existing sites alike. If your pages aren't ranking or aren't indexed properly, I'll diagnose the structural issues and fix the ones that actually move the needle.",
+      "This works on new builds and existing sites alike. If your pages aren't ranking or aren't indexed properly, we'll diagnose the structural issues and fix the ones that actually move the needle.",
     ],
     idealFor: [
       "Postojeći sajtovi koji ne rangiraju ili nemaju posetu",
