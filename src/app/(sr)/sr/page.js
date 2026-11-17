@@ -176,11 +176,6 @@ export default function Home() {
                 ))}
               </div>
             </div>
-
-            <span className={styles.introCardStatus}>
-              <span className={styles.introCardStatusDot} />
-              Dostupan za nove projekte
-            </span>
           </div>
 
           {/* Desno — workspace slika + skills */}

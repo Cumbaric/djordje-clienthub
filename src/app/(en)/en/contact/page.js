@@ -144,10 +144,6 @@ export default function ContactPage() {
         {/* 2. Contact options — first section after hero */}
         <RevealSection>
           <section className="contact-options-section">
-            <span className="contact-availability">
-              <span className="contact-availability-dot" />
-              Available for new projects
-            </span>
             <h2 className="section-title">Contact options</h2>
             <p>Choose the channel that works best for you.</p>
             <BusinessInfo lang="en" />

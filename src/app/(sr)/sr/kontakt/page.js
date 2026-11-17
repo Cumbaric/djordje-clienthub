@@ -144,10 +144,6 @@ export default function KontaktPage() {
         {/* 2. Opcije za kontakt — odmah posle hero-a */}
         <RevealSection>
           <section className="contact-options-section">
-            <span className="contact-availability">
-              <span className="contact-availability-dot" />
-              Dostupan za nove projekte
-            </span>
             <h2 className="section-title">Opcije za kontakt</h2>
             <p>Izaberi kanal koji ti najviše odgovara.</p>
             <BusinessInfo lang="sr" />

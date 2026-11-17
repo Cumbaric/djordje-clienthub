@@ -2694,43 +2694,6 @@
   }
 }
 
-/* ── Contact: availability badge ── */
-.contact-availability {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  margin-bottom: 18px;
-  padding: 7px 15px;
-  border-radius: 999px;
-  background: rgba(74, 222, 128, 0.08);
-  border: 1px solid rgba(74, 222, 128, 0.25);
-  color: #4ade80;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-}
-
-.contact-availability-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #4ade80;
-  box-shadow: 0 0 8px rgba(74, 222, 128, 0.7);
-  animation: contactPulse 2.2s ease-in-out infinite;
-}
-
-@keyframes contactPulse {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.45;
-    transform: scale(0.7);
-  }
-}
-
 /* ── Contact: channel + help-card icon badges ── */
 .contact-option-icon,
 .contact-fit-icon {
@@ -2801,10 +2764,6 @@
 
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
-  .contact-availability-dot {
-    animation: none;
-  }
-
   .process-timeline .process-card-icon,
   .contact-option-icon,
   .contact-fit-icon {
