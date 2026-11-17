@@ -17,7 +17,18 @@ function compact(obj) {
 /** Site-wide schema.org @graph: Organization + ProfessionalService (one node) and WebSite. */
 export function buildSiteSchema(lang) {
   const sameAs = Object.values(socialLinks).filter(Boolean);
-  const logo = business.logo && (business.logo.startsWith("http") ? business.logo : `${SITE_URL}${business.logo}`);
+  const logoUrl = business.logo && (business.logo.startsWith("http") ? business.logo : `${SITE_URL}${business.logo}`);
+  const logo = logoUrl
+    ? compact({
+        "@type": "ImageObject",
+        "@id": `${SITE_URL}/#logo`,
+        url: logoUrl,
+        contentUrl: logoUrl,
+        width: business.logoSize,
+        height: business.logoSize,
+        caption: business.name,
+      })
+    : "";
 
   const organization = compact({
     "@type": ["Organization", "ProfessionalService"],

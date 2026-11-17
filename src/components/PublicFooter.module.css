@@ -56,11 +56,11 @@
   gap: 14px;
 }
 
-.brandName {
-  font-size: 17px;
-  font-weight: 700;
-  color: #f1f5f9;
-  letter-spacing: -0.02em;
+.brandLogo {
+  display: block;
+  width: auto;
+  height: 38px;
+  align-self: flex-start;
 }
 
 .brandDesc {

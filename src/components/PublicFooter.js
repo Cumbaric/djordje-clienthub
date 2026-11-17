@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import logoDark from "@/assets/brand/logo-dark-bg.png";
 import HeroGlow from "./HeroGlow";
 import { business } from "@/data/contact";
 import styles from "./PublicFooter.module.css";
@@ -85,7 +87,7 @@ export default function PublicFooter({ lang }) {
 
           {/* Brand */}
           <div className={styles.brand}>
-            <span className={styles.brandName}>DWeb Solutions</span>
+            <Image src={logoDark} alt="DWeb Solutions" className={styles.brandLogo} sizes="180px" />
             <p className={styles.brandDesc}>{c.description}</p>
             <p className={styles.brandDesc}>
               {place}

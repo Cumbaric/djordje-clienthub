@@ -51,15 +51,32 @@
 /* ── Logo ── */
 
 .logo {
-  font-size: 18px;
-  font-weight: 700;
-  color: #f1f5f9;
-  letter-spacing: -0.02em;
-  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease;
 }
 
 .logo:hover {
-  color: #3b82f6;
+  opacity: 0.85;
+}
+
+.logoImage {
+  display: block;
+  width: auto;
+  height: 36px;
+  transition: height 0.3s ease;
+}
+
+.scrolled .logoImage {
+  height: 30px;
+}
+
+@media (max-width: 640px) {
+  .logoImage,
+  .scrolled .logoImage {
+    height: 28px;
+  }
 }
 
 /* ── Desktop nav ── */

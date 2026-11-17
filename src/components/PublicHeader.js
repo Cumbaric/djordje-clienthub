@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import logoDark from "@/assets/brand/logo-dark-bg.png";
 import { useState, useEffect } from "react";
 import styles from "./PublicHeader.module.css";
 
@@ -126,7 +128,7 @@ export default function PublicHeader({ lang }) {
           .join(" ")}
       >
         <Link href={homeHref} className={styles.logo}>
-          DWeb Solutions
+          <Image src={logoDark} alt="DWeb Solutions" className={styles.logoImage} sizes="190px" priority />
         </Link>
 
         {/* Desktop nav */}

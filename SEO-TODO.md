@@ -85,9 +85,7 @@ automatski se pojave u Organization/ProfessionalService schemi, footer-u i na ko
 - [ ] `business.streetAddress` i `business.postalCode` — samo ako želiš javnu adresu (za lokalni SEO/GBP je
       bitno da se poklapa sa Google Business Profile). Sada je u schemi samo Beograd, RS.
 - [ ] `socialLinks.github` — URL GitHub profila.
-- [ ] **Logo** — ne postoji u repou (favicon se namerno ne koristi). Dodaj fajl u `public/` (npr. `public/logo.png`,
-      min. 112×112, idealno kvadratni ili 16:9 PNG/SVG) i upiši putanju u `business.logo`. Google koristi
-      `logo` iz Organization schema za Knowledge Panel/rezultate.
+- [x] **Logo** — dodat (`public/brand/dweb-logo.png`, 512×512, upisan u `business.logo` kao ImageObject u Organization schemi); favicon `src/app/{favicon.ico,icon.png,apple-icon.png}`, header/footer/OG kartice koriste isti logo (generisano skriptom `node scripts/build-brand-assets.mjs` iz `src/assets/brand/dweb-logo-source.png`). Google osvežava favicon/logo tek posle ponovnog indeksiranja (Search Console → URL Inspection → Request indexing).
 - [ ] Posle popunjavanja proveri: https://validator.schema.org/ i Google Rich Results Test za `/en` i `/sr`.
 
 ## 8. HSTS (posle http → https redirekta)

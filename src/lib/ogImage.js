@@ -10,7 +10,15 @@ export const OG_SIZE = { width: 1200, height: 630 };
 export const OG_CONTENT_TYPE = "image/png";
 
 const FONT_DIR = join(process.cwd(), "src", "assets", "fonts");
+const LOGO_FILE = join(process.cwd(), "src", "assets", "brand", "logo-light-bg.png");
 let fontsPromise;
+let logoPromise;
+
+// Horizontal brand logo (navy + blue) as a data URI; it is drawn on a white badge.
+function loadLogo() {
+  logoPromise ??= readFile(LOGO_FILE).then((data) => `data:image/png;base64,${data.toString("base64")}`);
+  return logoPromise;
+}
 
 function loadFonts() {
   fontsPromise ??= Promise.all([
@@ -41,7 +49,7 @@ const COPY = {
 };
 
 async function card({ eyebrow, title, subtitle }) {
-  const fonts = await loadFonts();
+  const [fonts, logo] = await Promise.all([loadFonts(), loadLogo()]);
   const titleSize = title.length > 34 ? 64 : title.length > 20 ? 78 : 96;
 
   return new ImageResponse(
@@ -74,7 +82,10 @@ async function card({ eyebrow, title, subtitle }) {
         </div>
 
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 28, color: "#93c5fd" }}>
-          <div style={{ display: "flex", fontWeight: 700, color: "#ffffff" }}>DWeb Solutions</div>
+          <div style={{ display: "flex", alignItems: "center", padding: "14px 26px", borderRadius: 18, background: "#ffffff" }}>
+            {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse (satori) renders plain <img> */}
+            <img src={logo} alt="DWeb Solutions" width={252} height={48} />
+          </div>
           <div style={{ display: "flex" }}>dwebsolutions.rs</div>
         </div>
       </div>
